@@ -315,7 +315,7 @@ ssh-add ~/.ssh/$(whoami)_$model
 
 cat ~/.ssh/$(whoami)_$model.pub | pbcopy
 
-echo "Host *\n\tUseKeychain yes\n\tAddKeysToAgent yes\n\tIdentityFile ~/.ssh/$(whoami)_$model" >> ~/.ssh/config
+echo "Host *\n\tIdentityFile ~/.ssh/$(whoami)_$model" >> ~/.ssh/config
 
 # 5: MacOS Applications
 ## Install Ewka Nerdfont
