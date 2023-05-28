@@ -53,10 +53,8 @@
 [rebase]
     autosquash = true
 [user]
-	email = 13444106+maptv@users.noreply.github.com
-    name = Martin Skarzynski
-[credential]
-	helper = osxkeychain
+	email = 129316885+maptv@users.noreply.github.com
+	name = Martin Skarzynski Laptev
 [color "diff-highlight"]
 	oldHighlight = red bold 52
 	newNormal = green bold
