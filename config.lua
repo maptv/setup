@@ -89,6 +89,9 @@ vim.cmd [[nmap T <Plug>Sneak_T]]
 vim.cmd [[xmap t <Plug>Sneak_t]]
 vim.cmd [[xmap T <Plug>Sneak_T]]
 
+-- https://github.com/unblevable/quick-scope#highlight-on-key-press
+vim.g.qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
 lvim.keys.normal_mode["yog"] = ":Gitsigns toggle_signs<CR>"
 lvim.keys.normal_mode["yon"] = ":setlocal number!<CR>"
 lvim.keys.normal_mode["yor"] = ":setlocal relativenumber!<CR>"
@@ -219,6 +222,8 @@ lvim.plugins = {
   {"tpope/vim-repeat"},
   {"tpope/vim-unimpaired"},
   {"tommcdo/vim-exchange"},
+  {"vim-scripts/ReplaceWithRegister"},
+  {"unblevable/quick-scope"},
   {"justinmk/vim-sneak"},
   {"ethanholz/nvim-lastplace"},
   {"rkitover/vimpager"},
