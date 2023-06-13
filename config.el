@@ -88,6 +88,17 @@
 (evil-define-key 'insert global-map (kbd "C-y") 'yank)
 (evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
 (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
+(evil-define-key 'normal global-map (kbd "C-n") 'evil-mc-make-and-goto-next-match)
+(evil-define-key 'normal global-map (kbd "C-p") 'evil-mc-make-and-goto-prev-match)
+
+(require 'evil-quickscope)
+(global-evil-quickscope-always-mode 1)
+(require 'evil-replace-with-register)
+;; change default key bindings (if you want) HERE
+(setq evil-replace-with-register-key (kbd "gr"))
+(evil-replace-with-register-install)
+(require 'evil-mc)
+(global-evil-mc-mode  1)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
