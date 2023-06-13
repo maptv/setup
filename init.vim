@@ -159,6 +159,10 @@ let g:AutoPairsShortcutBackInsert = "<M-i>"
 let g:AutoPairsShortcutFastWrap = "<M-w>"
 let g:AutoPairsMapCR = 0
 
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1
+
 "" Enable hidden buffers
 set hidden
 
@@ -839,6 +843,26 @@ nmap ]c <Plug>(coc-git-nextchunk)
 " nmap gs <Plug>(coc-git-chunkinfo)
 " make vim-easymotion match spacemacs and doom emacs
 nmap gs <Plug>(easymotion-prefix)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+xmap <Leader>f <Plug>(easymotion-bd-f)
+omap <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+xmap <Leader>s <Plug>(easymotion-bd-f2)
+omap <Leader>s <Plug>(easymotion-bd-f2)
+nmap <Leader>t <Plug>(easymotion-bd-t2)
+xmap <Leader>t <Plug>(easymotion-bd-t2)
+omap <Leader>t <Plug>(easymotion-bd-t2)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+xmap <Leader>L <Plug>(easymotion-bd-jk)
+omap <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+xmap <Leader>w <Plug>(easymotion-bd-w)
+omap <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>l <Plug>(easymotion-lineforward)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+nmap <Leader>h <Plug>(easymotion-linebackward)
+
 " show git log at current position
 nmap gl <Plug>(coc-git-commit)
 " create text object for git chunks
@@ -875,7 +899,7 @@ nnoremap <leader>o :.Gbrowse<CR>
 nnoremap <silent> <leader>A :Ag<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 "Recovery commands from history through FZF
-nnoremap <silent> <leader>h :History<CR>
+" nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <leader>B :BCommits<CR>
 nnoremap <silent> <leader>C :Commands<CR>
 nnoremap <silent> <leader>gf :GFiles<CR>
@@ -883,7 +907,7 @@ nnoremap <silent> <leader>F :Files<CR>
 nnoremap <silent> <leader>H :Helptags<CR>
 nnoremap <silent> <leader>M :Maps<CR>
 nnoremap <silent> <leader>' :Marks<CR>
-nnoremap <silent> <leader>L :Lines<CR>
+" nnoremap <silent> <leader>L :Lines<CR>
 nnoremap <silent> <leader>R :Rg<CR>
 nnoremap <silent> <leader>T :Tags<CR>
 nnoremap <silent> <leader>z :FZF -m<CR>
@@ -1075,18 +1099,18 @@ nnoremap <silent> <leader>a :Ag!<CR>
 nnoremap <silent> <leader>b :Buffers!<CR>
 nnoremap <silent> <leader>c :Commits!<CR>
 nnoremap <silent> <leader>C :BCommits!<CR>
-nnoremap <silent> <leader>f :Files!<CR>
+" nnoremap <silent> <leader>f :Files!<CR>
 nnoremap <silent> <leader>F :Filetypes!<CR>
 nnoremap <silent> <leader>gf :GFiles!<CR>
-nnoremap <silent> <leader>h :History!<CR>
-nnoremap <silent> <leader>l :Lines!<CR>
-nnoremap <silent> <leader>L :BLines!<CR>
+" nnoremap <silent> <leader>h :History!<CR>
+" nnoremap <silent> <leader>l :Lines!<CR>
+" nnoremap <silent> <leader>L :BLines!<CR>
 nnoremap <silent> <leader>m :Maps!<CR>
 nnoremap <silent> <leader>r :Rg!<CR>
-nnoremap <silent> <leader>s :Snippets!<CR>
-nnoremap <silent> <leader>t :Tags!<CR>
+" nnoremap <silent> <leader>s :Snippets!<CR>
+" nnoremap <silent> <leader>t :Tags!<CR>
 nnoremap <silent> <leader>T :BTags!<CR>
-nnoremap <silent> <leader>w :Windows!<CR>
+" nnoremap <silent> <leader>w :Windows!<CR>
 nnoremap <silent> <leader>x :Commands!<CR>
 nnoremap <silent> <leader>z :FZF! -m<CR>
 

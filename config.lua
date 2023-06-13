@@ -91,9 +91,32 @@ vim.cmd [[xmap T <Plug>Sneak_T]]
 
 -- make vim-easymotion match spacemacs and doom emacs
 vim.cmd [[nmap gs <Plug>(easymotion-prefix)]]
+vim.cmd [[map <Leader>f <Plug>(easymotion-overwin-f)]]
+vim.cmd [[map <Leader>f <Plug>(easymotion-bd-f)]]
+vim.cmd [[map <Leader>f <Plug>(easymotion-bd-f)]]
+vim.cmd [[map <Leader>s <Plug>(easymotion-overwin-f2)]]
+vim.cmd [[map <Leader>s <Plug>(easymotion-bd-f2)]]
+vim.cmd [[map <Leader>s <Plug>(easymotion-bd-f2)]]
+vim.cmd [[map <Leader>t <Plug>(easymotion-bd-t2)]]
+vim.cmd [[map <Leader>t <Plug>(easymotion-bd-t2)]]
+vim.cmd [[map <Leader>t <Plug>(easymotion-bd-t2)]]
+vim.cmd [[map <Leader>L <Plug>(easymotion-overwin-line)]]
+vim.cmd [[map <Leader>L <Plug>(easymotion-bd-jk)]]
+vim.cmd [[map <Leader>L <Plug>(easymotion-bd-jk)]]
+vim.cmd [[map <Leader>w <Plug>(easymotion-overwin-w)]]
+vim.cmd [[map <Leader>w <Plug>(easymotion-bd-w)]]
+vim.cmd [[map <Leader>w <Plug>(easymotion-bd-w)]]
+vim.cmd [[map <Leader>l <Plug>(easymotion-lineforward)]]
+vim.cmd [[map <Leader>j <Plug>(easymotion-j)]]
+vim.cmd [[map <Leader>k <Plug>(easymotion-k)]]
+vim.cmd [[map <Leader>h <Plug>(easymotion-linebackward)]]
 
 -- https://github.com/unblevable/quick-scope#highlight-on-key-press
 -- vim.g.qs_highlight_on_keys = ['f', 'F', 't', 'T']
+vim.g.EasyMotion_startofline = 0 -- keep cursor column when JK motion
+vim.g.EasyMotion_smartcase = 1
+vim.g.EasyMotion_use_smartsign_us = 1
+
 
 lvim.keys.normal_mode["yog"] = ":Gitsigns toggle_signs<CR>"
 lvim.keys.normal_mode["yon"] = ":setlocal number!<CR>"
