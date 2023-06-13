@@ -851,14 +851,14 @@ omap <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>l <Plug>(easymotion-overwin-line)
 xmap <Leader>l <Plug>(easymotion-bd-jk)
 omap <Leader>l <Plug>(easymotion-bd-jk)
-" differs from gss in that works over windows
+" differs from gss in that works over windows and uses two characters
 nmap <Leader>s <Plug>(easymotion-overwin-f2)
 xmap <Leader>s <Plug>(easymotion-bd-f2)
 omap <Leader>s <Plug>(easymotion-bd-f2)
 " differs from gst in that uses two characters
-nmap <Leader>t <Plug>(easymotion-bd-t2)
-xmap <Leader>t <Plug>(easymotion-bd-t2)
-omap <Leader>t <Plug>(easymotion-bd-t2)
+" nmap <Leader>t <Plug>(easymotion-bd-t2)
+" xmap <Leader>t <Plug>(easymotion-bd-t2)
+" omap <Leader>t <Plug>(easymotion-bd-t2)
 " differs from gsw in that works over windows
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 xmap <Leader>w <Plug>(easymotion-bd-w)
@@ -897,7 +897,7 @@ noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
 " terminal emulation
-" nnoremap <silent> <leader>t :terminal<CR>
+nnoremap <silent> <leader>t :terminal<CR>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><leader> :noh<cr>
