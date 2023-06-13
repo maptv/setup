@@ -89,6 +89,9 @@ vim.cmd [[nmap T <Plug>Sneak_T]]
 vim.cmd [[xmap t <Plug>Sneak_t]]
 vim.cmd [[xmap T <Plug>Sneak_T]]
 
+-- make vim-easymotion match spacemacs and doom emacs
+vim.cmd [[nmap gs <Plug>(easymotion-prefix)]]
+
 -- https://github.com/unblevable/quick-scope#highlight-on-key-press
 -- vim.g.qs_highlight_on_keys = ['f', 'F', 't', 'T']
 

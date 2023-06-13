@@ -117,6 +117,9 @@ set wrapscan
 " https://github.com/unblevable/quick-scope#highlight-on-key-press
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+" make vim-easymotion match spacemacs and doom emacs
+nmap gs <Plug>(easymotion-prefix)
+
 " https://github.com/Mishkun/ideavim-sneak/issues/15
 " 2-character Sneak (default)
 nmap <A-s> <Plug>(sneak-s)

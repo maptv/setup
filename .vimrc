@@ -698,7 +698,7 @@ vnoremap <M-w> "1y
 vnoremap <M-x> :
 
 "" Git
-nnoremap gs :Gstatus<CR>
+nnoremap <leader>gs :Gstatus<CR>
 nnoremap [g :diffget //2<CR>
 nnoremap ]g :diffget //3<CR>
 nnoremap <silent><leader>gw :Gwrite<CR>
@@ -716,7 +716,9 @@ nnoremap <leader>gg :Gwrite<CR>:Gcommit -m "edit "%<CR>:Gpush<CR>
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
-nmap gs <Plug>(coc-git-chunkinfo)
+" nmap gs <Plug>(coc-git-chunkinfo)
+" make vim-easymotion match spacemacs and doom emacs
+nmap gs <Plug>(easymotion-prefix)
 " show git log at current position
 nmap gl <Plug>(coc-git-commit)
 " create text object for git chunks
