@@ -41,6 +41,8 @@ Plug 'tommcdo/vim-exchange'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'mbbill/undotree'
 Plug 'simnalamburt/vim-mundo'
 Plug 'jiangmiao/auto-pairs'
@@ -272,6 +274,7 @@ highlight VertSplit ctermbg=NONE guibg=NONE
 highlight pandocEmphasis gui=italic cterm=italic guifg=#ffff00 ctermfg=Yellow
 highlight pandocString guifg=#00ff00 ctermfg=Green
 highlight pandocNoFormatted guifg=#ff8700 ctermfg=214
+highlight Terminal ctermbg=NONE guibg=NONE
 
 "" fzf.vim
 set wildmode=list:longest,list:full

@@ -224,6 +224,8 @@ lvim.plugins = {
   {"tommcdo/vim-exchange"},
   {"vim-scripts/ReplaceWithRegister"},
   {"unblevable/quick-scope"},
+  {"vim-scripts/argtextobj.vim"},
+  {"michaeljsmith/vim-indent-object"},
   {"justinmk/vim-sneak"},
   {"ethanholz/nvim-lastplace"},
   {"rkitover/vimpager"},

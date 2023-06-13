@@ -22,6 +22,10 @@ set argtextobj
 " Emulates argtextobj.vim: https://www.vim.org/scripts/script.php?script_id=2699
 " Additional text objects: aa, ia
 
+set textobj-indent
+" Emulates [vim-indent-object](https://github.com/michaeljsmith/vim-indent-object)
+" Additional text objects: ai, ii
+
 set highlightedyank
 " Emulates vim-highlightedyank: https://github.com/machakann/vim-highlightedyank
 
