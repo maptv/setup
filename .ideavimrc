@@ -3,39 +3,57 @@
 " ============================================================================
 " https://github.com/JetBrains/ideavim/blob/master/doc/emulated-plugins.md
 set exchange
-" Emulates vim-exchange: https://github.com/tommcdo/vim-exchange
+" [exchange](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#exchange)
+" Emulates: [vim-exchange](https://github.com/tommcdo/vim-exchange)
 " Commands: cx, cxx, X, cxc
 
 set surround
-" Emulates vim-surround: https://github.com/tpope/vim-surround
+" [surround](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#surround)
+" Emulates: [vim-surround](https://github.com/tpope/vim-surround)
 " Commands: ys, cs, ds, S
 
 set multiple-cursors
-" Emulates vim-multiple-cursors: https://github.com/terryma/vim-multiple-cursors
+" Emulates: [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 " Commands: <A-n>, <A-x>, <A-p>, g<A-n>
 
 set commentary
-" Emulates commentary.vim: https://github.com/tpope/vim-commentary
+" [commentary](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#commentary)
+" Emulates: [commentary.vim](https://github.com/tpope/vim-commentary)
 " Commands: gcc, gc + motion, v_gc
 
 set argtextobj
-" Emulates argtextobj.vim: https://www.vim.org/scripts/script.php?script_id=2699
+" [argtextobj](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#argtextobj)
+" Emulates: [argtextobj.vim](https://www.vim.org/scripts/script.php?script_id=2699)
 " Additional text objects: aa, ia
 
 set textobj-indent
-" Emulates [vim-indent-object](https://github.com/michaeljsmith/vim-indent-object)
+" [vim-indent-object](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#vim-indent-object)
+" Emulates:  [vim-indent-object](https://github.com/michaeljsmith/vim-indent-object)
 " Additional text objects: ai, ii
 
 set highlightedyank
-" Emulates vim-highlightedyank: https://github.com/machakann/vim-highlightedyank
+" [highlightedyank](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#highlightedyank)
+" Emulates: [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
 
 set sneak
+" [sneak](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#sneak)
+" Emulates: [vim-sneak](https://github.com/justinmk/vim-sneak)
 
 set quickscope
+" [IdeaVim-Quickscope](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#ideavim-quickscope)
+" Emulates: [quick-scope](https://github.com/unblevable/quick-scope)
+
+set easymotion
+" [easymotion](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#easymotion)
+" Emulates:  [vim-easymotion](https://github.com/easymotion/vim-easymotion)
 
 Plug 'vim-scripts/ReplaceWithRegister'
+" [ReplaceWithRegister](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#replacewithregister)
+" Emulates: [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister)
 
 Plug 'preservim/nerdtree'
+" [NERDTree](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#nerdtree)
+" Emulates: [NERDTree](https://github.com/preservim/nerdtree)
 
 " ============================================================================
 " Set commands
@@ -101,7 +119,7 @@ set wrapscan
 
 " https://github.com/Mishkun/ideavim-sneak/issues/15
 " 2-character Sneak (default)
-nmap <A-s>   <Plug>(sneak-s)
+nmap <A-s> <Plug>(sneak-s)
 nmap <A-S> <Plug>(sneak-S)
 " visual-mode
 xmap <A-s>   <Plug>(sneak-s)
@@ -291,8 +309,8 @@ inoremap <A--> <Esc>ugi
 " inoremap <A--> <C-o>u
 
 " Multiple cursors mappings
-inoremap <A-j> <C-o>:action EditorCloneCaretBelow<CR>
-inoremap <A-k> <C-o>:action EditorCloneCaretAbove<CR>
+" inoremap <A-j> <C-o>:action EditorCloneCaretBelow<CR>
+" inoremap <A-k> <C-o>:action EditorCloneCaretAbove<CR>
 
 " remap Y to y$ to make it easier to yank to the end of the line
 nnoremap Y y$

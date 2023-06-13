@@ -227,7 +227,9 @@ lvim.plugins = {
   {"vim-scripts/argtextobj.vim"},
   {"michaeljsmith/vim-indent-object"},
   {"justinmk/vim-sneak"},
+  {"easymotion/vim-easymotion"},
   {"ethanholz/nvim-lastplace"},
+  {"mg979/vim-visual-multi"},
   {"rkitover/vimpager"},
 }
 
