@@ -61,8 +61,8 @@ Plug 'szw/vim-maximizer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-if isdirectory('/opt/homebrew/opt/fzf')
-  Plug '/opt/homebrew/opt/fzf' | Plug 'junegunn/fzf.vim'
+if isdirectory('/usr/local/opt/fzf')
+  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
@@ -144,7 +144,7 @@ let mapleader=' '
 let maplocalleader='\'
 
 " https://github.com/unblevable/quick-scope#highlight-on-key-press
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " https://stackoverflow.com/questions/16622566/how-to-solve-the-collision-of-tab-key-mapping-of-ultisnips-plugin-in-the-vim
 " This seems to be necessary for coc tab completion to work

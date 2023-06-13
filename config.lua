@@ -8,7 +8,7 @@ lvim.colorscheme = "onedarker"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- https://www.lunarvim.org/configuration/02-keybindings.html#lunarvim-keybindings
--- use the default vim behavior for H and L 
+-- use the default vim behavior for H and L
 lvim.keys.insert_mode["<C-k>"] = nil
 lvim.keys.normal_mode["<S-l>"] = nil
 lvim.keys.normal_mode["<S-h>"] = nil
@@ -90,7 +90,7 @@ vim.cmd [[xmap t <Plug>Sneak_t]]
 vim.cmd [[xmap T <Plug>Sneak_T]]
 
 -- https://github.com/unblevable/quick-scope#highlight-on-key-press
-vim.g.qs_highlight_on_keys = ['f', 'F', 't', 'T']
+-- vim.g.qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 lvim.keys.normal_mode["yog"] = ":Gitsigns toggle_signs<CR>"
 lvim.keys.normal_mode["yon"] = ":setlocal number!<CR>"

@@ -117,7 +117,7 @@ let mapleader=' '
 let maplocalleader='\'
 
 " https://github.com/unblevable/quick-scope#highlight-on-key-press
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " https://stackoverflow.com/questions/16622566/how-to-solve-the-collision-of-tab-key-mapping-of-ultisnips-plugin-in-the-vim
 " This seems to be necessary for coc tab completion to work
