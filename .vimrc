@@ -723,25 +723,34 @@ nmap ]c <Plug>(coc-git-nextchunk)
 " nmap gs <Plug>(coc-git-chunkinfo)
 " make vim-easymotion match spacemacs and doom emacs
 nmap gs <Plug>(easymotion-prefix)
+" differs from gsf in that works over windows
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 xmap <Leader>f <Plug>(easymotion-bd-f)
 omap <Leader>f <Plug>(easymotion-bd-f)
+" there is no gsl
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+xmap <Leader>l <Plug>(easymotion-bd-jk)
+omap <Leader>l <Plug>(easymotion-bd-jk)
+" differs from gss in that works over windows
 nmap <Leader>s <Plug>(easymotion-overwin-f2)
 xmap <Leader>s <Plug>(easymotion-bd-f2)
 omap <Leader>s <Plug>(easymotion-bd-f2)
+" differs from gst in that uses two characters
 nmap <Leader>t <Plug>(easymotion-bd-t2)
 xmap <Leader>t <Plug>(easymotion-bd-t2)
 omap <Leader>t <Plug>(easymotion-bd-t2)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
-xmap <Leader>L <Plug>(easymotion-bd-jk)
-omap <Leader>L <Plug>(easymotion-bd-jk)
+" differs from gsw in that works over windows
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 xmap <Leader>w <Plug>(easymotion-bd-w)
 omap <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>l <Plug>(easymotion-lineforward)
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
-nmap <Leader>h <Plug>(easymotion-linebackward)
+" not that useful
+" nmap <Leader>l <Plug>(easymotion-lineforward)
+" use gsj instead
+" nmap <Leader>j <Plug>(easymotion-j)
+" use gsk instead
+" nmap <Leader>k <Plug>(easymotion-k)
+" not that useful
+" nmap <Leader>h <Plug>(easymotion-linebackward)
 
 " show git log at current position
 nmap gl <Plug>(coc-git-commit)
@@ -899,9 +908,9 @@ nnoremap <silent> <leader>C :BCommits!<CR>
 " nnoremap <silent> <leader>f :Files!<CR>
 nnoremap <silent> <leader>F :Filetypes!<CR>
 nnoremap <silent> <leader>gf :GFiles!<CR>
-" nnoremap <silent> <leader>h :History!<CR>
+nnoremap <silent> <leader>h :History!<CR>
 " nnoremap <silent> <leader>l :Lines!<CR>
-" nnoremap <silent> <leader>L :BLines!<CR>
+nnoremap <silent> <leader>L :BLines!<CR>
 nnoremap <silent> <leader>m :Maps!<CR>
 nnoremap <silent> <leader>r :Rg!<CR>
 " nnoremap <silent> <leader>s :Snippets!<CR>
