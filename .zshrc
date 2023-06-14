@@ -9,7 +9,7 @@ export FIG_WORKFLOWS_KEYBIND="^\\"
 export DOOMDIR=$HOME/.config/doom
 export PATH=~/.doom.d/bin:$PATH
 export EDITOR=$(brew --prefix)/bin/nvim
-export MANPAGER="nvim +Man! +Page"
+# export MANPAGER="nvim +Man! +Page"
 export MANWIDTH=999
 export PAGER=less
 export KEYTIMEOUT=1
@@ -442,7 +442,6 @@ alias la="func() { local files=$(echo '$(fasd -Rfl | fzf --delimiter=/ --with-nt
 alias lah="ls -ah"
 alias lal="ls -al"
 alias lc="func() { local cached=$(echo '$(git status --porcelain | grep "^M" | cut -c4- | fzf)') && [ $(echo '$cached') ] && echo $(echo '$cached') | tr '\n' '\0' | xargs -0 -o lvim $(echo '$@') --; }; func"
-alias lcp="lvim -c Page"
 alias lcu="lvim -c LvimUpdate -c q"
 alias le="func() { local files=$(echo '$(v -es --noplugin -u ~/.vimrc "+set nonumber" "+pu =v:oldfiles" +%p +q! | sed /^.$/d | sed s+~+$HOME+ | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -o lvim $(echo '$@') --; }; func"
 alias lf="func() { local files=$(echo '$(fd --color=always --type f $@ | fzf --ansi)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -o lvim --; }; func"
@@ -464,7 +463,6 @@ alias lognm="func() { git log --format='%C(cyan)%>(12,trunc)%ar %Cblue%h %Cgreen
 alias logp="git log -p"
 alias logr="git log --format='%C(cyan)%>(12,trunc)%ar %Creset%<(80,trunc)%s %Cblue%h %Cgreen%<(17,trunc)%cn %Cred%D'"
 alias lp="func() { local files=$(echo '$(fd --color=always -e pdf --type f $@ | fzf --ansi --preview="pdftotext -l 2 {} - | bat --style=numbers --color=always -l md | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always")') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -n1 -I '{}' pdftotext '{}' && echo $(echo '${files//.pdf/.txt}') | tr '\n' '\0' | xargs -0 -o lvim --; }; func"
-alias lpp="lvim +Page"
 alias lpu="lvim +LvimUpdate +q"
 alias lr="func() { local files=$(echo '$(rg -e "^> ~/" -e "^> /" ~/.viminfo | cut -c3- | sed s+~+$HOME+ | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -o lvim $(echo '$@') --; }; func"
 alias lt="func() { [ ! -d ~/notes ] && git clone https://github.com/maptv/notes ~/notes; v ~/notes/$(date '+%Y-%m-%d')_$(echo '$1').tsv; }; func"
@@ -510,7 +508,6 @@ alias n="$(brew --prefix)/bin/nvim"
 alias nS="func() { n -S $(echo '${@:-~/session.vim}'); }; func"
 alias na="func() { local files=$(echo '$(fasd -Rfl | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 nvim $(echo '$@') --; }; func"
 alias nc="func() { local cached=$(echo '$(git status --porcelain | grep "^M" | cut -c4- | fzf)') && [ $(echo '$cached') ] && echo $(echo '$cached') | tr '\n' '\0' | xargs -0 nvim $(echo '$@') --; }; func"
-alias ncp="nvim -c Page"
 alias nd="nvim -d"
 alias ne="func() { local files=$(echo '$(n -u NONE -es "+pu =v:oldfiles" +%p +q! | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 nvim $(echo '$@') --; }; func"
 alias nf="func() { local files=$(echo '$(fd --color=always --type f $@ | fzf --ansi)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 nvim --; }; func"
@@ -524,7 +521,6 @@ alias nn="func() { n $(date '+%Y-%m-%d')_$(echo '$1:-notes').md; }; func"
 alias no="n -c 'browse oldfiles'" # this only works with -c, not --cmd
 alias nows="func() {find $(echo '${1-.}') -type f | sed 'p;s/ /_/g' | tr '\n' '\0' | xargs -0n2 mv; }; func"
 alias np="func() { local files=$(echo '$(fd --color=always -e pdf --type f $@ | fzf --ansi --preview="pdftotext -l 2 {} - | bat --style=numbers --color=always -l md | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always")') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -n1 -I '{}' pdftotext '{}' && echo $(echo '${files//.pdf/.txt}') | tr '\n' '\0' | xargs -0 nvim --; }; func"
-alias npp="nvim +Page"
 alias nr="func() { local files=$(echo '$(rg -e "^> ~/" -e "^> /" ~/.viminfo | cut -c3- | sed s+~+$HOME+ | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 nvim $(echo '$@') --; }; func"
 alias ns="npm start"
 alias nt="func() { [ ! -d ~/notes ] && git clone https://github.com/maptv/notes ~/notes; nvim ~/notes/$(date '+%Y-%m-%d')_$(echo '$1').tsv; }; func"
@@ -769,7 +765,6 @@ alias v="$(brew --prefix)/bin/vim"
 alias vS="func() { v -S $(echo '${@:-~/session.vim}'); }; func"
 alias va="func() { local files=$(echo '$(fasd -Rfl | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -o vim $(echo '$@') --; }; func"
 alias vc="func() { local cached=$(echo '$(git status --porcelain | grep "^M" | cut -c4- | fzf)') && [ $(echo '$cached') ] && echo $(echo '$cached') | tr '\n' '\0' | xargs -0 -o vim $(echo '$@') --; }; func"
-alias vcp="vim -c Page"
 alias vd="vimdiff"
 alias ve="func() { local files=$(echo '$(v -es --noplugin -u ~/.vimrc "+set nonumber" "+pu =v:oldfiles" +%p +q! | sed /^.$/d | sed s+~+$HOME+ | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -o vim $(echo '$@') --; }; func"
 alias vf="func() { local files=$(echo '$(fd --color=always --type f $@ | fzf --ansi)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -o vim --; }; func"
@@ -780,7 +775,6 @@ alias vl="func() { local files=$(echo '$(rg -l ${@:-^} | fzf --preview="bat --st
 alias vn="func() { v ~/maptv/notes/$(date '+%Y-%m-%d')_$(echo '${1:-notes}').md; }; func"
 alias vo="v -c 'browse oldfiles'" # this only works with -c, not --cmd
 alias vp="func() { local files=$(echo '$(fd --color=always -e pdf --type f $@ | fzf --ansi --preview="pdftotext -l 2 {} - | bat --style=numbers --color=always -l md | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always")') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -n1 -I '{}' pdftotext '{}' && echo $(echo '${files//.pdf/.txt}') | tr '\n' '\0' | xargs -0 -o vim --; }; func"
-alias vpp="vim +Page"
 alias vr="func() { local files=$(echo '$(rg -e "^> ~/" -e "^> /" ~/.viminfo | cut -c3- | sed s+~+$HOME+ | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 -o vim $(echo '$@') --; }; func"
 alias vs="func() { local staged=$(echo '$(git status --porcelain | grep "^M" | cut -c4- | fzf)') && [ $(echo '$staged') ] && echo $(echo '$staged') | tr '\n' '\0' | xargs -0 -o vim $(echo '$@') --; }; func"
 alias vt="func() { [ ! -d ~/notes ] && git clone https://github.com/maptv/notes ~/notes; v ~/notes/$(date '+%Y-%m-%d')_$(echo '$1').tsv; }; func"

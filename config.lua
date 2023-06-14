@@ -91,18 +91,18 @@ vim.cmd [[xmap T <Plug>Sneak_T]]
 
 -- make vim-easymotion match spacemacs and doom emacs
 vim.cmd [[nmap gs <Plug>(easymotion-prefix)]]
-vim.cmd [[map <Leader>f <Plug>(easymotion-overwin-f)]]
-vim.cmd [[map <Leader>f <Plug>(easymotion-bd-f)]]
-vim.cmd [[map <Leader>f <Plug>(easymotion-bd-f)]]
-vim.cmd [[map <Leader>l <Plug>(easymotion-overwin-line)]]
-vim.cmd [[map <Leader>l <Plug>(easymotion-bd-jk)]]
-vim.cmd [[map <Leader>l <Plug>(easymotion-bd-jk)]]
-vim.cmd [[map <Leader>s <Plug>(easymotion-overwin-f2)]]
-vim.cmd [[map <Leader>s <Plug>(easymotion-bd-f2)]]
-vim.cmd [[map <Leader>s <Plug>(easymotion-bd-f2)]]
-vim.cmd [[map <Leader>w <Plug>(easymotion-overwin-w)]]
-vim.cmd [[map <Leader>w <Plug>(easymotion-bd-w)]]
-vim.cmd [[map <Leader>w <Plug>(easymotion-bd-w)]]
+vim.cmd [[nmap gsf <Plug>(easymotion-overwin-f)]]
+vim.cmd [[xmap gsf <Plug>(easymotion-bd-f)]]
+vim.cmd [[omap gsf <Plug>(easymotion-bd-f)]]
+vim.cmd [[nmap gsl <Plug>(easymotion-overwin-line)]]
+vim.cmd [[xmap gsl <Plug>(easymotion-bd-jk)]]
+vim.cmd [[omap gsl <Plug>(easymotion-bd-jk)]]
+vim.cmd [[nmap gss <Plug>(easymotion-overwin-f2)]]
+vim.cmd [[xmap gss <Plug>(easymotion-bd-f2)]]
+vim.cmd [[omap gss <Plug>(easymotion-bd-f2)]]
+vim.cmd [[nmap gsw <Plug>(easymotion-overwin-w)]]
+vim.cmd [[xmap gsw <Plug>(easymotion-bd-w)]]
+vim.cmd [[omap gsw <Plug>(easymotion-bd-w)]]
 
 vim.cmd [[vmap gy <Plug>(Exchange)]]
 vim.cmd [[nmap gy <Plug>(Exchange)]]
@@ -252,7 +252,6 @@ lvim.plugins = {
   {"easymotion/vim-easymotion"},
   {"ethanholz/nvim-lastplace"},
   -- {"mg979/vim-visual-multi"},
-  {"rkitover/vimpager"},
 }
 
 -- https://github.com/ethanholz/nvim-lastplace
