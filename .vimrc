@@ -431,7 +431,7 @@ nnoremap <silent><leader>p :Page<CR>
 xmap <silent><M-CR> <Plug>SlimeRegionSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
 " xmap <silent><leader>c <Plug>SlimeSendCell `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
 " xmap <silent><leader>l <Esc><Plug>SlimeLineSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-xmap <silent><leader>v <Plug>SlimeRegionSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
+" xmap <silent><leader>v <Plug>SlimeRegionSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -704,17 +704,17 @@ vnoremap <M-w> "1y
 vnoremap <M-x> :
 
 "" Git
-nnoremap <leader>gs :Gstatus<CR>
+" nnoremap <leader>gs :Gstatus<CR>
 nnoremap [g :diffget //2<CR>
 nnoremap ]g :diffget //3<CR>
-nnoremap <silent><leader>gw :Gwrite<CR>
-nnoremap <silent><leader>gc :Gwrite<bar>Gcommit<CR>
-nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gu :Gpull<CR>
-nnoremap <leader>gd :Gvdiff<CR>
-nnoremap <leader>gr :Gremove<CR>
-nnoremap <leader>gl :Glog<CR>
-nnoremap <leader>gg :Gwrite<CR>:Gcommit -m "edit "%<CR>:Gpush<CR>
+" nnoremap <silent><leader>gw :Gwrite<CR>
+" nnoremap <silent><leader>gc :Gwrite<bar>Gcommit<CR>
+" nnoremap <leader>gp :Gpush<CR>
+" nnoremap <leader>gu :Gpull<CR>
+" nnoremap <leader>gd :Gvdiff<CR>
+" nnoremap <leader>gr :Gremove<CR>
+" nnoremap <leader>gl :Glog<CR>
+" nnoremap <leader>gg :Gwrite<CR>:Gcommit -m "edit "%<CR>:Gpush<CR>
 
 " https://github.com/neoclide/coc-git
 " https://github.com/neoclide/coc-yank
@@ -791,6 +791,18 @@ nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
+
+" Make using the substitution command easier
+nnoremap <leader>s :<C-f>i%s///g<left><left>
+xnoremap <leader>s :<C-f>i'<,'>s///g<left><left>
+
+" Make using the g command easier
+nnoremap <leader>g :<C-f>i%g//
+xnoremap <leader>g :<C-f>i'<,'>g//
+
+" Make using the v command easier
+nnoremap <leader>v :<C-f>i%v//
+xnoremap <leader>v :<C-f>i'<,'>v//
 
 "" Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -928,7 +940,7 @@ nnoremap <silent> <leader>c :Commits!<CR>
 nnoremap <silent> <leader>C :BCommits!<CR>
 " nnoremap <silent> <leader>f :Files!<CR>
 nnoremap <silent> <leader>F :Filetypes!<CR>
-nnoremap <silent> <leader>gf :GFiles!<CR>
+" nnoremap <silent> <leader>gf :GFiles!<CR>
 nnoremap <silent> <leader>h :History!<CR>
 " nnoremap <silent> <leader>l :Lines!<CR>
 nnoremap <silent> <leader>L :BLines!<CR>

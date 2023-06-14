@@ -912,9 +912,17 @@ nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
-" Make using the substitution easier
-unmap <leader>s
+" Make using the substitution command easier
 nnoremap <leader>s :<C-f>i%s///g<left><left>
+xnoremap <leader>s :<C-f>i'<,'>s///g<left><left>
+
+" Make using the g command easier
+nnoremap <leader>g :<C-f>i%g//
+xnoremap <leader>g :<C-f>i'<,'>g//
+
+" Make using the v command easier
+nnoremap <leader>v :<C-f>i%v//
+xnoremap <leader>v :<C-f>i'<,'>v//
 
 "" Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
