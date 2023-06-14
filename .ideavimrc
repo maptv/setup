@@ -35,7 +35,7 @@ set highlightedyank
 " [highlightedyank](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#highlightedyank)
 " Emulates: [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
 
-set sneak
+" set sneak
 " [sneak](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#sneak)
 " Emulates: [vim-sneak](https://github.com/justinmk/vim-sneak)
 
@@ -127,25 +127,25 @@ nmap gy <Plug>(Exchange)
 " make vim-easymotion match spacemacs and doom emacs
 nmap gs <Plug>(easymotion-prefix)
 " differs from gsf in that works over windows
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-xmap <Leader>f <Plug>(easymotion-bd-f)
-omap <Leader>f <Plug>(easymotion-bd-f)
+" nmap <Leader>f <Plug>(easymotion-overwin-f)
+" xmap <Leader>f <Plug>(easymotion-bd-f)
+" omap <Leader>f <Plug>(easymotion-bd-f)
 " there is no gsl
-nmap <Leader>l <Plug>(easymotion-overwin-line)
-xmap <Leader>l <Plug>(easymotion-bd-jk)
-omap <Leader>l <Plug>(easymotion-bd-jk)
+" nmap <Leader>l <Plug>(easymotion-overwin-line)
+" xmap <Leader>l <Plug>(easymotion-bd-jk)
+" omap <Leader>l <Plug>(easymotion-bd-jk)
 " differs from gss in that works over windows
-nmap <Leader>s <Plug>(easymotion-overwin-f2)
-xmap <Leader>s <Plug>(easymotion-bd-f2)
-omap <Leader>s <Plug>(easymotion-bd-f2)
+" nmap <Leader>s <Plug>(easymotion-overwin-f2)
+" xmap <Leader>s <Plug>(easymotion-bd-f2)
+" omap <Leader>s <Plug>(easymotion-bd-f2)
 " differs from gss in that works over windows and uses two characters
 " nmap <Leader>t <Plug>(easymotion-bd-t2)
 " xmap <Leader>t <Plug>(easymotion-bd-t2)
 " omap <Leader>t <Plug>(easymotion-bd-t2)
 " differs from gsw in that works over windows
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-xmap <Leader>w <Plug>(easymotion-bd-w)
-omap <Leader>w <Plug>(easymotion-bd-w)
+" nmap <Leader>w <Plug>(easymotion-overwin-w)
+" xmap <Leader>w <Plug>(easymotion-bd-w)
+" omap <Leader>w <Plug>(easymotion-bd-w)
 " not that useful
 " nmap <Leader>l <Plug>(easymotion-lineforward)
 " use gsj instead
@@ -157,35 +157,35 @@ omap <Leader>w <Plug>(easymotion-bd-w)
 
 " https://github.com/Mishkun/ideavim-sneak/issues/15
 " 2-character Sneak (default)
-nmap <A-s> <Plug>(sneak-s)
-nmap <A-S> <Plug>(sneak-S)
+" nmap <A-s> <Plug>(sneak-s)
+" nmap <A-S> <Plug>(sneak-S)
 " visual-mode
-xmap <A-s>   <Plug>(sneak-s)
-xmap <A-S> <Plug>(sneak-S)
+" xmap <A-s>   <Plug>(sneak-s)
+" xmap <A-S> <Plug>(sneak-S)
 " operator-pending-mode
-omap <A-s>   <Plug>(sneak-s)
-omap <A-S> <Plug>(sneak-S)
+" omap <A-s>   <Plug>(sneak-s)
+" omap <A-S> <Plug>(sneak-S)
 
 " repeat motion
-map ; <Plug>(sneak-;)
-map , <Plug>(sneak-,)
+" map ; <Plug>(sneak-;)
+" map , <Plug>(sneak-,)
 
 " 1-character enhanced 'f'
-nmap f <Plug>(sneak-f)
-nmap F <Plug>(sneak-F)
+" nmap f <Plug>(sneak-f)
+" nmap F <Plug>(sneak-F)
 " visual-mode
-xmap f <Plug>(sneak-f)
-xmap F <Plug>(sneak-F)
+" xmap f <Plug>(sneak-f)
+" xmap F <Plug>(sneak-F)
 " operator-pending-mode
 " omap f <Plug>(sneak-f)
 " omap F <Plug>(sneak-F)
 
 " 1-character enhanced 't'
-nmap t <Plug>(sneak-t)
-nmap T <Plug>(sneak-T)
+" nmap t <Plug>(sneak-t)
+" nmap T <Plug>(sneak-T)
 " visual-mode
-xmap t <Plug>(sneak-t)
-xmap T <Plug>(sneak-T)
+" xmap t <Plug>(sneak-t)
+" xmap T <Plug>(sneak-T)
 " operator-pending-mode
 " omap t <Plug>(sneak-t)
 " omap T <Plug>(sneak-T)
@@ -249,26 +249,26 @@ nnoremap <leader>b :action Tool_External Tools_Black<CR>
 nnoremap <leader>c :action ShowIntentionActions<CR>
 nnoremap <leader>d :action ActivateDatabaseToolWindow<CR>
 nnoremap <leader>e :action ActivateEventLogToolWindow<CR>
-" nnoremap <leader>f :action RenameFile<CR>
+nnoremap <leader>f :action RenameFile<CR>
 nnoremap <leader>g :action EditorPopupMenu.GoTo<CR>
 nnoremap <leader>h :action LocalHistory.ShowHistory<CR>
 nnoremap <leader>i :action GotoImplementation<CR>
 nnoremap <leader>j :action JumpToLastWindow<CR>
 nnoremap <leader>k :action Help.KeymapReference<CR>
 " Reformat Code is M-A-L
-" nnoremap <leader>l :action ReformatCode<CR>
+nnoremap <leader>l :action ReformatCode<CR>
 nnoremap <leader>m :action Move<CR>
 nnoremap <leader>n :action ShowNavBar<CR>
 nnoremap <leader>o :action OptimizeImports<CR>
 nnoremap <leader>p :action ActivatePythonConsoleToolWindow<CR>
 nnoremap <leader>q :action CloseProject<CR>
 nnoremap <leader>r :action ActivateRConsoleToolWindow<CR>
-" nnoremap <leader>s :action ActivateSciViewToolWindow<CR>
+nnoremap <leader>s :action ActivateSciViewToolWindow<CR>
 nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>u :action FindUsagesInFile<CR>
 " Introduce Variable is M-A-V
 nnoremap <leader>v :action IntroduceVariable<CR>
-" nnoremap <leader>w :action HideAllWindows<CR>
+nnoremap <leader>w :action HideAllWindows<CR>
 nnoremap <leader>x :action ChangeSplitOrientation<CR>
 " Reload All from Disk is M-A-Y
 nnoremap <leader>y :action Synchronize<CR>
