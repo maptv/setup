@@ -127,7 +127,7 @@ nmap gy <Plug>(Exchange)
 " make vim-easymotion match spacemacs and doom emacs
 nmap gs <Plug>(easymotion-prefix)
 " there is no gsl in the default mappings
-nmap gsl <Plug>(easymotion-bd-line)
+nmap gsl <Plug>(easymotion-bd-jk)
 xmap gsl <Plug>(easymotion-bd-jk)
 omap gsl <Plug>(easymotion-bd-jk)
 " differs from the original gss in that it uses two characters
