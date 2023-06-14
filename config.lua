@@ -104,6 +104,9 @@ vim.cmd [[map <Leader>w <Plug>(easymotion-overwin-w)]]
 vim.cmd [[map <Leader>w <Plug>(easymotion-bd-w)]]
 vim.cmd [[map <Leader>w <Plug>(easymotion-bd-w)]]
 
+vim.cmd [[vmap gy <Plug>(Exchange)]]
+vim.cmd [[nmap gy <Plug>(Exchange)]]
+
 -- https://github.com/unblevable/quick-scope#highlight-on-key-press
 -- vim.g.qs_highlight_on_keys = ['f', 'F', 't', 'T']
 vim.g.EasyMotion_startofline = 0 -- keep cursor column when JK motion
@@ -248,7 +251,7 @@ lvim.plugins = {
   {"justinmk/vim-sneak"},
   {"easymotion/vim-easymotion"},
   {"ethanholz/nvim-lastplace"},
-  {"mg979/vim-visual-multi"},
+  -- {"mg979/vim-visual-multi"},
   {"rkitover/vimpager"},
 }
 

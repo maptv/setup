@@ -90,6 +90,7 @@
 (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
 (evil-define-key 'normal global-map (kbd "C-n") 'evil-mc-make-and-goto-next-match)
 (evil-define-key 'normal global-map (kbd "C-p") 'evil-mc-make-and-goto-prev-match)
+(evil-define-key 'normal global-map (kbd "gx") 'browse-url-at-point)
 
 ;; evil-quickscope
 (require 'evil-quickscope)
@@ -97,12 +98,12 @@
 
 ;; evil-replace-with-register
 (require 'evil-replace-with-register)
-(setq evil-replace-with-register-key (kbd "gy"))
+(setq evil-replace-with-register-key (kbd "gr"))
 (evil-replace-with-register-install)
 
 ;; evil-exchange
 (require 'evil-exchange)
-(setq evil-exchange-key (kbd "gz"))
+(setq evil-exchange-key (kbd "gy"))
 (evil-exchange-install)
 
 ;; Here are some additional functions/macros that could help you configure Doom:

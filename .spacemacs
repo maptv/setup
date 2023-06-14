@@ -81,7 +81,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(evil-mc)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -561,6 +561,7 @@ before packages are loaded."
   (evil-define-key 'normal global-map (kbd "C-i") 'evil-jump-forward)
   (evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
   (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
+  (evil-define-key 'normal global-map (kbd "gx") 'browse-url-at-point)
 
   (evil-want-Y-yank-to-eol t)
 
@@ -576,12 +577,12 @@ This function is called at the very end of Spacemacs initialization."
 
 ;; evil-replace-with-register
 (require 'evil-replace-with-register)
-(setq evil-replace-with-register-key (kbd "gy"))
+(setq evil-replace-with-register-key (kbd "gr"))
 (evil-replace-with-register-install)
 
 ;; evil-exchange
 (require 'evil-exchange)
-(setq evil-exchange-key (kbd "gz"))
+(setq evil-exchange-key (kbd "gy"))
 (evil-exchange-install)
 
 (custom-set-variables

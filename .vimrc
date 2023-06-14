@@ -42,7 +42,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
 Plug 'easymotion/vim-easymotion'
-Plug 'mg979/vim-visual-multi'
+" Plug 'mg979/vim-visual-multi'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'mbbill/undotree'
@@ -442,6 +442,9 @@ nnoremap gx yiW:!open <cWORD><CR> <C-r>" & <CR><CR>
 " unimpaired style mapping for toggling autoformat
 nnoremap <expr> yoa &fo =~ 'a' ? ':set fo-=a<CR>' : ':set fo+=a<CR>'
 
+vmap gy <Plug>(Exchange)
+nmap gy <Plug>(Exchange)
+
 " brilliant mapping to toggle emacs-style ctrl-k mapping
 " https://vi.stackexchange.com/a/15579
 let s:ctrlKmapped=1
@@ -765,7 +768,7 @@ nmap <silent> ga :CocCommand git.chunkStage<CR>
 nmap <silent> gr :CocCommand git.chunkUndo<CR>
 nmap <silent> yog :CocCommand git.toggleGutters<CR>
 " yank
-nmap <silent> gy :CocCommand git.copyUrl<CR>
+" nmap <silent> gy :CocCommand git.copyUrl<CR>
 nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 
 "" Set working directory

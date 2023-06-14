@@ -12,7 +12,7 @@ set surround
 " Emulates: [vim-surround](https://github.com/tpope/vim-surround)
 " Commands: ys, cs, ds, S
 
-set multiple-cursors
+" set multiple-cursors
 " Emulates: [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 " Commands: <A-n>, <A-x>, <A-p>, g<A-n>
 
@@ -47,7 +47,7 @@ set easymotion
 " [easymotion](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#easymotion)
 " Emulates:  [vim-easymotion](https://github.com/easymotion/vim-easymotion)
 
-Plug 'vim-scripts/ReplaceWithRegister'
+set ReplaceWithRegister
 " [ReplaceWithRegister](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#replacewithregister)
 " Emulates: [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister)
 
@@ -120,6 +120,9 @@ set wrapscan
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
+
+vmap gy <Plug>(Exchange)
+nmap gy <Plug>(Exchange)
 
 " make vim-easymotion match spacemacs and doom emacs
 nmap gs <Plug>(easymotion-prefix)
@@ -198,8 +201,8 @@ nnoremap gf :action GotoFile<CR>
 " instead remap go as Go to Class
 " Mnemonic: 'Go Object'
 nnoremap go :action GotoClass<CR>
-nnoremap gr :action GotoRelated<CR>
-nnoremap gs :action GotoSymbol<CR>
+" nnoremap gr :action GotoRelated<CR>
+" nnoremap gs :action GotoSymbol<CR>
 
 nnoremap g; :action JumpToLastChange<CR>
 nnoremap g, :action JumpToNextChange<CR>
