@@ -283,6 +283,7 @@ alias dbr="func() { docker build . --tag $(echo '$1') && docker run --detach --e
 alias dbrp="func() { docker build . --tag $(echo '$1') && docker run --detach --env TIMEOUT=0,GRACEFUL_TIMEOUT=0 --name $(echo '$1') $(echo '$1') --publish $(echo '$2:$2') $(echo '$@:3'); }; func"
 alias dbt="func() { docker build . --tag $(echo '$1') ; }; func"
 alias dc="git diff --cached"
+alias dd="doom doctor"
 alias df="func() { local commit=$(echo '$(git log --color=always --format="%C(cyan)%>(12,trunc)%ar %Creset%s %Cred%D %Cgreen%cn %Cblue%h" --graph -- $@ | fzf --ansi --bind="alt-y:execute-silent(echo {-1} | pbcopy)" --nth=1,2,4..-2 --no-multi --preview="git show --color=always {-1} -- $* | delta | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always" --preview-window="55%" | rev | cut -d " " -f1 | rev)') && [ $(echo '$commit') ] && git difftool --no-prompt --tool vimdiff $(echo '$commit -- $@') }; func"
 alias dh0="git diff HEAD~0"
 alias dh1="git diff HEAD~1"
@@ -298,8 +299,10 @@ alias dm="git diff main"
 alias dmn="func() { git diff $(echo 'main~${1:-0} ${@:2}'); }; func"
 alias dp="git difftool --no-prompt --extcmd 'pycharm diff $LOCAL $REMOTE'"
 alias dps="git difftool --no-prompt --extcmd 'pycharm diff'"
-alias dr="func() { docker run --env TIMEOUT=0,GRACEFUL_TIMEOUT=0 $(echo '$1') $(echo '${2:-.}'); }; func"
-alias ds="docker stop $(echo 'docker ps -aq')"
+alias dr.="doom run ."
+alias dr="doom run"
+alias drd="doom run --daemon"
+alias ds="doom sync"
 alias dsf="delta --side-by-side --diff-so-fancy"
 alias dsh="delta --side-by-side --diff-highlight"
 alias dss="delta --side-by-side"
@@ -322,12 +325,12 @@ alias duh="du -h"
 alias dw="git diff --word-diff=color"
 alias dx="docker rm -f $(echo 'docker ps -aq')"
 alias e="emacsclient -t --alternate-editor emacs" # use whatever daemon if running otherwise run emacs command
-alias ed.="emacs --no-window-system ." # open doom emacs dired in current directory
-alias ed="emacs --no-window-system" # open doom emacs
-alias edd="emacs --daemon" # start doom emacs daemon
+alias ed="emacs --daemon" # start doom emacs daemon
 alias eds="emacs --daemon -q --load ~/spacemacs/init.el" # start spacemacs daemon
 alias ef="func() { local files=$(echo '$(fasd -Rfl | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 emacsclient -t --alternate-editor -- ; }; func"
 alias es.="emacs --no-window-system -q --load ~/spacemacs/init.el ." # open spacemacs dired in current directory
+alias en.="emacs --no-window-system ." # open doom emacs dired in current directory
+alias en="emacs --no-window-system" # open doom emacs
 alias es="emacs --no-window-system -q --load ~/spacemacs/init.el" # open spacemacs
 alias esa="eval `ssh-agent -s`"
 alias ex="emacsclient -e '(kill-emacs)'"

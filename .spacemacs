@@ -74,6 +74,7 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
                                       evil-quickscope           
+                                      evil-replace-with-register           
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -533,9 +534,6 @@ before packages are loaded."
     (interactive "p")
     (kill-line (- 1 arg)))
 
-  ;; use cx for evil-exchange to match vim-exchange
-  (setq evil-exchange-key (kbd "cx"))
-
   ;; Don't let evil-snipe remap s and S
   (evil-snipe-mode -1)
 
@@ -575,6 +573,17 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
+
+;; evil-replace-with-register
+(require 'evil-replace-with-register)
+(setq evil-replace-with-register-key (kbd "gy"))
+(evil-replace-with-register-install)
+
+;; evil-exchange
+(require 'evil-exchange)
+(setq evil-exchange-key (kbd "gz"))
+(evil-exchange-install)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -47,7 +47,7 @@
 ;; persistent undo
 (setq undo-tree-auto-save-history t)
 
-;; use cx for evil-exchange to match vim-exchange
+;; use cx for exchange-evil to match vim-exchange
 (setq evil-exchange-key (kbd "cx"))
 
 ;; Don't let evil-snipe remap s and S
@@ -91,14 +91,19 @@
 (evil-define-key 'normal global-map (kbd "C-n") 'evil-mc-make-and-goto-next-match)
 (evil-define-key 'normal global-map (kbd "C-p") 'evil-mc-make-and-goto-prev-match)
 
+;; evil-quickscope
 (require 'evil-quickscope)
 (global-evil-quickscope-always-mode 1)
+
+;; evil-replace-with-register
 (require 'evil-replace-with-register)
-;; change default key bindings (if you want) HERE
-(setq evil-replace-with-register-key (kbd "gr"))
+(setq evil-replace-with-register-key (kbd "gy"))
 (evil-replace-with-register-install)
-(require 'evil-mc)
-(global-evil-mc-mode  1)
+
+;; evil-exchange
+(require 'evil-exchange)
+(setq evil-exchange-key (kbd "gz"))
+(evil-exchange-install)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
