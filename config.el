@@ -88,8 +88,6 @@
 (evil-define-key 'insert global-map (kbd "C-y") 'yank)
 (evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
 (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
-(evil-define-key 'normal global-map (kbd "C-n") 'evil-mc-make-and-goto-next-match)
-(evil-define-key 'normal global-map (kbd "C-p") 'evil-mc-make-and-goto-prev-match)
 (evil-define-key 'normal global-map (kbd "gx") 'browse-url-at-point)
 
 ;; evil-quickscope
