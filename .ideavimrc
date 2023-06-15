@@ -55,8 +55,6 @@ Plug 'preservim/nerdtree'
 " [NERDTree](https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins#nerdtree)
 " Emulates: [NERDTree](https://github.com/preservim/nerdtree)
 
-Plug 'bronson/vim-visual-star-search'
-
 " ============================================================================
 " Set commands
 " ============================================================================
