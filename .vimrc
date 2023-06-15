@@ -793,37 +793,32 @@ nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 nnoremap <leader>. :lcd %:p:h<CR>
 
 " Make using the substitution command easier
-" asterisk (*) adds escaped angle brackets (\<\>)
-" vimgrep knows how to handle escaped angle brackets (\<\>)
-" grep does not know how to handle escaped angle brackets (\<\>)
-" that is why <leader>c and l use vimgrep in normal mode
-" with vimgrep :set ma and :cb does not work
 nnoremap <leader>a :<C-f>iargdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 nnoremap <leader>b :<C-f>ibufdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-nnoremap <leader>c :vimgrep /<C-r>// **/*<CR><C-o>:copen<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-nnoremap <leader>l :lvimgrep /<C-r>// **/*<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+nnoremap <leader>c :let @/=substitute(substitute(escape(@/, '/'), '^\\<', '', 'g'), '\\>$', '', 'g')<CR>:grep -r "<C-r>/" *<CR><C-o>:copen<CR>:set modifiable<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+nnoremap <leader>l :let @/=substitute(substitute(escape(@/, '/'), '^\\<', '', 'g'), '\\>$', '', 'g')<CR>:lgrep -r "<C-r>/" *<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 nnoremap <leader>s :<C-f>i%s//&/ge<C-left><left><Esc>gh
 nnoremap <leader>w :<C-f>iwindo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-xnoremap <leader>a y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iargdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-xnoremap <leader>b y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>ibufdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-xnoremap <leader>c y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:grep -r "<C-r>0" *<CR><C-o>:copen<CR>:set modifiable<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-xnoremap <leader>l y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:lgrep -r "<C-r>0" *<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-xnoremap <leader>s y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i%s//&/ge<C-left><left><Esc>gh
-xnoremap <leader>w y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iwindo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>a y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iargdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>b y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>ibufdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>c y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:grep -r "<C-r>0" *<CR><C-o>:copen<CR>:set modifiable<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>l y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:lgrep -r "<C-r>0" *<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>s y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i%s//&/ge<C-left><left><Esc>gh
+xnoremap <leader>w y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iwindo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 
 " https://vonheikemen.github.io/devlog/tools/how-to-survive-without-multiple-cursors-in-vim/#replace-a-selection
 nnoremap <C-n> *``"_cgn
 nnoremap <C-p> *``"_cgN
-xnoremap <C-n> y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgn
-xnoremap <C-p> y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgN
+xnoremap <C-n> y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgn
+xnoremap <C-p> y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgN
 
 " Make using the g command easier
 nnoremap <leader>g :<C-f>ig//
-xnoremap <leader>g y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i'<,'>g//
+xnoremap <leader>g y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i'<,'>g//
 
 " Make using the v command easier
 nnoremap <leader>v :<C-f>iv//
-xnoremap <leader>v y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i'<,'>v//
+xnoremap <leader>v y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i'<,'>v//
 
 "" Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -1090,8 +1085,8 @@ nmap F <Plug>Sneak_F
 xmap f <Plug>Sneak_f
 xmap F <Plug>Sneak_F
 " operator-pending-mode
-" omap f <Plug>Sneak_f
-" omap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
 
 " 1-character enhanced 't'
 nmap t <Plug>Sneak_t
@@ -1100,8 +1095,8 @@ nmap T <Plug>Sneak_T
 xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 " operator-pending-mode
-" omap t <Plug>Sneak_t
-" omap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 
 " https://vimrcfu.com/snippet/250
 " https://vi.stackexchange.com/a/15785

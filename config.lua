@@ -81,6 +81,9 @@ vim.cmd [[nmap F <Plug>Sneak_F]]
 -- visual-mode
 vim.cmd [[xmap f <Plug>Sneak_f]]
 vim.cmd [[xmap F <Plug>Sneak_F]]
+-- operator pending mode
+vim.cmd [[omap f <Plug>Sneak_f]]
+vim.cmd [[omap F <Plug>Sneak_F]]
 
 -- 1-character enhanced 't'
 vim.cmd [[nmap t <Plug>Sneak_t]]
@@ -88,6 +91,9 @@ vim.cmd [[nmap T <Plug>Sneak_T]]
 -- visual-mode
 vim.cmd [[xmap t <Plug>Sneak_t]]
 vim.cmd [[xmap T <Plug>Sneak_T]]
+-- operator pending mode
+vim.cmd [[omap t <Plug>Sneak_t]]
+vim.cmd [[omap T <Plug>Sneak_T]]
 
 -- make vim-easymotion match spacemacs and doom emacs
 vim.cmd [[nmap gs <Plug>(easymotion-prefix)]]
