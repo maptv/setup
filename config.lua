@@ -275,7 +275,7 @@ lvim.plugins = {
   {"justinmk/vim-sneak"},
   {"easymotion/vim-easymotion"},
   {"ethanholz/nvim-lastplace"},
-  -- {"mg979/vim-visual-multi"},
+  {"bronson/vim-visual-star-search"},
 }
 
 -- https://github.com/ethanholz/nvim-lastplace

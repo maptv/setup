@@ -53,7 +53,7 @@ Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
 Plug 'easymotion/vim-easymotion'
-" Plug 'mg979/vim-visual-multi'
+Plug 'bronson/vim-visual-star-search'
 Plug 'inkarkat/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'mbbill/undotree'
@@ -913,16 +913,37 @@ nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 nnoremap <leader>. :lcd %:p:h<CR>
 
 " Make using the substitution command easier
-nnoremap <leader>s :<C-f>i%s///g<left><left>
-xnoremap <leader>s :<C-f>i'<,'>s///g<left><left>
+" asterisk (*) adds escaped angle brackets (\<\>)
+" vimgrep knows how to handle escaped angle brackets (\<\>)
+" grep does not know how to handle escaped angle brackets (\<\>)
+" that is why <leader>c and l use vimgrep in normal mode
+" with vimgrep :set ma and :cb does not work
+nnoremap <leader>a :<C-f>iargdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+nnoremap <leader>b :<C-f>ibufdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+nnoremap <leader>c :vimgrep /<C-r>// **/*<CR><C-o>:copen<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+nnoremap <leader>l :lvimgrep /<C-r>// **/*<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+nnoremap <leader>s :<C-f>i%s//&/ge<C-left><left><Esc>gh
+nnoremap <leader>w :<C-f>iwindo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>a y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iargdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>b y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>ibufdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>c y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:grep -r "<C-r>0" *<CR><C-o>:copen<CR>:set modifiable<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>l y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:lgrep -r "<C-r>0" *<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>s y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i%s//&/ge<C-left><left><Esc>gh
+xnoremap <leader>w y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iwindo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+
+" https://vonheikemen.github.io/devlog/tools/how-to-survive-without-multiple-cursors-in-vim/#replace-a-selection
+nnoremap <C-n> *``"_cgn
+nnoremap <C-p> *``"_cgN
+xnoremap <C-n> y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgn
+xnoremap <C-p> y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgN
 
 " Make using the g command easier
-nnoremap <leader>g :<C-f>i%g//
-xnoremap <leader>g :<C-f>i'<,'>g//
+nnoremap <leader>g :<C-f>ig//
+xnoremap <leader>g y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i'<,'>g//
 
 " Make using the v command easier
-nnoremap <leader>v :<C-f>i%v//
-xnoremap <leader>v :<C-f>i'<,'>v//
+nnoremap <leader>v :<C-f>iv//
+xnoremap <leader>v y<CMD>let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i'<,'>v//
 
 "" Opens an edit command with the path of the currently edited file filled in
 noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -939,7 +960,8 @@ nnoremap <silent> <leader><leader> :noh<cr>
 nnoremap <leader>o :.Gbrowse<CR>
 
 nnoremap <silent> <leader>A :Ag<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+" use gb instead
+" nnoremap <silent> <leader>b :Buffers<CR>
 "Recovery commands from history through FZF
 " nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <leader>B :BCommits<CR>
@@ -1137,9 +1159,9 @@ nnoremap <silent> <leader>' :Marks!<CR>
 nnoremap <silent> <leader>/ :History/!<CR>
 nnoremap <silent> <leader>: :History:!<CR>
 nnoremap <silent> <leader>? :Helptags!<CR>
-nnoremap <silent> <leader>a :Ag!<CR>
-nnoremap <silent> <leader>b :Buffers!<CR>
-nnoremap <silent> <leader>c :Commits!<CR>
+nnoremap <silent> <leader>A :Ag!<CR>
+" nnoremap <silent> <leader>b :Buffers!<CR>
+" nnoremap <silent> <leader>c :Commits!<CR>
 nnoremap <silent> <leader>C :BCommits!<CR>
 " nnoremap <silent> <leader>f :Files!<CR>
 nnoremap <silent> <leader>F :Filetypes!<CR>
