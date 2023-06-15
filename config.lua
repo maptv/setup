@@ -291,6 +291,10 @@ require'nvim-lastplace'.setup {
 --   { "BufWinEnter", "*", "setlocal laststatus=0 | set showtabline=0" },
 -- }
 
+-- https://www.reddit.com/r/lunarvim/comments/10392z6/statusbar/
+lvim.builtin.lualine.active = false
+vim.opt.laststatus = 0
+
 -- https://www.lunarvim.org/configuration/03-colorschemes.html#transparent-windows
 lvim.transparent_window = true
 
