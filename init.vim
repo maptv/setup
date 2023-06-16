@@ -262,7 +262,7 @@ set shortmess=a
 set mouse=a
 
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-change-cursor-shape-in-the-terminal
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkon100
+set guicursor=n-v-c-sm-ve:block,i-ci:ver25,r-cr:hor20,o:hor50,a:blinkon100
 
 " Share system clipboard ("+) and unnamed ("") registers
 " http://vimcasts.org/episodes/accessing-the-system-clipboard-from-vim/
