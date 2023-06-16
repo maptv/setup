@@ -795,14 +795,14 @@ nnoremap <leader>. :lcd %:p:h<CR>
 " Make using the substitution command easier
 nnoremap <leader>a :<C-f>iargdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 nnoremap <leader>b :<C-f>ibufdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-nnoremap <leader>c :let @/=substitute(substitute(escape(@/, '/'), '^\\<', '', 'g'), '\\>$', '', 'g')<CR>:grep -r "<C-r>/" *<CR><C-o>:copen<CR>:set modifiable<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-nnoremap <leader>l :let @/=substitute(substitute(escape(@/, '/'), '^\\<', '', 'g'), '\\>$', '', 'g')<CR>:lgrep -r "<C-r>/" *<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+nnoremap <leader>c :let @/=substitute(substitute(escape(@/, '/'), '^\\<', '', 'g'), '\\>$', '', 'g')<CR>:grep -r "<C-r>/" * %<CR><C-o>:copen<CR>:set modifiable<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+nnoremap <leader>l :let @/=substitute(substitute(escape(@/, '/'), '^\\<', '', 'g'), '\\>$', '', 'g')<CR>:lgrep -r "<C-r>/" * %<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 nnoremap <leader>s :<C-f>i%s//&/ge<C-left><left><Esc>gh
 nnoremap <leader>w :<C-f>iwindo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 xnoremap <leader>a y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iargdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 xnoremap <leader>b y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>ibufdo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-xnoremap <leader>c y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:grep -r "<C-r>0" *<CR><C-o>:copen<CR>:set modifiable<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-xnoremap <leader>l y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:lgrep -r "<C-r>0" *<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>c y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:grep -r "<C-r>0" * %<CR><C-o>:copen<CR>:set modifiable<CR>:<C-f>icdo s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
+xnoremap <leader>l y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:lgrep -r "<C-r>0" * %<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 xnoremap <leader>s y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i%s//&/ge<C-left><left><Esc>gh
 xnoremap <leader>w y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iwindo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 
