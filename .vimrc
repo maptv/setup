@@ -824,13 +824,14 @@ xnoremap <leader>c y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:gr
 xnoremap <leader>l y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:lgrep -r "<C-r>0" * .[^.]* --exclude-dir={.git,tags}<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 xnoremap <leader>s y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i%s//&/ge<C-left><left><Esc>gh
 xnoremap <leader>w y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iwindo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-
+" a change
 " https://vonheikemen.github.io/devlog/tools/how-to-survive-without-multiple-cursors-in-vim/#replace-a-selection
 nnoremap <C-n> *``"_cgn
 nnoremap <C-p> *``"_cgN
 xnoremap <C-n> y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgn
 xnoremap <C-p> y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgN
 
+" I can changed the index
 " Make using the g command easier
 nnoremap <leader>g :<C-f>ig//
 xnoremap <leader>g y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i'<,'>g//
