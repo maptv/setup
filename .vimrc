@@ -262,6 +262,9 @@ set smarttab
 set tabpagemax=50
 set wildmenu " Display all matching files when we tab complete
 
+autocmd BufLeave,TabLeave,WinLeave,FileWritePre,FilterWritePre,FileReadPre,FilterReadPre,BufFilePre,BufWritePre,BufReadPre,StdinReadPre,QuickFixCmdPre,SourcePre * set cmdheight=6
+autocmd BufEnter,TabEnter,WinEnter,FileWritePost,FilterWritePost,FileReadPost,FilterReadPost,BufFilePost,BufWritePost,BufReadPost,StdinReadPost,QuickFixCmdPost,SourcePost * set cmdheight=1
+
 " Neovim defaults?
 set path+=** " Provides tab-completion for all file-related tasks
 set lazyredraw " Don't redraw while executing macros (good performance config)
@@ -831,7 +834,7 @@ nnoremap <C-p> *``"_cgN
 xnoremap <C-n> y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgn
 xnoremap <C-p> y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgN
 
-" I can changed the index
+" I can change the working copy
 " Make using the g command easier
 nnoremap <leader>g :<C-f>ig//
 xnoremap <leader>g y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i'<,'>g//
@@ -885,24 +888,6 @@ nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
-
-" Run :file everytime I switch buffers
-nnoremap <leader>; :silent bn<CR>:file<CR>
-nnoremap <leader>, :bp<CR>:file<CR>
-tnoremap <leader>; <C-\><C-n>:bn<CR>:file<CR>
-tnoremap <leader>, <C-\><C-n>:bp<CR>:file<CR>
-nnoremap ]b :silent bn<CR>:file<CR>
-nnoremap [b :silent bp<CR>:file<CR>
-tnoremap ]b <C-\><C-n>:bn<CR>:file<CR>
-tnoremap [b <C-\><C-n>:bp<CR>:file<CR>
-" Run :file everytime I switch to alternate file (^6) (not needed for vim)
-" Run :file everytime I go thru the jump list (not needed for vim)
-" Run :file everytime I switch windows
-nnoremap <C-w>w <C-w>w:file<CR>
-nnoremap <C-w><C-w> <C-w>w:file<CR>
-nnoremap <C-o> <C-o>:file<CR>
-nnoremap <C-i> <C-i>:file<CR>
-" Run :file everytime I switch windows (not needed in nvim)
 
 " https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L1075
 " To recover R console after pressing <C-w>c / <C-w>o/<C-w>q
