@@ -287,9 +287,6 @@ set go+=a
 " 'tabpagemax' defaults to 50
 " 'wildmenu' is enabled
 
-autocmd BufLeave,TabLeave,WinLeave,FileWritePre,FilterWritePre,FileReadPre,FilterReadPre,BufFilePre,BufWritePre,BufReadPre,StdinReadPre,QuickFixCmdPre,SourcePre * set cmdheight=6
-autocmd BufEnter,TabEnter,WinEnter,FileWritePost,FilterWritePost,FileReadPost,FilterReadPost,BufFilePost,BufWritePost,BufReadPost,StdinReadPost,QuickFixCmdPost,SourcePost * set cmdheight=1
-
 " Neovim defaults?
 set path+=** " Provides tab-completion for all file-related tasks
 set lazyredraw " Don't redraw while executing macros (good performance config)
