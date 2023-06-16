@@ -229,7 +229,8 @@ set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 " https://vim.fandom.com/wiki/Avoiding_the_%22Hit_ENTER_to_continue%22_prompts
-set shortmess=a
+" https://vimhelp.org/options.txt.html#%27shortmess%27
+set shortmess=aoOstTWAIcCqFS
 
 " (In times of great desperation) allow use of the mouse
 set mouse=a
@@ -261,9 +262,6 @@ set sidescroll=1
 set smarttab
 set tabpagemax=50
 set wildmenu " Display all matching files when we tab complete
-
-autocmd BufLeave,TabLeave,WinLeave,FileWritePre,FilterWritePre,FileReadPre,FilterReadPre,BufFilePre,BufWritePre,BufReadPre,StdinReadPre,QuickFixCmdPre,SourcePre * set cmdheight=6
-autocmd BufEnter,TabEnter,WinEnter,FileWritePost,FilterWritePost,FileReadPost,FilterReadPost,BufFilePost,BufWritePost,BufReadPost,StdinReadPost,QuickFixCmdPost,SourcePost * set cmdheight=1
 
 " Neovim defaults?
 set path+=** " Provides tab-completion for all file-related tasks

@@ -256,7 +256,7 @@ set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 " https://vim.fandom.com/wiki/Avoiding_the_%22Hit_ENTER_to_continue%22_prompts
-set shortmess=a
+set shortmess=aoOstTWAIcCqFS
 
 " (In times of great desperation) allow use of the mouse
 set mouse=a
@@ -1030,23 +1030,6 @@ nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
 
-" Run :file everytime I switch buffers
-nnoremap <leader>; :bn<CR>:file<CR>
-nnoremap <leader>, :bp<CR>:file<CR>
-tnoremap <leader>; <C-\><C-n>:bn<CR>:file<CR>
-tnoremap <leader>, <C-\><C-n>:bp<CR>:file<CR>
-nnoremap ]b :bn<CR>:file<CR>
-nnoremap [b :bp<CR>:file<CR>
-tnoremap ]b <C-\><C-n>:bn<CR>:file<CR>
-tnoremap [b <C-\><C-n>:bp<CR>:file<CR>
-" Run :file everytime I switch to alternate file (^6)
-nnoremap <C-^> <C-^>:file<CR>
-tnoremap <C-^> <C-\><C-n><C-^>:file<CR>
-" Run :file everytime I go thru the jump list
-nnoremap <C-o> <C-o>:file<CR>
-nnoremap <C-i> <C-i>:file<CR>
-" Run :file everytime I switch windows (not needed in nvim)
-
 " https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L1075
 " To recover R console after pressing <C-w>o (window only), press <C-w>u (window undo)
 " https://vi.stackexchange.com/questions/241/undo-only-window
@@ -1226,7 +1209,6 @@ inoremap <silent><A-C-b> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.
 inoremap <silent><A-C-f> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 vnoremap <silent><A-C-b> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
 vnoremap <silent><A-C-f> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
-au VimEnter,WinEnter * file
 
 " Map <tab> for trigger completion, completion confirm, snippet expand and jump like VSCode.
 " Note: the `coc-snippets` extension is required for this to work.
