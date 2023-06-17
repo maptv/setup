@@ -568,7 +568,6 @@ augroup mygroup
 augroup end
 
 function! MakeItEasyToLeaveCommandWindow()
-  nnoremap <buffer> <Esc> <C-c><Esc>
   nnoremap <buffer> ZZ <C-c><Esc>
   nnoremap <buffer> ZQ <C-c><Esc>
 endfunction

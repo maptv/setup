@@ -433,7 +433,6 @@ au FileType snakemake setlocal completeopt=menuone,longest
 au FileType snakemake setlocal tw=79 tabstop=4 shiftwidth=4 softtabstop=4
 
 function! MakeItEasyToLeaveCommandWindow()
-  nnoremap <buffer> <Esc> <C-c><Esc>
   nnoremap <buffer> ZZ <C-c><Esc>
   nnoremap <buffer> ZQ <C-c><Esc>
 endfunction
