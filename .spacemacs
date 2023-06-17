@@ -73,8 +73,8 @@ This function should only modify configuration layer settings."
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
-                                      evil-quickscope           
-                                      evil-replace-with-register           
+                                      evil-quickscope
+                                      evil-replace-with-register
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -532,6 +532,10 @@ before packages are loaded."
   ;; do not highlight current line
   (setq global-hl-line-mode nil)
 
+  ;; do not show statusline
+  (setq mode-line-format nil)
+  (setq-default mode-line-format nil)
+
   (defun backward-kill-line (arg)
     "Kill ARG lines backward."
     (interactive "p")
@@ -540,18 +544,14 @@ before packages are loaded."
   ;; Don't let evil-snipe remap s and S
   (evil-snipe-mode -1)
 
+  ;; Let evil-snipe remap f/F/t/T
+  (evil-snipe-override-mode +1)
+
   ;; Don't let evil-snipe repeat with f/F/t/T
   (setq evil-snipe-repeat-keys nil)
 
-  ;; Use ; and , for evil-snipe 
+  ;; Use ; and , for evil-snipe
   (setq evil-snipe-override-evil-repeat-keys t)
-
-  ;; evil-snipe f/F/t/T don't work on their own
-  (evil-define-key 'motion global-map
-    (kbd "f") 'evil-snipe-f
-    (kbd "F") 'evil-snipe-F
-    (kbd "t") 'evil-snipe-t
-    (kbd "T") 'evil-snipe-T)
 
   (evil-define-key 'insert global-map (kbd "C-a") 'move-beginning-of-line)
   (evil-define-key 'insert global-map (kbd "C-e") 'move-end-of-line)
