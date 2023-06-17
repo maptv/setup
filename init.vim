@@ -567,6 +567,15 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
+function! MakeItEasyToLeaveCommandWindow()
+  nnoremap <buffer> <Esc> <C-c><Esc>
+  nnoremap <buffer> ZZ <C-c><Esc>
+  nnoremap <buffer> ZQ <C-c><Esc>
+endfunction
+
+" No need to undo
+au CmdwinEnter * silent! call MakeItEasyToLeaveCommandWindow()
+
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
