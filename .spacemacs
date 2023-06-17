@@ -529,6 +529,9 @@ before packages are loaded."
   (require 'evil-quickscope)
   (global-evil-quickscope-always-mode 1)
 
+  ;; do not highlight current line
+  (setq global-hl-line-mode nil)
+
   (defun backward-kill-line (arg)
     "Kill ARG lines backward."
     (interactive "p")

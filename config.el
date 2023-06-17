@@ -72,6 +72,9 @@
 ;; completely black background
 (custom-set-faces '(default ((t (:background "#000000")))))
 
+;; do not highlight current line
+(setq global-hl-line-modes nil)
+
 (defun backward-kill-line (arg)
   "Kill ARG lines backward."
   (interactive "p")
