@@ -536,11 +536,6 @@ before packages are loaded."
   (setq mode-line-format nil)
   (setq-default mode-line-format nil)
 
-  (defun backward-kill-line (arg)
-    "Kill ARG lines backward."
-    (interactive "p")
-    (kill-line (- 1 arg)))
-
   ;; Don't let evil-snipe remap s and S
   (evil-snipe-mode -1)
 
@@ -552,6 +547,21 @@ before packages are loaded."
 
   ;; Use ; and , for evil-snipe
   (setq evil-snipe-override-evil-repeat-keys t)
+
+  ;; evil-replace-with-register
+  (require 'evil-replace-with-register)
+  (setq evil-replace-with-register-key (kbd "gr"))
+  (evil-replace-with-register-install)
+
+  ;; evil-exchange
+  (require 'evil-exchange)
+  (setq evil-exchange-key (kbd "gy"))
+  (evil-exchange-install)
+
+  (defun backward-kill-line (arg)
+    "Kill ARG lines backward."
+    (interactive "p")
+    (kill-line (- 1 arg)))
 
   (evil-define-key 'insert global-map (kbd "C-a") 'move-beginning-of-line)
   (evil-define-key 'insert global-map (kbd "C-e") 'move-end-of-line)
@@ -577,16 +587,6 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-
-;; evil-replace-with-register
-(require 'evil-replace-with-register)
-(setq evil-replace-with-register-key (kbd "gr"))
-(evil-replace-with-register-install)
-
-;; evil-exchange
-(require 'evil-exchange)
-(setq evil-exchange-key (kbd "gy"))
-(evil-exchange-install)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
