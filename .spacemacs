@@ -582,15 +582,12 @@ before packages are loaded."
 
   (evil-want-Y-yank-to-eol t)
 
-  ;; https://github.com/syl20bnr/spacemacs/issues/774#issuecomment-77712618
-  (setq undo-tree-auto-save-history t
-        undo-tree-history-directory-alist
-        `(("." . ,(concat spacemacs-cache-directory "undo"))))
-  (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
-    (make-directory (concat spacemacs-cache-directory "undo")))
+  (setq undo-tree-auto-save-history t)
+  (global-undo-tree-mode)
 
   )
 
+;; Do not write anything past this comment. This is where Emacs will
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
