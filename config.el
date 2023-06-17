@@ -75,6 +75,9 @@
 ;; do not highlight current line
 (setq global-hl-line-modes nil)
 
+;; do not show line numbers
+(setq display-line-numbers-type nil)
+
 (defun backward-kill-line (arg)
   "Kill ARG lines backward."
   (interactive "p")
