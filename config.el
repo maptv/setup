@@ -33,7 +33,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type nil)
 
 ;; auto-save
 (setq auto-save-visited-file-name t)
@@ -47,11 +47,11 @@
 ;; persistent undo
 (setq undo-tree-auto-save-history t)
 
-;; use cx for exchange-evil to match vim-exchange
-(setq evil-exchange-key (kbd "cx"))
-
 ;; Don't let evil-snipe remap s and S
-(after! evil-snipe (evil-snipe-mode -1))
+(remove-hook 'doom-first-input-hook #'evil-snipe-mode)
+
+;; Replace evil-mode's f/F/t/T functionality with (1-character) sniping
+(evil-snipe-override-mode +1)
 
 ;; Don't let evil-snipe repeat with f/F/t/T
 (setq evil-snipe-repeat-keys nil)
@@ -75,8 +75,12 @@
 ;; do not highlight current line
 (setq global-hl-line-modes nil)
 
-;; do not show line numbers
-(setq display-line-numbers-type nil)
+
+;; do not show modeline/statusline
+;; https://github.com/doomemacs/doomemacs/issues/6209#issuecomment-1075137980
+(add-hook 'buffer-list-update-hook (lambda ()
+                                     (unless (active-minibuffer-window)
+                                       (hide-mode-line-mode))))
 
 (defun backward-kill-line (arg)
   "Kill ARG lines backward."
