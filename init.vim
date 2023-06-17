@@ -570,6 +570,7 @@ augroup end
 function! MakeItEasyToLeaveCommandWindow()
   nnoremap <buffer> ZZ <C-c><Esc>
   nnoremap <buffer> ZQ <C-c><Esc>
+  nnoremap <buffer> <C-c> <C-c><Esc>
 endfunction
 
 " No need to undo

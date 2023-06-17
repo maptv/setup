@@ -435,6 +435,7 @@ au FileType snakemake setlocal tw=79 tabstop=4 shiftwidth=4 softtabstop=4
 function! MakeItEasyToLeaveCommandWindow()
   nnoremap <buffer> ZZ <C-c><Esc>
   nnoremap <buffer> ZQ <C-c><Esc>
+  nnoremap <buffer> <C-c> <C-c><Esc>
 endfunction
 
 " No need to undo
