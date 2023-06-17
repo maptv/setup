@@ -75,7 +75,6 @@
 ;; do not highlight current line
 (setq global-hl-line-modes nil)
 
-
 ;; do not show modeline/statusline
 ;; https://github.com/doomemacs/doomemacs/issues/6209#issuecomment-1075137980
 (add-hook 'buffer-list-update-hook (lambda ()
@@ -119,6 +118,8 @@
 (require 'evil-exchange)
 (setq evil-exchange-key (kbd "gy"))
 (evil-exchange-install)
+
+(global-undo-fu-session-mode)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
