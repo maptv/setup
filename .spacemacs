@@ -577,6 +577,8 @@ before packages are loaded."
   (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
   (evil-define-key 'normal global-map (kbd "gx") 'browse-url-at-point)
   (evil-define-key 'normal global-map (kbd "ZA") 'evil-save-and-quit)
+  (evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
+  (evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
 
   (evil-want-Y-yank-to-eol t)
 

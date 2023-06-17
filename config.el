@@ -101,6 +101,10 @@
 (evil-define-key 'insert global-map (kbd "C-y") 'yank)
 (evil-define-key 'normal global-map (kbd "gx") 'browse-url-at-point)
 (evil-define-key 'normal global-map (kbd "ZA") 'evil-save-and-quit)
+(evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
+(evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
+(evil-define-key 'normal evil-command-window-mode-map [escape] 'evil-normal-state)
+(define-key evil-ex-completion-map "\C-f" 'evil-ex-command-window)
 
 ;; evil-quickscope
 (require 'evil-quickscope)
