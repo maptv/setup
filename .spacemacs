@@ -588,7 +588,6 @@ before packages are loaded."
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
-;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
