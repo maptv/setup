@@ -573,8 +573,10 @@ before packages are loaded."
   (evil-define-key 'insert global-map (kbd "C-y") 'yank)
   (evil-define-key 'normal global-map (kbd "C-i") 'evil-jump-forward)
   (evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
+  (evil-define-key 'normal global-map (kbd "C-g") 'evil-show-file-info)
   (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
   (evil-define-key 'normal global-map (kbd "gx") 'browse-url-at-point)
+  (evil-define-key 'normal global-map (kbd "ZA") 'evil-save-and-quit)
 
   (evil-want-Y-yank-to-eol t)
 
