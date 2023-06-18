@@ -315,13 +315,6 @@ let $FZF_DEFAULT_OPTS="'--bind=change:top,ctrl-/:toggle-preview,ctrl-n:down,ctrl
 " Disable visualbell
 set noerrorbells visualbell t_vb=
 
-" CamelCaseWord
-" let g:camelchar = "A-Z"
-" Also stop on numbers.
-" let g:camelchar = "A-Z0-9"
-" Include '.' for class member, ',' for separator, ';' end-statement, " and <[< bracket starts and "'` quotes.
-let g:camelchar = "A-Z0-9.,;:{([`'\""
-
 " http://sherifsoliman.com/2017/07/22/nvim-r/
 " press alt+, to have Nvim-R insert the assignment operator: <-
 let R_assign_map = "<A-,>"
@@ -567,6 +560,10 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
+"*****************************************************************************
+"" Mappings
+"*****************************************************************************
+
 function! MakeItEasyToLeaveCommandWindow()
   nnoremap <buffer> ZZ <C-c><Esc>
   nnoremap <buffer> ZQ <C-c><Esc>
@@ -575,22 +572,6 @@ endfunction
 
 " No need to undo
 au CmdwinEnter * silent! call MakeItEasyToLeaveCommandWindow()
-
-"*****************************************************************************
-"" Mappings
-"*****************************************************************************
-
-nmap <silent><C-CR> <Plug>SlimeSendCell
-nmap <silent><M-CR> <Plug>SlimeLineSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-nmap <silent><S-CR> <Plug>SlimeSendCell `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" nmap <silent><leader>c <Plug>SlimeSendCell `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" nmap <silent><leader>l <Plug>SlimeLineSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" nmap <silent><leader>m <Plug>SlimeMotionSend
-" nnoremap <silent><leader>p :Page<CR>
-xmap <silent><M-CR> <Plug>SlimeRegionSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" xmap <silent><leader>c <Plug>SlimeSendCell `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" xmap <silent><leader>l <Esc><Plug>SlimeLineSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-xmap <silent><leader>v <Plug>SlimeRegionSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -847,17 +828,16 @@ vnoremap <M-w> "1y
 vnoremap <M-x> :
 
 "" Git
-" nnoremap gs :Gstatus<CR>
 nnoremap [g :diffget //2<CR>
 nnoremap ]g :diffget //3<CR>
-nnoremap <silent><leader>gw :Gwrite<CR>
-nnoremap <silent><leader>gc :Gwrite<bar>Gcommit<CR>
-nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gu :Gpull<CR>
-nnoremap <leader>gd :Gvdiff<CR>
-nnoremap <leader>gr :Gremove<CR>
-nnoremap <leader>gl :Glog<CR>
-nnoremap <leader>gg :Gwrite<CR>:Gcommit -m "edit "%<CR>:Gpush<CR>
+" nnoremap <silent><leader>gw :Gwrite<CR>
+" nnoremap <silent><leader>gc :Gwrite<bar>Gcommit<CR>
+" nnoremap <leader>gp :Gpush<CR>
+" nnoremap <leader>gu :Gpull<CR>
+" nnoremap <leader>gd :Gvdiff<CR>
+" nnoremap <leader>gr :Gremove<CR>
+" nnoremap <leader>gl :Glog<CR>
+" nnoremap <leader>gg :Gwrite<CR>:Gcommit -m "edit "%<CR>:Gpush<CR>
 
 " https://github.com/neoclide/coc-git
 " https://github.com/neoclide/coc-yank
@@ -1005,6 +985,21 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
+" Insert mode completion
+" https://github.com/junegunn/fzf.vim#mappings
+imap <C-x><C-a> <plug>(fzf-complete-file-ag)
+imap <C-x><C-b> <plug>(fzf-complete-buffer-line)
+imap <C-x><C-f> <plug>(fzf-complete-file)
+imap <C-x><C-l> <plug>(fzf-complete-line)
+imap <C-x><C-d> <plug>(fzf-complete-path)
+imap <C-x><C-w> <plug>(fzf-complete-word)
+imap <C-x>a <plug>(fzf-complete-file-ag)
+imap <C-x>b <plug>(fzf-complete-buffer-line)
+imap <C-x>f <plug>(fzf-complete-file)
+imap <C-x>l <plug>(fzf-complete-line)
+imap <C-x>d <plug>(fzf-complete-path)
+imap <C-x>w <plug>(fzf-complete-word)
+
 " Symbol renaming.
 " nmap <leader>r <Plug>(coc-rename)
 
@@ -1036,18 +1031,6 @@ nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
 
-" https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L1075
-" To recover R console after pressing <C-w>o (window only), press <C-w>u (window undo)
-" https://vi.stackexchange.com/questions/241/undo-only-window
-" function! Zoom()
-"   if winbufnr(2) == -1 " https://stackoverflow.com/a/7070691
-"     wa | source ~/session.vim
-"   else
-"     mksession! ~/session.vim | wincmd o
-"   endif
-" endfunction
-
-" nnoremap <C-w>o :call Zoom()<CR>
 let g:maximizer_set_default_mapping = 0
 nnoremap <silent><C-w>o :MaximizerToggle<CR>
 vnoremap <silent><C-w>o :MaximizerToggle<CR>gv
@@ -1245,7 +1228,90 @@ if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
-endif
+
+" Use <C-x><C-o> to activate vim omnicompletion
+iunmap <C-x><C-o>
+
+" https://github.com/junegunn/fzf.vim/issues/865
+" https://github.com/junegunn/fzf.vim/issues/10
+" TODO a for :args
+" TODO c for :changes
+" TODO j for :jumps
+" TODO p for put into register
+" TODO P for append to register
+" TODO y for yank from register
+" TODO @ for execute macro from registers
+nnoremap <silent> <leader>' :Marks!<CR>
+nnoremap <silent> <leader>/ :History/!<CR>
+nnoremap <silent> <leader>: :History:!<CR>
+nnoremap <silent> <leader>? :Helptags!<CR>
+nnoremap <silent> <leader>A :Ag!<CR>
+" use gb instead
+" nnoremap <silent> <leader>b :Buffers!<CR>
+" nnoremap <silent> <leader>c :Commits!<CR>
+nnoremap <silent> <leader>C :BCommits!<CR>
+" nnoremap <silent> <leader>f :Files!<CR>
+nnoremap <silent> <leader>F :Filetypes!<CR>
+" nnoremap <silent> <leader>gf :GFiles!<CR>
+nnoremap <silent> <leader>h :History!<CR>
+" nnoremap <silent> <leader>l :Lines!<CR>
+nnoremap <silent> <leader>L :BLines!<CR>
+nnoremap <silent> <leader>m :Maps!<CR>
+nnoremap <silent> <leader>r :Rg!<CR>
+" nnoremap <silent> <leader>s :Snippets!<CR>
+" nnoremap <silent> <leader>t :Tags!<CR>
+nnoremap <silent> <leader>T :BTags!<CR>
+" nnoremap <silent> <leader>w :Windows!<CR>
+nnoremap <silent> <leader>x :Commands!<CR>
+nnoremap <silent> <leader>z :FZF! -m<CR>
+
+" https://github.com/junegunn/fzf.vim#mappings
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" https://github.com/junegunn/fzf.vim#completion-functions
+" Path completion with custom source command
+inoremap <expr> <c-x><c-r> fzf#vim#complete#path('rg --files')
+inoremap <expr> <c-x>r fzf#vim#complete#path('rg --files')
+inoremap <expr> <c-x><c-d> fzf#vim#complete#path('exa --only-dirs')
+inoremap <expr> <c-x>d fzf#vim#complete#path('exa --only-dirs')
+
+" Mappings inspired by my .zshrc
+imap <c-x><c-u> <C-o>u
+imap <c-x>u <C-o>u
+imap <c-x><c-x> <C-o>``
+imap <c-x>x <C-o>``
+
+" Map <tab> for trigger completion, completion confirm, snippet expand and jump like VSCode.
+" Note: the `coc-snippets` extension is required for this to work.
+" https://github.com/neoclide/coc.nvim/blob/2ee86b914fc047b81fd61bd2156e062a9c0d5533/doc/coc.txt#L910
+inoremap <silent><expr> <TAB>
+  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ "\<TAB>"
+
+inoremap <silent><expr> <CR>
+  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ "\<CR>"
+
+inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
+inoremap <silent><expr> <C-g> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
+inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
+
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap Q gqap
+nnoremap ZA :xa<CR>
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+else
+inoremap <silent><expr> <c-@> coc#refresh()
 
 " Use `[d` and `]d` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.

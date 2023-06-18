@@ -28,7 +28,6 @@
     windows_smartclose = ""
     enable_cursorline = 0
     vimcompatible = true
-    bootstrap_before = 'myspacevim#before'
     bootstrap_after = 'myspacevim#after'
 
 # Enable autocomplete layer
@@ -51,6 +50,11 @@
     name = 'shell'
     default_position = 'top'
     default_height = 30
+
+[[layers]]
+name = "core#statusline"
+enable = false
+
 [[custom_plugins]]
     name = 'machakann/vim-highlightedyank'
     name = 'justinmk/vim-sneak'

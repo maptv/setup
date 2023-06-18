@@ -290,12 +290,6 @@ let $FZF_DEFAULT_OPTS="'--bind=change:top,ctrl-/:toggle-preview,ctrl-n:down,ctrl
 " Disable visualbell
 set noerrorbells visualbell t_vb=
 
-" CamelCaseWord
-" let g:camelchar = "A-Z"
-" Also stop on numbers.
-" let g:camelchar = "A-Z0-9"
-" Include '.' for class member, ',' for separator, ';' end-statement, " and <[< bracket starts and "'` quotes.
-let g:camelchar = "A-Z0-9.,;:{([`'\""
 " COC settings
 " https://github.com/neoclide/coc.nvim/blob/82c3834f8bfc5d91ce907405722fe0f297e13cff/doc/coc.txt#L1202
 let g:coc_global_extensions = ['coc-bibtex', 'coc-git', 'coc-json', 'coc-python', 'coc-r-lsp', 'coc-sh', 'coc-snippets', 'coc-yaml', 'coc-yank']
@@ -432,6 +426,10 @@ au FileType snakemake let Comment="#"
 au FileType snakemake setlocal completeopt=menuone,longest
 au FileType snakemake setlocal tw=79 tabstop=4 shiftwidth=4 softtabstop=4
 
+"*****************************************************************************
+"" Mappings
+"*****************************************************************************
+
 function! MakeItEasyToLeaveCommandWindow()
   nnoremap <buffer> ZZ <C-c><Esc>
   nnoremap <buffer> ZQ <C-c><Esc>
@@ -440,22 +438,6 @@ endfunction
 
 " No need to undo
 au CmdwinEnter * silent! call MakeItEasyToLeaveCommandWindow()
-
-"*****************************************************************************
-"" Mappings
-"*****************************************************************************
-
-nmap <silent><C-CR> <Plug>SlimeSendCell
-nmap <silent><M-CR> <Plug>SlimeLineSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-nmap <silent><S-CR> <Plug>SlimeSendCell `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" nmap <silent><leader>c <Plug>SlimeSendCell `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" nmap <silent><leader>l <Plug>SlimeLineSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" nmap <silent><leader>m <Plug>SlimeMotionSend
-" nnoremap <silent><leader>p :Page<CR>
-xmap <silent><M-CR> <Plug>SlimeRegionSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" xmap <silent><leader>c <Plug>SlimeSendCell `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" xmap <silent><leader>l <Esc><Plug>SlimeLineSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
-" xmap <silent><leader>v <Plug>SlimeRegionSend `]:set nowrapscan<CR>:call search('^.\+')<CR>:set wrapscan<CR>
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -728,7 +710,6 @@ vnoremap <M-w> "1y
 vnoremap <M-x> :
 
 "" Git
-" nnoremap <leader>gs :Gstatus<CR>
 nnoremap [g :diffget //2<CR>
 nnoremap ]g :diffget //3<CR>
 " nnoremap <silent><leader>gw :Gwrite<CR>
@@ -834,14 +815,13 @@ xnoremap <leader>c y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:gr
 xnoremap <leader>l y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:lgrep -r "<C-r>0" * .[^.]* --exclude-dir={.git,tags}<CR><C-o>:lopen<CR>:set modifiable<CR>:<C-f>ild s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
 xnoremap <leader>s y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i%s//&/ge<C-left><left><Esc>gh
 xnoremap <leader>w y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>iwindo %s//&/ge \| up<C-left><C-left><C-left><left><Esc>gh
-" a change
+
 " https://vonheikemen.github.io/devlog/tools/how-to-survive-without-multiple-cursors-in-vim/#replace-a-selection
 nnoremap <C-n> *``"_cgn
 nnoremap <C-p> *``"_cgN
 xnoremap <C-n> y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgn
 xnoremap <C-p> y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>"_cgN
 
-" I can change the working copy
 " Make using the g command easier
 nnoremap <leader>g :<C-f>ig//
 xnoremap <leader>g y:let @/=substitute(escape(@0, '/'), '\n', '\\n', 'g')<CR>:<C-f>i'<,'>g//
@@ -864,6 +844,43 @@ nnoremap <silent> <leader><leader> :noh<cr>
 "" Open current line on GitHub
 nnoremap <leader>o :.Gbrowse<CR>
 
+nnoremap <silent> <leader>A :Ag<CR>
+" use gb instead
+" nnoremap <silent> <leader>b :Buffers<CR>
+"Recovery commands from history through FZF
+" nnoremap <silent> <leader>h :History<CR>
+nnoremap <silent> <leader>B :BCommits<CR>
+nnoremap <silent> <leader>C :Commands<CR>
+nnoremap <silent> <leader>gf :GFiles<CR>
+nnoremap <silent> <leader>F :Files<CR>
+nnoremap <silent> <leader>H :Helptags<CR>
+nnoremap <silent> <leader>M :Maps<CR>
+nnoremap <silent> <leader>' :Marks<CR>
+nnoremap <silent> <leader>L :Lines<CR>
+nnoremap <silent> <leader>R :Rg<CR>
+nnoremap <silent> <leader>T :Tags<CR>
+nnoremap <silent> <leader>z :FZF -m<CR>
+
+" https://github.com/junegunn/fzf.vim#mappings
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+" https://github.com/junegunn/fzf.vim#mappings
+imap <C-x><C-a> <plug>(fzf-complete-file-ag)
+imap <C-x><C-b> <plug>(fzf-complete-buffer-line)
+imap <C-x><C-f> <plug>(fzf-complete-file)
+imap <C-x><C-l> <plug>(fzf-complete-line)
+imap <C-x><C-d> <plug>(fzf-complete-path)
+imap <C-x><C-w> <plug>(fzf-complete-word)
+imap <C-x>a <plug>(fzf-complete-file-ag)
+imap <C-x>b <plug>(fzf-complete-buffer-line)
+imap <C-x>f <plug>(fzf-complete-file)
+imap <C-x>l <plug>(fzf-complete-line)
+imap <C-x>d <plug>(fzf-complete-path)
+imap <C-x>w <plug>(fzf-complete-word)
 
 " Symbol renaming.
 " nmap <leader>r <Plug>(coc-rename)
@@ -896,23 +913,12 @@ nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
 
-" https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L1075
-" To recover R console after pressing <C-w>c / <C-w>o/<C-w>q
-" https://vi.stackexchange.com/questions/241/undo-only-window
-" function! Zoom()
-"   if winbufnr(2) == -1 " https://stackoverflow.com/a/7070691
-"     wa | source ~/session.vim
-"   else
-"     mksession! ~/session.vim | wincmd o
-"   endif
-" endfunction
-
-" nnoremap <C-w>o :call Zoom()<CR>
 let g:maximizer_set_default_mapping = 0
 nnoremap <silent><C-w>o :MaximizerToggle<CR>
 vnoremap <silent><C-w>o :MaximizerToggle<CR>gv
 nnoremap <C-w>c :mksession! ~/session.vim<CR>:wincmd c<CR>:file<CR>
 nnoremap <C-w>q :mksession! ~/session.vim<CR>:wincmd q<CR>:file<CR>
+" https://vi.stackexchange.com/questions/241/undo-only-window
 nnoremap <C-w>u :silent :source ~/session.vim<CR>
 
 " e is easier to reach than = and is unbound by default
@@ -923,7 +929,6 @@ nnoremap <C-w>= <C-w>+
 nnoremap <C-w>, <C-w><
 " . is easier to type than < and is unbound by default
 nnoremap <C-w>. <C-w>>
-
 " Fuzzy finder (FZF)
 " https://jesseleite.com/posts/2/its-dangerous-to-vim-alone-take-fzf
 nnoremap <silent> gB :BCommits<CR>
@@ -933,18 +938,106 @@ nnoremap <silent> g/ :History/<CR>
 
 " Insert mode completion
 " https://github.com/junegunn/fzf.vim#mappings
-imap <C-x><C-a> <plug>(fzf-complete-file-ag)
-imap <C-x><C-b> <plug>(fzf-complete-buffer-line)
-imap <C-x><C-f> <plug>(fzf-complete-file)
-imap <C-x><C-l> <plug>(fzf-complete-line)
-imap <C-x><C-d> <plug>(fzf-complete-path)
-imap <C-x><C-w> <plug>(fzf-complete-word)
-imap <C-x>a <plug>(fzf-complete-file-ag)
-imap <C-x>b <plug>(fzf-complete-buffer-line)
-imap <C-x>f <plug>(fzf-complete-file)
-imap <C-x>l <plug>(fzf-complete-line)
-imap <C-x>d <plug>(fzf-complete-path)
-imap <C-x>w <plug>(fzf-complete-word)
+imap <c-x><c-a> <plug>(fzf-complete-file-ag)
+imap <c-x><c-b> <plug>(fzf-complete-buffer-line)
+imap <c-x><c-f> <plug>(fzf-complete-file)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+imap <c-x><c-d> <plug>(fzf-complete-path)
+imap <c-x><c-w> <plug>(fzf-complete-word)
+imap <c-x>a <plug>(fzf-complete-file-ag)
+imap <c-x>b <plug>(fzf-complete-buffer-line)
+imap <c-x>f <plug>(fzf-complete-file)
+imap <c-x>l <plug>(fzf-complete-line)
+imap <c-x>d <plug>(fzf-complete-path)
+imap <c-x>w <plug>(fzf-complete-word)
+
+" Use <C-x><C-o> to activate vim omnicompletion
+iunmap <C-x><C-o>
+
+nnoremap <silent> <leader>' :Marks!<CR>
+nnoremap <silent> <leader>/ :History/!<CR>
+nnoremap <silent> <leader>: :History:!<CR>
+nnoremap <silent> <leader>? :Helptags!<CR>
+nnoremap <silent> <leader>A :Ag!<CR>
+" nnoremap <silent> <leader>b :Buffers!<CR>
+" nnoremap <silent> <leader>c :Commits!<CR>
+nnoremap <silent> <leader>C :BCommits!<CR>
+" nnoremap <silent> <leader>f :Files!<CR>
+nnoremap <silent> <leader>F :Filetypes!<CR>
+nnoremap <silent> <leader>gf :GFiles!<CR>
+nnoremap <silent> <leader>h :History!<CR>
+" nnoremap <silent> <leader>l :Lines!<CR>
+nnoremap <silent> <leader>L :BLines!<CR>
+nnoremap <silent> <leader>m :Maps!<CR>
+nnoremap <silent> <leader>r :Rg!<CR>
+" nnoremap <silent> <leader>s :Snippets!<CR>
+" nnoremap <silent> <leader>t :Tags!<CR>
+nnoremap <silent> <leader>T :BTags!<CR>
+" nnoremap <silent> <leader>w :Windows!<CR>
+nnoremap <silent> <leader>x :Commands!<CR>
+nnoremap <silent> <leader>z :FZF! -m<CR>
+
+" https://github.com/junegunn/fzf.vim#mappings
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" https://github.com/junegunn/fzf.vim#completion-functions
+" Path completion with custom source command
+inoremap <expr> <c-x><c-r> fzf#vim#complete#path('rg --files')
+inoremap <expr> <c-x>r fzf#vim#complete#path('rg --files')
+inoremap <expr> <c-x><c-d> fzf#vim#complete#path('exa --only-dirs')
+inoremap <expr> <c-x>d fzf#vim#complete#path('exa --only-dirs')
+
+" Mappings inspired by my .zshrc
+imap <c-x><c-u> <C-o>u
+imap <c-x>u <C-o>u
+imap <c-x><c-x> <C-o>``
+imap <c-x>x <C-o>``
+
+" https://github.com/neovim/neovim/issues/1822#issuecomment-233152833
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
+
+" https://vim.fandom.com/wiki/Moving_through_camel_case_words
+" Stop on capital letters.
+nnoremap <silent><A-C-b> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
+nnoremap <silent><A-C-f> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
+inoremap <silent><A-C-b> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
+inoremap <silent><A-C-f> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
+vnoremap <silent><A-C-b> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
+vnoremap <silent><A-C-f> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
+
+" Map <tab> for trigger completion, completion confirm, snippet expand and jump like VSCode.
+" Note: the `coc-snippets` extension is required for this to work.
+" https://github.com/neoclide/coc.nvim/blob/2ee86b914fc047b81fd61bd2156e062a9c0d5533/doc/coc.txt#L910
+inoremap <silent><expr> <TAB>
+  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ "\<TAB>"
+
+inoremap <silent><expr> <CR>
+  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ "\<CR>"
+
+inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
+inoremap <silent><expr> <C-g> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
+inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
+
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap Q gqap
+nnoremap ZA :xa<CR>
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
 
 " Use <C-x><C-o> to activate vim omnicompletion
 iunmap <C-x><C-o>
@@ -1001,10 +1094,6 @@ imap <c-x>u <C-o>u
 imap <c-x><c-x> <C-o>``
 imap <c-x>x <C-o>``
 
-" https://vim.fandom.com/wiki/Moving_through_camel_case_words
-" Stop on capital letters.
-" CamelCaseWord shortcuts will not work in vim (no way to send alt+ctrl)
-
 " Map <tab> for trigger completion, completion confirm, snippet expand and jump like VSCode.
 " Note: the `coc-snippets` extension is required for this to work.
 " https://github.com/neoclide/coc.nvim/blob/2ee86b914fc047b81fd61bd2156e062a9c0d5533/doc/coc.txt#L910
@@ -1030,11 +1119,9 @@ nnoremap Q gqap
 nnoremap ZA :xa<CR>
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+inoremap <silent><expr> <c-@> coc#refresh()
 
 " Use `[d` and `]d` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
