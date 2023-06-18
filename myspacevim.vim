@@ -100,8 +100,6 @@ set nonu
 "" Mappings
 "*****************************************************************************
 
-autocmd VimEnter * nunmap ,<space>
-
 function! MakeItEasyToLeaveCommandWindow()
   nnoremap <buffer> ZZ <C-c><Esc>
   nnoremap <buffer> ZQ <C-c><Esc>
@@ -1146,6 +1144,7 @@ endif
 " miniyank plugin is broken
 unmap p
 unmap P
+unmap ,<space>
 
 set sel=exclusive
 endfunction

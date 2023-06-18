@@ -59,7 +59,13 @@
     enable = false
 
 [[custom_plugins]]
-    name = 'machakann/vim-highlightedyank'
-    name = 'justinmk/vim-sneak'
-    name = 'easymotion/vim-easymotion'
-    name = 'szw/vim-maximizer'
+    repo = 'justinmk/vim-sneak'
+
+[[custom_plugins]]
+    repo = 'machakann/vim-highlightedyank'
+
+[[custom_plugins]]
+    repo = 'szw/vim-maximizer'
+
+[[custom_plugins]]
+    repo = 'easymotion/vim-easymotion'
