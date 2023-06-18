@@ -85,10 +85,10 @@ set go+=a
 
 set fillchars+=vert:│
 set laststatus=0
-highlight Normal guibg=NONE ctermbg=NONE
-highlight NonText guibg=NONE ctermbg=NONE
 highlight EndOfBuffer guibg=NONE ctermbg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+highlight Normal guibg=NONE ctermbg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
 highlight MsgArea ctermbg=NONE guibg=NONE
 highlight VertSplit ctermbg=NONE guibg=NONE
@@ -711,18 +711,17 @@ imap <c-x>u <C-o>u
 imap <c-x><c-x> <C-o>``
 imap <c-x>x <C-o>``
 
-" https://github.com/neovim/neovim/issues/1822#issuecomment-233152833
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
-
+if has('nvim')
 " https://vim.fandom.com/wiki/Moving_through_camel_case_words
-" Stop on capital letters.
+" Stop on capital letters, numbers, and the symbols below:
+let g:camelchar = "A-Z0-9.,;:{([`'\""
 nnoremap <silent><A-C-b> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
 nnoremap <silent><A-C-f> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 inoremap <silent><A-C-b> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
 inoremap <silent><A-C-f> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 vnoremap <silent><A-C-b> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
 vnoremap <silent><A-C-f> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
+endif
 
 nnoremap n nzz
 nnoremap N Nzz

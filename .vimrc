@@ -64,9 +64,6 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'joshdick/onedark.vim'
 
-"" REPL
-Plug 'jpalardy/vim-slime', { 'branch': 'main' }
-
 "" Python
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
@@ -995,10 +992,6 @@ imap <c-x><c-u> <C-o>u
 imap <c-x>u <C-o>u
 imap <c-x><c-x> <C-o>``
 imap <c-x>x <C-o>``
-
-" https://github.com/neovim/neovim/issues/1822#issuecomment-233152833
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
 
 " https://vim.fandom.com/wiki/Moving_through_camel_case_words
 " Stop on capital letters.

@@ -77,9 +77,6 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'navarasu/onedark.nvim'
 
-"" REPL
-Plug 'jpalardy/vim-slime', { 'branch': 'main' }
-
 "" Python
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
@@ -1191,7 +1188,8 @@ map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 
 " https://vim.fandom.com/wiki/Moving_through_camel_case_words
-" Stop on capital letters.
+" Stop on capital letters, numbers, and the symbols below:
+let g:camelchar = "A-Z0-9.,;:{([`'\""
 nnoremap <silent><A-C-b> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
 nnoremap <silent><A-C-f> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 inoremap <silent><A-C-b> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
