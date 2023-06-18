@@ -1224,13 +1224,10 @@ nnoremap Q gqap
 nnoremap ZA :xa<CR>
 
 " Use <c-space> to trigger completion.
-if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
 
 " Use <C-x><C-o> to activate vim omnicompletion
-iunmap <C-x><C-o>
+" iunmap <C-x><C-o>
 
 " https://github.com/junegunn/fzf.vim/issues/865
 " https://github.com/junegunn/fzf.vim/issues/10
@@ -1310,8 +1307,6 @@ nnoremap ZA :xa<CR>
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-else
-inoremap <silent><expr> <c-@> coc#refresh()
 
 " Use `[d` and `]d` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.

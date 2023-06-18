@@ -22,154 +22,6 @@ function! myspacevim#after() abort
     set <A-.>=.
   endif
 
-  " Window bindings
-  " https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L1075
-  " To recover R console after pressing <C-w>o (window only), press <C-w>u (window undo)
-  " https://vi.stackexchange.com/questions/241/undo-only-window
-  function! Zoom()
-    if winbufnr(2) == -1 " https://stackoverflow.com/a/7070691
-      wa | source ~/session.vim
-    else
-      mksession! ~/session.vim | wincmd o
-    endif
-  endfunction
-
-  nnoremap <C-w>o :call Zoom()<CR>
-  nnoremap <C-w>c :mksession! ~/session.vim<CR>:wincmd c<CR>:file<CR>
-  nnoremap <C-w>q :mksession! ~/session.vim<CR>:wincmd q<CR>:file<CR>
-  " https://vi.stackexchange.com/questions/241/undo-only-window
-  nnoremap <C-w>u :silent :source ~/session.vim<CR>
-
-  " e is easier to reach than = and is unbound
-  nnoremap <C-w>e <C-w>=
-  " = is easier to type than +
-  nnoremap <C-w>= <C-w>+
-  " , is easier to type than < and is unbound by default
-  nnoremap <C-w>, <C-w><
-  " . is easier to type than < and is unbound by default
-  nnoremap <C-w>. <C-w>>
-
-  inoremap <C-a> <Home>
-  cnoremap <C-a> <Home>
-  " <C-b> = Move one character backward; the opposite of <C-f>
-  inoremap <C-b> <Left>
-  cnoremap <C-b> <Left>
-  " <C-d> = Delete one character forward; the opposite of <C-h>
-  inoremap <silent><expr> <C-d> "\<C-g>u<Delete>"
-  cnoremap <C-d> <Delete>
-  " <C-e> = Move to end of the line (already exists in command mode: c_ctrl-e), this also cancels completion
-  inoremap <C-e> <End>
-  " <C-f> = Move one character forward; the opposite of <C-b>; <C-f> is too useful (for : / ?) to remap
-  inoremap <C-f> <Right>
-  " <C-g> = Cancel completion
-  inoremap <silent><expr> <C-g> pumvisible() ? "\<C-e>" :  "<C-g>"
-  " <C-h> = Delete one character backward; the opposite of <C-d>; already exists in command mode: c_ctrl-h
-  inoremap <silent><expr> <C-h> "\<C-g>u<BS>"
-  " <C-k> = Delete to end of line; the opposite of <C-u>; https://www.reddit.com/r/vim/comments/9i58q8/question_re_delete_word_forward_in_insert_mode/e6he226/; https://superuser.com/a/855997
-  inoremap <expr> <C-k> col(".") == col("$") ? "<Del>" : "<C-o>d$"
-  cnoremap <C-k> <C-\>estrpart(getcmdline(),0,getcmdpos()-1)<CR>
-  " <C-r> = make paste from register undoable in insert mode; already exists in command mode: c_ctrl-r
-  inoremap <silent><expr> <C-r> "\<C-g>u<C-r>"
-  " <C-u> = Delete to start of line; the opposite of <C-k>; already exists in command mode: c_ctrl-u
-  inoremap <silent><expr> <C-u> "\<C-g>u<C-u>"
-  " <C-w> = Delete word backward; opposite of <A-d>; same as <A-h>; already exists in command mode: c_ctrl-w
-  inoremap <silent><expr> <C-w> "\<C-g>u<C-w>"
-  " <C-y> = Paste from system clipboard (not from killring like in bash/emacs)
-  inoremap <C-y> <C-r>+
-  cnoremap <C-y> <C-r>+
-  " <C-_> = Undo like in bash/emacs (this works really well)
-  inoremap <C-_> <C-o>u
-  " <C-/> = Undo like in bash/emacs (this works really well)
-  inoremap <C-/> <C-o>u
-  " <C-=> = Redo; opposite of <C-_>
-  inoremap <C-=> <C-o><C-r>
-
-  " " Emacs and bash style insert mode ALT shortcuts
-  " " <A-a> = Move to previous sentence start ; opposite of <A-e>
-  nnoremap <A-a> (
-  inoremap <A-a> <C-o>(
-  " " <A-b> = Move one word backward; opposite of <A-f>
-  nnoremap <A-b> b
-  inoremap <A-b> <S-Left>
-  cnoremap <A-b> <S-Left>
-  " <A-c> = Capitalize letter and move forward
-  nnoremap <A-c> gUllgueea
-  inoremap <expr> <A-c> getline('.')[col('.')-1] =~ "\\s" ? "<C-o>w<C-o>gUl<C-o>l<C-o>guw<Esc>ea" : "<C-o>gUl<C-o>l<C-o>guw<Esc>ea"
-  " " <A-d> = Delete word forward; opposite of <A-h> and <C-w>; https://www.reddit.com/r/vim/comments/9i58q8/question_re_delete_word_forward_in_insert_mode/e6he226/
-  nnoremap <A-d> dw
-  inoremap <expr> <A-d> col(".") == col("$") ? "<Del>" : "<C-o>de"
-  cnoremap <A-d> <S-Right><C-w>
-  " " <A-e> = Move to previous sentence start ; opposite of <A-a>
-  nnoremap <A-e> )T.
-  inoremap <A-e> <Esc>)T.i
-  " " <A-f> = Move one word forward; opposite of <A-b>
-  nnoremap <A-f> w
-  inoremap <A-f> <S-Right>
-  cnoremap <A-f> <S-Right>
-  " " <A-h> = Delete word backward; opposite of <A-d>; same as <C-w>
-  nnoremap <A-h> db
-  inoremap <silent><expr> <A-h> "\<C-g>u<C-w>"
-  cnoremap <A-h> <C-w>
-  " " <A-j> = Move down; opposite of <A-k>
-  inoremap <A-j> <Down>
-  cnoremap <A-j> <Down>
-  " " <A-k> = Delete to end of sentence
-  nnoremap <A-k> df.
-  inoremap <A-k> <C-o>df.
-  " " <A-l> = Lowercase to word end; opposite of <A-u>
-  inoremap <A-l> <C-o>gue<Esc>ea
-  cnoremap <A-l> <C-f>guee<C-c>
-  " " <A-t> = Swap current word with previous word
-  nnoremap <A-t> diwbPldep
-  inoremap <A-t> <Esc>diwbPldepa
-  cnoremap <A-t> <C-f>diwbPldep<C-c>
-  " " <A-u> = Uppercase to WORD end; opposite of <A-l>
-  nnoremap <A-u> gUeea
-  inoremap <A-u> <C-o>gUe<Esc>ea
-  cnoremap <A-u> <C-f>gUee<C-c>
-  " " <A-q> = Fill / Format paragraph
-  nnoremap <A-q> gwip
-  inoremap <A-q> <C-o>gwip
-  " " <A-.> = Insert previously inserted text (if any)
-  nnoremap <A-.> a<C-r>.
-  inoremap <A-.> <Esc>a<C-r>.
-  cnoremap <A-.> <C-r>.
-
-  " 2-character Sneak (default)
-  nmap <A-s>   <Plug>Sneak_s
-  nmap <A-S> <Plug>Sneak_S
-  " visual-mode
-  xmap <A-s>   <Plug>Sneak_s
-  xmap <A-S> <Plug>Sneak_S
-  " operator-pending-mode
-  omap <A-s>   <Plug>Sneak_s
-  omap <A-S> <Plug>Sneak_S
-
-  " repeat motion
-  map ; <Plug>Sneak_;
-  map , <Plug>Sneak_,
-
-  " 1-character enhanced 'f'
-  nmap f <Plug>Sneak_f
-  nmap F <Plug>Sneak_F
-  " visual-mode
-  xmap f <Plug>Sneak_f
-  xmap F <Plug>Sneak_F
-  " operator-pending-mode
-  " omap f <Plug>Sneak_f
-  " omap F <Plug>Sneak_F
-
-  " 1-character enhanced 't'
-  nmap t <Plug>Sneak_t
-  nmap T <Plug>Sneak_T
-  " visual-mode
-  xmap t <Plug>Sneak_t
-  xmap T <Plug>Sneak_T
-  " operator-pending-mode
-  " omap t <Plug>Sneak_t
-  " omap T <Plug>Sneak_T
-endfunction
-
 " https://github.com/liuchengxu/space-vim/issues/356
 " https://github.com/liuchengxu/vim-better-default/blob/d6239473fa22429564efdd72d7e4407c6b744718/plugin/default.vim#L103-L123
 " Change cursor shape for iTerm2 on macOS {
@@ -214,11 +66,6 @@ autocmd ColorScheme molokai highlight Normal ctermbg=NONE guibg=NONE
 autocmd ColorScheme molokai highlight SignColumn ctermbg=NONE guibg=NONE
 autocmd ColorScheme molokai highlight VertSplit ctermbg=NONE guibg=NONE
 
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap Q gqap
-nnoremap ZA :xa<CR>
-
 " https://jovicailic.org/2017/04/vim-persistent-undo/
 set undofile
 if has('nvim')
@@ -246,6 +93,8 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 highlight MsgArea ctermbg=NONE guibg=NONE
 highlight VertSplit ctermbg=NONE guibg=NONE
 highlight Terminal ctermbg=NONE guibg=NONE
+
+set nonu
 
 "*****************************************************************************
 "" Mappings
@@ -570,14 +419,6 @@ nnoremap ]g :diffget //3<CR>
 " nnoremap <leader>gl :Glog<CR>
 " nnoremap <leader>gg :Gwrite<CR>:Gcommit -m "edit "%<CR>:Gpush<CR>
 
-" https://github.com/neoclide/coc-git
-" https://github.com/neoclide/coc-yank
-" navigate chunks of current buffer
-nmap [c <Plug>(coc-git-prevchunk)
-nmap ]c <Plug>(coc-git-nextchunk)
-" show chunk diff at current position
-" nmap gs <Plug>(coc-git-chunkinfo)
-" make vim-easymotion match spacemacs and doom emacs
 nmap gs <Plug>(easymotion-prefix)
 " differs from gsf in that it is bidirectional and works across windows
 nmap gsf <Plug>(easymotion-overwin-f)
@@ -626,22 +467,6 @@ xmap gss <Plug>(easymotion-f2)
 omap gss <Plug>(easymotion-f2)
 xmap gsS <Plug>(easymotion-F2)
 omap gsS <Plug>(easymotion-F2)
-
-" show git log at current position
-nmap gl <Plug>(coc-git-commit)
-" create text object for git chunks
-omap ig <Plug>(coc-git-chunk-inner)
-xmap ig <Plug>(coc-git-chunk-inner)
-omap ag <Plug>(coc-git-chunk-outer)
-xmap ag <Plug>(coc-git-chunk-outer)
-" add and reset
-nmap <silent> <leader>d :CocCommand git.diffCached<CR>
-nmap <silent> ga :CocCommand git.chunkStage<CR>
-nmap <silent> gr :CocCommand git.chunkUndo<CR>
-nmap <silent> yog :CocCommand git.toggleGutters<CR>
-" yank
-" nmap <silent> gy :CocCommand git.copyUrl<CR>
-nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -730,37 +555,6 @@ imap <C-x>f <plug>(fzf-complete-file)
 imap <C-x>l <plug>(fzf-complete-line)
 imap <C-x>d <plug>(fzf-complete-path)
 imap <C-x>w <plug>(fzf-complete-word)
-
-" Symbol renaming.
-" nmap <leader>r <Plug>(coc-rename)
-
-" Formatting selected code.
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-" nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Mappings for CoCList
-" Show all diagnostics.
-" nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-" nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-" nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
 
 let g:maximizer_set_default_mapping = 0
 nnoremap <silent><C-w>o :MaximizerToggle<CR>
@@ -930,38 +724,13 @@ inoremap <silent><A-C-f> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.
 vnoremap <silent><A-C-b> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
 vnoremap <silent><A-C-f> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
 
-" Map <tab> for trigger completion, completion confirm, snippet expand and jump like VSCode.
-" Note: the `coc-snippets` extension is required for this to work.
-" https://github.com/neoclide/coc.nvim/blob/2ee86b914fc047b81fd61bd2156e062a9c0d5533/doc/coc.txt#L910
-inoremap <silent><expr> <TAB>
-  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ "\<TAB>"
-
-inoremap <silent><expr> <CR>
-  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ "\<CR>"
-
-inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
-inoremap <silent><expr> <C-g> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
-inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
-
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap Q gqap
 nnoremap ZA :xa<CR>
 
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-
 " Use <C-x><C-o> to activate vim omnicompletion
-iunmap <C-x><C-o>
+" iunmap <C-x><C-o>
 
 " https://github.com/junegunn/fzf.vim/issues/865
 " https://github.com/junegunn/fzf.vim/issues/10
@@ -1015,69 +784,10 @@ imap <c-x>u <C-o>u
 imap <c-x><c-x> <C-o>``
 imap <c-x>x <C-o>``
 
-" Map <tab> for trigger completion, completion confirm, snippet expand and jump like VSCode.
-" Note: the `coc-snippets` extension is required for this to work.
-" https://github.com/neoclide/coc.nvim/blob/2ee86b914fc047b81fd61bd2156e062a9c0d5533/doc/coc.txt#L910
-inoremap <silent><expr> <TAB>
-  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ "\<TAB>"
-
-inoremap <silent><expr> <CR>
-  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ "\<CR>"
-
-inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
-inoremap <silent><expr> <C-g> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
-inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
-
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap Q gqap
 nnoremap ZA :xa<CR>
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-else
-inoremap <silent><expr> <c-@> coc#refresh()
-
-" Use `[d` and `]d` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [d <Plug>(coc-diagnostic-prev)
-nmap <silent> ]d <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
 
 nnoremap Y y$
 
@@ -1434,4 +1144,9 @@ if !has('nvim')
     set <M-^>=^
 endif
 
+" miniyank plugin is broken
+unmap p
+unmap P
+
 set sel=exclusive
+endfunction
