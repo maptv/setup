@@ -325,7 +325,7 @@ if executable('rg')
 elseif executable('ag')
   set grepprg=ag\ --vimgrep\ --nogroup\ --nocolor\ --smart-case\ $*
   set grepformat=%f:%l:%c:%m
-elif executable('pt')
+elseif executable('pt')
   set grepprg=pt\ --nogroup\ --nocolor
   set grepformat=%f:%l:%c:%m
 elseif executable('ack')
