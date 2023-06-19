@@ -56,6 +56,15 @@ let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
+"" Enable hidden buffers
+set hidden
+
+"" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
 autocmd FileType pandoc,markdown setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " https://github.com/SpaceVim/SpaceVim/issues/470
@@ -93,6 +102,11 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 highlight MsgArea ctermbg=NONE guibg=NONE
 highlight VertSplit ctermbg=NONE guibg=NONE
 highlight Terminal ctermbg=NONE guibg=NONE
+highlight Pmenu ctermbg=gray guibg=gray
+hi Pmenu      ctermfg=15 ctermbg=70
+hi PmenuSel   ctermfg=15  ctermbg=27
+hi PmenuSbar  ctermfg=7  ctermbg=0
+hi PmenuThumb ctermfg=15  ctermbg=27
 
 set nonu
 

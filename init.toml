@@ -29,6 +29,7 @@
     vimcompatible = true
     bootstrap_after = 'myspacevim#after'
     relativenumber = false
+    autocomplete_method = "coc"
 
 # Enable autocomplete layer
 [[layers]]
