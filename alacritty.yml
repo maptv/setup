@@ -101,6 +101,15 @@
   # the default theme variant.
   #decorations_theme_variant: None
 
+# https://superuser.com/questions/1657097/bash-on-macos-altd-inserts-%E2%88%82-instead-of-removing-word
+# https://github.com/alacritty/alacritty/issues/62#issuecomment-1523556313
+# Make `Option` key behave as `Alt` (macOS only):
+#   - OnlyLeft
+#   - OnlyRight
+#   - Both
+#   - None (default)
+option_as_alt: Both
+
 #scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
@@ -439,7 +448,7 @@ colors:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
 shell:
-  program: /opt/homebrew/bin/zsh
+  program: /usr/local/bin/zsh
   args:
    - -lc
    - tmux attach || tmux new
