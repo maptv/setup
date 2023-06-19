@@ -285,7 +285,7 @@ lvim.plugins = {
   {"unblevable/quick-scope"},
   {"inkarkat/argtextobj.vim"},
   {"michaeljsmith/vim-indent-object"},
-  {"kana/vim-textobj-entire"},
+  -- {"kana/vim-textobj-entire"},
   {"justinmk/vim-sneak"},
   {"easymotion/vim-easymotion"},
   {"ethanholz/nvim-lastplace"},
