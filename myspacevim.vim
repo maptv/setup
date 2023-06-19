@@ -1141,10 +1141,9 @@ if !has('nvim')
     set <M-^>=^
 endif
 
-" miniyank plugin is broken
-unmap p
-unmap P
 unmap ,<space>
+unmap s
+nunmap S
 
 set sel=exclusive
 endfunction
