@@ -137,12 +137,19 @@ vim.cmd [[omap gsS <Plug>(easymotion-F2)]]
 vim.cmd [[vmap gy <Plug>(Exchange)]]
 vim.cmd [[nmap gy <Plug>(Exchange)]]
 
+vim.cmd [[onoremap ag	<Plug>(textobj-entire-a)]]
+vim.cmd [[onoremap ig	<Plug>(textobj-entire-i)]]
+vim.cmd [[xnoremap ag	<Plug>(textobj-entire-a)]]
+vim.cmd [[xnoremap ig	<Plug>(textobj-entire-i)]]
+
+
 -- https://github.com/unblevable/quick-scope#highlight-on-key-press
 -- vim.g.qs_highlight_on_keys = ['f', 'F', 't', 'T']
 vim.g.EasyMotion_startofline = 0 -- keep cursor column when JK motion
 vim.g.EasyMotion_smartcase = 1
 vim.g.EasyMotion_use_smartsign_us = 1
 
+vim.g.textobj_entire_no_default_key_mappings = 1
 
 lvim.keys.normal_mode["yog"] = ":Gitsigns toggle_signs<CR>"
 lvim.keys.normal_mode["yon"] = ":setlocal number!<CR>"
