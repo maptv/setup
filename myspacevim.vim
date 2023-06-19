@@ -49,6 +49,9 @@ else
   let &t_EI.="\e[1 q" "EI = end insert mode NORMAL mode (ELSE)
 endif
 
+" https://github.com/kana/vim-textobj-entire/blob/64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a/doc/textobj-entire.txt#L91
+let g:textobj_entire_no_default_key_mappings = 1
+
 " https://github.com/unblevable/quick-scope#highlight-on-key-press
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
@@ -114,6 +117,13 @@ set nonu
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
+
+" remap entire text object to match doom emacs
+" https://docs.doomemacs.org/v21.12/modules/editor/evil/
+onoremap	ag	<Plug>(textobj-entire-a)
+onoremap	ig	<Plug>(textobj-entire-i)
+xnoremap	ag	<Plug>(textobj-entire-a)
+xnoremap	ig	<Plug>(textobj-entire-i)
 
 function! MakeItEasyToLeaveCommandWindow()
   nnoremap <buffer> ZZ <C-c><Esc>
@@ -571,7 +581,7 @@ imap <C-x>w <plug>(fzf-complete-word)
 
 let g:maximizer_set_default_mapping = 0
 nnoremap <silent><C-w>o :MaximizerToggle<CR>
-vnoremap <silent><C-w>o :MaximizerToggle<CR>gv
+xnoremap <silent><C-w>o :MaximizerToggle<CR>gv
 nnoremap <C-w>c :mksession! ~/session.vim<CR>:wincmd c<CR>:file<CR>
 nnoremap <C-w>q :mksession! ~/session.vim<CR>:wincmd q<CR>:file<CR>
 " https://vi.stackexchange.com/questions/241/undo-only-window
@@ -1159,6 +1169,14 @@ endif
 unmap ,<space>
 unmap s
 nunmap S
+
+if has('nvim')
+  au TextYankPost * silent! lua vim.highlight.on_yank()
+elseif !exists('##TextYankPost')
+  nmap y <Plug>(highlightedyank)
+  xmap y <Plug>(highlightedyank)
+  omap y <Plug>(highlightedyank)
+endif
 
 set sel=exclusive
 endfunction

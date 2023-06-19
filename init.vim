@@ -56,6 +56,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'bronson/vim-visual-star-search'
 Plug 'inkarkat/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'kana/vim-textobj-entire'
 Plug 'mbbill/undotree'
 Plug 'simnalamburt/vim-mundo'
 Plug 'jiangmiao/auto-pairs'
@@ -145,6 +146,9 @@ let maplocalleader='\'
 
 " https://github.com/unblevable/quick-scope#highlight-on-key-press
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" https://github.com/kana/vim-textobj-entire/blob/64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a/doc/textobj-entire.txt#L91
+let g:textobj_entire_no_default_key_mappings = 1
 
 " https://stackoverflow.com/questions/16622566/how-to-solve-the-collision-of-tab-key-mapping-of-ultisnips-plugin-in-the-vim
 " This seems to be necessary for coc tab completion to work
@@ -563,6 +567,13 @@ augroup end
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
+
+" remap entire text object to match doom emacs
+" https://docs.doomemacs.org/v21.12/modules/editor/evil/
+onoremap	ag	<Plug>(textobj-entire-a)
+onoremap	ig	<Plug>(textobj-entire-i)
+xnoremap	ag	<Plug>(textobj-entire-a)
+xnoremap	ig	<Plug>(textobj-entire-i)
 
 function! MakeItEasyToLeaveCommandWindow()
   nnoremap <buffer> ZZ <C-c><Esc>
@@ -1033,7 +1044,7 @@ nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
 
 let g:maximizer_set_default_mapping = 0
 nnoremap <silent><C-w>o :MaximizerToggle<CR>
-vnoremap <silent><C-w>o :MaximizerToggle<CR>gv
+xnoremap <silent><C-w>o :MaximizerToggle<CR>gv
 nnoremap <C-w>c :mksession! ~/session.vim<CR>:wincmd c<CR>:file<CR>
 nnoremap <C-w>q :mksession! ~/session.vim<CR>:wincmd q<CR>:file<CR>
 " https://vi.stackexchange.com/questions/241/undo-only-window

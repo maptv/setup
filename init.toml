@@ -60,6 +60,9 @@
     enable = false
 
 [[custom_plugins]]
+    repo = 'easymotion/vim-easymotion'
+
+[[custom_plugins]]
     repo = 'justinmk/vim-sneak'
 
 [[custom_plugins]]
@@ -69,4 +72,22 @@
     repo = 'szw/vim-maximizer'
 
 [[custom_plugins]]
-    repo = 'easymotion/vim-easymotion'
+    repo = 'tommcdo/vim-exchange'
+
+[[custom_plugins]]
+    repo = 'inkarkat/vim-ReplaceWithRegister'
+
+[[custom_plugins]]
+    repo = 'unblevable/quick-scope'
+
+[[custom_plugins]]
+    repo = 'bronson/vim-visual-star-search'
+
+[[custom_plugins]]
+    repo = 'inkarkat/argtextobj.vim'
+
+[[custom_plugins]]
+    repo = 'michaeljsmith/vim-indent-object'
+
+[[custom_plugins]]
+    repo = 'kana/vim-textobj-entire'
