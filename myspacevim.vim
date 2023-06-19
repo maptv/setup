@@ -103,10 +103,11 @@ highlight MsgArea ctermbg=NONE guibg=NONE
 highlight VertSplit ctermbg=NONE guibg=NONE
 highlight Terminal ctermbg=NONE guibg=NONE
 highlight Pmenu ctermbg=gray guibg=gray
-hi Pmenu      ctermfg=15 ctermbg=70
-hi PmenuSel   ctermfg=15  ctermbg=27
-hi PmenuSbar  ctermfg=7  ctermbg=0
-hi PmenuThumb ctermfg=15  ctermbg=27
+" coc handles highlighting for the popup menu
+" hi Pmenu      ctermfg=15 ctermbg=70
+" hi PmenuSel   ctermfg=15  ctermbg=27
+" hi PmenuSbar  ctermfg=7  ctermbg=0
+" hi PmenuThumb ctermfg=15  ctermbg=27
 
 set nonu
 
