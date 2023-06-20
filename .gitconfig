@@ -75,3 +75,6 @@
     file-decoration-style = none
 [init]
 	defaultBranch = main
+[pager]
+	log = delta | page
+	diff = delta | page
