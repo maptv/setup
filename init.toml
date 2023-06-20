@@ -93,4 +93,7 @@
     repo = 'kana/vim-textobj-entire'
 
 [[custom_plugins]]
-    repo = 'rkitover/vimpager'
+    repo = 'kana/vim-textobj-user'
+
+[[custom_plugins]]
+    repo = 'ntpeters/vim-better-whitespace'

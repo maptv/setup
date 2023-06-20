@@ -484,6 +484,10 @@ curl https://raw.githubusercontent.com/maptv/setup/main/all.snippets -o ~/.confi
 ### Neovim
 curl https://raw.githubusercontent.com/maptv/setup/main/init.vim -o ~/.config/nvim/init.vim --create-dirs
 
+curl https://raw.githubusercontent.com/maptv/setup/main/init.vim -o ~/.config/page/init.vim --create-dirs
+
+echo 'let g:better_whitespace_enabled=0' >> ~/.config/page/init.vim
+
 curl https://raw.githubusercontent.com/jalvesaq/Nvim-R/master/R/tmux_split.vim -o ~/tmux_split.vim
 
 ### Neovim GUIs

@@ -56,13 +56,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'bronson/vim-visual-star-search'
 Plug 'inkarkat/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
-" Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-user'
 Plug 'mbbill/undotree'
 Plug 'simnalamburt/vim-mundo'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
 Plug 'szw/vim-maximizer'
-Plug 'rkitover/vimpager'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
@@ -108,7 +108,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'godlygeek/tabular'
 
 call plug#end()
@@ -911,10 +911,10 @@ omap gsS <Plug>(easymotion-F2)
 " show git log at current position
 nmap gl <Plug>(coc-git-commit)
 " create text object for git chunks
-omap ig <Plug>(coc-git-chunk-inner)
-xmap ig <Plug>(coc-git-chunk-inner)
-omap ag <Plug>(coc-git-chunk-outer)
-xmap ag <Plug>(coc-git-chunk-outer)
+" omap ig <Plug>(coc-git-chunk-inner)
+" xmap ig <Plug>(coc-git-chunk-inner)
+" omap ag <Plug>(coc-git-chunk-outer)
+" xmap ag <Plug>(coc-git-chunk-outer)
 " add and reset
 nmap <silent> <leader>d :CocCommand git.diffCached<CR>
 nmap <silent> ga :CocCommand git.chunkStage<CR>
