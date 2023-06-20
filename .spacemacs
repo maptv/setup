@@ -605,23 +605,6 @@ before packages are loaded."
     (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
     )
 
-  (defgroup evil-textobj-entire nil
-    "Text object entire buffer for Evil"
-    :prefix "evil-textobj-entire-"
-    :group 'evil)
-
-  (defcustom evil-textobj-entire-key "e"
-    "Key for evil-textobj-entire"
-    :type 'string
-    :group 'evil-textobj-entire)
-
-  (evil-define-text-object evil-entire-entire-buffer (count &optional beg end type)
-    "Select entire buffer"
-    (evil-range (point-min) (point-max)))
-
-  (provide 'evil-textobj-entire)
-;;; evil-textobj-entire.el ends here
-
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
