@@ -66,7 +66,9 @@
     features = decorations
     whitespace-error-style = 22 reverse
     syntax-theme = Dracula
-
+    navigate = true    # use n and N to move between diff sections
+[merge]
+    conflictstyle = diff3
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul

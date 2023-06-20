@@ -97,14 +97,13 @@ set go+=a
 
 set fillchars+=vert:│
 set laststatus=0
-highlight EndOfBuffer guibg=NONE ctermbg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
-highlight NonText guibg=NONE ctermbg=NONE
-highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight Normal ctermbg=NONE guibg=NONE ctermfg=white guifg=white
 highlight SignColumn ctermbg=NONE guibg=NONE
-highlight MsgArea ctermbg=NONE guibg=NONE
 highlight VertSplit ctermbg=NONE guibg=NONE
-highlight Terminal ctermbg=NONE guibg=NONE
+highlight Terminal ctermbg=NONE guibg=NONE ctermfg=white guifg=white
 highlight Pmenu ctermbg=NONE guibg=NONE
 " coc handles highlighting for the popup menu
 " hi PmenuSel   ctermfg=15  ctermbg=27

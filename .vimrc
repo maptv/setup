@@ -276,13 +276,13 @@ set laststatus=0
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
 highlight LineNr     ctermbg=NONE guibg=NONE
 highlight NonText ctermbg=NONE guibg=NONE
-highlight Normal ctermbg=NONE guibg=NONE
+highlight Normal ctermbg=NONE guibg=NONE ctermfg=white guifg=white
 highlight SignColumn ctermbg=NONE guibg=NONE
 highlight VertSplit ctermbg=NONE guibg=NONE
 highlight pandocEmphasis gui=italic cterm=italic guifg=#ffff00 ctermfg=Yellow
 highlight pandocString guifg=#00ff00 ctermfg=Green
 highlight pandocNoFormatted guifg=#ff8700 ctermfg=214
-highlight Terminal ctermbg=NONE guibg=NONE
+highlight Terminal ctermbg=NONE guibg=NONE ctermfg=white guifg=white
 
 "" fzf.vim
 set wildmode=list:longest,list:full
@@ -1135,15 +1135,15 @@ nmap <silent> ]d <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocActionAsync('doHover')
+"   endif
+" endfunction
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
