@@ -30,6 +30,11 @@ This function should only modify configuration layer settings."
    vim-style-visual-feedback t
    vim-style-remap-Y-to-y$ t
    vc-follow-symlinks t
+   split-width-threshold 0
+   evil-want-Y-yank-to-eol t
+   mode-line-format nil
+   hl-line-mode nil
+
 
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
@@ -532,10 +537,6 @@ before packages are loaded."
   ;; do not highlight current line
   (setq global-hl-line-mode nil)
 
-  ;; do not show statusline
-  (setq mode-line-format nil)
-  (setq-default mode-line-format nil)
-
   ;; Don't let evil-snipe remap s and S
   (evil-snipe-mode -1)
 
@@ -563,20 +564,20 @@ before packages are loaded."
     (interactive "p")
     (kill-line (- 1 arg)))
 
-  (evil-define-key 'insert global-map (kbd "C-a") 'move-beginning-of-line)
-  (evil-define-key 'insert global-map (kbd "C-e") 'move-end-of-line)
-  (evil-define-key 'insert global-map (kbd "C-d") 'delete-forward-char)
-  (evil-define-key 'insert global-map (kbd "C-h") 'delete-backward-char)
-  (evil-define-key 'insert global-map (kbd "C-k") 'kill-line)
-  (evil-define-key 'insert global-map (kbd "C-t") 'transpose-chars)
-  (evil-define-key 'insert global-map (kbd "C-u") 'backward-kill-line)
-  (evil-define-key 'insert global-map (kbd "C-y") 'yank)
-  (evil-define-key 'normal global-map (kbd "C-i") 'evil-jump-forward)
-  (evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
-  (evil-define-key 'normal global-map (kbd "C-g") 'evil-show-file-info)
-  (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
-  (evil-define-key 'normal global-map (kbd "gx") 'browse-url-at-point)
-  (evil-define-key 'normal global-map (kbd "ZA") 'evil-save-and-quit)
+  (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
+  (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
+  (define-key evil-insert-state-map (kbd "C-d") 'delete-forward-char)
+  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
+  (define-key evil-insert-state-map (kbd "C-k") 'kill-line)
+  (define-key evil-insert-state-map (kbd "C-t") 'transpose-chars)
+  (define-key evil-insert-state-map (kbd "C-u") 'backward-kill-line)
+  (define-key evil-insert-state-map (kbd "C-y") 'yank)
+  (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
+  (define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
+  (define-key evil-normal-state-map (kbd "C-g") 'evil-show-file-info)
+  (define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
+  (define-key evil-normal-state-map (kbd "gx") 'browse-url-at-point)
+  (define-key evil-normal-state-map (kbd "ZA") 'evil-save-and-quit)
   (evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
   (evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
   (define-key evil-ex-completion-map (kbd "C-a") 'move-beginning-of-line)
@@ -603,11 +604,6 @@ before packages are loaded."
     (define-key helm-map (kbd "C-u") 'backward-kill-line)
     (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
     )
-
-  (evil-want-Y-yank-to-eol t)
-
-  (setq undo-tree-auto-save-history t)
-  (global-undo-tree-mode)
 
   (defgroup evil-textobj-entire nil
     "Text object entire buffer for Evil"

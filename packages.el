@@ -9,7 +9,6 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 (package! osx-clipboard)
 (package! evil-quickscope)
-(package! undo-fu-session)
 (package! evil-replace-with-register)
 (package! this-package :recipe (:repo "joddie/osx-clipboard-mode" :host github))
 (package! another-package :recipe (:repo "h0d/term-cursor.el" :host github))

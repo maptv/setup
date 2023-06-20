@@ -69,22 +69,11 @@
 ;; quit without confirmation
 (setq confirm-kill-emacs nil)
 
+;; use vertical splits by default
+(setq split-width-threshold 0)
+
 ;; completely black background
 (custom-set-faces '(default ((t (:background "#000000")))))
-
-;; https://discourse.doomemacs.org/t/customize-separator/2986
-(setq window-divider-default-right-width 4
-      window-divider-default-bottom-width 4
-      window-divider-default-places t
-      window-divider-mode t
-      )
-
-(custom-set-faces! '(vertical-border :foreground "red"))
-(custom-set-faces! '(horizontal-border :foreground "red"))
-
-;; (custom-set-faces!
-;;   '(mode-line ((t (:background "#302A29" :foreground "#e5d5b8"))))
-;;   '(doom-modeline-bar ((t (:background "#302A29" :inherit mode-line)))))
 
 ;; do not highlight current line
 (setq global-hl-line-modes nil)
@@ -101,20 +90,20 @@
   (kill-line (- 1 arg)))
 
 ;; https://discourse.doomemacs.org/t/how-to-re-bind-keys/56#keymaps-4
-(evil-define-key 'insert global-map (kbd "M-r") 'move-to-window-line-top-bottom)
-(evil-define-key 'normal global-map (kbd "M-r") 'move-to-window-line-top-bottom)
-(evil-define-key 'insert global-map (kbd "C-d") 'delete-forward-char)
-(evil-define-key 'insert global-map (kbd "C-h") 'delete-backward-char)
-(evil-define-key 'insert global-map (kbd "C-k") 'kill-line)
-(evil-define-key 'insert global-map (kbd "C-t") 'transpose-chars)
-(evil-define-key 'insert global-map (kbd "C-u") 'backward-kill-line)
-(evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
-(evil-define-key 'normal global-map (kbd "C-g") 'evil-show-file-info)
-(evil-define-key 'normal global-map (kbd "C-i") 'evil-jump-forward)
-(evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
-(evil-define-key 'insert global-map (kbd "C-y") 'yank)
-(evil-define-key 'normal global-map (kbd "gx") 'browse-url-at-point)
-(evil-define-key 'normal global-map (kbd "ZA") 'evil-save-and-quit)
+(define-key evil-insert-state-map (kbd "M-r") 'move-to-window-line-top-bottom)
+(define-key evil-normal-state-map (kbd "M-r") 'move-to-window-line-top-bottom)
+(define-key evil-insert-state-map (kbd "C-d") 'delete-forward-char)
+(define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
+(define-key evil-insert-state-map (kbd "C-k") 'kill-line)
+(define-key evil-insert-state-map (kbd "C-t") 'transpose-chars)
+(define-key evil-insert-state-map (kbd "C-u") 'backward-kill-line)
+(define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "C-g") 'evil-show-file-info)
+(define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
+(define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
+(define-key evil-insert-state-map (kbd "C-y") 'yank)
+(define-key evil-normal-state-map (kbd "gx") 'browse-url-at-point)
+(define-key evil-normal-state-map (kbd "ZA") 'evil-save-and-quit)
 (evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
 (evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
 (evil-define-key 'normal evil-command-window-mode-map [escape] 'evil-normal-state)
@@ -155,10 +144,7 @@
 (setq evil-exchange-key (kbd "gy"))
 (evil-exchange-install)
 
-(global-undo-fu-session-mode)
-
 ;; Here are some additional functions/macros that could help you configure Doom:
-;;
 ;; - `load!' for loading external *.el files relative to this one
 ;; - `use-package!' for configuring packages
 ;; - `after!' for running code after a package has loaded
