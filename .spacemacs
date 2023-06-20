@@ -579,6 +579,21 @@ before packages are loaded."
   (evil-define-key 'normal global-map (kbd "ZA") 'evil-save-and-quit)
   (evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
   (evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
+  (define-key evil-ex-completion-map (kbd "C-a") 'move-beginning-of-line)
+  (define-key evil-ex-completion-map "\C-b" 'backward-char)
+  (define-key evil-ex-completion-map "\C-d" 'delete-forward-char)
+  (define-key evil-ex-completion-map "\C-h" 'delete-backward-char)
+  (define-key evil-ex-completion-map (kbd "C-k") 'kill-line)
+  (define-key evil-ex-completion-map (kbd "C-t") 'transpose-chars)
+  (define-key evil-ex-completion-map (kbd "C-u") 'backward-kill-line)
+  (define-key evil-ex-search-keymap "\C-b" 'backward-char)
+  (define-key evil-ex-search-keymap "\C-d" 'delete-forward-char)
+  (define-key evil-ex-search-keymap "\C-h" 'delete-backward-char)
+  (define-key evil-ex-search-keymap (kbd "C-k") 'kill-line)
+  (define-key evil-ex-search-keymap (kbd "C-t") 'transpose-chars)
+  (define-key evil-ex-search-keymap (kbd "C-u") 'backward-kill-line)
+
+
 
   (evil-want-Y-yank-to-eol t)
 

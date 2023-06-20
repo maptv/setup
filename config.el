@@ -103,7 +103,18 @@
 (evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
 (evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
 (evil-define-key 'normal evil-command-window-mode-map [escape] 'evil-normal-state)
+(define-key evil-ex-completion-map "\C-d" 'delete-forward-char)
 (define-key evil-ex-completion-map "\C-f" 'evil-ex-command-window)
+(define-key evil-ex-completion-map "\C-h" 'delete-backward-char)
+(define-key evil-ex-completion-map (kbd "C-k") 'kill-line)
+(define-key evil-ex-completion-map (kbd "C-t") 'transpose-chars)
+(define-key evil-ex-completion-map (kbd "C-u") 'backward-kill-line)
+(define-key evil-ex-search-keymap "\C-d" 'delete-forward-char)
+(define-key evil-ex-search-keymap "\C-f" 'evil-ex-search-command-window)
+(define-key evil-ex-search-keymap "\C-h" 'delete-backward-char)
+(define-key evil-ex-search-keymap (kbd "C-k") 'kill-line)
+(define-key evil-ex-search-keymap (kbd "C-t") 'transpose-chars)
+(define-key evil-ex-search-keymap (kbd "C-u") 'backward-kill-line)
 
 ;; evil-quickscope
 (require 'evil-quickscope)
