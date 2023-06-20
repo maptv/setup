@@ -10,9 +10,8 @@ export DOOMDIR=$HOME/.config/doom
 export PATH=~/.doom.d/bin:$PATH
 export EDITOR=$(brew --prefix)/bin/nvim
 export MANWIDTH=999
-export PAGER=less
-export PAGER=$(brew --prefix)/bin/vimpager
-export MANPAGER="nvim +Man! +Page"
+export PAGER="page -WC -q 90000 -z 90000"
+export MANPAGER="page -t man"
 export KEYTIMEOUT=1
 export FZF_DEFAULT_COMMAND="fd --type file"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -127,7 +126,7 @@ alias aacmpf="func() { git add --all && git commit --message \"$(echo '${*:-Chan
 alias aacp="git add --all && git commit --reedit-message=HEAD && git push"
 alias aacpf="git add --all && git commit --reedit-message=HEAD && git push --force-if-includes --force-with-lease"
 alias adduser="func() { curl -X PUT --user maptv:$(echo '$(pass ${4:-ga/github/token})') -H 'Accept: application/vnd.github.v3+json' https://$(echo '${3:-git.generalassemb.ly}')/api/v3/orgs/py/memberships/$(echo '$1') -d '{\"role\":\"$(echo '$(${2:-member})')\"}'; }; func"
-alias af="func() { local files=$(echo '$(git status -s | fzf --bind="alt-y:execute-silent(echo {-1} | pbcopy)" --nth=2.. --preview="if [ \$(git ls-files --other --exclude-standard {2..} | sed s/\ //g) ]; then; git diff --color=always --color-words --no-index -- /dev/null {2..} | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always; else; git diff --color=always --color-words {2..} | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always; fi" | cut -c4-)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 git add $(echo '$@') --; }; func"
+alias af="func() { local files=$(echo '$(git status -s | sed /^M\ /d | fzf --bind="alt-y:execute-silent(echo {-1} | pbcopy)" --nth=2.. --preview="if [ \$(git ls-files --other --exclude-standard {2..} | sed s/\ //g) ]; then; git diff --color=always --color-words --no-index -- /dev/null {2..} | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always; else; git diff --color=always --color-words {2..} | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always; fi" | cut -c4-)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 git add $(echo '$@') --; }; func"
 alias ai="git add --interactive"
 alias aic="git add --interactive && git commit --reedit-message=HEAD"
 alias aica="git add --interactive && git commit --amend --reset-author"
@@ -470,7 +469,7 @@ alias lt="func() { [ ! -d ~/notes ] && git clone https://github.com/maptv/notes 
 alias lu="func() { local unstaged=$(echo '$(git status --porcelain | grep "^.M" | cut -c4- | fzf)') && [ $(echo '$unstaged') ] && echo $(echo '$unstaged') | tr '\n' '\0' | xargs -0 -o lvim $(echo '$@') --; }; func"
 alias lw="func() { local files=$(echo '$(fd --color=always -e docx --type f $@ | fzf --ansi --preview="pandoc {} -t markdown | bat --style=numbers --color=always -l md | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always")') && [ $(echo '$files') ] && echo $(echo '$files') | sed 's/docx/md/;p;s/md/docx/' | tr '\n' '\0' | xargs -0n2 pandoc -f docx -t markdown -o && echo $(echo '${files//docx/md}') | tr '\n' '\0' | xargs -0 -o lvim --; }; func"
 alias lz="lvim ~/.zshrc"
-alias m="man"
+alias m="func() { local PROGRAM=$(echo '$@[-1]'); local SECTION=$(echo '${@[-2]:+($@[-2])}'); local OPTIONS=$(echo '${@:1:$# -2}'); page $(echo '$OPTIONS -W man://$PROGRAM$SECTION'); }; func"
 alias ma="mamba activate"
 alias map="func() { for i in $(echo '${@:2}'); do; $(echo '$1 $i'); done; }; func"
 alias mb="batman"
@@ -601,7 +600,8 @@ alias rcfr="git rm --cached -fr"
 alias rd="rmdir"
 alias re="Rscript -e"
 alias rei="Rscript -e 'renv::init()'"
-alias rf="func() { local file=$(echo '$(rga --files-with-matches $@ | fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" --phony --query "$1" --bind "change:reload: rga --files-with-matches {q} $2")') && [ $(echo '$file') ] && [ -f $(echo '$file') ] && open $(echo '$file'); }; func"
+alias rf="func() { local files=$(echo '$(git status -s | grep ^M | fzf --bind="alt-y:execute-silent(echo {-1} | pbcopy)" --nth=2.. --preview="if [ \$(git ls-files --other --exclude-standard {2..} | sed s/\ //g) ]; then; git diff --color=always --color-words --no-index -- /dev/null {2..} | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always; else; git diff --color=always --color-words {2..} | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always; fi" | cut -c4-)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 git reset $(echo '$@') --; }; func"
+alias rgf="func() { local file=$(echo '$(rga --files-with-matches $@ | fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" --phony --query "$1" --bind "change:reload: rga --files-with-matches {q} $2")') && [ $(echo '$file') ] && [ -f $(echo '$file') ] && open $(echo '$file'); }; func"
 alias rgs="func() { rg -0l $(echo '$1') | xargs -0n1 sed -i '' \"s/$(echo '$1')/$(echo '$2')/g\" ; }; func" # combines ripgrep (rg) and sed
 alias rh0="git reset HEAD~0"
 alias rh1="git reset HEAD~1"
