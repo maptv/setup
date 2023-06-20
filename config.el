@@ -56,7 +56,7 @@
 ;; Don't let evil-snipe repeat with f/F/t/T
 (setq evil-snipe-repeat-keys nil)
 
-;; Use ; and , for evil-snipe 
+;; Use ; and , for evil-snipe
 (setq evil-snipe-override-evil-repeat-keys t)
 
 ;; cursor-shape
@@ -72,6 +72,20 @@
 ;; completely black background
 (custom-set-faces '(default ((t (:background "#000000")))))
 
+;; https://discourse.doomemacs.org/t/customize-separator/2986
+(setq window-divider-default-right-width 4
+      window-divider-default-bottom-width 4
+      window-divider-default-places t
+      window-divider-mode t
+      )
+
+(custom-set-faces! '(vertical-border :foreground "red"))
+(custom-set-faces! '(horizontal-border :foreground "red"))
+
+;; (custom-set-faces!
+;;   '(mode-line ((t (:background "#302A29" :foreground "#e5d5b8"))))
+;;   '(doom-modeline-bar ((t (:background "#302A29" :inherit mode-line)))))
+
 ;; do not highlight current line
 (setq global-hl-line-modes nil)
 
@@ -86,6 +100,7 @@
   (interactive "p")
   (kill-line (- 1 arg)))
 
+;; https://discourse.doomemacs.org/t/how-to-re-bind-keys/56#keymaps-4
 (evil-define-key 'insert global-map (kbd "M-r") 'move-to-window-line-top-bottom)
 (evil-define-key 'normal global-map (kbd "M-r") 'move-to-window-line-top-bottom)
 (evil-define-key 'insert global-map (kbd "C-d") 'delete-forward-char)
@@ -115,6 +130,16 @@
 (define-key evil-ex-search-keymap (kbd "C-k") 'kill-line)
 (define-key evil-ex-search-keymap (kbd "C-t") 'transpose-chars)
 (define-key evil-ex-search-keymap (kbd "C-u") 'backward-kill-line)
+(define-key minibuffer-local-map (kbd "C-h") 'delete-backward-char)
+(define-key minibuffer-local-map  (kbd "C-u") 'backward-kill-line)
+(define-key minibuffer-local-map  (kbd "C-w") 'evil-delete-backward-word)
+
+;; https://github.com/syl20bnr/spacemacs/issues/4243#issuecomment-166246613
+(with-eval-after-load 'company
+(define-key company-active-map (kbd "C-h") 'delete-backward-char)
+(define-key company-active-map (kbd "C-u") 'backward-kill-line)
+(define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+)
 
 ;; evil-quickscope
 (require 'evil-quickscope)

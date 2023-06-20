@@ -593,7 +593,16 @@ before packages are loaded."
   (define-key evil-ex-search-keymap (kbd "C-t") 'transpose-chars)
   (define-key evil-ex-search-keymap (kbd "C-u") 'backward-kill-line)
 
-
+  ;; https://github.com/syl20bnr/spacemacs/issues/4243#issuecomment-166246613
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "C-h") 'delete-backward-char)
+    (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+    )
+  (with-eval-after-load 'helm
+    (define-key helm-map (kbd "C-h") 'delete-backward-char)
+    (define-key helm-map (kbd "C-u") 'backward-kill-line)
+    (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
+    )
 
   (evil-want-Y-yank-to-eol t)
 
