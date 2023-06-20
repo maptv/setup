@@ -137,12 +137,6 @@ vim.cmd [[omap gsS <Plug>(easymotion-F2)]]
 vim.cmd [[vmap gy <Plug>(Exchange)]]
 vim.cmd [[nmap gy <Plug>(Exchange)]]
 
-vim.cmd [[onoremap ag	<Plug>(textobj-entire-a)]]
-vim.cmd [[onoremap ig	<Plug>(textobj-entire-i)]]
-vim.cmd [[xnoremap ag	<Plug>(textobj-entire-a)]]
-vim.cmd [[xnoremap ig	<Plug>(textobj-entire-i)]]
-
-
 -- https://github.com/unblevable/quick-scope#highlight-on-key-press
 -- vim.g.qs_highlight_on_keys = ['f', 'F', 't', 'T']
 vim.g.EasyMotion_startofline = 0 -- keep cursor column when JK motion
@@ -156,6 +150,12 @@ lvim.keys.normal_mode["yon"] = ":setlocal number!<CR>"
 lvim.keys.normal_mode["yor"] = ":setlocal relativenumber!<CR>"
 lvim.keys.normal_mode["yow"] = ":setlocal wrap!<CR>"
 vim.cmd [[nnoremap <expr> yoa &fo =~ 'a' ? ':set fo-=a<CR>' : ':set fo+=a<CR>']]
+
+vim.cmd [[onoremap ag	<Plug>(textobj-entire-a)]]
+vim.cmd [[onoremap ig	<Plug>(textobj-entire-i)]]
+vim.cmd [[xnoremap ag	<Plug>(textobj-entire-a)]]
+vim.cmd [[xnoremap ig	<Plug>(textobj-entire-i)]]
+
 
 -- https://www.lunarvim.org/configuration/02-keybindings.html#cursor-movement
 lvim.line_wrap_cursor_movement = true
@@ -286,6 +286,7 @@ lvim.plugins = {
   {"inkarkat/argtextobj.vim"},
   {"michaeljsmith/vim-indent-object"},
   -- {"kana/vim-textobj-entire"},
+  {'rkitover/vimpager'},
   {"justinmk/vim-sneak"},
   {"easymotion/vim-easymotion"},
   {"ethanholz/nvim-lastplace"},

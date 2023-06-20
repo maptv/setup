@@ -91,3 +91,6 @@
 
 [[custom_plugins]]
     repo = 'kana/vim-textobj-entire'
+
+[[custom_plugins]]
+    repo = 'rkitover/vimpager'

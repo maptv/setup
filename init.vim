@@ -62,6 +62,7 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
 Plug 'szw/vim-maximizer'
+Plug 'rkitover/vimpager'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
