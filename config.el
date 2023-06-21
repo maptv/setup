@@ -44,14 +44,11 @@
 (setq vim-style-remap-Y-to-y$ t)
 (setq vc-follow-symlinks t)
 
-;; persistent undo
-(setq undo-tree-auto-save-history t)
+;; Replace evil-mode's f/F/t/T functionality with (1-character) sniping
+(add-hook 'doom-first-input-hook #'evil-snipe-override-mode)
 
 ;; Don't let evil-snipe remap s and S
 (remove-hook 'doom-first-input-hook #'evil-snipe-mode)
-
-;; Replace evil-mode's f/F/t/T functionality with (1-character) sniping
-(evil-snipe-override-mode +1)
 
 ;; Don't let evil-snipe repeat with f/F/t/T
 (setq evil-snipe-repeat-keys nil)
