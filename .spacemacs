@@ -26,7 +26,6 @@ This function should only modify configuration layer settings."
    ;; a layer lazily. (default t)
    dotspacemacs-ask-for-lazy-installation t
 
-   undo-tree-auto-save-history t
    vim-style-visual-feedback t
    vim-style-remap-Y-to-y$ t
    vc-follow-symlinks t
@@ -86,7 +85,10 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(evil-mc)
+   dotspacemacs-excluded-packages '(
+                                    evil-mc
+                                    spaceline
+                                    )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
