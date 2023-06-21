@@ -607,6 +607,10 @@ before packages are loaded."
     (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
     )
 
+  (with-eval-after-load 'dired
+    (evil-define-key 'normal wdired-mode-map (kbd "ZZ") 'wdired-finish-edit)
+    (evil-define-key 'normal wdired-mode-map (kbd "ZQ") 'wdired-abort-changes)
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -616,13 +620,14 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(dired-no-confirm '(copy delete move))
+ '(wdired-confirm-overwrite nil)
+ '(wdired-create-parent-directories t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
