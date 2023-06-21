@@ -26,6 +26,7 @@ ln -sf ~/maptv/setup/init.lua ~/.hammerspoon/init.lua
 ln -sf ~/maptv/setup/MiroWindowsManager.lua ~/.hammerspoon/Spoons/MiroWindowsManager.spoon/init.lua
 ln -sf ~/maptv/setup/init.toml ~/.SpaceVim.d/init.toml
 ln -sf ~/maptv/setup/init.vim ~/.config/nvim/init.vim
+mkdir -p ~/.config/page
 cp ~/maptv/setup/init.vim ~/.config/page/init.vim
 echo 'let g:better_whitespace_enabled=0' >> ~/.config/page/init.vim
 ln -sf ~/maptv/setup/ipython_config.py ~/.ipython/profile_default/ipython_config.py
