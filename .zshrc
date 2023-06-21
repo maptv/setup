@@ -11,7 +11,7 @@ export PATH=~/.doom.d/bin:$PATH
 export EDITOR=$(brew --prefix)/bin/nvim
 export MANWIDTH=999
 export DELTA_PAGER="less -R"
-export PAGER="page -WC -q 90000 -z 90000"
+export PAGER="page -WCO -1 -q 90000 -z 90000"
 export MANPAGER="sh -c 'col -bx | bat -l man -p --color=always | page'"
 export KEYTIMEOUT=1
 export FZF_DEFAULT_COMMAND="fd --type file"
