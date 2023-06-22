@@ -61,6 +61,12 @@
 	newHighlight = green bold 22
 	oldNormal = red bold
 [delta]
+    hyperlinks = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+    # or: hyperlinks-file-link-format = "idea://open?file={path}&line={line}"
+    # or: hyperlinks-file-link-format = "pycharm://open?file={path}&line={line}"
+    line-numbers = true
+    max-line-length = 1000
     plus-color = "#012800"
     minus-color = "#340001"
     features = decorations
@@ -79,3 +85,4 @@
 	log = delta | page -WCO -1 -q 90000 -z 90000
 	diff = delta | page -WCO -1 -q 90000 -z 90000
 	show = delta | page -WCO -1 -q 90000 -z 90000
+	blame = delta | page -WCO -1 -q 90000 -z 90000
