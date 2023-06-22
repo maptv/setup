@@ -111,5 +111,5 @@ curl https://raw.githubusercontent.com/maptv/setup/master/rstudio/editor_binding
 curl https://raw.githubusercontent.com/maptv/setup/master/rstudio/rstudio_bindings.json -o ~/.config/rstudio/keybindings/rstudio_bindings.json
 
 ### Install and symlink macvim (brew installed macvim conflicts with brew installed vim)
-##### ln -s /usr/local/Cellar/macvim/**/MacVim.app/ /Applications/MacVim.app
+##### ln -s /opt/homebrew/Cellar/macvim/**/MacVim.app/ /Applications/MacVim.app
 conda init zsh
