@@ -20,12 +20,12 @@
   "jupyter.interactiveWindow.textEditor.executeSelection": true,
   "python.analysis.completeFunctionParens": true,
   "python.analysis.typeCheckingMode": "basic",
-  "python.defaultInterpreterPath": "/opt/homebrew/Caskroom/mambaforge/base/bin/python",
+  "python.defaultInterpreterPath": "$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/python",
   "python.formatting.provider": "none",
   "python.languageServer": "Pylance",
   "r.alwaysUseActiveTerminal": true,
   "r.bracketedPaste": true,
-  "r.rterm.mac": "$(brew --prefix)/Caskroom/mambaforge/base/envs/${workspaceFolderBasename}/bin/radian",
+  "r.rterm.mac": "$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/${workspaceFolderBasename}/bin/radian",
   "r.sessionWatcher": true,
   "security.workspace.trust.untrustedFiles": "open",
   "tabnine.experimentalAutoImports": true,
@@ -36,7 +36,7 @@
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.macOptionIsMeta": true,
-  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "$HOMEBREW_PREFIX/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.vim",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"

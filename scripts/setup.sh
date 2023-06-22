@@ -295,9 +295,9 @@ curl https://raw.githubusercontent.com/maptv/setup/main/DefaultKeyBinding.dict -
 ## Install Homebrew (this also installs xcode tools needed for git)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-(echo; echo 'eval "$($(brew --prefix)/bin/brew shellenv)"') >> ~/.zprofile
+(echo; echo 'eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"') >> ~/.zprofile
 
-eval "$($(brew --prefix)/bin/brew shellenv)"
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 git config --global user.email 13444106+maptv@users.noreply.github.com
 
@@ -443,11 +443,11 @@ mkdir -p ~/.vim/undodir
 mkdir -p ~/.local/share/nvim/undo
 
 ## Install fzf key bindings and fuzzy completion using the install script which runs the commented out code below
-### source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
-### source /opt/homebrew/opt/fzf/shell/key-bindings.bash
-### source /opt/homebrew/opt/fzf/shell/completion.zsh
-### source /opt/homebrew/opt/fzf/shell/completion.bash
-$(brew --prefix)/opt/fzf/install --completion --key-bindings --no-fish --no-update-rc
+### source $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh
+### source $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
+### source $HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh
+### source $HOMEBREW_PREFIX/opt/fzf/shell/completion.bash
+$HOMEBREW_PREFIX/opt/fzf/install --completion --key-bindings --no-fish --no-update-rc
 
 # Use Bash as a backup
 curl https://raw.githubusercontent.com/maptv/setup/main/.bash_profile -o ~/.bash_profile
@@ -560,16 +560,16 @@ curl https://raw.githubusercontent.com/maptv/setup/main/tabnine_config.json -o ~
 
 # 6: Conda environments (base, Python and R)
 ### Install cookiecutter (for i alias) and neovim (for vim plugins)
-$(brew --prefix)/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge python neovim
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge python neovim
 
-$(brew --prefix)/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py python joblib jupyterlab seaborn neovim numpy pandas scikit-learn jupyterlab_vim scipy
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py python joblib jupyterlab seaborn neovim numpy pandas scikit-learn jupyterlab_vim scipy
 
-$(brew --prefix)/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto
 
 ##### Installing r into base environment breaks nvim-R
-$(brew --prefix)/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n r r-essentials r-tidyverse r-irkernel python neovim jupyterlab jupyterlab_vim r-quarto
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n r r-essentials r-tidyverse r-irkernel python neovim jupyterlab jupyterlab_vim r-quarto
 
-$(brew --prefix)/Caskroom/mambaforge/base/envs/r/bin/python -m pip install jupyterlab-quarto
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/r/bin/python -m pip install jupyterlab-quarto
 
 # 7: Code editors
 
@@ -648,7 +648,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/editor_bindings.json -o 
 curl https://raw.githubusercontent.com/maptv/setup/main/rstudio_bindings.json -o ~/.config/rstudio/keybindings/rstudio_bindings.json --create-dirs
 
 # Initialize conda for z shell
-$(brew --prefix)/bin/mamba init zsh
+$HOMEBREW_PREFIX/bin/mamba init zsh
 
 # Set up vscode and vscodium 
 curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Library/Application\ Support/Code/User/settings.json --create-dirs
@@ -660,49 +660,49 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
 # Install vscode and vscodium extensions
-$(brew --prefix)/bin/codium --install-extension asvetliakov.vscode-neovim
+$HOMEBREW_PREFIX/bin/codium --install-extension asvetliakov.vscode-neovim
 
-$(brew --prefix)/bin/codium --install-extension ms-python.python
+$HOMEBREW_PREFIX/bin/codium --install-extension ms-python.python
 
-$(brew --prefix)/bin/codium --install-extension ms-toolsai.jupyter
+$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.jupyter
 
-$(brew --prefix)/bin/codium --install-extension ms-toolsai.jupyter-keymap
+$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.jupyter-keymap
 
-$(brew --prefix)/bin/codium --install-extension ms-toolsai.jupyter-renderers
+$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.jupyter-renderers
 
-$(brew --prefix)/bin/codium --install-extension ms-toolsai.vscode-jupyter-cell-tags
+$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.vscode-jupyter-cell-tags
 
-$(brew --prefix)/bin/codium --install-extension ms-toolsai.vscode-jupyter-slideshow
+$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.vscode-jupyter-slideshow
 
-$(brew --prefix)/bin/codium --install-extension quarto.quarto
+$HOMEBREW_PREFIX/bin/codium --install-extension quarto.quarto
 
-$(brew --prefix)/bin/codium --install-extension REditorSupport.r
+$HOMEBREW_PREFIX/bin/codium --install-extension REditorSupport.r
 
-$(brew --prefix)/bin/codium --install-extension TabNine.tabnine-vscode
+$HOMEBREW_PREFIX/bin/codium --install-extension TabNine.tabnine-vscode
 
-$(brew --prefix)/bin/code --install-extension asvetliakov.vscode-neovim
+$HOMEBREW_PREFIX/bin/code --install-extension asvetliakov.vscode-neovim
 
-$(brew --prefix)/bin/code --install-extension ms-python.black-formatter
+$HOMEBREW_PREFIX/bin/code --install-extension ms-python.black-formatter
 
-$(brew --prefix)/bin/code --install-extension ms-python.python
+$HOMEBREW_PREFIX/bin/code --install-extension ms-python.python
 
-$(brew --prefix)/bin/code --install-extension ms-python.vscode-pylance
+$HOMEBREW_PREFIX/bin/code --install-extension ms-python.vscode-pylance
 
-$(brew --prefix)/bin/code --install-extension ms-toolsai.jupyter
+$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.jupyter
 
-$(brew --prefix)/bin/code --install-extension ms-toolsai.jupyter-keymap
+$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.jupyter-keymap
 
-$(brew --prefix)/bin/code --install-extension ms-toolsai.jupyter-renderers
+$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.jupyter-renderers
 
-$(brew --prefix)/bin/code --install-extension ms-toolsai.vscode-jupyter-cell-tags
+$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.vscode-jupyter-cell-tags
 
-$(brew --prefix)/bin/code --install-extension ms-toolsai.vscode-jupyter-slideshow
+$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.vscode-jupyter-slideshow
 
-$(brew --prefix)/bin/code --install-extension quarto.quarto
+$HOMEBREW_PREFIX/bin/code --install-extension quarto.quarto
 
-$(brew --prefix)/bin/code --install-extension REditorSupport.r
+$HOMEBREW_PREFIX/bin/code --install-extension REditorSupport.r
 
-$(brew --prefix)/bin/code --install-extension TabNine.tabnine-vscode
+$HOMEBREW_PREFIX/bin/code --install-extension TabNine.tabnine-vscode
 
 # Non-automated steps
 ## Give Hammerspoon Accessibility permissions and enable Launch Hammerspoon at login

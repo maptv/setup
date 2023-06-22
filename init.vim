@@ -66,8 +66,8 @@ Plug 'szw/vim-maximizer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-if isdirectory('/opt/homebrew/opt/fzf')
-  Plug '/opt/homebrew/opt/fzf' | Plug 'junegunn/fzf.vim'
+if isdirectory('$HOMEBREW_PREFIX/opt/fzf')
+  Plug '$HOMEBREW_PREFIX/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'

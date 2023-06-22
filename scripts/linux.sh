@@ -29,7 +29,7 @@ curl https://raw.githubusercontent.com/maptv/setup/master/.gitconfig -o ~/.gitco
 brew install bash bat exa fasd fd fzf hub neovim tmux vim xpdf zsh-autosuggestions zsh-syntax-highlighting romkatv/powerlevel10k/powerlevel10k
 
 ## Install fzf key bindings and fuzzy completion
-$(brew --prefix)/opt/fzf/install --no-fish --completion --no-key-bindings --no-update-rc
+$HOMEBREW_PREFIX/opt/fzf/install --no-fish --completion --no-key-bindings --no-update-rc
 
 # Use Bash as a backup
 curl https://raw.githubusercontent.com/maptv/setup/master/macos/.bash_profile -o ~/.bash_profile
@@ -111,5 +111,5 @@ curl https://raw.githubusercontent.com/maptv/setup/master/rstudio/editor_binding
 curl https://raw.githubusercontent.com/maptv/setup/master/rstudio/rstudio_bindings.json -o ~/.config/rstudio/keybindings/rstudio_bindings.json
 
 ### Install and symlink macvim (brew installed macvim conflicts with brew installed vim)
-##### ln -s /opt/homebrew/Cellar/macvim/**/MacVim.app/ /Applications/MacVim.app
+##### ln -s $HOMEBREW_PREFIX/Cellar/macvim/**/MacVim.app/ /Applications/MacVim.app
 conda init zsh

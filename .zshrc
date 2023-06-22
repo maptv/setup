@@ -7,8 +7,8 @@ export FIG_WORKFLOWS_KEYBIND="^\\"
 # https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 export DOOMDIR=$HOME/.config/doom
-export PATH=~/.doom.d/bin:$PATH
-export EDITOR=$(brew --prefix)/bin/nvim
+export PATH=$HOME/.doom.d/bin:$PATH
+export EDITOR=$HOMEBREW_PREFIX/bin/nvim
 export MANWIDTH=999
 export DELTA_PAGER="less -R"
 export PAGER="page -WCO -1 -q 90000 -z 90000"
@@ -22,11 +22,14 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap"
 export FZF_ALT_C_OPTS="--no-multi --preview 'exa --all --classify --color=always -L=2 -T {} | grep -E \"\$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g)\" --color=always' --select-1"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
-# source $HOME/zsh-vim-mode/zsh-vim-mode.plugin.zsh
+source $HOMEBREW_PREFIX/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOMEBREW_PREFIX/share/zsh-autopair/autopair.zsh
+source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source $HOMEBREW_PREFIX/share/zsh-you-should-use/you-should-use.plugin.zsh
+# source $HOMEBREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.

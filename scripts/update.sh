@@ -42,7 +42,7 @@ code --install-extension vscodevim.vim --force
 
 brew install bash bat exa fasd fd fzf hub neovim sc-im tmux vim xpdf
 
-$(brew --prefix)/opt/fzf/install --no-bash --no-fish --key-bindings --completion --update-rc
+$HOMEBREW_PREFIX/opt/fzf/install --no-bash --no-fish --key-bindings --completion --update-rc
 
 curl https://raw.githubusercontent.com/py4ds/setup/master/macos/.bash_profile -o ~/.bash_profile
 
