@@ -581,28 +581,12 @@ python_packages=(
     scipy
 )
 
-r_packages=(
-    r-essentials
-    r-tidyverse
-    r-irkernel
-    r-quarto
-)
-
 $HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge $base_packages
 
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py $base_packages $python_packages
-
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto
-
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n r $base_packages $r_packages
-
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/r/bin/python -m pip install jupyterlab-quarto
-
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n pyr $base_packages $python_packages $r_packages
-
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/pyr/bin/python -m pip install jupyterlab-quarto
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py $base_packages $jupyter_packages $python_packages
 
 # 7: Code editors
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto radian
 
 ### Jupyter settings
 curl https://raw.githubusercontent.com/maptv/setup/main/shortcuts.jupyterlab-settings -o ~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/shortcuts.jupyterlab-settings --create-dirs
@@ -672,6 +656,8 @@ curl https://raw.githubusercontent.com/maptv/setup/main/settings.zip -o ~/settin
 ### When setting run configurations (`Ctrl Alt r`), set working directory to project root under Environment and deselect Run with Python Console under Execution
 
 ## Set up RStudio
+### `brew install --cask rstudio` works (rstudio is included in `Brewfile`)
+### As of 2023-06-23, RStudio only works with the graphical R installer (not brew or conda)
 curl https://raw.githubusercontent.com/maptv/setup/main/rstudio-prefs.json -o ~/.config/rstudio/rstudio-prefs.json --create-dirs
 
 curl https://raw.githubusercontent.com/maptv/setup/main/editor_bindings.json -o ~/.config/rstudio/keybindings/editor_bindings.json --create-dirs
@@ -682,6 +668,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/rstudio_bindings.json -o
 $HOMEBREW_PREFIX/bin/mamba init zsh
 
 # Set up vscode and vscodium 
+### As of 2023-06-23, VSCode only works with the graphical R installer (not brew or conda)
 curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Library/Application\ Support/Code/User/settings.json --create-dirs
 
 curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Library/Application\ Support/VSCodium/User/settings.json --create-dirs
