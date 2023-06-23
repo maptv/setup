@@ -947,18 +947,18 @@ bindkey -M viins '˙' backward-kill-word
 bindkey -M viins '≥' insert-last-word
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/bit bit
+complete -o nospace -C $HOMEBREW_PREFIX/bin/bit bit
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/mambaforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/usr/local/Caskroom/mambaforge/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/mambaforge/base/etc/profile.d/conda.sh"
+    if [ -f "$HOMEBREW_PREFIX/Caskroom/mambaforge/base/etc/profile.d/conda.sh" ]; then
+        . "$HOMEBREW_PREFIX/Caskroom/mambaforge/base/etc/profile.d/conda.sh"
     else
-        export PATH="/usr/local/Caskroom/mambaforge/base/bin:$PATH"
+        export PATH="$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
