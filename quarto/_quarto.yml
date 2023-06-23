@@ -1,0 +1,9 @@
+engine: knitr
+toc: true
+number-sections: true
+highlight-style: arrow
+echo: fenced
+code-fold: show
+execute:
+  cache: true
+  freeze: auto
