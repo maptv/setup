@@ -25,7 +25,7 @@
   "python.languageServer": "Pylance",
   "r.alwaysUseActiveTerminal": true,
   "r.bracketedPaste": true,
-  "r.rterm.mac": "$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/${workspaceFolderBasename}/bin/radian",
+  "r.rterm.mac": "/usr/local/bin/R",
   "r.sessionWatcher": true,
   "security.workspace.trust.untrustedFiles": "open",
   "tabnine.experimentalAutoImports": true,
@@ -36,9 +36,10 @@
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.macOptionIsMeta": true,
-  "vscode-neovim.neovimExecutablePaths.darwin": "$HOMEBREW_PREFIX/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.vim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.vim",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
-  }
+  },
+  "r.rpath.mac": "/usr/local/bin/R"
 }
