@@ -560,16 +560,47 @@ curl https://raw.githubusercontent.com/maptv/setup/main/tabnine_config.json -o ~
 
 # 6: Conda environments (base, Python and R)
 ### Install cookiecutter (for i alias) and neovim (for vim plugins)
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge python neovim
 
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py python joblib jupyterlab seaborn neovim numpy pandas scikit-learn jupyterlab_vim scipy
+base_packages=(
+    python
+    neovim
+)
+
+jupyter_packages=(
+    jupyterlab
+    jupyterlab_vim
+    jupyter-cache
+)
+
+python_packages=(
+    joblib
+    seaborn
+    numpy
+    pandas
+    scikit-learn
+    scipy
+)
+
+r_packages=(
+    r-essentials
+    r-tidyverse
+    r-irkernel
+    r-quarto
+)
+
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge $base_packages
+
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py $base_packages $python_packages
 
 $HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto
 
-##### Installing r into base environment breaks nvim-R
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n r r-essentials r-tidyverse r-irkernel python neovim jupyterlab jupyterlab_vim r-quarto
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n r $base_packages $r_packages
 
 $HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/r/bin/python -m pip install jupyterlab-quarto
+
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n pyr $base_packages $python_packages $r_packages
+
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/pyr/bin/python -m pip install jupyterlab-quarto
 
 # 7: Code editors
 
@@ -763,3 +794,11 @@ $HOMEBREW_PREFIX/bin/code --install-extension TabNine.tabnine-vscode
 ## tabby: can't figure how to remap ctrl ; to ctrl q
 ## hyper: can't figure how to remap ctrl ; to ctrl q
 ## terminal: can't figure how to remap ctrl ; to ctrl q
+
+# Text editors
+1. Vim
+2. Neovim
+3. LunarVim
+4. SpaceVim
+5. Spacemacs
+6. Doom emacs
