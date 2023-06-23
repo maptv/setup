@@ -303,8 +303,8 @@ alias dm="git diff main"
 alias dmn="func() { git diff $(echo 'main~${1:-0} ${@:2}'); }; func"
 alias dp="git difftool --no-prompt --extcmd 'pycharm diff $LOCAL $REMOTE'"
 alias dps="git difftool --no-prompt --extcmd 'pycharm diff'"
-alias dr.="doom run -nw ."
-alias dr="doom run -nw"
+alias dr.="doom run --no-window-system ."
+alias dr="doom run --no-window-system"
 alias drd="doom run --daemon"
 alias ds="doom sync"
 alias dsf="delta --side-by-side --diff-so-fancy"
@@ -328,9 +328,9 @@ alias dtvs="git difftool --no-prompt --tool vimdiff --staged" # same as --cached
 alias duh="du -h"
 alias dw="git diff --word-diff=color"
 alias dx="docker rm -f $(echo 'docker ps -aq')"
-alias e="emacsclient -nw -t --alternate-editor emacs" # use whatever daemon if running otherwise run emacs command
+alias e="emacsclient --no-window-system -t --alternate-editor emacs" # use whatever daemon if running otherwise run emacs command
 alias ed="emacs --daemon" # start spacemacs daemon
-alias eds="emacs -nw --daemon -q --load ~/.emacs.d/init.el" # start spacemacs daemon
+alias eds="emacs --no-window-system --daemon -q --load ~/.emacs.d/init.el" # start spacemacs daemon
 alias ef="func() { local files=$(echo '$(fasd -Rfl | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 emacsclient -t --alternate-editor -- ; }; func"
 alias es.="emacs --no-window-system -q --load ~/.emacs.d/init.el ." # open spacemacs dired in current directory
 alias en.="emacs --no-window-system ." # open spacemacs dired in current directory
