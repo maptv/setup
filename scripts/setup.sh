@@ -561,32 +561,13 @@ curl https://raw.githubusercontent.com/maptv/setup/main/tabnine_config.json -o ~
 # 6: Conda environments (base, Python and R)
 ### Install cookiecutter (for i alias) and neovim (for vim plugins)
 
-base_packages=(
-    python
-    neovim
-)
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge python neovim
 
-jupyter_packages=(
-    jupyterlab
-    jupyterlab_vim
-    jupyter-cache
-)
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py python neovim jupyterlab jupyterlab_vim jupyter-cache joblib seaborn numpy pandas scikit-learn scipy
 
-python_packages=(
-    joblib
-    seaborn
-    numpy
-    pandas
-    scikit-learn
-    scipy
-)
-
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge $base_packages
-
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py $base_packages $jupyter_packages $python_packages
+$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto radian
 
 # 7: Code editors
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto radian
 
 ### Jupyter settings
 curl https://raw.githubusercontent.com/maptv/setup/main/shortcuts.jupyterlab-settings -o ~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/shortcuts.jupyterlab-settings --create-dirs

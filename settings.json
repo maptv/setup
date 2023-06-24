@@ -25,6 +25,7 @@
   "python.languageServer": "Pylance",
   "r.alwaysUseActiveTerminal": true,
   "r.bracketedPaste": true,
+  "r.rpath.mac": "/usr/local/bin/R",
   "r.rterm.mac": "/usr/local/bin/R",
   "r.sessionWatcher": true,
   "security.workspace.trust.untrustedFiles": "open",
@@ -40,6 +41,5 @@
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.vim",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
-  },
-  "r.rpath.mac": "/usr/local/bin/R"
+  }
 }
