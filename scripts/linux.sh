@@ -43,7 +43,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/.inputrc -o ~/.inputrc
 curl https://raw.githubusercontent.com/maptv/setup/main/.vimrc -o ~/.vimrc
 
 ### Neovim
-curl https://raw.githubusercontent.com/maptv/setup/main/init.vim -o ~/.config/nvim/init.vim
+curl https://raw.githubusercontent.com/maptv/setup/main/init.vim -o ~/.config/nvim/init.vim --create-dirs
 
 ### SpaceVim
 git clone https://github.com/SpaceVim/SpaceVim.git ~/.SpaceVim
