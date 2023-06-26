@@ -531,7 +531,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/config.el -o ~/.config/d
 
 curl https://raw.githubusercontent.com/maptv/setup/main/packages.el -o ~/.config/doom/packages.el
 
-~/.config/emacs/bin/doom install
+yes y | ~/.config/emacs/bin/doom install
 
 ## Set up oh my tmux
 curl https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf -o ~/.tmux.conf
