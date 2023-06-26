@@ -450,7 +450,7 @@ set -g @plugin 'fcsonline/tmux-thumbs' # space
 set -g @plugin 'laktak/extrakto' # X
 set -g @plugin 'roosta/tmux-fuzzback' # ?
 set -g @plugin 'sainnhe/tmux-fzf' # z i
-set -g @plugin 'tmux-plugins/tmux-continuum'
+# set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-fpp' # f
 set -g @plugin 'tmux-plugins/tmux-resurrect' # D L
 set -g @plugin 'tmux-plugins/tpm'
@@ -470,11 +470,13 @@ set -g @resurrect-strategy-nvim 'session'
 # https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/restoring_pane_contents.md
 set -g @resurrect-capture-pane-contents 'on'
 
+# turn off continuum until this issue is resolved:
+# https://github.com/tmux-plugins/tmux-continuum/issues/118
 # https://github.com/tmux-plugins/tmux-continuum
-set -g @continuum-restore 'on'
+# set -g @continuum-restore 'on'
 # https://github.com/tmux-plugins/tmux-continuum/blob/master/docs/automatic_start.md
-set -g @continuum-boot 'on'
-set -g @continuum-boot-options 'iterm,fullscreen'
+# set -g @continuum-boot 'on'
+# set -g @continuum-boot-options 'iterm,fullscreen'
 
 # https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/custom_key_bindings.md
 set -g @resurrect-save 'M-D' # dump
