@@ -519,11 +519,9 @@ curl https://raw.githubusercontent.com/maptv/setup/main/.ideavimrc -o ~/.ideavim
 ### Spacemacs
 rm -rf ~/.emacs.d
 
-git clone --depth 1 https://github.com/syl20bnr/spacemacs ~/emacs.d
+git clone --depth 1 https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 curl https://raw.githubusercontent.com/maptv/setup/main/.spacemacs -o ~/.spacemacs
-
-# emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el
 
 ### Doom emacs
 
@@ -664,6 +662,10 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
+# set up spacemacs
+/opt/homebrew/bin/emacs --no-window-system --daemon
+
+# set up doom emacs
 # the line below has to be at the bottom, because it ends setup.sh (I don't know why):
 ~/.config/emacs/bin/doom sync
 
