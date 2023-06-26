@@ -35,6 +35,9 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `setup.sh` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Not all software is available on ARM processor Macs
+softwareupdate --install-rosetta
+
 ## Keyboard
 ### https://apple.stackexchange.com/a/83923
 ### In System Preferences > Keyboard > Keyboard:
@@ -434,20 +437,17 @@ curl https://raw.githubusercontent.com/maptv/setup/main/karabiner.json -o ~/.con
 ## Set up xpdf (e.g. pdftotext - for fzf PDF file preview)
 ## Set up vim and neovim
 
-## Use terminal emacs in the terminal (overwrite link to GUI Emacs installed via cask)
-brew link --overwrite emacs
-
 ## Create locations for undo files (just in case they are not created automatically)
 mkdir -p ~/.vim/undodir
 
 mkdir -p ~/.local/share/nvim/undo
 
 ## Install fzf key bindings and fuzzy completion using the install script which runs the commented out code below
-### source $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh
-### source $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
-### source $HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh
-### source $HOMEBREW_PREFIX/opt/fzf/shell/completion.bash
-$HOMEBREW_PREFIX/opt/fzf/install --completion --key-bindings --no-fish --no-update-rc
+### source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+### source /opt/homebrew/opt/fzf/shell/key-bindings.bash
+### source /opt/homebrew/opt/fzf/shell/completion.zsh
+### source /opt/homebrew/opt/fzf/shell/completion.bash
+/opt/homebrew/opt/fzf/install --completion --key-bindings --no-fish --no-update-rc
 
 # Use Bash as a backup
 curl https://raw.githubusercontent.com/maptv/setup/main/.bash_profile -o ~/.bash_profile
@@ -561,11 +561,11 @@ curl https://raw.githubusercontent.com/maptv/setup/main/tabnine_config.json -o ~
 # 6: Conda environments (base, Python and R)
 ### Install cookiecutter (for i alias) and neovim (for vim plugins)
 
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge python neovim
+/opt/homebrew/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge python neovim
 
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py python neovim jupyterlab jupyterlab_vim jupyter-cache joblib seaborn numpy pandas scikit-learn scipy
+/opt/homebrew/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py python neovim jupyterlab jupyterlab_vim jupyter-cache joblib seaborn numpy pandas scikit-learn scipy
 
-$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto radian
+/opt/homebrew/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto radian
 
 # 7: Code editors
 
@@ -646,7 +646,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/editor_bindings.json -o 
 curl https://raw.githubusercontent.com/maptv/setup/main/rstudio_bindings.json -o ~/.config/rstudio/keybindings/rstudio_bindings.json --create-dirs
 
 # Initialize conda for z shell
-$HOMEBREW_PREFIX/bin/mamba init zsh
+/opt/homebrew/bin/mamba init zsh
 
 # Set up vscode and vscodium 
 ### As of 2023-06-23, VSCode only works with the graphical R installer (not brew or conda)
@@ -659,49 +659,49 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
 # Install vscode and vscodium extensions
-$HOMEBREW_PREFIX/bin/codium --install-extension asvetliakov.vscode-neovim
+/opt/homebrew/bin/codium --install-extension asvetliakov.vscode-neovim
 
-$HOMEBREW_PREFIX/bin/codium --install-extension ms-python.python
+/opt/homebrew/bin/codium --install-extension ms-python.python
 
-$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.jupyter
+/opt/homebrew/bin/codium --install-extension ms-toolsai.jupyter
 
-$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.jupyter-keymap
+/opt/homebrew/bin/codium --install-extension ms-toolsai.jupyter-keymap
 
-$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.jupyter-renderers
+/opt/homebrew/bin/codium --install-extension ms-toolsai.jupyter-renderers
 
-$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.vscode-jupyter-cell-tags
+/opt/homebrew/bin/codium --install-extension ms-toolsai.vscode-jupyter-cell-tags
 
-$HOMEBREW_PREFIX/bin/codium --install-extension ms-toolsai.vscode-jupyter-slideshow
+/opt/homebrew/bin/codium --install-extension ms-toolsai.vscode-jupyter-slideshow
 
-$HOMEBREW_PREFIX/bin/codium --install-extension quarto.quarto
+/opt/homebrew/bin/codium --install-extension quarto.quarto
 
-$HOMEBREW_PREFIX/bin/codium --install-extension REditorSupport.r
+/opt/homebrew/bin/codium --install-extension REditorSupport.r
 
-$HOMEBREW_PREFIX/bin/codium --install-extension TabNine.tabnine-vscode
+/opt/homebrew/bin/codium --install-extension TabNine.tabnine-vscode
 
-$HOMEBREW_PREFIX/bin/code --install-extension asvetliakov.vscode-neovim
+/opt/homebrew/bin/code --install-extension asvetliakov.vscode-neovim
 
-$HOMEBREW_PREFIX/bin/code --install-extension ms-python.black-formatter
+/opt/homebrew/bin/code --install-extension ms-python.black-formatter
 
-$HOMEBREW_PREFIX/bin/code --install-extension ms-python.python
+/opt/homebrew/bin/code --install-extension ms-python.python
 
-$HOMEBREW_PREFIX/bin/code --install-extension ms-python.vscode-pylance
+/opt/homebrew/bin/code --install-extension ms-python.vscode-pylance
 
-$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.jupyter
+/opt/homebrew/bin/code --install-extension ms-toolsai.jupyter
 
-$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.jupyter-keymap
+/opt/homebrew/bin/code --install-extension ms-toolsai.jupyter-keymap
 
-$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.jupyter-renderers
+/opt/homebrew/bin/code --install-extension ms-toolsai.jupyter-renderers
 
-$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.vscode-jupyter-cell-tags
+/opt/homebrew/bin/code --install-extension ms-toolsai.vscode-jupyter-cell-tags
 
-$HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.vscode-jupyter-slideshow
+/opt/homebrew/bin/code --install-extension ms-toolsai.vscode-jupyter-slideshow
 
-$HOMEBREW_PREFIX/bin/code --install-extension quarto.quarto
+/opt/homebrew/bin/code --install-extension quarto.quarto
 
-$HOMEBREW_PREFIX/bin/code --install-extension REditorSupport.r
+/opt/homebrew/bin/code --install-extension REditorSupport.r
 
-$HOMEBREW_PREFIX/bin/code --install-extension TabNine.tabnine-vscode
+/opt/homebrew/bin/code --install-extension TabNine.tabnine-vscode
 
 # Non-automated steps
 ## Give Hammerspoon Accessibility permissions and enable Launch Hammerspoon at login
