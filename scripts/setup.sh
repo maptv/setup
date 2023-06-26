@@ -490,9 +490,9 @@ curl https://raw.githubusercontent.com/maptv/setup/main/coc-settings.json -o ~/.
 ## SpaceVim
 git clone https://github.com/SpaceVim/SpaceVim.git ~/.SpaceVim
 
-curl https://raw.githubusercontent.com/py4ds/setup/master/spacevim/init.toml -o ~/.SpaceVim.d/init.toml --create-dirs
+curl https://raw.githubusercontent.com/maptv/setup/main/spacevim/init.toml -o ~/.SpaceVim.d/init.toml --create-dirs
 
-curl https://raw.githubusercontent.com/py4ds/setup/master/spacevim/myspacevim.vim -o ~/.SpaceVim.d/autoload/myspacevim.vim --create-dirs
+curl https://raw.githubusercontent.com/maptv/setup/main/spacevim/myspacevim.vim -o ~/.SpaceVim.d/autoload/myspacevim.vim --create-dirs
 
 ## Lunar Vim
 yes y | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
@@ -702,6 +702,7 @@ if yes y | ~/.config/emacs/bin/doom install; then echo doom install OK; fi
 #### Vimium extension with settings restored from https://raw.githubusercontent.com/maptv/setup/main/vimium-options.json
 #### LastPass extension
 #### BitWarden extension
+## Launch fig in the terminal and authenticate with GitHub
 ## Add all Internet Accounts in System Preferences
 ### Grant Accessibility permissions to CopyQ, altTab, Homerow, Hammerspoon, VimR and Alfred
 ### Enable launch on login for CopyQ, altTab, Homerow, Hammerspoon, VimR and Alfred
