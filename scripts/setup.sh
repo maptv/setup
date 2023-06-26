@@ -637,7 +637,7 @@ git clone --depth 1 https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 curl https://raw.githubusercontent.com/maptv/setup/main/.spacemacs -o ~/.spacemacs
 
-# Launch spacemacs as daemon to finish setup
+#### Launch spacemacs as daemon to finish setup
 /opt/homebrew/bin/emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el
 
 ### Doom emacs
