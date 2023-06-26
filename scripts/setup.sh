@@ -87,6 +87,10 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+## Notifications
+### Show notifications for only one second
+defaults write com.apple.notificationcenterui bannerTime 1
+
 ## Dock
 ### Remove most icons from Dock
 defaults write com.apple.dock persistent-apps -array
