@@ -36,7 +36,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Not all software is available on ARM processor Macs
-softwareupdate --install-rosetta
+echo A | softwareupdate --install-rosetta
 
 ## Keyboard
 ### https://apple.stackexchange.com/a/83923
