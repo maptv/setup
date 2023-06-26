@@ -667,6 +667,7 @@ git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whj
 ### Download and move homerow.app to Applications
 ### https://www.homerow.app/changelog
 ### keep default bindings for now
+## Add ssh key to GitHub by running gh auth login (alias: hai) and selecting SSH as my preferred protocol for Git operations
 ## Restart computer to enable macOS settings set via defaults
 ## Load in the profile saved in the `macos.terminal` file
 ## Give karabiner_grabber and karabiner_observer Input Monitoring permission
