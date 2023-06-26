@@ -325,7 +325,7 @@ echo "Host *\n\tIdentityFile ~/.ssh/$(whoami)_$model" >> ~/.ssh/config
 # 5: MacOS Applications
 ## Install Ewka Nerdfont
 
-git clone https://github.com/maptv/ewka ~/maptv/ewka
+git clone --depth 1 https://github.com/maptv/ewka ~/maptv/ewka
 
 cp ~/maptv/ewka/nerd/* ~/Library/Fonts
 
@@ -488,7 +488,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/coc-settings.json -o ~/.
 curl https://raw.githubusercontent.com/maptv/setup/main/coc-settings.json -o ~/.vim/coc-settings.json --create-dirs
 
 ## SpaceVim
-git clone https://github.com/SpaceVim/SpaceVim.git ~/.SpaceVim
+git clone --depth 1 https://github.com/SpaceVim/SpaceVim.git ~/.SpaceVim
 
 curl https://raw.githubusercontent.com/maptv/setup/main/spacevim/init.toml -o ~/.SpaceVim.d/init.toml --create-dirs
 
@@ -507,7 +507,7 @@ curl https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf -o ~/.tmu
 
 curl https://raw.githubusercontent.com/maptv/setup/main/.tmux.conf.local -o ~/.tmux.conf.local
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ## Set up ipython
 curl https://raw.githubusercontent.com/maptv/setup/main/ipython_config.py -o ~/.ipython/profile_default/ipython_config.py --create-dirs
@@ -628,7 +628,10 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
-## Set up emacs
+# Install fasd via git and make (brew install fasd is not working)
+git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whjvenyl/fasd && make install && cd
+
+# Set up emacs
 
 ### Spacemacs
 rm -rf ~/.emacs.d
