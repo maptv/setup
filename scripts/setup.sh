@@ -666,6 +666,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
 # Non-automated steps
+## Install R from https://cran.r-project.org/bin/macosx/
 ## Give Hammerspoon Accessibility permissions and enable Launch Hammerspoon at login
 ## Restart computer to enable macOS settings set via defaults
 ## Load in the profile saved in the `macos.terminal` file
