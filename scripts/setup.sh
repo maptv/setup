@@ -301,7 +301,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 git config --global user.email 13444106+maptv@users.noreply.github.com
 
-curl https://raw.githubusercontent.com/maptv/setup/main/.Brewfile -o ~/.Brewfile
+curl https://raw.githubusercontent.com/maptv/setup/main/Brewfile -o ~/.Brewfile
 
 brew bundle install --global || true
 
