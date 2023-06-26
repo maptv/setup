@@ -527,6 +527,8 @@ emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el
 
 ### Doom emacs
 
+export DOOMDIR=$HOME/.config/doom
+
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs/
 
 curl https://raw.githubusercontent.com/maptv/setup/main/config.el -o ~/.config/doom/config.el --create-dirs
