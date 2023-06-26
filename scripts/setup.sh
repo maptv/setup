@@ -628,9 +628,6 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
-# Install fasd via git and make (brew install fasd is not working)
-git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whjvenyl/fasd && sudo make install && cd
-
 # Set up emacs
 
 ### Spacemacs
@@ -653,6 +650,9 @@ curl https://raw.githubusercontent.com/maptv/setup/main/config.el -o ~/.config/d
 curl https://raw.githubusercontent.com/maptv/setup/main/packages.el -o ~/.config/doom/packages.el
 
 if yes y | ~/.config/emacs/bin/doom install; then echo doom install OK; fi
+
+# Install fasd via git and make (brew install fasd is not working)
+git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whjvenyl/fasd && sudo make install && cd
 
 #### The line below has to be at the bottom, because it ends setup.sh (I don't know why)
 ~/.config/emacs/bin/doom sync
