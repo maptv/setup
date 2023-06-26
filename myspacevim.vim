@@ -1,3 +1,7 @@
+function! myspacevim#before() abort
+  echo ok
+endfunction
+
 function! myspacevim#after() abort
 
   " https://vimrcfu.com/snippet/250

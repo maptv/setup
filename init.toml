@@ -28,6 +28,7 @@
     enable_cursorline = 0
     vimcompatible = true
     bootstrap_after = 'myspacevim#after'
+    bootstrap_before = 'myspacevim#before'
     relativenumber = false
     autocomplete_method = "coc"
 
