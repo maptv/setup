@@ -8,7 +8,7 @@ export FIG_WORKFLOWS_KEYBIND="^\\"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 export DOOMDIR=$HOME/.config/doom
 export PATH=$HOME/.config/emacs/bin:$PATH
-export PATH=/Users/martinlaptev/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export EDITOR=$HOMEBREW_PREFIX/bin/nvim
 export MANWIDTH=999
 export DELTA_PAGER="less -R"

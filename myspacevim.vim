@@ -1165,8 +1165,6 @@ if !has('nvim')
 endif
 
 unmap ,<space>
-unmap s
-nunmap S
 
 if has('nvim')
   au TextYankPost * silent! lua vim.highlight.on_yank()
