@@ -662,16 +662,17 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
+
 # Set up vim et al.
-/opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa
+/opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa || true
 
-/opt/homebrew/bin/nvim -c PlugInstall -c CocInstall -c wqa
+/opt/homebrew/bin/nvim -c PlugInstall -c CocInstall -c wqa || true
 
-/opt/homebrew/bin/vim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
+/opt/homebrew/bin/vim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa || true
 
-/opt/homebrew/bin/nvim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
+/opt/homebrew/bin/nvim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa || true
 
-~/.local/bin/lvim -c LvimUpdate -c wqa
+~/.local/bin/lvim -c LvimSyncCorePlugins -c wqa || true
 
 # set up spacemacs
 /opt/homebrew/bin/emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el
