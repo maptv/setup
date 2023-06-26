@@ -663,7 +663,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
 # set up spacemacs
-/opt/homebrew/bin/emacs --no-window-system --daemon
+/opt/homebrew/bin/emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el
 
 # set up doom emacs
 # the line below has to be at the bottom, because it ends setup.sh (I don't know why):
