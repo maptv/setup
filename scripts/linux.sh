@@ -59,12 +59,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/.tmux.conf.local -o ~/.t
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Python and R
-
-## Install miniconda Python
-curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o ~/miniconda.sh
-
-bash ~/miniconda.sh -bp $HOME/miniconda
+# Python
 
 ## Install nodejs (for coc.vim) and python packages (for nvim-R and ncm-R):
 ### https://github.com/jalvesaq/Nvim-R/blob/main/doc/Nvim-R.txt#L1953
