@@ -629,7 +629,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
 # Install fasd via git and make (brew install fasd is not working)
-git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whjvenyl/fasd && make install && cd
+git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whjvenyl/fasd && sudo make install && cd
 
 # Set up emacs
 
