@@ -303,7 +303,7 @@ git config --global user.email 13444106+maptv@users.noreply.github.com
 
 curl https://raw.githubusercontent.com/maptv/setup/main/Brewfile -o ~/.Brewfile
 
-brew bundle install --global || true
+brew bundle install --file ~/.Brewfile || true
 
 # 4: Generate SSH keys for GitHub, GitLab, and Bitbucket
 
