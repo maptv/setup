@@ -585,6 +585,10 @@ git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whj
 ### Move focus to status menus: `Alt Cmd S`
 ### Change the way Tab moves focus: `Alt Cmd Tab`
 ### Turn keyboard access on or off: `Alt Cmd K`
+# Mac Control Center settings
+## Clock Options... 24-hour clock
+## Show nothing in menu bar, show everything in Control Center
+## The menu bar show only have CopyQ, DECAF/AWAKE, Control Center, and Datetime
 ## Set the following keyboard shortcuts:
 ### Mission Control
 #### Mission Control: Ctrl Alt Shift Cmd Up
