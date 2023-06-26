@@ -82,7 +82,9 @@ defaults write NSGlobalDomain com.apple.trackpad.scaling -float 3
 
 ### and select Tap to click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 ## Dock
@@ -327,19 +329,6 @@ git clone https://github.com/maptv/ewka ~/maptv/ewka
 
 cp ~/maptv/ewka/nerd/* ~/Library/Fonts
 
-## Install r (so that the rmarkdown render alias and Nvim-R work in base environment)
-### Use brew install --cask r: https://rstats.wtf/set-up-an-r-dev-environment.html#what-about-homebrew
-
-# Vimac
-## Download, unzip, and move Vimac.app to Applications
-### https://install.appcenter.ms/users/dexterleng/apps/vimac/distribution_groups/sparkle
-## Set Vimac scroll mode shortcut to `Ctrl Shift S` (default: `Ctrl S`)
-## Set Vimac hint mode shortcut to `Ctrl Shift Space` (default: `Ctrl Space`)
-### Notes:
-### `Cmd Shift Space` conflicts with vscode "trigger parameter hints"
-### the equivalent shortcut in PyCharm, `Cmd P`, conflicts with vscode's quickOpen
-### PyCharm uses `Cmd Shift O` for quick open files and `Cmd E` for recent files
-
 # Permissions
 
 # App shortcuts
@@ -506,35 +495,12 @@ curl https://raw.githubusercontent.com/py4ds/setup/master/spacevim/init.toml -o 
 curl https://raw.githubusercontent.com/py4ds/setup/master/spacevim/myspacevim.vim -o ~/.SpaceVim.d/autoload/myspacevim.vim --create-dirs
 
 ## Lunar Vim
-
 yes y | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 curl https://raw.githubusercontent.com/maptv/setup/main/config.lua -o ~/.config/lvim/config.lua --create-dirs
 
 ### JetBrains IDEs
 curl https://raw.githubusercontent.com/maptv/setup/main/.ideavimrc -o ~/.ideavimrc
-
-## Set up emacs
-
-### Spacemacs
-rm -rf ~/.emacs.d
-
-git clone --depth 1 https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
-curl https://raw.githubusercontent.com/maptv/setup/main/.spacemacs -o ~/.spacemacs
-
-### Doom emacs
-
-export DOOMDIR=$HOME/.config/doom
-
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs/
-
-curl https://raw.githubusercontent.com/maptv/setup/main/config.el -o ~/.config/doom/config.el --create-dirs
-
-curl https://raw.githubusercontent.com/maptv/setup/main/packages.el -o ~/.config/doom/packages.el
-
-if yes y | ~/.config/emacs/bin/doom install; then echo doom install OK; fi
-
 
 ## Set up oh my tmux
 curl https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf -o ~/.tmux.conf
@@ -662,28 +628,39 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
+## Set up emacs
 
-# Set up vim et al. (commented out because these stop the script)
-# /opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa || true
+### Spacemacs
+rm -rf ~/.emacs.d
 
-# /opt/homebrew/bin/nvim -c PlugInstall -c CocInstall -c wqa || true
+git clone --depth 1 https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
-# /opt/homebrew/bin/vim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa || true
+curl https://raw.githubusercontent.com/maptv/setup/main/.spacemacs -o ~/.spacemacs
 
-# /opt/homebrew/bin/nvim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa || true
-
-# ~/.local/bin/lvim -c LvimSyncCorePlugins -c wqa || true
-
-# set up spacemacs
+# Launch spacemacs as daemon to finish setup
 /opt/homebrew/bin/emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el
 
-# set up doom emacs
-# the line below has to be at the bottom, because it ends setup.sh (I don't know why):
+### Doom emacs
+export DOOMDIR=$HOME/.config/doom
+
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs/
+
+curl https://raw.githubusercontent.com/maptv/setup/main/config.el -o ~/.config/doom/config.el --create-dirs
+
+curl https://raw.githubusercontent.com/maptv/setup/main/packages.el -o ~/.config/doom/packages.el
+
+if yes y | ~/.config/emacs/bin/doom install; then echo doom install OK; fi
+
+#### The line below has to be at the bottom, because it ends setup.sh (I don't know why)
 ~/.config/emacs/bin/doom sync
 
 # Non-automated steps
 ## Install R from https://cran.r-project.org/bin/macosx/
 ## Give Hammerspoon Accessibility permissions and enable Launch Hammerspoon at login
+## Homerow
+### Download and move homerow.app to Applications
+### https://www.homerow.app/changelog
+### keep default bindings for now
 ## Restart computer to enable macOS settings set via defaults
 ## Load in the profile saved in the `macos.terminal` file
 ## Give karabiner_grabber and karabiner_observer Input Monitoring permission
@@ -707,6 +684,12 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 #### Move focus to the floating window: Alt Cmd W
 #### Move focus to the next window: Cmd ` (Default)
 #### Move focus to the status menus: Alt Cmd S
+## Set up vim et al. (these are manual steps because they stop the setup script)
+### /opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa || true
+### /opt/homebrew/bin/nvim -c PlugInstall -c CocInstall -c wqa || true
+### /opt/homebrew/bin/vim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa || true
+### /opt/homebrew/bin/nvim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa || true
+### ~/.local/bin/lvim -c LvimSyncCorePlugins -c wqa || true
 ## Set Sound options
 ### Set alert volume to zero
 ### Disable Play sound on startup
@@ -717,7 +700,6 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 #### LastPass extension
 #### BitWarden extension
 ## Add all Internet Accounts in System Preferences
-## Install Homerow: https://www.homerow.app
 ### Grant Accessibility permissions to CopyQ, altTab, Homerow, Hammerspoon, VimR and Alfred
 ### Enable launch on login for CopyQ, altTab, Homerow, Hammerspoon, VimR and Alfred
 ### Select ABC under Auto-switch Input Source
@@ -732,7 +714,6 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 #### 3: far right monitor
 #### 4: dual link dual monitors
 #### 5: far right monitor
-
 
 # Terminals
 ## iTerm: set up to automatically run tmux attach
