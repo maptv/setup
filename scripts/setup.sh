@@ -295,9 +295,9 @@ curl https://raw.githubusercontent.com/maptv/setup/main/DefaultKeyBinding.dict -
 ## Install Homebrew (this also installs xcode tools needed for git)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-(echo; echo 'eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"') >> ~/.zprofile
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
 
-eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 git config --global user.email 13444106+maptv@users.noreply.github.com
 
