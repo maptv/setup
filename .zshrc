@@ -333,12 +333,12 @@ alias dw="git diff --word-diff=color"
 alias dx="docker rm -f $(echo 'docker ps -aq')"
 alias e="emacsclient -t --alternate-editor 'emacs --no-window-system'" # use whatever daemon if running otherwise run emacs command
 alias ed="emacs --daemon" # start spacemacs daemon
-alias eds="emacs --no-window-system --daemon -q --load ~/.emacs.d/init.el" # start spacemacs daemon
+alias eds="emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el" # start spacemacs daemon
 alias ef="func() { local files=$(echo '$(fasd -Rfl | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 emacsclient -t --alternate-editor 'emacs --no-window-system' -- ; }; func"
-alias es.="emacs --no-window-system -q --load ~/.emacs.d/init.el ." # open spacemacs dired in current directory
+alias es.="emacs --no-window-system --no-init-file --load ~/.emacs.d/init.el ." # open spacemacs dired in current directory
 alias en.="emacs --no-window-system ." # open spacemacs dired in current directory
 alias en="emacs --no-window-system" # open spacemacs
-alias es="emacs --no-window-system -q --load ~/.emacs.d/init.el" # open spacemacs
+alias es="emacs --no-window-system --no-init-file --load ~/.emacs.d/init.el" # open spacemacs
 alias esa="eval `ssh-agent -s`"
 alias ex="emacsclient -e '(kill-emacs)'"
 alias ez="emacsclient -t --alternate-editor 'emacs --no-window-system' ~/.zshrc"

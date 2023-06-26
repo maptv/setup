@@ -523,6 +523,8 @@ git clone --depth 1 https://github.com/syl20bnr/spacemacs ~/emacs.d
 
 curl https://raw.githubusercontent.com/maptv/setup/main/.spacemacs -o ~/.spacemacs
 
+emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el
+
 ### Doom emacs
 
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs/
@@ -532,6 +534,8 @@ curl https://raw.githubusercontent.com/maptv/setup/main/config.el -o ~/.config/d
 curl https://raw.githubusercontent.com/maptv/setup/main/packages.el -o ~/.config/doom/packages.el
 
 yes y | ~/.config/emacs/bin/doom install
+
+~/.config/emacs/bin/doom sync
 
 ## Set up oh my tmux
 curl https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf -o ~/.tmux.conf
