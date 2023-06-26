@@ -9,11 +9,9 @@
 # Why Mac?
 ## MacOS
 ### MacOS is UNIX-based, unlike Windows, though Windows Subsystem for Linux (WSL) is a really big step forward.
-#### The best option would be to install Linux on a Mac and configure the modifier keys (Cmd/Alt/Ctrl) to work like in MacOS, but who has time for that?
 ## Modifier keys
 ### The Command key is used for MacOS keyboard shortcuts, limiting conflicts with Unix shortcuts that use Alt/Option or Control.
-## Longevity
-### Macs are built to last. I am writing this in 2020 on a 2014 MacBook Air. No PC has ever lasted this long in my experience.
+#### The best option would be to install Linux on a Mac and configure the modifier keys (Cmd/Alt/Ctrl) to work like in MacOS, but who has time for that?
 
 # Mac System Preferences
 
@@ -359,69 +357,12 @@ curl https://raw.githubusercontent.com/maptv/setup/main/.hyper.js -o ~/.hyper.js
 
 curl https://raw.githubusercontent.com/maptv/setup/main/config.yaml -o ~/Library/Application\ Support/tabby/config.yaml --create-dirs
 
-# CopyQ
-## Load copyq.ini (commands) and copyq.cpq (configuration)
-
-### Notes:
-### Keyboard shortcuts:
-### `Ctrl Alt C` summons the CopyQ window
-### `Ctrl Alt D` pastes the today's ISO date
-### `Ctrl Alt J` pastes and copies next
-### `Ctrl Alt K` pastes and copies previous
-### `Ctrl Alt S` shows the CopyQ tray (mnemonic: show tray)
-### `Ctrl Alt V` edits the clipboard (mnemonic: vim)
-### `Ctrl Alt X` pastes as plain text (mnemonic: remove (x) formatting)
-
-## Set builtin "Move focus" macOS Keyboard shortcuts in System Preferences > Keyboard > Shortcuts > Keyboard
-### Move focus to menu bar: `Alt Cmd A` (A is for Apple)
-### Move focus to Dock: `Alt Cmd Z` (Z is below A and S on the keyboard)
-### Move focus to active or next window: `Cmd '` (' looks similar to `)
-#### Which automatically enables, move focus to previous window: `Cmd Shift ;`
-#### that I decided it was worth overwriting the Emacs hippie completion binding
-### Toggle all of the focus shortcuts except "Move focus to status menus": `Alt O`
-### Move focus to window toolbar: `Alt Cmd T` (mnemonic: toolbaR, works a bit like Alt R in Emacs in that it jumps back and forth)
-### Move focus to floating window: `Alt Cmd W`
-### Move focus to status menus: `Alt Cmd S`
-### Change the way Tab moves focus: `Alt Cmd Tab`
-### Turn keyboard access on or off: `Alt Cmd K`
-
-## Set up Vimac
-### Hint Mode shortcut: `Ctrl Q`
-### Scroll Mode shortcut: `Ctrl S`
-### Maximize Scroll Mode sensitivity
-
-## Set up Mac terminal
-### In terminal, under Profiles > Text: Select Ewka Nerd Font size 18
-### In terminal, under Profiles > Advanced: Deselect audible bell
 
 ## Set up iterm2
 curl https://raw.githubusercontent.com/maptv/setup/main/com.googlecode.iterm2.plist -o ~/Library/Preferences/com.googlecode.iterm2.plist
 
-### Load iterm.json, which includes the settings below
-### curl https://raw.githubusercontent.com/maptv/setup/main/iterm.json -o ~/iterm.json
-### In iterm2, select General > Preferences: Select load preferences from a local folder or URL
-### In iterm2, select Appearance > Theme: Minimal
-### In iterm2, select Profiles > Keys: Both option keys to Esc+
-### In iterm2, select Profiles > Terminal > Notifications: Silence bell
-### In iterm2, select Profiles > Text > Change Font: Ewka Nerdfont size 18, Use Ligatures
-### In iterm2, set Profiles > General > Command > Send text at start: tmux attach || tmux new \; split-window -v \; select-pane -t :.+
-### In iterm2, set Keys > Key Bindings > Send hex code 0x11 ^;
-### In iterm2, set Profiles > Keys > Key Mappings to send enter/return key codes:
-#### Send ^[ [13;2u with Shift Return
-#### Send ^[ [13;5u with Ctrl Return
-#### Send ^[ [13;6u with Ctrl Shift Return
-#### Send ^[ [13;3u with Cmd Return
-#### Send ^[ [13;4u with Shift Cmd Return
-#### Send ^[ <M-C-CR> with Ctrl Shift Cmd Return
-
 ## Set up karabiner
 curl https://raw.githubusercontent.com/maptv/setup/main/karabiner.json -o ~/.config/karabiner/karabiner.json --create-dirs
-
-#### Under Complex modifications > Rules you should see
-##### Change caps_lock to control if pressed with other keys, to escape if pressed alone. (from Change caps_lock key (rev 4))
-##### Change return to control if pressed with other keys, to return if pressed alone (from Change return to control)
-##### Bash style Emacs key bindings (rev 2) (from Emacs key bindings (rev 12))
-##### Emacs key bindings [option+keys] (rev 5) (from Emacs key bindings (rev 12))
 
 # 6: Command line tools
 ## Set up fzf (fuzzy finder)
@@ -446,8 +387,6 @@ mkdir -p ~/.local/share/nvim/undo
 curl https://raw.githubusercontent.com/maptv/setup/main/.bash_profile -o ~/.bash_profile
 
 curl https://raw.githubusercontent.com/maptv/setup/main/.inputrc -o ~/.inputrc
-
-## Download dotfiles (configuration files)
 
 # Zsh config
 curl https://raw.githubusercontent.com/maptv/setup/main/.zshrc -o ~/.zshrc
@@ -480,8 +419,6 @@ curl https://raw.githubusercontent.com/maptv/setup/main/init.vim -o ~/.config/nv
 curl https://raw.githubusercontent.com/maptv/setup/main/init.vim -o ~/.config/page/init.vim --create-dirs
 
 echo 'let g:better_whitespace_enabled=0' >> ~/.config/page/init.vim
-
-curl https://raw.githubusercontent.com/jalvesaq/Nvim-R/master/R/tmux_split.vim -o ~/tmux_split.vim
 
 ### Neovim GUIs
 curl https://raw.githubusercontent.com/maptv/setup/main/ginit.vim -o ~/.config/nvim/ginit.vim --create-dirs
@@ -551,65 +488,6 @@ curl https://raw.githubusercontent.com/maptv/setup/main/vimrc.jupyterlab-setting
 ### PyCharm settings
 curl https://raw.githubusercontent.com/maptv/setup/main/settings.zip -o ~/settings.zip
 
-## Setup PyCharm
-### Install PyCharm via Jetbrains Toolbox
-### Sync settings from https://github.com/marskar/PyCharm
-### Or load settings from `settings.zip`
-### Or manually configure PyCharm by following the steps below
-### Under File > Settings Repository..., select Overwrite Local
-### Settings
-### Select MacOS X 10.5+ Keymap and make the following changes:
-#### - Editor Actions > Backspace : `Ctrl h`
-#### - Editor Actions > Cut Line Backward : `Ctrl u`
-#### - Editor Actions > Kill to Word End : `Alt d`
-#### - Editor Actions > Cut up to Line End : `Ctrl k`
-#### - Editor Actions > Decrease Font Size : `Cmd -`
-#### - Editor Actions > Focus Editor : `Shift Escape`
-#### - Editor Actions > Increase Font Size : `Cmd =`
-#### - Editor Actions > Kill to Word Start : `Ctrl w`
-#### - Editor Actions > Move Caret to Next Word : `Alt f`
-#### - Editor Actions > Move Caret to Previous Word : `Alt b`
-#### - Editor Actions > Reset Font Size : `Cmd 0`
-#### - Editor Actions > Split Line :
-#### - Main Menu > View > Quick Documentation: `Ctrl q`
-#### - Main Menu > Edit > Delete : `Ctrl d`
-#### - Main Menu > Edit > Paste : `Ctrl y`
-#### - Main Menu > Edit > Redo : `Ctrl =`
-#### - Main Menu > Edit > Undo : `Ctrl -`
-#### - Main Menu > File > Save As...: `Cmd Shift S`
-#### - Main Menu > Help > Find Action... : `Cmd Shift p`
-#### - Main Menu > Tool Windows > Commit :
-#### - Main Menu > Window > Active Tool Window > Resize > Stretch to Bottom : `Cmd Shift ,`
-#### - Main Menu > Window > Active Tool Window > Resize > Stretch to Left : `Cmd Shift ,`
-#### - Main Menu > Window > Active Tool Window > Resize > Stretch to Right : `Cmd Shift ;`
-#### - Main Menu > Window > Active Tool Window > Resize > Stretch to Top : `Cmd Shift ;`
-#### - Plug-ins > Git > Checkout Revision : `Enter`
-#### - Plug-ins > Git > Checkout Selected : `Enter`
-#### - Plug-ins > Python > Execute Selection in Python Console: `Cmd Enter`
-#### - Plug-ins > Python > Split Cell : `Ctrl Shift -`
-#### - Plug-ins > Terminal > Shift Focus To Editor : `Shift+Escape`
-### In Appearance & Behavior > Appearance, Select Darcula theme and select Ewka Nerd Font size 14
-### Using `Cmd Shift A` or going to View > Appearance at the Top, enable Details in Tree Views, disable Tool Windows Bars and Navigation Bar
-### In MacOS System Preferences: Keyboard > Shortcuts > Services, uncheck Open man Page in Terminal (`Cmd Shift M`) and Search man Page Index in Terminal (`Cmd Shift A`)
-### In MacOS System Preferences: Keyboard > Shortcuts > Keyboard, uncheck Turn keyboard access on and off after making sure all of the other shortcuts are enabled
-### In MacOS System Preferences: Keyboard > Shortcuts > Keyboard, change ctrl function shortcuts to ctrl num shortcuts:
-### In Editor > Font, select Ewka Nerd Font size 16 as main and Jetbrains Mono as fallback and Enable font ligatures
-### In Editor > Code Style, set visual guides to 80 characters
-### Check Change font size (Zoom) with Command+Mouse Wheel in Editor > General
-### Check Show Whitespace in Editor > General > Appearance
-### If you use the Deep Ocean Editor theme from the [Material UI](https://www.material-theme.com/) plugin, change docstring (Doc comment > Text) color to [`4cbb17` aka kelly green](https://www.beautycolorcode.com/4cbb17) and line comment color to [`DF00FF` aka psychedelic purple](https://www.beautycolorcode.com/df00ff) under Editor > Color Scheme > Python and Editor > Color Scheme > Language Defaults, respectively
-### In Build, Execution, Deployment > Console, select Use existing console for "Run with Python Console"
-### Disable Material UI to got back to Darcula theme, but keep Code Editor theme as Deep Ocean
-#### Editor > Color Scheme : Material Deep Ocean
-#### Appearance and Behavior > Appearance > Theme : Darcula
-### In Editor > General > Editor Tabs, Select None for Tab placement (current file is shown at the top)
-### Install [IdeaVim](https://github.com/JetBrains/ideavim) plugin
-### Install [BashSupport](https://plugins.jetbrains.com/plugin/4230-bashsupport) plugin
-### Install [Markdown](https://plugins.jetbrains.com/plugin/7793-markdown/) plugin
-### Install [R Language Support](http://holgerbrandl.github.io/r4intellij/) plugin
-### Fix shortcut conflicts under Preferences > Vim emulation: `Ctrl i/j/m/t` to IDE
-### When setting run configurations (`Ctrl Alt r`), set working directory to project root under Environment and deselect Run with Python Console under Execution
-
 ## Set up RStudio
 ### `brew install --cask rstudio` works (rstudio is included in `Brewfile`)
 ### As of 2023-06-23, RStudio only works with the graphical R installer (not brew or conda)
@@ -674,7 +552,39 @@ git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whj
 ## Add ssh key to GitHub by running gh auth login (alias: hai) and selecting SSH as my preferred protocol for Git operations
 ## Restart computer to enable macOS settings set via defaults
 ## Load in the profile saved in the `macos.terminal` file
+# Karabiner
 ## Give karabiner_grabber and karabiner_observer Input Monitoring permission
+#### Under Complex modifications > Rules you should see
+##### Change caps_lock to control if pressed with other keys, to escape if pressed alone. (from Change caps_lock key (rev 4))
+##### Change return to control if pressed with other keys, to return if pressed alone (from Change return to control)
+##### Bash style Emacs key bindings (rev 2) (from Emacs key bindings (rev 12))
+##### Emacs key bindings [option+keys] (rev 5) (from Emacs key bindings (rev 12))
+# CopyQ
+## Load copyq.ini (commands) and copyq.cpq (configuration)
+### Notes:
+### Keyboard shortcuts:
+### `Ctrl Alt C` summons the CopyQ window
+### `Ctrl Alt D` pastes the today's ISO date
+### `Ctrl Alt J` pastes and copies next
+### `Ctrl Alt K` pastes and copies previous
+### `Ctrl Alt S` shows the CopyQ tray (mnemonic: show tray)
+### `Ctrl Alt V` edits the clipboard (mnemonic: vim)
+### `Ctrl Alt X` pastes as plain text (mnemonic: remove (x) formatting)
+## Set up Mac terminal
+### In terminal, under Profiles > Text: Select Ewka Nerd Font size 18
+### In terminal, under Profiles > Advanced: Deselect audible bell
+## Set builtin "Move focus" macOS Keyboard shortcuts in System Preferences > Keyboard > Shortcuts > Keyboard
+### Move focus to menu bar: `Alt Cmd A` (A is for Apple)
+### Move focus to Dock: `Alt Cmd Z` (Z is below A and S on the keyboard)
+### Move focus to active or next window: `Cmd '` (' looks similar to `)
+#### Which automatically enables, move focus to previous window: `Cmd Shift ;`
+#### that I decided it was worth overwriting the Emacs hippie completion binding
+### Toggle all of the focus shortcuts except "Move focus to status menus": `Alt O`
+### Move focus to window toolbar: `Alt Cmd T` (mnemonic: toolbaR, works a bit like Alt R in Emacs in that it jumps back and forth)
+### Move focus to floating window: `Alt Cmd W`
+### Move focus to status menus: `Alt Cmd S`
+### Change the way Tab moves focus: `Alt Cmd Tab`
+### Turn keyboard access on or off: `Alt Cmd K`
 ## Set the following keyboard shortcuts:
 ### Mission Control
 #### Mission Control: Ctrl Alt Shift Cmd Up
@@ -726,6 +636,64 @@ git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whj
 #### 3: far right monitor
 #### 4: dual link dual monitors
 #### 5: far right monitor
+## Setup PyCharm
+### Install PyCharm via Jetbrains Toolbox
+### Sync settings from https://github.com/marskar/PyCharm
+### Or load settings from `settings.zip`
+### Or manually configure PyCharm by following the steps below
+### Under File > Settings Repository..., select Overwrite Local
+### Settings
+### Select MacOS X 10.5+ Keymap and make the following changes:
+#### - Editor Actions > Backspace : `Ctrl h`
+#### - Editor Actions > Cut Line Backward : `Ctrl u`
+#### - Editor Actions > Kill to Word End : `Alt d`
+#### - Editor Actions > Cut up to Line End : `Ctrl k`
+#### - Editor Actions > Decrease Font Size : `Cmd -`
+#### - Editor Actions > Focus Editor : `Shift Escape`
+#### - Editor Actions > Increase Font Size : `Cmd =`
+#### - Editor Actions > Kill to Word Start : `Ctrl w`
+#### - Editor Actions > Move Caret to Next Word : `Alt f`
+#### - Editor Actions > Move Caret to Previous Word : `Alt b`
+#### - Editor Actions > Reset Font Size : `Cmd 0`
+#### - Editor Actions > Split Line :
+#### - Main Menu > View > Quick Documentation: `Ctrl q`
+#### - Main Menu > Edit > Delete : `Ctrl d`
+#### - Main Menu > Edit > Paste : `Ctrl y`
+#### - Main Menu > Edit > Redo : `Ctrl =`
+#### - Main Menu > Edit > Undo : `Ctrl -`
+#### - Main Menu > File > Save As...: `Cmd Shift S`
+#### - Main Menu > Help > Find Action... : `Cmd Shift p`
+#### - Main Menu > Tool Windows > Commit :
+#### - Main Menu > Window > Active Tool Window > Resize > Stretch to Bottom : `Cmd Shift ,`
+#### - Main Menu > Window > Active Tool Window > Resize > Stretch to Left : `Cmd Shift ,`
+#### - Main Menu > Window > Active Tool Window > Resize > Stretch to Right : `Cmd Shift ;`
+#### - Main Menu > Window > Active Tool Window > Resize > Stretch to Top : `Cmd Shift ;`
+#### - Plug-ins > Git > Checkout Revision : `Enter`
+#### - Plug-ins > Git > Checkout Selected : `Enter`
+#### - Plug-ins > Python > Execute Selection in Python Console: `Cmd Enter`
+#### - Plug-ins > Python > Split Cell : `Ctrl Shift -`
+#### - Plug-ins > Terminal > Shift Focus To Editor : `Shift+Escape`
+### In Appearance & Behavior > Appearance, Select Darcula theme and select Ewka Nerd Font size 14
+### Using `Cmd Shift A` or going to View > Appearance at the Top, enable Details in Tree Views, disable Tool Windows Bars and Navigation Bar
+### In MacOS System Preferences: Keyboard > Shortcuts > Services, uncheck Open man Page in Terminal (`Cmd Shift M`) and Search man Page Index in Terminal (`Cmd Shift A`)
+### In MacOS System Preferences: Keyboard > Shortcuts > Keyboard, uncheck Turn keyboard access on and off after making sure all of the other shortcuts are enabled
+### In MacOS System Preferences: Keyboard > Shortcuts > Keyboard, change ctrl function shortcuts to ctrl num shortcuts:
+### In Editor > Font, select Ewka Nerd Font size 16 as main and Jetbrains Mono as fallback and Enable font ligatures
+### In Editor > Code Style, set visual guides to 80 characters
+### Check Change font size (Zoom) with Command+Mouse Wheel in Editor > General
+### Check Show Whitespace in Editor > General > Appearance
+### If you use the Deep Ocean Editor theme from the [Material UI](https://www.material-theme.com/) plugin, change docstring (Doc comment > Text) color to [`4cbb17` aka kelly green](https://www.beautycolorcode.com/4cbb17) and line comment color to [`DF00FF` aka psychedelic purple](https://www.beautycolorcode.com/df00ff) under Editor > Color Scheme > Python and Editor > Color Scheme > Language Defaults, respectively
+### In Build, Execution, Deployment > Console, select Use existing console for "Run with Python Console"
+### Disable Material UI to got back to Darcula theme, but keep Code Editor theme as Deep Ocean
+#### Editor > Color Scheme : Material Deep Ocean
+#### Appearance and Behavior > Appearance > Theme : Darcula
+### In Editor > General > Editor Tabs, Select None for Tab placement (current file is shown at the top)
+### Install [IdeaVim](https://github.com/JetBrains/ideavim) plugin
+### Install [BashSupport](https://plugins.jetbrains.com/plugin/4230-bashsupport) plugin
+### Install [Markdown](https://plugins.jetbrains.com/plugin/7793-markdown/) plugin
+### Install [R Language Support](http://holgerbrandl.github.io/r4intellij/) plugin
+### Fix shortcut conflicts under Preferences > Vim emulation: `Ctrl i/j/m/t` to IDE
+### When setting run configurations (`Ctrl Alt r`), set working directory to project root under Environment and deselect Run with Python Console under Execution
 
 # Terminals
 ## iTerm: set up to automatically run tmux attach
@@ -734,6 +702,22 @@ git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whj
 ## tabby: can't figure how to remap ctrl ; to ctrl q
 ## hyper: can't figure how to remap ctrl ; to ctrl q
 ## terminal: can't figure how to remap ctrl ; to ctrl q
+### The com.googlecode.iterm2.plist file makes it unnecessary to load iterm.json, which includes the settings below
+### curl https://raw.githubusercontent.com/maptv/setup/main/iterm.json -o ~/iterm.json
+### In iterm2, select General > Preferences: Select load preferences from a local folder or URL
+### In iterm2, select Appearance > Theme: Minimal
+### In iterm2, select Profiles > Keys: Both option keys to Esc+
+### In iterm2, select Profiles > Terminal > Notifications: Silence bell
+### In iterm2, select Profiles > Text > Change Font: Ewka Nerdfont size 18, Use Ligatures
+### In iterm2, set Profiles > General > Command > Send text at start: tmux attach || tmux new \; split-window -v \; select-pane -t :.+
+### In iterm2, set Keys > Key Bindings > Send hex code 0x11 ^;
+### In iterm2, set Profiles > Keys > Key Mappings to send enter/return key codes:
+#### Send ^[ [13;2u with Shift Return
+#### Send ^[ [13;5u with Ctrl Return
+#### Send ^[ [13;6u with Ctrl Shift Return
+#### Send ^[ [13;3u with Cmd Return
+#### Send ^[ [13;4u with Shift Cmd Return
+#### Send ^[ <M-C-CR> with Ctrl Shift Cmd Return
 
 # Text editors
 ## 1. Vim
