@@ -720,9 +720,9 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 ## terminal: can't figure how to remap ctrl ; to ctrl q
 
 # Text editors
-1. Vim
-2. Neovim
-3. LunarVim
-4. SpaceVim
-5. Spacemacs
-6. Doom emacs
+## 1. Vim
+## 2. Neovim
+## 3. LunarVim
+## 4. SpaceVim
+## 5. Spacemacs
+## 6. Doom emacs
