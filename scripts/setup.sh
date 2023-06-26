@@ -523,7 +523,7 @@ git clone --depth 1 https://github.com/syl20bnr/spacemacs ~/emacs.d
 
 curl https://raw.githubusercontent.com/maptv/setup/main/.spacemacs -o ~/.spacemacs
 
-emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el
+# emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el
 
 ### Doom emacs
 
