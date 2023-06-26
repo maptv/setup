@@ -517,20 +517,21 @@ curl https://raw.githubusercontent.com/maptv/setup/main/.ideavimrc -o ~/.ideavim
 ## Set up emacs
 
 ### Spacemacs
+rm -rf ~/.emacs.d
 
-git clone https://github.com/syl20bnr/spacemacs ~/spacemacs
+git clone --depth 1 https://github.com/syl20bnr/spacemacs ~/emacs.d
 
 curl https://raw.githubusercontent.com/maptv/setup/main/.spacemacs -o ~/.spacemacs
 
 ### Doom emacs
 
-rm -rf ~/.emacs.d
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs/ --create-dirs
 
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-
-curl https://raw.githubusercontent.com/maptv/setup/main/config.el -o ~/.config/doom/config.el
+curl https://raw.githubusercontent.com/maptv/setup/main/config.el -o ~/.config/doom/config.el --create-dirs
 
 curl https://raw.githubusercontent.com/maptv/setup/main/packages.el -o ~/.config/doom/packages.el
+
+~/.config/emacs/bin/doom install
 
 ## Set up oh my tmux
 curl https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf -o ~/.tmux.conf
@@ -657,51 +658,6 @@ curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Libra
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/Code/User/keybindings.json --create-dirs
 
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
-
-# Install vscode and vscodium extensions
-/opt/homebrew/bin/codium --install-extension asvetliakov.vscode-neovim
-
-/opt/homebrew/bin/codium --install-extension ms-python.python
-
-/opt/homebrew/bin/codium --install-extension ms-toolsai.jupyter
-
-/opt/homebrew/bin/codium --install-extension ms-toolsai.jupyter-keymap
-
-/opt/homebrew/bin/codium --install-extension ms-toolsai.jupyter-renderers
-
-/opt/homebrew/bin/codium --install-extension ms-toolsai.vscode-jupyter-cell-tags
-
-/opt/homebrew/bin/codium --install-extension ms-toolsai.vscode-jupyter-slideshow
-
-/opt/homebrew/bin/codium --install-extension quarto.quarto
-
-/opt/homebrew/bin/codium --install-extension REditorSupport.r
-
-/opt/homebrew/bin/codium --install-extension TabNine.tabnine-vscode
-
-/opt/homebrew/bin/code --install-extension asvetliakov.vscode-neovim
-
-/opt/homebrew/bin/code --install-extension ms-python.black-formatter
-
-/opt/homebrew/bin/code --install-extension ms-python.python
-
-/opt/homebrew/bin/code --install-extension ms-python.vscode-pylance
-
-/opt/homebrew/bin/code --install-extension ms-toolsai.jupyter
-
-/opt/homebrew/bin/code --install-extension ms-toolsai.jupyter-keymap
-
-/opt/homebrew/bin/code --install-extension ms-toolsai.jupyter-renderers
-
-/opt/homebrew/bin/code --install-extension ms-toolsai.vscode-jupyter-cell-tags
-
-/opt/homebrew/bin/code --install-extension ms-toolsai.vscode-jupyter-slideshow
-
-/opt/homebrew/bin/code --install-extension quarto.quarto
-
-/opt/homebrew/bin/code --install-extension REditorSupport.r
-
-/opt/homebrew/bin/code --install-extension TabNine.tabnine-vscode
 
 # Non-automated steps
 ## Give Hammerspoon Accessibility permissions and enable Launch Hammerspoon at login
