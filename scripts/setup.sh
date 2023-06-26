@@ -537,7 +537,6 @@ curl https://raw.githubusercontent.com/maptv/setup/main/packages.el -o ~/.config
 
 if yes y | ~/.config/emacs/bin/doom install; then echo doom install OK; fi
 
-if ~/.config/emacs/bin/doom sync; then echo doom sync OK; fi
 
 ## Set up oh my tmux
 curl https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf -o ~/.tmux.conf
@@ -664,6 +663,9 @@ curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Libra
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/Code/User/keybindings.json --create-dirs
 
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
+
+# the line below has to be at the bottom, because it ends setup.sh (I don't know why):
+~/.config/emacs/bin/doom sync
 
 # Non-automated steps
 ## Install R from https://cran.r-project.org/bin/macosx/
