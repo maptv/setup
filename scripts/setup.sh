@@ -657,9 +657,8 @@ if yes y | ~/.config/emacs/bin/doom install; then echo doom install OK; fi
 # Non-automated steps
 ## R
 ### Install R from https://cran.r-project.org/bin/macosx/
-### Activate py environment and start R in terminal
-### Install IRkernel: install.packages('IRkernel')
-### IRkernel::installspec()
+### Activate py environment and run the command below
+### Rscript -e "install.packages('IRkernel', repos='https://cran.rstudio.com'); IRkernel::installspec()"
 ## Give Hammerspoon Accessibility permissions and enable Launch Hammerspoon at login
 ## Homerow
 ### Download and move homerow.app to Applications
