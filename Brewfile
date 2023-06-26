@@ -74,7 +74,7 @@ brew "zsh-completions"
 brew "zsh-vi-mode"
 brew "zsh-you-should-use"
 brew "d12frosted/emacs-plus/emacs-plus@28", args: ["with-native-comp", "with-spacemacs-icon"]
-# brew "railwaycat/emacsmacport/emacs-mac", args: ["with-native-comp"], link: false
+brew "railwaycat/emacsmacport/emacs-mac", args: ["with-native-comp"], link: false
 brew "romkatv/powerlevel10k/powerlevel10k"
 cask "adobe-acrobat-reader"
 cask "alacritty"
