@@ -256,7 +256,7 @@ bind generic 	 <C-F>   	 move-page-down
 bind generic 	 <Space> 	 move-page-down
 bind generic 	 <C-B>   	 move-page-up
 bind generic 	 -       	 move-page-up
-bind generic 	 <C-A>   	 move-first-line # g is taken by grep view so cannot use gg
+bind generic 	 H      	 move-first-line # g is taken by grep view so cannot use gg
 bind main 	     G       	 move-last-line
 bind generic 	 G       	 move-last-line
 bind generic 	 <C-O>   	 !?git checkout %(commit) %(file)
