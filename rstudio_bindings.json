@@ -26,5 +26,6 @@
     "goToPrevChunk": "Alt+Shift+Cmd+C",
     "goToPrevSection": "Alt+Shift+Cmd+H",
     "reformatCode": "Alt+Cmd+L",
-    "restartRRunAllChunks": "Alt+Cmd+R"
+    "restartRRunAllChunks": "Alt+Cmd+R",
+    "quartoRenderDocument": "Shift+Cmd+R"
 }
