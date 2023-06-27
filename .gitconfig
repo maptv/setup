@@ -5,7 +5,7 @@
 [branch]
     autosetuprebase = always
 [core]
-    editor = $HOMEBREW_PREFIX/bin/nvim
+    editor = /opt/homebrew/bin/nvim
     attributesfile = ~/.gitattributes
     excludesfile = ~/.gitignore
 	pager = delta
