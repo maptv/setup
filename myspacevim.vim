@@ -53,6 +53,8 @@ else
   let &t_EI.="\e[1 q" "EI = end insert mode NORMAL mode (ELSE)
 endif
 
+let mapleader='\'
+
 " https://github.com/kana/vim-textobj-entire/blob/64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a/doc/textobj-entire.txt#L91
 let g:textobj_entire_no_default_key_mappings = 1
 

@@ -7,6 +7,8 @@ lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+vim.cmd [[let mapleader='\']]
+
 -- https://www.lunarvim.org/configuration/02-keybindings.html#lunarvim-keybindings
 -- use the default vim behavior for H and L
 lvim.keys.insert_mode["<C-k>"] = nil

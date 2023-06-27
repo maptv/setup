@@ -115,8 +115,7 @@ set shiftwidth=4
 set expandtab
 
 "" Map leader to ,
-let mapleader=' '
-let maplocalleader='\'
+let mapleader='\'
 
 " https://github.com/unblevable/quick-scope#highlight-on-key-press
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
