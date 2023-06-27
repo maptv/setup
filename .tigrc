@@ -229,7 +229,7 @@ bind generic 	 <C-C>   	 quit       	 # Close all views and quit
 bind status     	 u   	 status-update              	 # Stage/unstage changes in file
 bind status     	 !   	 status-revert              	 # Revert changes in file
 bind status     	 M   	 status-merge               	 # Open git-mergetool(1)
-# bind status   	 ??? 	 :toggle status             	 # Show short or long status labels
+bind status   	     t  	 :toggle status             	 # Show short or long status labels
 bind stage      	 u   	 status-update              	 # Stage/unstage current diff (c)hunk
 bind stage      	 1   	 stage-update-line          	 # Stage/unstage current line
 bind stage      	 2   	 stage-update-part          	 # Stage/unstage part of chunk
@@ -243,22 +243,23 @@ bind diff       	 [   	 :toggle diff-context -1    	 # Decrease the diff context
 bind diff       	 ]   	 :toggle diff-context +1    	 # Increase the diff context
 bind pager      	 @   	 :/^@@                      	 # Jump to next (c)hunk
 bind main       	 H   	 :goto HEAD                 	 # Jump to HEAD commit
-bind main       	 G   	 :toggle commit-title-graph 	 # Toggle revision graph visualization
+# bind main       	 G   	 :toggle commit-title-graph 	 # Toggle revision graph visualization
 bind main       	 F   	 :toggle commit-title-refs  	 # Toggle reference display (tags/branches)
 bind reflog     	 F   	 :toggle commit-title-refs  	 # Toggle reference display (tags/branches)
 
 # Cursor navigation
-bind generic	j	move-down
-bind generic	k	move-up
-bind generic	<C-D>	move-half-page-down
-bind generic	<C-U>	move-half-page-up
-bind generic	<C-F> move-page-down
-bind generic	<Space>	move-page-down
-bind generic	<C-B>	move-page-up
-bind generic	-	move-page-up
-bind generic	<C-A>	move-first-line # g is taken so cannot use gg
-bind generic	<C-E>	move-last-line
-bind generic    <C-O> !?git checkout %(commit) %(file)
+bind generic 	 j       	 move-down
+bind generic 	 k       	 move-up
+bind generic 	 <C-D>   	 move-half-page-down
+bind generic 	 <C-U>   	 move-half-page-up
+bind generic 	 <C-F>   	 move-page-down
+bind generic 	 <Space> 	 move-page-down
+bind generic 	 <C-B>   	 move-page-up
+bind generic 	 -       	 move-page-up
+bind generic 	 <C-A>   	 move-first-line # g is taken by grep view so cannot use gg
+bind main 	     G       	 move-last-line
+bind generic 	 G       	 move-last-line
+bind generic 	 <C-O>   	 !?git checkout %(commit) %(file)
 
 # Scrolling
 bind generic	|	scroll-first-col
@@ -267,7 +268,7 @@ bind generic	<Right>	scroll-right
 bind generic	<Ins>	scroll-line-up
 bind generic	<C-Y>	scroll-line-up
 bind generic	<Del>	scroll-line-down
-# bind generic	<C-E>	scroll-line-down
+bind generic	<C-E>	scroll-line-down
 bind generic	<SBack>	scroll-page-up
 bind generic	<SFwd>	scroll-page-down
 # bind generic	???	scroll-half-page-up
