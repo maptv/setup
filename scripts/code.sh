@@ -10,4 +10,4 @@ $HOMEBREW_PREFIX/bin/code --install-extension ms-toolsai.vscode-jupyter-slidesho
 $HOMEBREW_PREFIX/bin/code --install-extension quarto.quarto
 $HOMEBREW_PREFIX/bin/code --install-extension REditorSupport.r
 $HOMEBREW_PREFIX/bin/code --install-extension TabNine.tabnine-vscode
-$HOMEBREW_PREFIX/bin/code --install-extension ms-vsliveshare.vsliveshare --force
+$HOMEBREW_PREFIX/bin/code --install-extension ms-vsliveshare.vsliveshare
