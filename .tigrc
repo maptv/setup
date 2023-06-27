@@ -259,7 +259,7 @@ bind generic 	 -       	 move-page-up
 bind generic 	 H      	 move-first-line # g is taken by grep view so cannot use gg
 bind main 	     G       	 move-last-line
 bind generic 	 G       	 move-last-line
-bind generic 	 <C-O>   	 !?git checkout %(commit) %(file)
+bind generic 	 <C-O>   	 !?git checkout %(commit) %(file) # then press e to view the file in vim; though with fugitive you can view a file at a specific commit and do not have to checkout HEAD when you are done: https://github.com/tpope/vim-fugitive/issues/1993
 
 # Scrolling
 bind generic	|	scroll-first-col
