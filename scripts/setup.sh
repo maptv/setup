@@ -723,6 +723,9 @@ git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whj
 #### Send ^[ [13;4u with Shift Cmd Return
 #### Send ^[ <M-C-CR> with Ctrl Shift Cmd Return
 
+# coc expects me to have a bibliography.bib file in the home directory
+touch ~/bibliography.bib
+
 # Text editors
 ## 1. Vim
 ## 2. Neovim
