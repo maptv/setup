@@ -1,8 +1,9 @@
-engine: knitr
+project:
+  title: "multilang"
 toc: true
+warning: false
 number-sections: true
 highlight-style: arrow
-echo: fenced
 code-fold: show
 execute:
   cache: true

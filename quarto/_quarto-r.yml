@@ -1,3 +1,2 @@
 jupyter: ir
-execute:
-  keep-ipynb: true
+format: ipynb
