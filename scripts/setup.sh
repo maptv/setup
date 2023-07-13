@@ -500,7 +500,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/rstudio_bindings.json -o
 # Initialize conda for z shell
 /opt/homebrew/bin/mamba init zsh
 
-# Set up vscode and vscodium 
+# Set up vscode and vscodium
 ### As of 2023-06-23, VSCode only works with the graphical R installer (not brew or conda)
 curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Library/Application\ Support/Code/User/settings.json --create-dirs
 

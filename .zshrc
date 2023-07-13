@@ -934,8 +934,9 @@ bindkey -M viins '^r' fzf-history-widget
 bindkey -M viins '^t' transpose-chars
 bindkey -M viins '^u' backward-kill-line
 bindkey -M viins '^w' backward-kill-word
-bindkey -M viins '^x^a' fasd-complete
+bindkey -M viins '^x^a' _expand_alias
 bindkey -M viins '^x^b' vi-match-bracket
+bindkey -M viins "^x^c" fasd-complete
 bindkey -M viins '^x^d' fasd-complete-d
 bindkey -M viins '^x^e' edit-command-line
 bindkey -M viins '^x^f' fasd-complete-f
