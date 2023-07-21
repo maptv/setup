@@ -145,6 +145,31 @@
                         ]
                     },
                     {
+                        "description": "Toggle notification center by sending Fn N with Alt Cmd N (similar to toggling dock with Alt Cmd D)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option",
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                    "key_code": "n",
+                                    "modifiers": [
+                                            "fn"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Toggle menu bar by sending Ctrl F2 with Alt Cmd A (similar to toggling dock with Alt Cmd D)",
                         "manipulators": [
                             {
