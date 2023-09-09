@@ -440,6 +440,9 @@ yes y | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/maste
 
 curl https://raw.githubusercontent.com/maptv/setup/main/config.lua -o ~/.config/lvim/config.lua --create-dirs
 
+### Zed
+curl https://raw.githubusercontent.com/maptv/setup/main/zed.json -o ~/.config/zed/settings.json --create-dirs
+
 ### JetBrains IDEs
 curl https://raw.githubusercontent.com/maptv/setup/main/.ideavimrc -o ~/.ideavimrc
 
