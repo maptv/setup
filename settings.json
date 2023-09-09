@@ -20,7 +20,7 @@
   "jupyter.interactiveWindow.textEditor.executeSelection": true,
   "python.analysis.completeFunctionParens": true,
   "python.analysis.typeCheckingMode": "basic",
-  "python.defaultInterpreterPath": "$HOMEBREW_PREFIX/Caskroom/mambaforge/base/bin/python",
+  "python.defaultInterpreterPath": "/opt/homebrew/Caskroom/mambaforge/base/envs/py",
   "python.formatting.provider": "none",
   "python.languageServer": "Pylance",
   "r.alwaysUseActiveTerminal": true,
@@ -46,9 +46,9 @@
     "editor.background": "#000000",
     "terminal.background": "#000000"
   },
-  "window.zoomLevel": 2,
   "workbench.editor.showTabs": false,
   "files.autoSave": "afterDelay",
   "workbench.statusBar.visible": false,
-  "workbench.activityBar.visible": false
+  "workbench.activityBar.visible": false,
+  "window.zoomLevel": 2
 }
