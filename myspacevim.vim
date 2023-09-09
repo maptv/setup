@@ -53,13 +53,19 @@ else
   let &t_EI.="\e[1 q" "EI = end insert mode NORMAL mode (ELSE)
 endif
 
-let mapleader='\'
+let mapleader='\' " backslash sends tab when held and may not work well as leader
 
 " https://github.com/kana/vim-textobj-entire/blob/64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a/doc/textobj-entire.txt#L91
 let g:textobj_entire_no_default_key_mappings = 1
 
 " https://github.com/unblevable/quick-scope#highlight-on-key-press
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
+" Note that you must use nmap/xmap instead of their non-recursive versions (nnoremap/xnoremap).
+let g:qs_enable=0
+nmap <leader>q <plug>(QuickScopeToggle)
+xmap <leader>q <plug>(QuickScopeToggle)
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
