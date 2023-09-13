@@ -50,5 +50,172 @@
   "files.autoSave": "afterDelay",
   "workbench.statusBar.visible": false,
   "workbench.activityBar.visible": false,
-  "window.zoomLevel": 2
+  "window.zoomLevel": 2,
+  "vim.enableNeovim": true,
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "vim.camelCaseMotion.enable": true,
+  "vim.commentary": true,
+  "vim.easymotion": true,
+  "vim.replaceWithRegister": true,
+  "vim.sneak": false,
+  "vim.surround": true,
+  "vim.highlightedyank.enable": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.useCtrlKeys": true,
+  "vim.useSystemClipboard": true,
+  "vim.visualstar": true,
+  "vim.normalModeKeyBindings": [
+      {
+          "before": [
+              "<leader>",
+              "t"
+          ],
+          "commands": [
+              "workbench.action.terminal.focus"
+          ]
+      },
+      {
+          "before": ["Y"],
+          "after": ["y$"]
+      }
+  ],
+  "vim.insertModeKeyBindings": [
+      {
+          "before": [
+              "<C-a>"
+          ],
+          "commands": [
+              "cursorHome"
+          ]
+      },
+      {
+          "before": [
+              "<C-b>"
+          ],
+          "commands": [
+              "cursorLeft"
+          ]
+      },
+      {
+          "before": [
+              "<C-d>"
+          ],
+          "commands": [
+              "deleteRight"
+          ]
+      },
+      {
+          "before": [
+              "<C-e>"
+          ],
+          "commands": [
+              "cursorEnd"
+          ]
+      },
+      {
+          "before": [
+              "<C-f>"
+          ],
+          "commands": [
+              "cursorRight"
+          ]
+      },
+      {
+          "before": [
+              "<C-h>"
+          ],
+          "commands": [
+              "deleteLeft"
+          ]
+      },
+      {
+          "before": [
+              "<C-k>"
+          ],
+          "commands": [
+              "deleteAllRight"
+          ]
+      },
+      {
+          "before": [
+              "<C-t>"
+          ],
+          "commands": [
+              "editor.action.transposeLetters"
+          ]
+      },
+      {
+          "before": [
+              "<C-u>"
+          ],
+          "commands": [
+              "deleteAllLeft"
+          ]
+      },
+      {
+          "before": [
+              "<C-w>"
+          ],
+          "commands": [
+              "deleteWordLeft"
+          ]
+      },
+      {
+          "before": [
+              "<A-b>"
+          ],
+          "commands": [
+              "cursorWordLeft"
+          ]
+      },
+      {
+          "before": [
+              "<A-c>"
+          ],
+          "commands": [
+              "editor.action.transformToTitlecase"
+          ]
+      },
+      {
+          "before": [
+              "<A-f>"
+          ],
+          "commands": [
+              "cursorWordEndRight"
+          ]
+      },
+      {
+          "before": [
+              "<A-h>"
+          ],
+          "commands": [
+              "deleteWordLeft"
+          ]
+      },
+      {
+          "before": [
+              "<A-l>"
+          ],
+          "commands": [
+              "editor.action.transformToLowercase"
+          ]
+      },
+      {
+          "before": [
+              "<A-u>"
+          ],
+          "commands": [
+              "editor.action.transformToUppercase"
+          ]
+      },
+      {
+          "before": [
+              "<A-_>"
+          ],
+          "commands": [
+              "undo"
+          ]
+      }
+  ]
 }
