@@ -304,10 +304,14 @@ require'nvim-lastplace'.setup {
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- https://www.lunarvim.org/configuration/05-autocommands.html
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*", "setlocal laststatus=0 | set showtabline=0" },
--- }
+-- https://www.lunarvim.org/docs/configuration/autocommands
+-- https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
+vim.api.nvim_create_autocmd("BufWinLeave", {
+      pattern =  "*", command = "mkview",
+})
+vim.api.nvim_create_autocmd("BufWinEnter", {
+      pattern =  "*", command = "silent! loadview",
+})
 
 -- https://www.reddit.com/r/lunarvim/comments/10392z6/statusbar/
 lvim.builtin.lualine.active = false

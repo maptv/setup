@@ -80,6 +80,13 @@ set incsearch
 set ignorecase
 set smartcase
 
+" https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
 autocmd FileType pandoc,markdown setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " https://github.com/SpaceVim/SpaceVim/issues/470

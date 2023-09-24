@@ -386,6 +386,13 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "" Autocmd Rules
 "*****************************************************************************
 
+" https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
 "" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
 augroup vimrc-sync-fromstart
   autocmd!
