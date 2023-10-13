@@ -87,12 +87,14 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 
 " The main R plugin providing RStudio-esque features
 " Nvim-R handles citation of its own: https://github.com/jalvesaq/Nvim-R/issues/346
-Plug 'jalvesaq/Nvim-R'
+" Plug 'jalvesaq/Nvim-R'
 
 " https://github.com/quarto-dev/quarto-nvim
 " Plug 'quarto-dev/quarto-nvim'
-" Plug 'neovim/nvim-lspconfig'
+Plug 'quarto-dev/quarto-vim'
+Plug 'neovim/nvim-lspconfig'
 " Plug 'jmbuhr/otter.nvim'
+Plug 'hrsh7th/nvim-cmp'
 
 " https://github.com/neovim/neovim/issues/1822#issuecomment-233152833
 Plug 'bfredl/nvim-miniyank'
