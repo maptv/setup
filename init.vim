@@ -862,7 +862,7 @@ nnoremap ]g :diffget //3<CR>
 " nnoremap <leader>gd :Gvdiff<CR>
 " nnoremap <leader>gr :Gremove<CR>
 " nnoremap <leader>gl :Glog<CR>
-nnoremap <silent> <M-S-g> :Gwrite<bar>silent! Git commit -m "edit "%<bar>silent! Git! push<CR>
+nnoremap <silent> <M-S-g> :Gwrite<bar>Git commit -m "edit "%<bar>silent! Git! push<CR>
 
 " https://github.com/neoclide/coc-git
 " https://github.com/neoclide/coc-yank
