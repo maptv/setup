@@ -747,7 +747,7 @@ nnoremap ]g :diffget //3<CR>
 nnoremap <M-S-a> :!git add --all && git commit --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
 nnoremap <M-S-s> :!git commit --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
 nnoremap <M-S-d> :!git add . && git commit --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
-nnoremap <M-S-f> :!git add % && git commit --message "edit "%<CR>:Git! push<CR>:call s:close_gstatus()<CR>
+nnoremap <M-S-f> :!git add % && git commit --message "edit "%<CR>:Git! push<CR>
 nnoremap <M-S-t> :!git commit --all --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
 
 " https://github.com/neoclide/coc-git
