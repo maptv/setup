@@ -749,7 +749,7 @@ nnoremap <silent> <M-S-s> :Git! commit --message "`git status --porcelain`"<bar>
 nnoremap <silent> <M-S-d> :Git! add .<bar>Git! commit --message "`git status --porcelain`"<bar>Git! push<CR>
 nnoremap <silent> <M-S-f> :Gwrite<bar>Git! commit --message "edit "%<bar>Git! push<CR>
 nnoremap <silent> <M-S-t> :Git! commit --all --message echo `git status --porcelain`<bar>Git! push<CR>
-nnoremap <silent> <M-S-f> :Gwrite<bar>Git! commit --message `ls`<bar>Git! push<CR>
+nnoremap <silent> <M-S-f> :Gwrite<bar>Git! commit --message !ls<bar>Git! push<CR>
 
 " https://github.com/neoclide/coc-git
 " https://github.com/neoclide/coc-yank
