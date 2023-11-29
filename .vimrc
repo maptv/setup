@@ -744,7 +744,11 @@ nnoremap ]g :diffget //3<CR>
 " nnoremap <leader>gd :Gvdiff<CR>
 " nnoremap <leader>gr :Gremove<CR>
 " nnoremap <leader>gl :Glog<CR>
-nnoremap <silent> <M-S-g> :Gwrite<bar>Git! commit -m "edit "%<bar>Git! push<CR>
+nnoremap <silent> <M-S-a> :Git! add --all<bar>Git! commit --message system("git status --porcelain)<bar>Git! push<CR>
+nnoremap <silent> <M-S-s> :Git! commit --message system("git status --porcelain)<bar>Git! push<CR>
+nnoremap <silent> <M-S-d> :Git! add .<bar>Git! commit --message system("git status --porcelain)<bar>Git! push<CR>
+nnoremap <silent> <M-S-f> :Gwrite<bar>Git! commit --message "edit "%<bar>Git! push<CR>
+nnoremap <silent> <M-S-t> :Git! commit --all --message system("git status --porcelain)<bar>Git! push<CR>
 
 " https://github.com/neoclide/coc-git
 " https://github.com/neoclide/coc-yank
@@ -1525,6 +1529,10 @@ set <M-%>=%
 set <M-*>=*
 set <M-.>=.
 set <M-^>=^
-set <M-S-g>=G
+set <M-S-a>=A
+set <M-S-s>=S
+set <M-S-d>=D
+set <M-S-f>=F
+set <M-S-t>=T
 
 set sel=exclusive
