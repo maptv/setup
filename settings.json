@@ -46,7 +46,7 @@
     "editor.background": "#000000",
     "terminal.background": "#000000"
   },
-  "workbench.editor.showTabs": "single",
+  "workbench.editor.showTabs": "none",
   "files.autoSave": "afterDelay",
 "workbench.statusBar.visible": false,
   "window.zoomLevel": 2,
@@ -220,5 +220,7 @@
 "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
 },
-"workbench.activityBar.location": "hidden"
+"workbench.activityBar.location": "hidden",
+"window.commandCenter": false,
+"workbench.layoutControl.enabled": false
 }
