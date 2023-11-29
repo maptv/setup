@@ -55,9 +55,11 @@
   { "key": "ctrl+w", "command": "deleteWordLeft", "when": "!editorFocus" },
   { "key": "shift+alt+b", "command": "cursorWordStartLeftSelect", "when": "textInputFocus" },
   { "key": "shift+alt+f", "command": "cursorWordEndRightSelect", "when": "textInputFocus" },
-  { "key": "shift+alt+u", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add --all && git commit --message \"$(git diff --name-status --cached)\" && git push\u000D" } },
-  { "key": "shift+alt+t", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add --update && git commit --message \"$(git diff --name-status --cached)\" && git push\u000D" } },
-  { "key": "shift+alt+d", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add . && git commit --message \"$(git diff --name-status --cached)\" && git push\u000D" } },
+  { "key": "shift+alt+.", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add . && git commit --message \"$(git diff --name-status --cached)\" && git push\u000D" } },
+  { "key": "shift+alt+d", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git diff --name-status\u000D" } },
   { "key": "shift+alt+f", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add ${relativeFile} && git commit --message \"M ${relativeFile}\" && git push\u000D" } },
+  { "key": "shift+alt+s", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git status --untracked-files=no\u000D" } },
+  { "key": "shift+alt+t", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add --update && git commit --message \"$(git diff --name-status --cached)\" && git push\u000D" } },
+  { "key": "shift+alt+u", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add --all && git commit --message \"$(git diff --name-status --cached)\" && git push\u000D" } },
   { "key": "shift+escape", "command": "workbench.action.focusActiveEditorGroup", "when": "!editorTextFocus" }
 ]
