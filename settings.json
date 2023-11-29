@@ -222,5 +222,10 @@
 },
 "workbench.activityBar.location": "hidden",
 "window.commandCenter": false,
-"workbench.layoutControl.enabled": false
+"workbench.layoutControl.enabled": false,
+"zenMode.fullScreen": false,
+"breadcrumbs.enabled": false,
+"zenMode.showTabs": "none",
+"zenMode.hideLineNumbers": false,
+"zenMode.centerLayout": false
 }

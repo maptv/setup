@@ -446,6 +446,9 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "" Autocmd Rules
 "*****************************************************************************
 
+" https://neovim.io/doc/user/lua.html#vim.highlight
+au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}
+
 " https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
 augroup remember_folds
   autocmd!
