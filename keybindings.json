@@ -55,6 +55,9 @@
   { "key": "ctrl+w", "command": "deleteWordLeft", "when": "!editorFocus" },
   { "key": "shift+alt+b", "command": "cursorWordStartLeftSelect", "when": "textInputFocus" },
   { "key": "shift+alt+f", "command": "cursorWordEndRightSelect", "when": "textInputFocus" },
-  { "key": "shift+alt+u", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add -u && git commit -m \"$(git diff --name-status --cached)\"\u000D" } },
+  { "key": "shift+alt+a", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add --all && git commit --message \"$(git diff --name-status --cached)\"\u000D" } },
+  { "key": "shift+alt+d", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add . && git commit --message \"$(git diff --name-status --cached)\"\u000D" } },
+  { "key": "shift+alt+f", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add ${file} && git commit --message \"M ${file}\"\u000D" } },
+  { "key": "shift+alt+u", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add --update && git commit --message \"$(git diff --name-status --cached)\"\u000D" } },
   { "key": "shift+escape", "command": "workbench.action.focusActiveEditorGroup", "when": "!editorTextFocus" }
 ]
