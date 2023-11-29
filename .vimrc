@@ -748,7 +748,7 @@ nnoremap <silent> <M-S-a> :!git add --all && git commit --message "`git diff --n
 nnoremap <silent> <M-S-s> :!git commit --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
 nnoremap <silent> <M-S-d> :!git add . && git commit --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
 nnoremap <silent> <M-S-f> :!git add % && git commit --message "edit "%<CR>:Git! push<CR>
-nnoremap <silent> <M-S-t> :!git commit --all --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
+nnoremap <silent> <M-S-t> :silent! !git commit --all --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
 
 " https://github.com/neoclide/coc-git
 " https://github.com/neoclide/coc-yank
