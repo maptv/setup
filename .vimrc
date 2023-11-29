@@ -734,6 +734,13 @@ vnoremap <M-h> o}o
 vnoremap <M-w> "1y
 vnoremap <M-x> :
 
+funct! Exec(command)
+    redir =>output
+    silent exec a:command
+    redir END
+    return output
+endfunct!
+
 "" Git
 nnoremap [g :diffget //2<CR>
 nnoremap ]g :diffget //3<CR>
@@ -748,7 +755,7 @@ nnoremap <M-S-a> :!git add --all && git commit --message "`git diff --name-statu
 nnoremap <M-S-s> :!git commit --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
 nnoremap <M-S-d> :Gwrite .<bar>Git! commit --message "`git diff --name-status --cached`"<CR>:Git! push<CR>
 nnoremap <M-S-f> :Gwrite<bar>Git! commit --message "M "%<bar>Git! push<CR>
-nnoremap <M-S-t> :Gwrite -a<CR>:!git commit --all --message "`git diff --name-status --cached`"<CR>
+nnoremap <M-S-t> :Git! commit --all --message =Exec("git diff --name-status --cached")<CR>
 
 " https://github.com/neoclide/coc-git
 " https://github.com/neoclide/coc-yank
