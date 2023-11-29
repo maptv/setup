@@ -744,11 +744,12 @@ nnoremap ]g :diffget //3<CR>
 " nnoremap <leader>gd :Gvdiff<CR>
 " nnoremap <leader>gr :Gremove<CR>
 " nnoremap <leader>gl :Glog<CR>
-nnoremap <silent> <M-S-a> :Git! add --all<bar>Git! commit --message system("git status --porcelain)<bar>Git! push<CR>
-nnoremap <silent> <M-S-s> :Git! commit --message system("git status --porcelain)<bar>Git! push<CR>
-nnoremap <silent> <M-S-d> :Git! add .<bar>Git! commit --message system("git status --porcelain)<bar>Git! push<CR>
+nnoremap <silent> <M-S-a> :Git! add --all<bar>Git! commit --message "`git status --porcelain`"<bar>Git! push<CR>
+nnoremap <silent> <M-S-s> :Git! commit --message "`git status --porcelain`"<bar>Git! push<CR>
+nnoremap <silent> <M-S-d> :Git! add .<bar>Git! commit --message "`git status --porcelain`"<bar>Git! push<CR>
 nnoremap <silent> <M-S-f> :Gwrite<bar>Git! commit --message "edit "%<bar>Git! push<CR>
-nnoremap <silent> <M-S-t> :Git! commit --all --message system("git status --porcelain)<bar>Git! push<CR>
+nnoremap <silent> <M-S-t> :Git! commit --all --message "`git status --porcelain`"<bar>Git! push<CR>
+nnoremap <silent> <M-S-f> :Gwrite<bar>Git! commit --message "`git status --porcelain`"<bar>Git! push<CR>
 
 " https://github.com/neoclide/coc-git
 " https://github.com/neoclide/coc-yank
