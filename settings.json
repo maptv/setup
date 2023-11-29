@@ -32,7 +32,7 @@
   "tabnine.experimentalAutoImports": true,
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
-  },
+},
   "terminal.integrated.fontFamily": "Ewka Nerd Font",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.inheritEnv": false,
@@ -46,10 +46,9 @@
     "editor.background": "#000000",
     "terminal.background": "#000000"
   },
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "files.autoSave": "afterDelay",
-  "workbench.statusBar.visible": false,
-  "workbench.activityBar.visible": false,
+"workbench.statusBar.visible": false,
   "window.zoomLevel": 2,
   "vim.enableNeovim": true,
   "vim.neovimPath": "/opt/homebrew/bin/nvim",
@@ -217,5 +216,9 @@
               "undo"
           ]
       }
-  ]
+],
+"extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+},
+"workbench.activityBar.location": "hidden"
 }
