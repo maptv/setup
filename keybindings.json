@@ -58,5 +58,6 @@
   { "key": "shift+alt+s", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git status --untracked-files=no\u000D" } },
   { "key": "shift+alt+t", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add --update && git commit --message \"$(git diff --name-status --cached)\" && git push\u000D" } },
   { "key": "shift+alt+u", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add --all && git commit --message \"$(git diff --name-status --cached)\" && git push\u000D" } },
-  { "key": "shift+escape", "command": "workbench.action.focusActiveEditorGroup", "when": "!editorTextFocus" }
+  { "key": "shift+escape", "command": "workbench.action.focusActiveEditorGroup", "when": "!editorTextFocus" },
+  { "key": "shift+cmd+g", "command": "workbench.view.scm", "when": "workbench.scm.active" }
 ]
