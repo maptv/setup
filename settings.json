@@ -227,5 +227,6 @@
 "breadcrumbs.enabled": false,
 "zenMode.showTabs": "none",
 "zenMode.hideLineNumbers": false,
-"zenMode.centerLayout": false
+"zenMode.centerLayout": false,
+"open-in-vim.openMethod": "kitty"
 }
