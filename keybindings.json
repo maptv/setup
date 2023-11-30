@@ -77,5 +77,6 @@
   { "key": "k", "command": "cursorUp", "when": "editorTextFocus && !inDebugRepl && neovim.mode == 'normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "j", "command": "cursorDown", "when": "editorTextFocus && !inDebugRepl && neovim.mode == 'normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "cmd+;", "command": "workbench.action.toggleAuxiliaryBar" },
+  { "key": "cmd+r", "command": "workbench.action.openRecent" },
   { "key": "shift+alt+v", "command": "open-in-vim.open" }
 ]
