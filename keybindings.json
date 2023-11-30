@@ -53,6 +53,7 @@
   { "key": "shift+alt+b", "command": "cursorWordStartLeftSelect", "when": "textInputFocus" },
   { "key": "shift+alt+f", "command": "cursorWordEndRightSelect", "when": "textInputFocus" },
   { "key": "shift+alt+.", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add . && git commit --message \"$(git diff --name-status --cached | tr '[:space:]' ' ')\" && git push\u000D", "when": "terminalIsOpen"  } },
+  { "key": "shift+alt+c", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git commit --message \"$(git diff --name-status --cached | tr '[:space:]' ' ')\" && git push\u000D", "when": "terminalIsOpen"  } },
   { "key": "shift+alt+d", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git diff --numstat\u000D", "when": "terminalIsOpen"  } },
   { "key": "shift+alt+l", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git log --oneline -n 5\u000D", "when": "terminalIsOpen"  } },
   { "key": "shift+alt+f", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add ${relativeFile} && git commit --message \"M ${relativeFile}\" && git push\u000D", "when": "terminalIsOpen"  } },
