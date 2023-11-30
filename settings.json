@@ -227,5 +227,10 @@
 "zenMode.showTabs": "none",
 "zenMode.hideLineNumbers": false,
 "zenMode.centerLayout": false,
-"open-in-vim.openMethod": "kitty"
+"open-in-vim.openMethod": "kitty",
+"editor.quickSuggestions": {
+    "other": "inline",
+    "comments": "inline",
+    "strings": "inline"
+}
 }

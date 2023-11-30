@@ -74,11 +74,19 @@
   { "key": "ctrl+; k", "command": "workbench.action.focusActiveEditorGroup" },
   { "key": "ctrl+; l", "command": "workbench.action.focusAuxiliaryBar" },
   { "key": "ctrl+; o", "command": "workbench.action.toggleZenMode" },
+  { "key": "ctrl+; x", "command": "workbench.action.workbench.views.extensions.installed.focus" },
   { "key": "up", "command": "cursorUp", "when": "editorTextFocus && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "down", "command": "cursorDown", "when": "editorTextFocus && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "k", "command": "cursorUp", "when": "editorTextFocus && !inDebugRepl && neovim.mode == 'normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "j", "command": "cursorDown", "when": "editorTextFocus && !inDebugRepl && neovim.mode == 'normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "cmd+;", "command": "workbench.action.toggleAuxiliaryBar" },
   { "key": "cmd+r", "command": "workbench.action.openRecent" },
-  { "key": "shift+alt+v", "command": "open-in-vim.open" }
+  { "key": "shift+alt+v", "command": "open-in-vim.open" },
+  { "key": "alt+/", "command": "editor.action.accessibleViewAcceptInlineCompletion", "when": "accessibleViewIsShown && accessibleViewCurrentProviderId == 'inlineCompletions'" },
+  { "key": "alt+f", "command": "editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" },
+  { "key": "ctrl+f", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
+  { "key": "ctrl+f", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && tabnine.tab-override && !editorTabMovesFocus" },
+  { "key": "ctrl+e", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
+  { "key": "ctrl+e", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && tabnine.tab-override && !editorTabMovesFocus" },
+  { "key": "ctrl+g", "command": "editor.action.inlineSuggest.hide", "when": "inlineSuggestionVisible" }
 ]
