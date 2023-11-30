@@ -67,11 +67,15 @@
   { "key": "shift+cmd+g", "command": "workbench.view.scm", "when": "workbench.scm.active" },
   { "key": "ctrl+; o", "command": "workbench.action.toggleZenMode" },
   { "key": "ctrl+; h", "command": "workbench.action.focusSideBar" },
+  { "key": "ctrl+; f", "command": "workbench.explorer.fileView.focus" },
+  { "key": "ctrl+; e", "command": "workbench.files.action.focusOpenEditorsView" },
+  { "key": "ctrl+; q", "command": "quarto-assist.focus" },
   { "key": "ctrl+; k", "command": "workbench.action.focusActiveEditorGroup" },
-  { "key": "ctrl+; l", "command": "workbench.action.toggleAuxiliaryBar" },
+  { "key": "ctrl+; l", "command": "workbench.action.focusAuxiliaryBar" },
   { "key": "ctrl+; j", "command": "workbench.action.focusPanel" },
   { "key": "up", "command": "cursorUp", "when": "editorTextFocus && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "down", "command": "cursorDown", "when": "editorTextFocus && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "k", "command": "cursorUp", "when": "editorTextFocus && !inDebugRepl && neovim.mode == 'normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
-  { "key": "j", "command": "cursorDown", "when": "editorTextFocus && !inDebugRepl && neovim.mode == 'normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" }
+  { "key": "j", "command": "cursorDown", "when": "editorTextFocus && !inDebugRepl && neovim.mode == 'normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
+  { "key": "cmd+;", "command": "workbench.action.toggleAuxiliaryBar" }
 ]
