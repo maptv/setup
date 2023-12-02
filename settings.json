@@ -20,8 +20,7 @@
   "jupyter.interactiveWindow.textEditor.executeSelection": true,
   "python.analysis.completeFunctionParens": true,
   "python.analysis.typeCheckingMode": "basic",
-  "python.defaultInterpreterPath": "/opt/homebrew/Caskroom/mambaforge/base/envs/py",
-  "python.formatting.provider": "none",
+  "python.defaultInterpreterPath": "$HOMEBREW_PREFIX/Caskroom/mambaforge/base/envs/py",
   "python.languageServer": "Pylance",
   "r.alwaysUseActiveTerminal": true,
   "r.bracketedPaste": true,
@@ -39,6 +38,7 @@
   "terminal.integrated.macOptionIsMeta": true,
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.vim",
+  "vscode-neovim.neovimExecutablePaths.linux": "/home/linuxbrew/.linuxbrew/bin/nvim",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
@@ -50,7 +50,7 @@
   "files.autoSave": "afterDelay",
   "workbench.statusBar.visible": false,
   "vim.enableNeovim": true,
-  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "vim.neovimPath": "$HOMEBREW_PREFIX/bin/nvim",
   "vim.camelCaseMotion.enable": true,
   "vim.commentary": true,
   "vim.easymotion": true,
@@ -219,7 +219,6 @@
 "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
 },
-"workbench.activityBar.location": "hidden",
 "window.commandCenter": false,
 "workbench.layoutControl.enabled": false,
 "zenMode.fullScreen": false,
