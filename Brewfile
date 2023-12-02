@@ -116,8 +116,6 @@ brew "librsvg"
 brew "graphviz"
 # Next generation open source RPC library and framework
 brew "grpc@1.54"
-# Post-modern modal text editor
-brew "helix"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
