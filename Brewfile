@@ -180,6 +180,8 @@ brew "tig"
 brew "tldr"
 # Terminal multiplexer
 brew "tmux"
+# Plugin manager for tmux
+brew "tpm"
 # Maintained ctags implementation
 brew "universal-ctags"
 # Vi 'workalike' with many additional features
@@ -270,8 +272,8 @@ cask "kitty"
 cask "lastpass"
 # Text editor
 cask "macvim"
-# Minimal installer for conda with preinstalled support for Mamba
-cask "mambaforge"
+# Minimal installer for conda specific to conda-forge
+cask "miniforge"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
 # Knowledge base that works on top of a local folder of plain text Markdown files
@@ -319,4 +321,5 @@ vscode "ms-toolsai.vscode-jupyter-slideshow"
 vscode "quarto.quarto"
 vscode "REditorSupport.r"
 vscode "TabNine.tabnine-vscode"
+vscode "vscodevim.vim"
 vscode "WallabyJs.quokka-vscode"
