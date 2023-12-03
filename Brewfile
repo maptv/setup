@@ -40,8 +40,6 @@ brew "cairo"
 brew "pycparser"
 # C Foreign Function Interface for Python
 brew "cffi"
-# Access VS Code through the browser
-brew "code-server"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
