@@ -47,8 +47,9 @@
     "terminal.background": "#000000"
   },
   "workbench.editor.showTabs": "none",
-  "files.autoSave": "afterDelay",
+  "workbench.activityBar.location": "hidden",
   "workbench.statusBar.visible": false,
+  "files.autoSave": "afterDelay",
   "vim.enableNeovim": true,
   "vim.neovimPath": "$HOMEBREW_PREFIX/bin/nvim",
   "vim.camelCaseMotion.enable": true,
