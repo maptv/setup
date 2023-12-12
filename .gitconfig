@@ -5,7 +5,7 @@
 [branch]
     autosetuprebase = always
 [core]
-    editor = /opt/homebrew/bin/nvim
+	editor = codium --wait
     attributesfile = ~/.gitattributes
     excludesfile = ~/.gitignore
 	pager = delta
