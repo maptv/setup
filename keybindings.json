@@ -49,7 +49,7 @@
   { "key": "ctrl+space", "command": "editor.action.triggerSuggest", "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly" },
   { "key": "ctrl+t", "command": "editor.action.transposeLetters", "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'" },
   { "key": "ctrl+u", "command": "deleteAllLeft", "when": "textInputFocus" },
-  { "key": "ctrl+w", "command": "deleteWordLeft" },
+  { "key": "ctrl+w", "command": "deleteWordLeft", "when": "textInputFocus && !editorReadonly" }
   { "key": "shift+alt+b", "command": "cursorWordStartLeftSelect", "when": "textInputFocus" },
   { "key": "shift+alt+f", "command": "cursorWordEndRightSelect", "when": "textInputFocus" },
   { "key": "shift+alt+.", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add . && git commit --message \"$(git diff --name-status --cached | tr '[:space:]' ' ')\" && git push\u000D" }, "when": "terminalIsOpen" },
