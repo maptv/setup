@@ -48,8 +48,8 @@
   { "key": "ctrl+shift+alt+f", "command": "cursorWordPartRightSelect", "when": "textInputFocus" },
   { "key": "ctrl+space", "command": "editor.action.triggerSuggest", "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly" },
   { "key": "ctrl+t", "command": "editor.action.transposeLetters", "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'" },
-  { "key": "ctrl+u", "command": "deleteAllLeft", "when": "!editorFocus" },
-  { "key": "ctrl+w", "command": "deleteWordLeft", "when": "!editorFocus" },
+  { "key": "ctrl+u", "command": "deleteAllLeft", "when": "textInputFocus" },
+  { "key": "ctrl+w", "command": "deleteWordLeft" },
   { "key": "shift+alt+b", "command": "cursorWordStartLeftSelect", "when": "textInputFocus" },
   { "key": "shift+alt+f", "command": "cursorWordEndRightSelect", "when": "textInputFocus" },
   { "key": "shift+alt+.", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add . && git commit --message \"$(git diff --name-status --cached | tr '[:space:]' ' ')\" && git push\u000D" }, "when": "terminalIsOpen" },
@@ -91,5 +91,7 @@
   { "key": "ctrl+f", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && tabnine.tab-override && !editorTabMovesFocus" },
   { "key": "ctrl+e", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
   { "key": "ctrl+e", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && tabnine.tab-override && !editorTabMovesFocus" },
-  { "key": "ctrl+g", "command": "editor.action.inlineSuggest.hide", "when": "inlineSuggestionVisible" }
+  { "key": "ctrl+g", "command": "editor.action.inlineSuggest.hide", "when": "inlineSuggestionVisible" },
+  { "key": "x", "command": "workbench.action.closeActiveEditor", "when": "openEditorsFocus" },
+  { "key": "shift+escape", "command": "notebook.cell.quitEdit", "when": "inputFocus && notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible" }
 ]
