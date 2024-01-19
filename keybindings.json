@@ -14,7 +14,6 @@
   { "key": "cmd+alt+b", "command": "editor.action.goToImplementation", "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor" },
   { "key": "cmd+alt+i",  "command": "quarto.insertCodeCell", "when": "editorTextFocus && !editorReadonly && editorLangId == 'quarto'" },
   { "key": "cmd+alt+shift+c",  "command": "quarto.goToPreviousCell", "when": "editorTextFocus && editorLangId == 'quarto'"},
-  { "key": "Shift+K", "command": "editor.action.showHover", "when": "neovim.mode == normal && editorTextFocus"},
   { "key": "Shift+Tab", "command": "editor.action.showHover", "when": "editorTextFocus"},
   { "key": "cmd+alt+c",  "command": "quarto.goToNextCell", "when": "editorTextFocus && editorLangId == 'quarto'"},
   { "key": "cmd+shift+a",  "command": "quarto.renderAll", "when": "editorTextFocus && editorLangId == 'quarto'"},
@@ -48,8 +47,8 @@
   { "key": "ctrl+shift+alt+f", "command": "cursorWordPartRightSelect", "when": "textInputFocus" },
   { "key": "ctrl+space", "command": "editor.action.triggerSuggest", "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly" },
   { "key": "ctrl+t", "command": "editor.action.transposeLetters", "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'" },
-  { "key": "ctrl+u", "command": "deleteAllLeft", "when": "textInputFocus" },
-  { "key": "ctrl+w", "command": "deleteWordLeft", "when": "textInputFocus && !editorReadonly" }
+  { "key": "ctrl+u", "command": "deleteAllLeft", "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'" },
+  { "key": "ctrl+w", "command": "deleteWordLeft", "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'" },
   { "key": "shift+alt+b", "command": "cursorWordStartLeftSelect", "when": "textInputFocus" },
   { "key": "shift+alt+f", "command": "cursorWordEndRightSelect", "when": "textInputFocus" },
   { "key": "shift+alt+.", "command": "workbench.action.terminal.sendSequence", "args": { "text": "git add . && git commit --message \"$(git diff --name-status --cached | tr '[:space:]' ' ')\" && git push\u000D" }, "when": "terminalIsOpen" },
