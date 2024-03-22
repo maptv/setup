@@ -9,15 +9,25 @@
   "editor.fontSize": 16,
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.enabled": false,
+  "editor.quickSuggestions": {
+    "comments": "inline",
+    "other": "inline",
+    "strings": "inline"
+  },
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "on",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
   "extensions.ignoreRecommendations": false,
+  "files.autoSave": "afterDelay",
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
   "jupyter.askForKernelRestart": false,
   "jupyter.interactiveWindow.creationMode": "perFile",
   "jupyter.interactiveWindow.textEditor.executeSelection": true,
+  "open-in-vim.openMethod": "kitty",
   "python.analysis.completeFunctionParens": true,
   "python.analysis.typeCheckingMode": "basic",
   "python.defaultInterpreterPath": "/opt/homebrew/Caskroom/miniforge/base/envs/py",
@@ -29,209 +39,199 @@
   "r.sessionWatcher": true,
   "security.workspace.trust.untrustedFiles": "open",
   "tabnine.experimentalAutoImports": true,
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-},
+    "FIG_NEW_SESSION": "1",
+    "CW_NEW_SESSION": "1"
+  },
   "terminal.integrated.fontFamily": "Ewka Nerd Font",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.macOptionIsMeta": true,
-  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.vim",
-  "vscode-neovim.neovimExecutablePaths.linux": "/home/linuxbrew/.linuxbrew/bin/nvim",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
-  "workbench.colorCustomizations": {
-    "editor.background": "#000000",
-    "terminal.background": "#000000"
-  },
-  "workbench.editor.showTabs": "none",
-  "workbench.activityBar.location": "hidden",
-  "workbench.statusBar.visible": false,
-  "files.autoSave": "afterDelay",
-  "vim.enableNeovim": true,
-  "vim.neovimPath": "/opt/homebrew/bin/nvim",
   "vim.camelCaseMotion.enable": true,
   "vim.commentary": true,
   "vim.easymotion": true,
-  "vim.replaceWithRegister": true,
-  "vim.sneak": false,
-  "vim.surround": true,
+  "vim.enableNeovim": true,
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "<C-a>"
+      ],
+      "commands": [
+        "cursorHome"
+      ]
+    },
+    {
+      "before": [
+        "<C-b>"
+      ],
+      "commands": [
+        "cursorLeft"
+      ]
+    },
+    {
+      "before": [
+        "<C-d>"
+      ],
+      "commands": [
+        "deleteRight"
+      ]
+    },
+    {
+      "before": [
+        "<C-e>"
+      ],
+      "commands": [
+        "cursorEnd"
+      ]
+    },
+    {
+      "before": [
+        "<C-f>"
+      ],
+      "commands": [
+        "cursorRight"
+      ]
+    },
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "commands": [
+        "deleteLeft"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "commands": [
+        "deleteAllRight"
+      ]
+    },
+    {
+      "before": [
+        "<C-t>"
+      ],
+      "commands": [
+        "editor.action.transposeLetters"
+      ]
+    },
+    {
+      "before": [
+        "<C-u>"
+      ],
+      "commands": [
+        "deleteAllLeft"
+      ]
+    },
+    {
+      "before": [
+        "<C-w>"
+      ],
+      "commands": [
+        "deleteWordLeft"
+      ]
+    },
+    {
+      "before": [
+        "<A-b>"
+      ],
+      "commands": [
+        "cursorWordLeft"
+      ]
+    },
+    {
+      "before": [
+        "<A-c>"
+      ],
+      "commands": [
+        "editor.action.transformToTitlecase"
+      ]
+    },
+    {
+      "before": [
+        "<A-f>"
+      ],
+      "commands": [
+        "cursorWordEndRight"
+      ]
+    },
+    {
+      "before": [
+        "<A-h>"
+      ],
+      "commands": [
+        "deleteWordLeft"
+      ]
+    },
+    {
+      "before": [
+        "<A-l>"
+      ],
+      "commands": [
+        "editor.action.transformToLowercase"
+      ]
+    },
+    {
+      "before": [
+        "<A-u>"
+      ],
+      "commands": [
+        "editor.action.transformToUppercase"
+      ]
+    },
+    {
+      "before": [
+        "<A-_>"
+      ],
+      "commands": [
+        "undo"
+      ]
+    }
+  ],
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<leader>",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.terminal.focus"
+      ]
+    },
+    {
+      "after": [
+        "y$"
+      ],
+      "before": [
+        "Y"
+      ]
+    }
+  ],
+  "vim.replaceWithRegister": true,
+  "vim.sneak": false,
+  "vim.surround": true,
   "vim.useCtrlKeys": true,
   "vim.useSystemClipboard": true,
   "vim.visualstar": true,
-  "vim.normalModeKeyBindings": [
-      {
-          "before": [
-              "<leader>",
-              "t"
-          ],
-          "commands": [
-              "workbench.action.terminal.focus"
-          ]
-      },
-      {
-          "before": ["Y"],
-          "after": ["y$"]
-      }
-  ],
-  "vim.insertModeKeyBindings": [
-      {
-          "before": [
-              "<C-a>"
-          ],
-          "commands": [
-              "cursorHome"
-          ]
-      },
-      {
-          "before": [
-              "<C-b>"
-          ],
-          "commands": [
-              "cursorLeft"
-          ]
-      },
-      {
-          "before": [
-              "<C-d>"
-          ],
-          "commands": [
-              "deleteRight"
-          ]
-      },
-      {
-          "before": [
-              "<C-e>"
-          ],
-          "commands": [
-              "cursorEnd"
-          ]
-      },
-      {
-          "before": [
-              "<C-f>"
-          ],
-          "commands": [
-              "cursorRight"
-          ]
-      },
-      {
-          "before": [
-              "<C-h>"
-          ],
-          "commands": [
-              "deleteLeft"
-          ]
-      },
-      {
-          "before": [
-              "<C-k>"
-          ],
-          "commands": [
-              "deleteAllRight"
-          ]
-      },
-      {
-          "before": [
-              "<C-t>"
-          ],
-          "commands": [
-              "editor.action.transposeLetters"
-          ]
-      },
-      {
-          "before": [
-              "<C-u>"
-          ],
-          "commands": [
-              "deleteAllLeft"
-          ]
-      },
-      {
-          "before": [
-              "<C-w>"
-          ],
-          "commands": [
-              "deleteWordLeft"
-          ]
-      },
-      {
-          "before": [
-              "<A-b>"
-          ],
-          "commands": [
-              "cursorWordLeft"
-          ]
-      },
-      {
-          "before": [
-              "<A-c>"
-          ],
-          "commands": [
-              "editor.action.transformToTitlecase"
-          ]
-      },
-      {
-          "before": [
-              "<A-f>"
-          ],
-          "commands": [
-              "cursorWordEndRight"
-          ]
-      },
-      {
-          "before": [
-              "<A-h>"
-          ],
-          "commands": [
-              "deleteWordLeft"
-          ]
-      },
-      {
-          "before": [
-              "<A-l>"
-          ],
-          "commands": [
-              "editor.action.transformToLowercase"
-          ]
-      },
-      {
-          "before": [
-              "<A-u>"
-          ],
-          "commands": [
-              "editor.action.transformToUppercase"
-          ]
-      },
-      {
-          "before": [
-              "<A-_>"
-          ],
-          "commands": [
-              "undo"
-          ]
-      }
-],
-"extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-},
-"window.commandCenter": false,
-"workbench.layoutControl.enabled": false,
-"zenMode.fullScreen": false,
-"breadcrumbs.enabled": false,
-"zenMode.showTabs": "none",
-"zenMode.hideLineNumbers": false,
-"zenMode.centerLayout": false,
-"open-in-vim.openMethod": "kitty",
-"terminal.integrated.defaultProfile.linux": "zsh",
-"editor.quickSuggestions": {
-    "other": "inline",
-    "comments": "inline",
-    "strings": "inline"
-    }
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.linux": "/home/linuxbrew/.linuxbrew/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.vim",
+  "window.commandCenter": false,
+  "workbench.editor.showTabs": "none",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "workbench.layoutControl.enabled": false,
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.showTabs": "none",
+  "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": false
 }
