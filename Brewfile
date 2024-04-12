@@ -222,9 +222,11 @@ cask "basictex"
 cask "bitwarden"
 # Automated testing of webapps for Google Chrome
 cask "chromedriver"
+# AI-powered productivity tool for the command-line
+cask "codewhisperer"
 # Clipboard manager with advanced features
 cask "copyq"
-# App to build and share containerized applications and microservices
+# App to build and share containerised applications and microservices
 cask "docker"
 # Tool to hide status bar icons
 cask "dozer"
@@ -244,10 +246,16 @@ cask "font-hasklug-nerd-font"
 cask "font-inconsolata-nerd-font"
 # Developer targeted fonts with a high number of glyphs
 cask "font-iosevka-nerd-font"
+# Free and open-source image editor
+cask "gimp"
+# Desktop client for GitHub repositories
+cask "github"
 # Web browser
 cask "google-chrome"
 # Desktop automation application
 cask "hammerspoon"
+# Medical image viewer
+cask "horos"
 # Terminal built on web technologies
 cask "hyper"
 # Vector graphics editor
@@ -260,14 +268,16 @@ cask "jetbrains-toolbox"
 cask "julia"
 # Desktop application for JupyterLab
 cask "jupyterlab"
-# Keyboard customizer
+# Keyboard customiser
 cask "karabiner-elements"
-# Open-source keystroke visualizer
+# Open-source keystroke visualiser
 cask "keycastr"
 # GPU-based terminal emulator
 cask "kitty"
 # Password manager
 cask "lastpass"
+# Free cross-platform office suite, fresh version
+cask "libreoffice"
 # Text editor
 cask "macvim"
 # Minimal installer for conda specific to conda-forge
@@ -286,6 +296,8 @@ cask "rightzoom"
 cask "rstudio"
 # Team communication and collaboration software
 cask "slack"
+# View Spaces / Virtual Desktops in the menu bar
+cask "spaceman"
 # Terminal emulator, SSH and serial client
 cask "tabby"
 # GUI for the Neovim text editor
