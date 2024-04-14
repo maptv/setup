@@ -235,8 +235,6 @@ cask "kitty"
 cask "lastpass"
 # Free cross-platform office suite, fresh version
 cask "libreoffice"
-# Text editor
-cask "macvim"
 # Minimal installer for conda specific to conda-forge
 cask "miniforge"
 # Silence embarrassing notifications while screensharing
