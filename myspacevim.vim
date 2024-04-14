@@ -742,8 +742,8 @@ omap <leader><tab> <plug>(fzf-maps-o)
 " Path completion with custom source command
 inoremap <expr> <c-x><c-r> fzf#vim#complete#path('rg --files')
 inoremap <expr> <c-x>r fzf#vim#complete#path('rg --files')
-inoremap <expr> <c-x><c-d> fzf#vim#complete#path('exa --only-dirs')
-inoremap <expr> <c-x>d fzf#vim#complete#path('exa --only-dirs')
+inoremap <expr> <c-x><c-d> fzf#vim#complete#path('eza --only-dirs')
+inoremap <expr> <c-x>d fzf#vim#complete#path('eza --only-dirs')
 
 " Mappings inspired by my .zshrc
 imap <c-x><c-u> <C-o>u
@@ -814,8 +814,8 @@ omap <leader><tab> <plug>(fzf-maps-o)
 " Path completion with custom source command
 inoremap <expr> <c-x><c-r> fzf#vim#complete#path('rg --files')
 inoremap <expr> <c-x>r fzf#vim#complete#path('rg --files')
-inoremap <expr> <c-x><c-d> fzf#vim#complete#path('exa --only-dirs')
-inoremap <expr> <c-x>d fzf#vim#complete#path('exa --only-dirs')
+inoremap <expr> <c-x><c-d> fzf#vim#complete#path('eza --only-dirs')
+inoremap <expr> <c-x>d fzf#vim#complete#path('eza --only-dirs')
 
 " Mappings inspired by my .zshrc
 imap <c-x><c-u> <C-o>u

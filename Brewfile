@@ -45,8 +45,8 @@ brew "duti"
 brew "numpy"
 # Git for data science projects
 brew "dvc"
-# Modern replacement for 'ls'
-brew "exa"
+# Modern, maintained replacement for ls
+brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # CLI program that accepts piped input and presents files for selection

@@ -13,7 +13,7 @@ BREW = $(shell brew --prefix)/bin/brew
 BTM = $(shell brew --prefix)/bin/btm
 DELTA = $(shell brew --prefix)/bin/delta
 EMACS = $(shell brew --prefix)/bin/emacs
-EXA = $(shell brew --prefix)/bin/exa
+EZA = $(shell brew --prefix)/bin/eza
 FASD = $(shell brew --prefix)/bin/fasd
 FD = $(shell brew --prefix)/bin/fd
 FZF = $(shell brew --prefix)/bin/fzf
@@ -39,7 +39,7 @@ VSCODE_R = $(wildcard ~/.vscode/extensions/ikuyadeu.r-*)
 VSCODE_TABNINE = $(wildcard ~/.vscode/extensions/tabnine.tabnine-vscode-*)
 VSCODE_VIM = $(wildcard ~/.vscode/extensions/asvetliakov.vscode-neovim-*)
 
-all: ag alfred alttab bash bat bottom brew coc conda copyq emacs exa default fasd fd font fzf git gmv ipy iterm jupyter jetbrains karabiner neovim node noti pass ptpython radian rename repo rg rstudio scim slate tldr tmux vim vimr vscode poppler zsh
+all: ag alfred alttab bash bat bottom brew coc conda copyq emacs eza default fasd fd font fzf git gmv ipy iterm jupyter jetbrains karabiner neovim node noti pass ptpython radian rename repo rg rstudio scim slate tldr tmux vim vimr vscode poppler zsh
 
 ag: $(AG)
 alfred: /Applications/Alfred4.app
@@ -54,7 +54,7 @@ conda: $(shell brew --prefix)/bin/conda
 copyq: /Applications/CopyQ.app
 default: ~/Library/KeyBindings/DefaultKeyBinding.dict
 emacs: $(EMACS) ~/.emacs.d ~/.spacemacs ~/.doom.d ~/.config/doom ~/.config/doom/config.el ~/.config/doom/package.el
-exa: $(EXA)
+eza: $(EZA)
 fasd: $(FASD)
 fd: $(FD)
 font: ~/Library/Fonts/FiraCodeRegularNerdFontComplete.otf
@@ -170,8 +170,8 @@ $(EMACS):
 ~/.config/doom/package.el: ~/maptv/setup/package.el
 	-ln -fs ~/maptv/setup/package.el ~/.config/doom/package.el
 	~/.doom.d/bin/doom sync
-$(EXA):
-	-brew install exa
+$(EZA):
+	-brew install eza
 $(FASD):
 	-brew install fasd
 $(FD):
