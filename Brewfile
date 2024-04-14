@@ -143,8 +143,6 @@ brew "tpm"
 brew "universal-ctags"
 # Vi 'workalike' with many additional features
 brew "vim"
-# Convert HTML to PDF
-brew "weasyprint"
 # Internet file retriever
 brew "wget"
 # PDF viewer
