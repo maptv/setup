@@ -270,7 +270,6 @@ cask "zoom"
 cask "zotero"
 mas "Numbers", id: 409203825
 mas "Vimari", id: 1480933944
-vscode "amazonwebservices.codewhisperer-for-command-line-companion"
 vscode "asvetliakov.vscode-neovim"
 vscode "eamodio.gitlens"
 vscode "george-alisson.html-preview-vscode"
