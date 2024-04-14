@@ -1,7 +1,6 @@
 tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "railwaycat/emacsmacport"
 tap "romkatv/powerlevel10k"
