@@ -1,21 +1,12 @@
 tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
+tap "homebrew/core"
 tap "homebrew/services"
 tap "railwaycat/emacsmacport"
 tap "romkatv/powerlevel10k"
 # Search tool like grep, but optimized for programmers
 brew "ack"
-# TIFF library and utilities
-brew "libtiff"
-# Image format providing lossless and lossy compression for web images
-brew "webp"
-# New file format for still image compression
-brew "jpeg-xl"
-# Codec library for encoding and decoding AV1 video streams
-brew "aom"
-# Next generation open source RPC library and framework
-brew "grpc"
 # Columnar in-memory analytics layer designed to accelerate big data
 brew "apache-arrow"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -48,52 +39,22 @@ brew "curl"
 brew "deno"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
-# Pack, ship and run any application as a lightweight container
-brew "docker", link: false
-# Docker CLI plugin for extended build capabilities with BuildKit
-brew "docker-buildx"
-# Create Docker hosts locally and on cloud providers
-brew "docker-machine"
 # Select default apps for documents and URL schemes on macOS
 brew "duti"
-# Optimized BLAS library
-brew "openblas"
 # Package for scientific computing with Python
 brew "numpy"
-# Bindings to the libgit2 shared library
-brew "pygit2"
-# Cryptographic recipes and primitives for Python
-brew "python-cryptography"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
 # Git for data science projects
 brew "dvc"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
-# GNU Transport Layer Security (TLS) Library
-brew "gnutls"
-# Image processing and image analysis library
-brew "leptonica"
-# OCR (Optical Character Recognition) engine
-brew "tesseract"
-# High-performance, asynchronous messaging library
-brew "zeromq"
-# Play, record, convert, and stream audio and video
-brew "ffmpeg"
-# Library for manipulating fonts
-brew "fonttools"
 # CLI program that accepts piped input and presents files for selection
 brew "fpp"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
-# Interpreter for PostScript and PDF
-brew "ghostscript"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
@@ -112,12 +73,12 @@ brew "gpgme"
 brew "librsvg"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
-# Next generation open source RPC library and framework
-brew "grpc@1.54"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Powerful, clean, object-oriented scripting language
@@ -140,14 +101,12 @@ brew "page"
 brew "pandoc"
 # Password manager
 brew "pass"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Theme for zsh
 brew "powerlevel10k"
-# Cross-platform application and UI framework
-brew "qt@5"
+# Bindings to the libgit2 shared library
+brew "pygit2"
 # File browser
 brew "ranger"
 # Reattach process (e.g., tmux) to background
@@ -226,8 +185,8 @@ cask "chromedriver"
 cask "codewhisperer"
 # Clipboard manager with advanced features
 cask "copyq"
-# App to build and share containerised applications and microservices
-cask "docker"
+# Write, edit, and chat about your code with AI
+cask "cursor"
 # Tool to hide status bar icons
 cask "dozer"
 # Reimagine your terminal
@@ -312,15 +271,19 @@ cask "wkhtmltopdf"
 cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
-# Collect, organize, cite, and share research sources
+# Collect, organise, cite, and share research sources
 cask "zotero"
 mas "Numbers", id: 409203825
 mas "Vimari", id: 1480933944
+vscode "amazonwebservices.codewhisperer-for-command-line-companion"
 vscode "asvetliakov.vscode-neovim"
 vscode "eamodio.gitlens"
-vscode "GitHub.codespaces"
+vscode "george-alisson.html-preview-vscode"
+vscode "github.codespaces"
+vscode "github.github-vscode-theme"
 vscode "jonsmithers.open-in-vim"
 vscode "ms-python.black-formatter"
+vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-toolsai.jupyter"
@@ -328,8 +291,9 @@ vscode "ms-toolsai.jupyter-keymap"
 vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vsliveshare.vsliveshare"
 vscode "quarto.quarto"
-vscode "REditorSupport.r"
-vscode "TabNine.tabnine-vscode"
+vscode "reditorsupport.r"
+vscode "sumneko.lua"
 vscode "vscodevim.vim"
-vscode "WallabyJs.quokka-vscode"
+vscode "wallabyjs.quokka-vscode"
