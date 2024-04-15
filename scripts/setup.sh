@@ -435,11 +435,6 @@ curl https://raw.githubusercontent.com/maptv/setup/main/spacevim/init.toml -o ~/
 
 curl https://raw.githubusercontent.com/maptv/setup/main/spacevim/myspacevim.vim -o ~/.SpaceVim.d/autoload/myspacevim.vim --create-dirs
 
-## Lunar Vim
-yes y | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
-
-curl https://raw.githubusercontent.com/maptv/setup/main/config.lua -o ~/.config/lvim/config.lua --create-dirs
-
 ### Zed
 curl https://raw.githubusercontent.com/maptv/setup/main/zed.json -o ~/.config/zed/settings.json --create-dirs
 
@@ -504,7 +499,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/rstudio_bindings.json -o
 /opt/homebrew/bin/mamba init zsh
 
 # Set up vscode and vscodium
-### As of 2023-06-23, VSCode only works with the graphical R installer (not brew or conda)
+
 curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Library/Application\ Support/Code/User/settings.json --create-dirs
 
 curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Library/Application\ Support/VSCodium/User/settings.json --create-dirs
@@ -512,6 +507,13 @@ curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Libra
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/Code/User/keybindings.json --create-dirs
 
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
+
+### Lunar Vim
+/opt/homebrew/bin/mamba activate py
+
+yes y | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+
+curl https://raw.githubusercontent.com/maptv/setup/main/config.lua -o ~/.config/lvim/config.lua --create-dirs
 
 # Set up emacs
 
