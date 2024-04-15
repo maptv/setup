@@ -475,11 +475,11 @@ curl https://raw.githubusercontent.com/maptv/setup/main/tabnine_config.json -o ~
 # 6: Conda environments (base, Python and R)
 ### Install cookiecutter (for i alias) and neovim (for vim plugins)
 
-/opt/homebrew/Caskroom/mambaforge/base/bin/mamba install -yc conda-forge python neovim
+/opt/homebrew/Caskroom/miniforge/base/bin/mamba install -yc conda-forge python neovim
 
-/opt/homebrew/Caskroom/mambaforge/base/bin/mamba create -yc conda-forge -n py python neovim jupyterlab jupyterlab_vim jupyter-cache joblib seaborn numpy pandas scikit-learn scipy
+/opt/homebrew/Caskroom/miniforge/base/bin/mamba create -yc conda-forge -n py python neovim jupyterlab jupyterlab_vim jupyter-cache joblib seaborn numpy pandas scikit-learn scipy
 
-/opt/homebrew/Caskroom/mambaforge/base/envs/py/bin/python -m pip install jupyterlab-quarto radian
+/opt/homebrew/Caskroom/miniforge/base/envs/py/bin/python -m pip install jupyterlab-quarto radian
 
 # 7: Code editors
 
