@@ -41,7 +41,6 @@
   "tabnine.experimentalAutoImports": true,
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1",
     "CW_NEW_SESSION": "1"
   },
   "terminal.integrated.fontFamily": "Ewka Nerd Font",
@@ -233,5 +232,9 @@
   "zenMode.hideLineNumbers": false,
   "zenMode.showTabs": "none",
   "workbench.activityBar.location": "hidden",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "settingsSync.ignoredExtensions": [
+    "vscodevim.vim",
+    "asvetliakov.vscode-neovim"
+  ],
 }
