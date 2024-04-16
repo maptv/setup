@@ -509,11 +509,22 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
 ### Lunar Vim
-/opt/homebrew/bin/mamba activate py
+curl https://raw.githubusercontent.com/maptv/setup/main/pip.conf -o ~/.config/pip/pip.conf --create-dirs
 
 yes y | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 curl https://raw.githubusercontent.com/maptv/setup/main/config.lua -o ~/.config/lvim/config.lua --create-dirs
+
+### Install vim plugins
+/opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa
+
+/opt/homebrew/bin/nvim -c PlugInstall -c CocInstall -c wqa
+
+/opt/homebrew/bin/vim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
+
+/opt/homebrew/bin/nvim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
+
+~/.local/bin/lvim -c LvimSyncCorePlugins -c wqa
 
 # Set up emacs
 
@@ -614,12 +625,6 @@ git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whj
 #### Move focus to the floating window: Alt Cmd W
 #### Move focus to the next window: Cmd ` (Default)
 #### Move focus to the status menus: Alt Cmd S
-## Set up vim et al. (these are manual steps because they stop the setup script)
-### /opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa || true
-### /opt/homebrew/bin/nvim -c PlugInstall -c CocInstall -c wqa || true
-### /opt/homebrew/bin/vim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa || true
-### /opt/homebrew/bin/nvim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa || true
-### ~/.local/bin/lvim -c LvimSyncCorePlugins -c wqa || true
 ## Set Sound options
 ### Set alert volume to zero
 ### Disable Play sound on startup
