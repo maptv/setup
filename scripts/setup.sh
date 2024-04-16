@@ -509,15 +509,11 @@ curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Li
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
 
 ### Lunar Vim
-curl https://raw.githubusercontent.com/maptv/setup/main/pip.conf -o ~/.config/pip/pip.conf --create-dirs
-
-yes y | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+yes n | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 curl https://raw.githubusercontent.com/maptv/setup/main/config.lua -o ~/.config/lvim/config.lua --create-dirs
 
 ### Install vim plugins
-/opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa
-
 /opt/homebrew/bin/nvim -c PlugInstall -c CocInstall -c wqa
 
 /opt/homebrew/bin/vim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
@@ -525,6 +521,8 @@ curl https://raw.githubusercontent.com/maptv/setup/main/config.lua -o ~/.config/
 /opt/homebrew/bin/nvim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
 
 ~/.local/bin/lvim -c LvimSyncCorePlugins -c wqa
+
+/opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa
 
 # Set up emacs
 
