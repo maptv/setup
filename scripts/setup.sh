@@ -310,7 +310,7 @@ git config --global user.email 13444106+maptv@users.noreply.github.com
 
 curl https://raw.githubusercontent.com/maptv/setup/main/Brewfile -o ~/.Brewfile
 
-if brew bundle install --file ~/.Brewfile; then echo brew install OK; fi
+brew bundle install --file ~/.Brewfile
 
 # 4: Generate SSH keys for GitHub, GitLab, and Bitbucket
 
@@ -513,6 +513,9 @@ yes n | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/maste
 
 curl https://raw.githubusercontent.com/maptv/setup/main/config.lua -o ~/.config/lvim/config.lua --create-dirs
 
+#### Install fasd via git and make (brew install fasd is not working)
+git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whjvenyl/fasd && sudo make install && cd
+
 # Set up emacs
 
 ### Spacemacs
@@ -534,21 +537,7 @@ curl https://raw.githubusercontent.com/maptv/setup/main/config.el -o ~/.config/d
 
 curl https://raw.githubusercontent.com/maptv/setup/main/packages.el -o ~/.config/doom/packages.el
 
-if yes y | ~/.config/emacs/bin/doom install; then echo doom install OK; fi
-
-# Install fasd via git and make (brew install fasd is not working)
-git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whjvenyl/fasd && sudo make install && cd
-
-### Install vim plugins
-/opt/homebrew/bin/nvim -c PlugInstall -c CocInstall -c wqa
-
-/opt/homebrew/bin/vim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
-
-/opt/homebrew/bin/nvim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
-
-~/.local/bin/lvim -c LvimSyncCorePlugins -c wqa
-
-/opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa
+yes y | ~/.config/emacs/bin/doom install
 
 #### The line below has to be at the bottom, because it ends setup.sh (I don't know why)
 ~/.config/emacs/bin/doom sync
@@ -573,6 +562,12 @@ git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whj
 ##### Change return to control if pressed with other keys, to return if pressed alone (from Change return to control)
 ##### Bash style Emacs key bindings (rev 2) (from Emacs key bindings (rev 12))
 ##### Emacs key bindings [option+keys] (rev 5) (from Emacs key bindings (rev 12))
+### Install vim plugins
+### /opt/homebrew/bin/nvim -c PlugInstall -c CocInstall -c wqa
+### /opt/homebrew/bin/vim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
+### /opt/homebrew/bin/nvim -u ~/.SpaceVim/vimrc -c SPUpdate -c wqa
+### ~/.local/bin/lvim -c LvimSyncCorePlugins -c wqa
+### /opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa
 # CopyQ
 ## Load copyq.ini (commands) and copyq.cpq (configuration)
 ### Notes:
