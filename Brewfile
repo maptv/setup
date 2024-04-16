@@ -186,8 +186,6 @@ cask "copyq"
 cask "cursor"
 # Tool to hide status bar icons
 cask "dozer"
-# Reimagine your terminal
-cask "fig"
 # Web browser
 cask "firefox"
 # Developer targeted fonts with a high number of glyphs
