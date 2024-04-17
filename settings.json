@@ -231,10 +231,6 @@
   "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": false,
   "zenMode.showTabs": "none",
-  "workbench.activityBar.location": "hidden",
   "workbench.statusBar.visible": false,
-  "settingsSync.ignoredExtensions": [
-    "vscodevim.vim",
-    "asvetliakov.vscode-neovim"
-  ],
+  "workbench.activityBar.location": "hidden",
 }
