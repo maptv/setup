@@ -162,8 +162,6 @@ brew "zsh-fast-syntax-highlighting"
 brew "zsh-vi-mode"
 # ZSH plugin that reminds you to use existing aliases for commands you just typed
 brew "zsh-you-should-use"
-# YAMAMOTO Mitsuharu's Mac port of GNU Emacs
-brew "railwaycat/emacsmacport/emacs-mac", args: ["with-native-comp"]
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
 # GPU-accelerated terminal emulator
@@ -254,6 +252,8 @@ cask "slack"
 cask "spaceman"
 # Terminal emulator, SSH and serial client
 cask "tabby"
+# Utility to hide the notch
+cask "topnotch"
 # GUI for the Neovim text editor
 cask "vimr"
 # Open-source code editor
@@ -290,5 +290,6 @@ vscode "ms-vsliveshare.vsliveshare"
 vscode "quarto.quarto"
 vscode "reditorsupport.r"
 vscode "sumneko.lua"
+vscode "tabnine.tabnine-vscode"
 vscode "vscodevim.vim"
 vscode "wallabyjs.quokka-vscode"

@@ -543,6 +543,18 @@ yes y | ~/.config/emacs/bin/doom install
 ~/.config/emacs/bin/doom sync
 
 # Non-automated steps
+## macOS settings
+### Enable Stage Manager
+### Enable Displays have separate Spaces
+### Enable "When switching to an application, switch to a Space with open windows for the application"
+### Automatically hide and show the menu bar On Desktop Only
+#### There does not appear to be:
+##### - a way to prevent the menubar from dimming when another screen is focused
+##### - have the menubar only be displayed on screens with a notch
+#### Therefore, I use:
+##### - TopNotch (with "Round corners" and "Enable on MacBook screen only" settings) to hide the notch when the menu bar is hidden
+##### - Spaceman to show which Space is focused in the menu bar if I unintentionally use fullscreen mode (ctrl cmd f)
+##### - Hammerspoon instead of fullscreen mode to make windows on the Desktop full screen and thus hide the Stage manager
 ## R
 ### Install R from https://cran.r-project.org/bin/macosx/
 ### Activate py environment and run the command below
