@@ -558,17 +558,22 @@ yes y | ~/.config/emacs/bin/doom install
 ### Date & Time > Enable 24-hour time
 ### Control Center > Automatically hide and show the menu bar On Desktop Only
 ### Control Center > Don't show anything in menu bar, show everything in Control Center
+### Trackpad > Point & Click > Tracking Speed: As Fast as possible
+### Trackpad > More Gestures > Swipe between pages: Off
+### Trackpad > More Gestures > App Expose: Swipe Down with Three Fingers
 ### Menu bar should only have Spaceman, AWAKE/DECAF (Hammerspoon), Control Center, and Date and Time
 #### There does not appear to be:
 ##### - a way to prevent the menubar from dimming when another screen is focused
 ##### - have the menubar only be displayed on screens with a notch
-#### Therefore, I use:
-##### - TopNotch (with "Round corners" and "Enable on MacBook screen only" settings) to hide the notch when the menu bar is hidden
-##### - Spaceman to show which Space is focused in the menu bar if I unintentionally use fullscreen mode (ctrl cmd f)
-##### - Hammerspoon instead of fullscreen mode to make windows on the Desktop full screen and thus hide the Stage manager
-##### If I set my Wallpaper to complete black, then TopNotch is no longer necessary
-##### RightZoom is useful, pressing green button does not move it to a new space,
-##### if I want to move to a new space I can press ctrl cmd f (or cmd shift f in some apps)
+#### Therefore, I:
+##### - set my Wallpaper to complete black, so the notch is no longer visible
+##### - hide the menu bar on the Desktop only, because I want
+######  - Spaceman to show which Space is focused in the menu bar if I unintentionally enter fullscreen mode
+##### - make apps fullscreen on the Desktop with:
+######  - Hammerspoon (ctrl space) or
+######  - RightZoom (alt cmd e)
+##### instead of fullscreen mode, which moves windows to a new space,
+##### when I press ctrl cmd f (or cmd shift f for some apps)
 ## R
 ### Install R from https://cran.r-project.org/bin/macosx/
 ### Activate py environment and run the command below
