@@ -252,8 +252,6 @@ cask "slack"
 cask "spaceman"
 # Terminal emulator, SSH and serial client
 cask "tabby"
-# Utility to hide the notch
-cask "topnotch"
 # GUI for the Neovim text editor
 cask "vimr"
 # Open-source code editor

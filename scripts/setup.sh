@@ -566,6 +566,9 @@ yes y | ~/.config/emacs/bin/doom install
 ##### - TopNotch (with "Round corners" and "Enable on MacBook screen only" settings) to hide the notch when the menu bar is hidden
 ##### - Spaceman to show which Space is focused in the menu bar if I unintentionally use fullscreen mode (ctrl cmd f)
 ##### - Hammerspoon instead of fullscreen mode to make windows on the Desktop full screen and thus hide the Stage manager
+##### If I set my Wallpaper to complete black, then TopNotch is no longer necessary
+##### RightZoom is useful, pressing green button does not move it to a new space,
+##### if I want to move to a new space I can press ctrl cmd f (or cmd shift f in some apps)
 ## R
 ### Install R from https://cran.r-project.org/bin/macosx/
 ### Activate py environment and run the command below
@@ -592,6 +595,7 @@ yes y | ~/.config/emacs/bin/doom install
 ### ~/.local/bin/lvim -c LvimSyncCorePlugins -c wqa
 ### /opt/homebrew/bin/vim -c PlugInstall -c CocInstall -c wqa
 # CopyQ
+## CopyQ stopped working for the latest macOS
 ## Load copyq.ini (commands) and copyq.cpq (configuration)
 ### Notes:
 ### Keyboard shortcuts:
