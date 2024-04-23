@@ -653,8 +653,9 @@ yes y | ~/.config/emacs/bin/doom install
 ### Select ABC under Auto-switch Input Source
 ### Click Disable search & show all labels
 ## Set up Displays
-### The resolution of display link dual monitors should be 3840
-### Set resolution of main monitor to 2650 and MacBook monitor to 1280, so the two add up to 3840
+### The resolution of display link dual monitors should be 3840x1080
+### Set resolution of the main monitor to 2650x1440 and the MacBook monitor to 1280x800, so the width of the two add up to 3840
+### Set resolution of the leftmost monitor to 1440x2650 and and rightmost monitor to 1080x1920, so the height of each is close 2520 (1080+1440) and 1880 (800+1080), respectively
 ### Click "Arrange..." and Arrange the monitors so that the main monitor and the MacBook monitor line up with the dual link dual monitors
 ### Move the white band from the top of MacBook monitor to the main monitor, the monitor order should now be:
 #### 1: main monitor
