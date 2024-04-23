@@ -639,8 +639,8 @@ alias rch="func() { gh repo create $(echo '$1') --add-readme --clone --private $
 alias rcidh="func() { gh repo create $(echo '$1') --add-readme --clone --internal --description \"$(echo '${*# }')\" && cd $(echo '$1'); }; func"
 alias rcidl="func() { glab repo create $(echo '$1') --readme --defaultBranch main --public --description \"$(echo '${*# }')\" && cd $(echo '$1') && git pull origin main && git branch --set-upstream-to=origin/main main; }; func"
 alias rcih="func() { gh repo create $(echo '$1') --add-readme --clone --internal $(echo '${@:2}') && cd $(echo '$1'); }; func"
-alias rcil="func() { glab repo create $(echo '$1') --readme --defaultBranch main --public $(echo '${@:2}') && cd $(echo '$1') && git pull origin main && git branch --set-upstream-to=origin/main main; }; func"
-alias rcl="func() { git init && glab repo create $(echo '$1') --readme --defaultBranch main --public $(echo '${@:2}') && git pull origin main && git branch --set-upstream-to=origin/main main; }; func"
+alias rcil="func() { glab repo create $(echo '$1') --readme --defaultBranch main --internal $(echo '${@:2}') && cd $(echo '$1') && git pull origin main && git branch --set-upstream-to=origin/main main; }; func"
+alias rcl="func() { git init && glab repo create $(echo '$1') --readme --defaultBranch main --private $(echo '${@:2}') && git pull origin main && git branch --set-upstream-to=origin/main main; }; func"
 alias rcpdh="func() { gh repo create $(echo '$1') --add-readme --clone --public --description \"$(echo '${*# }')\" && cd $(echo '$1'); }; func"
 alias rcpdl="func() { glab repo create $(echo '$1') --readme --defaultBranch main --public --description \"$(echo '${*# }')\" && cd $(echo '$1') && git pull origin main && git branch --set-upstream-to=origin/main main; }; func"
 alias rcph="func() { gh repo create $(echo '$1') --add-readme --clone --public $(echo '${@:2}') && cd $(echo '$1'); }; func"
@@ -1003,17 +1003,21 @@ complete -o nospace -C $HOMEBREW_PREFIX/bin/bit bit
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOMEBREW_PREFIX/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOMEBREW_PREFIX/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-        . "$HOMEBREW_PREFIX/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
     else
-        export PATH="$HOMEBREW_PREFIX/Caskroom/miniforge/base/bin:$PATH"
+        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
+
+if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/mamba.sh" ]; then
+    . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/mamba.sh"
+fi
 # <<< conda initialize <<<
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
@@ -1024,7 +1028,7 @@ else
     if [ -f "$HOMEBREW_PREFIX/Caskroom/miniforge/base/etc/profile.d/mamba.sh" ]; then
         . "$HOMEBREW_PREFIX/Caskroom/miniforge/base/etc/profile.d/mamba.sh"
     else
-        export PATH="$HOMEBREW_PREFIX/Caskroom/miniforge/base/bin:$PATH"
+# export PATH="$HOMEBREW_PREFIX/Caskroom/miniforge/base/bin:$PATH"  # commented out by conda initialize
     fi
 fi
 unset __conda_setup
