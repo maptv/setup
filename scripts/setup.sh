@@ -516,6 +516,9 @@ curl https://raw.githubusercontent.com/maptv/setup/main/config.lua -o ~/.config/
 #### Install fasd via git and make (brew install fasd is not working)
 git clone --depth 1 https://github.com/whjvenyl/fasd.git whjvenyl/fasd && cd whjvenyl/fasd && sudo make install && cd
 
+# coc expects me to have a bibliography.bib file in the home directory
+touch ~/bibliography.bib
+
 # Set up emacs
 
 ### Spacemacs
@@ -545,9 +548,17 @@ yes y | ~/.config/emacs/bin/doom install
 # Non-automated steps
 ## macOS settings
 ### Enable Stage Manager
-### Enable Displays have separate Spaces
-### Enable "When switching to an application, switch to a Space with open windows for the application"
-### Automatically hide and show the menu bar On Desktop Only
+### Accessibility > Menu bar size: large
+### Accessibility > Reduce transparency
+### Accessibility > Reduce motion
+### Accessibility > Pointer size: as large as possible
+### Accessibility > Text size: 15 pt
+### Desktop & Dock > Enable Displays have separate Spaces
+### Desktop & Dock > Enable "When switching to an application, switch to a Space with open windows for the application"
+### Date & Time > Enable 24-hour time
+### Control Center > Automatically hide and show the menu bar On Desktop Only
+### Control Center > Don't show anything in menu bar, show everything in Control Center
+### Menu bar should only have Spaceman, AWAKE/DECAF (Hammerspoon), Control Center, and Date and Time
 #### There does not appear to be:
 ##### - a way to prevent the menubar from dimming when another screen is focused
 ##### - have the menubar only be displayed on screens with a notch
@@ -607,9 +618,6 @@ yes y | ~/.config/emacs/bin/doom install
 ### Change the way Tab moves focus: `Alt Cmd Tab`
 ### Turn keyboard access on or off: `Alt Cmd K`
 # Mac Control Center settings
-## Clock Options... 24-hour clock
-## Show nothing in menu bar, show everything in Control Center
-## The menu bar show only have CopyQ, DECAF/AWAKE, Control Center, and Datetime
 ## Set the following keyboard shortcuts:
 ### Mission Control
 #### Mission Control: Ctrl Alt Shift Cmd Up
@@ -621,15 +629,6 @@ yes y | ~/.config/emacs/bin/doom install
 #### Switch to Desktop 4: Ctrl Alt Shift Cmd 4
 #### Switch to Desktop 5: Ctrl Alt Shift Cmd 5
 ### Keyboard
-#### Change the way Tab moves focus: Alt Cmd Tab
-#### Turn keyboard access on or off: Alt Cmd K
-#### Move focus to the menu bar: Alt Cmd A (A is for Apple)
-#### Move focus to the Dock: Alt Cmd Z (Z is below A and S)
-#### Move focus to the active or next window: Cmd ; (like Cmd `)
-#### Move focus to the window toolbar: Alt Cmd T
-#### Move focus to the floating window: Alt Cmd W
-#### Move focus to the next window: Cmd ` (Default)
-#### Move focus to the status menus: Alt Cmd S
 ## Set Sound options
 ### Set alert volume to zero
 ### Disable Play sound on startup
@@ -639,7 +638,6 @@ yes y | ~/.config/emacs/bin/doom install
 #### Vimium extension with settings restored from https://raw.githubusercontent.com/maptv/setup/main/vimium-options.json
 #### LastPass extension
 #### BitWarden extension
-## Launch fig in the terminal and authenticate with GitHub
 ## Add all Internet Accounts in System Preferences
 ### Grant Accessibility permissions to CopyQ, altTab, Homerow, Hammerspoon, VimR and Alfred
 ### Enable launch on login for CopyQ, altTab, Homerow, Hammerspoon, VimR and Alfred
@@ -737,9 +735,6 @@ yes y | ~/.config/emacs/bin/doom install
 #### Send ^[ [13;3u with Cmd Return
 #### Send ^[ [13;4u with Shift Cmd Return
 #### Send ^[ <M-C-CR> with Ctrl Shift Cmd Return
-
-# coc expects me to have a bibliography.bib file in the home directory
-touch ~/bibliography.bib
 
 # Text editors
 ## 1. Vim
