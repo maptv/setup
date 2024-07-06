@@ -246,6 +246,8 @@ cask "raycast"
 cask "rightzoom"
 # Data science software focusing on R and Python
 cask "rstudio"
+# App that enables mouse-free UI interaction
+cask "shortcat"
 # Team communication and collaboration software
 cask "slack"
 # View Spaces / Virtual Desktops in the menu bar
