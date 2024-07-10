@@ -74,6 +74,7 @@
   { "key": "ctrl+; f", "command": "workbench.explorer.fileView.focus" },
   { "key": "ctrl+; g", "command": "workbench.view.extension.gitlensPanel" },
   { "key": "ctrl+; h", "command": "workbench.action.toggleSidebarVisibility" },
+  { "key": "ctrl+; i", "command": "gitlens.views.commitDetails.focus" },
   { "key": "ctrl+; j", "command": "workbench.action.togglePanel" },
   { "key": "ctrl+; k", "command": "workbench.action.positron.toggleTopActionBarVisibility" },
   { "key": "ctrl+; l", "command": "workbench.action.toggleAuxiliaryBar" },
