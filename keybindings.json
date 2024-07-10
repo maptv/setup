@@ -89,6 +89,7 @@
   { "key": "ctrl+; v", "command": "workbench.panel.positronVariables.focus" },
   { "key": "ctrl+; w", "command": "editor.action.toggleWordWrap" },
   { "key": "ctrl+; x", "command": "workbench.extensions.action.focusExtensionsView" },
+  { "key": "ctrl+; y", "command": "clipboardHistory.focus" },
   { "key": "ctrl+; z", "command": "workbench.action.toggleZenMode" },
   { "key": "ctrl+; ;", "command": "workbench.action.focusPreviousGroup" },
   { "key": "up", "command": "cursorUp", "when": "editorTextFocus && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
