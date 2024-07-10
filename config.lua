@@ -313,7 +313,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
       pattern =  "*", command = "silent! loadview",
 })
 
-autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=79
 -- https://www.reddit.com/r/lunarvim/comments/10392z6/statusbar/
 lvim.builtin.lualine.active = false
 lvim.builtin.bufferline.active = false
