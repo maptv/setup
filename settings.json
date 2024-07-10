@@ -294,5 +294,6 @@
   "tabnine.codeLensEnabled": false,
   "interactiveWindow.executeWithShiftEnter": true,
   "rstudio.keymap.enable": true,
+  "terminal.external.osxExec": "iTerm.app",
   "workbench.colorTheme": "Default Dark Modern",
 }
