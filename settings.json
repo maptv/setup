@@ -32,7 +32,7 @@
   "open-in-vim.openMethod": "kitty",
   "python.analysis.completeFunctionParens": true,
   "python.analysis.typeCheckingMode": "basic",
-  "python.defaultInterpreterPath": "/opt/homebrew/Caskroom/miniforge/base/envs/py",
+  "python.defaultInterpreterPath": "/opt/homebrew/Caskroom/miniforge/base/envs/py/bin/python",
   "python.languageServer": "Pylance",
   "r.alwaysUseActiveTerminal": true,
   "r.bracketedPaste": true,
@@ -260,7 +260,7 @@
   // Various editor settings
   "editor.formatOnPaste": true,
   "editor.detectIndentation": false,
-  "editor.showFoldingControls": "always",
+  "editor.showFoldingControls": "never",
   "window.newWindowDimensions": "inherit",
   "editor.scrollBeyondLastLine": true,
   "window.title": "${activeEditorFull}${separator}${rootName}",
