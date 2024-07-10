@@ -284,7 +284,6 @@ lvim.plugins = {
   {"tpope/vim-unimpaired"},
   {"tommcdo/vim-exchange"},
   {"inkarkat/vim-ReplaceWithRegister"},
-  {"unblevable/quick-scope"},
   {"inkarkat/argtextobj.vim"},
   {"michaeljsmith/vim-indent-object"},
   {"kana/vim-textobj-entire"},
