@@ -1,5 +1,7 @@
 {
-  "[python]": {
+  // https://code.visualstudio.com/docs/getstarted/settings#_multiple-languagespecific-editor-settings
+    "[python]": {
+    "editor.tabSize": 4,
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnType": true
   },
@@ -237,11 +239,7 @@
   },
   // https://www.andrewheiss.com/blog/2024/07/08/fun-with-positron/
   // Indent with two spaces, but only for R
-  // https://code.visualstudio.com/docs/getstarted/settings#_multiple-languagespecific-editor-settings
-  "[r][javascript][typescript]": {
-      "editor.tabSize": 2
-  },
-    // Hide things from the global search menu and watcher
+  // Hide things from the global search menu and watcher
   "files.exclude": {
       "**/.Rhistory": true,
       "**/.Rproj": true,
@@ -266,7 +264,7 @@
   "window.newWindowDimensions": "inherit",
   "editor.scrollBeyondLastLine": true,
   "window.title": "${activeEditorFull}${separator}${rootName}",
-  "editor.tabSize": 4,
+  "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.snippetSuggestions": "top",
@@ -275,7 +273,7 @@
   "files.defaultLanguage": "md",
   // add vertical line at 80 characters
   "editor.rulers": [
-      80
+    80
   ],
   // handle newline saving adapted from
   // https://rfdonnelly.github.io/posts/sane-vscode-whitespace-settings/
