@@ -80,6 +80,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" https://stackoverflow.com/questions/891805/how-do-i-set-up-different-tab-settings-for-different-languages-in-vim
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=79
+
 " https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
 augroup remember_folds
   autocmd!

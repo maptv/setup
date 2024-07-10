@@ -138,9 +138,9 @@ set ttyfast
 set backspace=indent,eol,start
 
 "" Tabs. May be overridden by autocmd rules
-set tabstop=4
-set softtabstop=0
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 
 "" Map leader to ,
@@ -445,6 +445,10 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
+
+" https://stackoverflow.com/questions/891805/how-do-i-set-up-different-tab-settings-for-different-languages-in-vim
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=79
+autocmd FileType pandoc,markdown setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " https://neovim.io/doc/user/lua.html#vim.highlight
 au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}
