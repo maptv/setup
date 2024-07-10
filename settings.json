@@ -231,6 +231,69 @@
   "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": false,
   "zenMode.showTabs": "none",
-  "workbench.statusBar.visible": false,
   "workbench.activityBar.location": "hidden",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // https://www.andrewheiss.com/blog/2024/07/08/fun-with-positron/
+  // Indent with two spaces, but only for R
+  // https://code.visualstudio.com/docs/getstarted/settings#_multiple-languagespecific-editor-settings
+  "[r][javascript][typescript]": {
+      "editor.tabSize": 2
+  },
+    // Hide things from the global search menu and watcher
+  "files.exclude": {
+      "**/.Rhistory": true,
+      "**/.Rproj": true,
+      "**/.Rproj.user": true,
+      "**/renv/library": true,
+      "**/renv/local": true,
+      "**/renv/staging": true
+  },
+  "files.watcherExclude": {
+      "**/.Rproj/*": true,
+      "**/renv/library": true,
+      "**/renv/local": true,
+      "**/renv/staging": true
+  },
+  // Use nicer icons
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.iconTheme": "material-icon-theme",
+  // Various editor settings
+  "editor.formatOnPaste": true,
+  "editor.detectIndentation": false,
+  "editor.showFoldingControls": "always",
+  "window.newWindowDimensions": "inherit",
+  "editor.scrollBeyondLastLine": true,
+  "window.title": "${activeEditorFull}${separator}${rootName}",
+  "editor.tabSize": 4,
+  "editor.wordWrap": "on",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  // https://christophertkenny.com/posts/2024-06-29-positron-settings/
+  // ctrl+n opens a new file in markdown format by default
+  "files.defaultLanguage": "md",
+  // add vertical line at 80 characters
+  "editor.rulers": [
+      80
+  ],
+  // handle newline saving adapted from
+  // https://rfdonnelly.github.io/posts/sane-vscode-whitespace-settings/
+  "files.insertFinalNewline": true,
+  "editor.renderFinalNewline": "dimmed",
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  // also render trailing whitespace, since it'll get trimmed
+  "editor.renderWhitespace": "trailing",
+  // adds lines for the current bracket you're in
+  "editor.guides.bracketPairs": "active",
+  // otherwise opening two files closes the first ???
+  "workbench.editor.enablePreview": false,
+  // adds more lines to the file tab
+  "workbench.tree.renderIndentGuides": "always",
+  // settings editor json with "ctrl+,"
+  "workbench.settings.editor": "json",
+  "tabnine.codeLensEnabled": false,
+  "interactiveWindow.executeWithShiftEnter": true,
+  "rstudio.keymap.enable": true,
 }

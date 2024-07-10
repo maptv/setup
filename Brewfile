@@ -238,6 +238,8 @@ cask "miniforge"
 cask "muzzle"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Data science IDE
+cask "positron"
 # Scientific and technical publishing system built on Pandoc
 cask "quarto"
 # Control your tools with a few keystrokes

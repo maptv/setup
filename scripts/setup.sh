@@ -498,15 +498,19 @@ curl https://raw.githubusercontent.com/maptv/setup/main/rstudio_bindings.json -o
 # Initialize conda for z shell
 /opt/homebrew/bin/mamba init zsh
 
-# Set up vscode and vscodium
+# Set up vscode, vscodium, and positron
 
 curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Library/Application\ Support/Code/User/settings.json --create-dirs
 
 curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Library/Application\ Support/VSCodium/User/settings.json --create-dirs
 
+curl https://raw.githubusercontent.com/maptv/setup/main/settings.json -o ~/Library/Application\ Support/Positron/User/settings.json --create-dirs
+
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/Code/User/keybindings.json --create-dirs
 
 curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/VSCodium/User/keybindings.json --create-dirs
+
+curl https://raw.githubusercontent.com/maptv/setup/main/keybindings.json -o ~/Library/Application\ Support/Positron/User/keybindings.json --create-dirs
 
 ### Lunar Vim
 yes n | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
