@@ -98,6 +98,7 @@
   { "key": "cmd+;", "command": "workbench.action.toggleAuxiliaryBar" },
   { "key": "cmd+r", "command": "workbench.action.openRecent" },
   { "key": "shift+alt+v", "command": "open-in-vim.open" },
+  { "key": "shift+alt+s", "command": "workbench.action.openSettings2" },
   { "key": "alt+/", "command": "editor.action.accessibleViewAcceptInlineCompletion", "when": "accessibleViewIsShown && accessibleViewCurrentProviderId == 'inlineCompletions'" },
   { "key": "alt+f", "command": "editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" },
   { "key": "ctrl+f", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
