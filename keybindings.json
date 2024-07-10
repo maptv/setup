@@ -86,6 +86,7 @@
   { "key": "ctrl+; r", "command": "gitlens.views.remotes.focus" },
   { "key": "ctrl+; s", "command": "workbench.action.toggleStatusbarVisibility" },
   { "key": "ctrl+; t", "command": "workbench.action.terminal.focus" },
+  { "key": "ctrl+; u", "command": "workbench.action.tasks.openUserTasks" },
   { "key": "ctrl+; v", "command": "workbench.panel.positronVariables.focus" },
   { "key": "ctrl+; w", "command": "editor.action.toggleWordWrap" },
   { "key": "ctrl+; x", "command": "workbench.extensions.action.focusExtensionsView" },
