@@ -232,7 +232,7 @@
   "workbench.layoutControl.enabled": false,
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
-  "zenMode.hideLineNumbers": false,
+  "zenMode.hideLineNumbers": true,
   "zenMode.showTabs": "none",
   "workbench.activityBar.location": "hidden",
   "[javascript]": {
