@@ -111,5 +111,6 @@
   { "key": "ctrl+enter", "command": "-notebook.cell.quitEdit", "when": "inputFocus && notebookEditorFocused && !inlineChatFocused && notebookCellType == 'markup'" },
   { "key": "ctrl+; s", "command": "-jupyter.insertCellBelowPosition", "when": "editorTextFocus && isWorkspaceTrusted && jupyter.hascodecells && !jupyter.webExtension && !notebookEditorFocused" },
   { "key": "j", "command": "notebook.focusNextEditor", "when": "config.notebook.navigation.allowNavigateToSurroundingCells && neovim.mode == 'normal' && editorTextFocus && inputFocus && notebookEditorFocused && !accessibilityModeEnabled && !isEmbeddedDiffEditor && notebookEditorCursorAtBoundary != 'none' && notebookEditorCursorAtBoundary != 'top'" },
-  { "key": "k", "command": "notebook.focusPreviousEditor", "when": "config.notebook.navigation.allowNavigateToSurroundingCells && neovim.mode == 'normal' && editorTextFocus && inputFocus && notebookEditorFocused && !accessibilityModeEnabled && !isEmbeddedDiffEditor && notebookEditorCursorAtBoundary != 'bottom' && notebookEditorCursorAtBoundary != 'none'" }
+  { "key": "k", "command": "notebook.focusPreviousEditor", "when": "config.notebook.navigation.allowNavigateToSurroundingCells && neovim.mode == 'normal' && editorTextFocus && inputFocus && notebookEditorFocused && !accessibilityModeEnabled && !isEmbeddedDiffEditor && notebookEditorCursorAtBoundary != 'bottom' && notebookEditorCursorAtBoundary != 'none'" },
+  { "key": "ctrl+w", "command": "-workbench.action.switchWindow" }
 ]
