@@ -296,4 +296,5 @@
   "tabnine.codeLensEnabled": false,
   "interactiveWindow.executeWithShiftEnter": true,
   "rstudio.keymap.enable": true,
+  "workbench.colorTheme": "Default Dark Modern",
 }
