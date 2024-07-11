@@ -1,8 +1,10 @@
 {
   // https://code.visualstudio.com/docs/getstarted/settings#_multiple-languagespecific-editor-settings
-    "[python]": {
+  "[python]": {
+    "editor.detectIndentation" : false,
     "editor.tabSize": 4,
     "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.insertSpaces": true,
     "editor.formatOnType": true
   },
   "editor.accessibilitySupport": "off",
