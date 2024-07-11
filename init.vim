@@ -146,6 +146,10 @@ set expandtab
 "" Map leader to ,
 let mapleader='\'
 
+" Show/hide the undo tree window
+" https://github.com/mbbill/undotree#usage
+nnoremap <leader>u :UndotreeToggle<CR>
+
 " https://github.com/unblevable/quick-scope#highlight-on-key-press
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 

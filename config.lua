@@ -7,7 +7,10 @@ lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
-vim.cmd [[let mapleader='\']]
+lvim.localleader = "\\"
+
+-- Show/hide the undo tree window
+lvim.keys.normal_mode["<localleader>u"] = ":UndotreeToggle<CR>"
 
 -- https://www.lunarvim.org/configuration/02-keybindings.html#lunarvim-keybindings
 -- use the default vim behavior for H and L
@@ -153,10 +156,10 @@ lvim.keys.normal_mode["yor"] = ":setlocal relativenumber!<CR>"
 lvim.keys.normal_mode["yow"] = ":setlocal wrap!<CR>"
 vim.cmd [[nnoremap <expr> yoa &fo =~ 'a' ? ':set fo-=a<CR>' : ':set fo+=a<CR>']]
 
-vim.cmd [[onoremap ag	<Plug>(textobj-entire-a)]]
-vim.cmd [[onoremap ig	<Plug>(textobj-entire-i)]]
-vim.cmd [[xnoremap ag	<Plug>(textobj-entire-a)]]
-vim.cmd [[xnoremap ig	<Plug>(textobj-entire-i)]]
+-- vim.cmd [[onoremap ag	<Plug>(textobj-entire-a)]]
+-- vim.cmd [[onoremap ig	<Plug>(textobj-entire-i)]]
+-- vim.cmd [[xnoremap ag	<Plug>(textobj-entire-a)]]
+-- vim.cmd [[xnoremap ig	<Plug>(textobj-entire-i)]]
 
 
 -- https://www.lunarvim.org/configuration/02-keybindings.html#cursor-movement
@@ -286,10 +289,11 @@ lvim.plugins = {
   {"inkarkat/vim-ReplaceWithRegister"},
   {"inkarkat/argtextobj.vim"},
   {"michaeljsmith/vim-indent-object"},
-  {"kana/vim-textobj-entire"},
+  -- {"kana/vim-textobj-entire"},
   {"kana/vim-textobj-user"},
   {'ntpeters/vim-better-whitespace'},
   {"justinmk/vim-sneak"},
+  {"mbbill/undotree"},
   {"easymotion/vim-easymotion"},
   {"ethanholz/nvim-lastplace"},
   {"bronson/vim-visual-star-search"},

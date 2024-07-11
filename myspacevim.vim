@@ -55,6 +55,10 @@ endif
 
 let mapleader='\' " backslash sends tab when held and may not work well as leader
 
+" Show/hide the undo tree window
+" https://github.com/mbbill/undotree#usage
+nnoremap <leader>u :UndotreeToggle<CR>
+
 " https://github.com/kana/vim-textobj-entire/blob/64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a/doc/textobj-entire.txt#L91
 let g:textobj_entire_no_default_key_mappings = 1
 
