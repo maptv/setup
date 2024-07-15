@@ -242,10 +242,12 @@ nnoremap [p :action org.intellij.plugins.markdown.ui.actions.editorLayout.Editor
 nnoremap ]P :action org.intellij.plugins.markdown.ui.actions.editorLayout.EditorOnlyLayoutChangeAction<CR>
 nnoremap [P :action org.intellij.plugins.markdown.ui.actions.editorLayout.PreviewOnlyLayoutChangeAction<CR>
 " Listed by Active Editor (EditorToggleActions)
+nnoremap yoa :action ViewToolButtons<CR>
 nnoremap yob :action EditorToggleShowBreadcrumbs<CR>
 nnoremap yod :action ToggleDistractionFreeMode<CR>
 nnoremap yog :action EditorToggleShowGutterIcons<CR>
 nnoremap yoi :action EditorToggleShowIndentLines<CR>
+nnoremap yom :action ToggleMinimap<CR>
 nnoremap yon :action EditorToggleShowLineNumbers<CR>
 nnoremap yop :action TogglePresentationMode<CR>
 nnoremap yos :action ViewStatusBar<CR>
