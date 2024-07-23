@@ -464,7 +464,7 @@ nnoremap ]g :diffget //3<CR>
 " nnoremap <leader>gd :Gvdiff<CR>
 " nnoremap <leader>gr :Gremove<CR>
 " nnoremap <leader>gl :Glog<CR>
-" nnoremap <leader>gg :Gwrite<CR>:Gcommit -m "edit "%<CR>:Gpush<CR>
+nnoremap <A-S-f> :Gw<bar>G! commit -m "edit "%<bar>G! push<CR>
 
 nmap gs <Plug>(easymotion-prefix)
 " differs from gsf in that it is bidirectional and works across windows
