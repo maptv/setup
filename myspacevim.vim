@@ -90,7 +90,7 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 
 " https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
+  autocmd BufWinLeave * silent! mkview
   autocmd BufWinEnter * silent! loadview
 augroup END
 

@@ -398,7 +398,7 @@ autocmd FileType pandoc,markdown setlocal expandtab tabstop=2 shiftwidth=2 softt
 " https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
+  autocmd BufWinLeave * silent! mkview
   autocmd BufWinEnter * silent! loadview
 augroup END
 

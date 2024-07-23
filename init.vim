@@ -460,7 +460,7 @@ au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}
 " https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
+  autocmd BufWinLeave * silent! mkview
   autocmd BufWinEnter * silent! loadview
 augroup END
 

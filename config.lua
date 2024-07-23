@@ -310,7 +310,7 @@ require'nvim-lastplace'.setup {
 -- https://www.lunarvim.org/docs/configuration/autocommands
 -- https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
 vim.api.nvim_create_autocmd("BufWinLeave", {
-      pattern =  "*", command = "mkview",
+      pattern =  "*", command = "silent! mkview",
 })
 vim.api.nvim_create_autocmd("BufWinEnter", {
       pattern =  "*", command = "silent! loadview",
