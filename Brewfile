@@ -6,6 +6,8 @@ tap "railwaycat/emacsmacport"
 tap "romkatv/powerlevel10k"
 # Search tool like grep, but optimized for programmers
 brew "ack"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # Columnar in-memory analytics layer designed to accelerate big data
 brew "apache-arrow"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -76,8 +78,6 @@ brew "graphviz"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Powerful, clean, object-oriented scripting language
@@ -162,6 +162,8 @@ brew "zsh-fast-syntax-highlighting"
 brew "zsh-vi-mode"
 # ZSH plugin that reminds you to use existing aliases for commands you just typed
 brew "zsh-you-should-use"
+# YAMAMOTO Mitsuharu's Mac port of GNU Emacs
+brew "railwaycat/emacsmacport/emacs-mac", args: ["with-native-comp"]
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
 # GPU-accelerated terminal emulator
@@ -170,34 +172,36 @@ cask "alacritty"
 cask "alfred"
 # Enable Windows-like alt-tab
 cask "alt-tab"
+# AI-powered productivity tool for the command-line
+cask "amazon-q"
 # Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask "basictex"
 # Desktop password and login vault
 cask "bitwarden"
+# 3D creation suite
+cask "blender"
+# 3D viewer and converter for CAD and mesh files
+cask "cad-assistant"
 # Automated testing of webapps for Google Chrome
 cask "chromedriver"
-# AI-powered productivity tool for the command-line
-cask "codewhisperer"
 # Clipboard manager with advanced features
 cask "copyq"
 # Write, edit, and chat about your code with AI
 cask "cursor"
 # Tool to hide status bar icons
 cask "dozer"
+# Reimagine your terminal
+cask "fig"
 # Web browser
 cask "firefox"
-# Developer targeted fonts with a high number of glyphs
 cask "font-fira-code-nerd-font"
-# Icon set and toolkit
 cask "font-fontawesome"
-# Developer targeted fonts with a high number of glyphs
 cask "font-hack-nerd-font"
-# Developer targeted fonts with a high number of glyphs
 cask "font-hasklug-nerd-font"
-# Developer targeted fonts with a high number of glyphs
 cask "font-inconsolata-nerd-font"
-# Developer targeted fonts with a high number of glyphs
 cask "font-iosevka-nerd-font"
+# 3D parametric modeller
+cask "freecad"
 # Free and open-source image editor
 cask "gimp"
 # Desktop client for GitHub repositories
@@ -232,14 +236,20 @@ cask "lastpass"
 cask "libreoffice"
 # Extensible two-pane file manager
 cask "marta"
+# Mesh processing system
+cask "meshlab"
 # Minimal installer for conda specific to conda-forge
 cask "miniforge"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Programmable solid 3D CAD modeller
+cask "openscad"
 # Data science IDE
 cask "positron"
+# Convert HTML to PDF
+cask "prince"
 # Scientific and technical publishing system built on Pandoc
 cask "quarto"
 # Control your tools with a few keystrokes
@@ -252,6 +262,8 @@ cask "rstudio"
 cask "shortcat"
 # Team communication and collaboration software
 cask "slack"
+# 3D printing toolbox
+cask "slic3r"
 # View Spaces / Virtual Desktops in the menu bar
 cask "spaceman"
 # Terminal emulator, SSH and serial client
@@ -260,6 +272,8 @@ cask "tabby"
 cask "vimr"
 # Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
+cask "vlc"
 # Binary releases of VS Code without MS branding/telemetry/licensing
 cask "vscodium"
 # HTML to PDF renderer

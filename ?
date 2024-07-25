@@ -1,23 +1,12 @@
 "*****************************************************************************
-"" Plugins
+"" Vim-PLug core
 "*****************************************************************************
 " https://github.com/sheerun/vim-polyglot#troubleshooting
 let g:polyglot_disabled = ['markdown']
-let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
-
-" https://github.com/glacambre/firenvim/issues/1285#issuecomment-1004578943
-set laststatus=0
-if exists('g:started_by_firenvim')
-    let g:firenvim_config = {
-        \ 'globalSettings': {
-        \ "alt": "all",
-        \ "cmdlineTimeout": 0
-        \ }
-    \ }
-endif
+let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
 let g:vim_bootstrap_langs = "python"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
+let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
   if !executable("curl")
@@ -33,7 +22,7 @@ if !filereadable(vimplug_exists)
 endif
 
 " Required:
-call plug#begin(expand('~/.config/nvim/plugged'))
+call plug#begin(expand('~/.vim/plugged'))
 
 "*****************************************************************************
 "" Plug install packages
@@ -63,11 +52,9 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
 Plug 'szw/vim-maximizer'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-if isdirectory('$HOMEBREW_PREFIX/opt/fzf')
-  Plug '$HOMEBREW_PREFIX/opt/fzf' | Plug 'junegunn/fzf.vim'
+if isdirectory('/usr/local/opt/fzf')
+  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
@@ -77,7 +64,7 @@ endif
 Plug 'honza/vim-snippets'
 
 "" Color
-Plug 'navarasu/onedark.nvim'
+Plug 'joshdick/onedark.vim'
 
 "" Python
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
@@ -85,23 +72,8 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 " https://cirw.in/blog/bracketed-paste
 Plug 'ConradIrwin/vim-bracketed-paste'
 
-" The main R plugin providing RStudio-esque features
-" Nvim-R handles citation of its own: https://github.com/jalvesaq/Nvim-R/issues/346
-" Plug 'jalvesaq/Nvim-R'
-
-" https://github.com/quarto-dev/quarto-nvim
-" Plug 'quarto-dev/quarto-nvim'
-Plug 'quarto-dev/quarto-vim'
-Plug 'neovim/nvim-lspconfig'
-" Plug 'jmbuhr/otter.nvim'
-Plug 'hrsh7th/nvim-cmp'
-
-" https://github.com/neovim/neovim/issues/1822#issuecomment-233152833
-Plug 'bfredl/nvim-miniyank'
-
-" R setup: https://kadekillary.work/post/nvim-r/
-" R setup: https://github.com/beigebrucewayne/vim-ide-4-all/blob/master/R-neovim.md
 " For Rmarkdown syntax
+Plug 'quarto-dev/quarto-vim'
 Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -120,7 +92,7 @@ call plug#end()
 " Required:
 filetype plugin indent on
 
-" Firenvim settings
+" Macvim settings
 if !has('gui_vimr')
   set guifont=Ewka\ Nerd\ Font:h28
 endif
@@ -185,7 +157,7 @@ set ignorecase
 set smartcase
 
 set fileformats=unix,dos,mac
-set nrformats=alpha
+set nrformats=alpha,bin,unsigned
 set formatoptions=croqj
 
 if exists('$SHELL')
@@ -246,12 +218,12 @@ let g:pandoc#syntax#conceal#blacklist = ["codeblock_start", "codeblock_delim"]
 
 set completeopt=longest,menuone
 
-" https://neovim.io/doc/user/options.html#'autowrite'
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'autowrite'
 set autowrite
 
 " https://jovicailic.org/2017/04/vim-persistent-undo/
 set undofile
-set undodir=~/.local/share/nvim/undo
+set undodir=~/.vim/undodir
 
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 set timeoutlen=1000 ttimeoutlen=10
@@ -269,13 +241,16 @@ set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 " https://vim.fandom.com/wiki/Avoiding_the_%22Hit_ENTER_to_continue%22_prompts
-set shortmess=aoOstTWAIcqFS
+" https://vimhelp.org/options.txt.html#%27shortmess%27
+set shortmess=aoOstTWAIcCqFS
 
 " (In times of great desperation) allow use of the mouse
 set mouse=a
 
-" https://github.com/neovim/neovim/wiki/FAQ#how-to-change-cursor-shape-in-the-terminal
-set guicursor=n-v-c-sm-ve:block,i-ci:ver25,r-cr:hor20,o:hor50,a:blinkon100
+" https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI.="\e[5 q" "SI = start INSERT mode
+let &t_SR.="\e[4 q" "SR = start REPLACE mode
+let &t_EI.="\e[1 q" "EI = end insert mode NORMAL mode (ELSE)
 
 " Share system clipboard ("+) and unnamed ("") registers
 " http://vimcasts.org/episodes/accessing-the-system-clipboard-from-vim/
@@ -286,19 +261,19 @@ if has('unnamedplus')
 endif
 set go+=a
 
-" Neovim defaults https://neovim.io/doc/user/vim_diff.html
-" 'autoindent' is enabled
-" 'background' defaults to "dark" (unless set automatically by the terminal/UI)
-" 'belloff' defaults to "all"
-" 'compatible' is always disabled
-" 'complete' excludes "i"
-" 'cscopeverbose' is enabled
-" 'history' defaults to 10000 (the maximum)
-" 'showcmd' is enabled
-" 'sidescroll' defaults to 1
-" 'smarttab' is enabled
-" 'tabpagemax' defaults to 50
-" 'wildmenu' is enabled
+" Include some of the neovim defaults, others below
+set autoindent
+set background=dark
+set belloff=all
+set nocompatible
+set complete=.,w,b,u,t
+set cscopeverbose
+set history=10000
+set showcmd " Show partially typed commands in the statusline
+set sidescroll=1
+set smarttab
+set tabpagemax=50
+set wildmenu " Display all matching files when we tab complete
 
 " Neovim defaults?
 set path+=** " Provides tab-completion for all file-related tasks
@@ -326,40 +301,6 @@ let $FZF_DEFAULT_OPTS="'--bind=change:top,ctrl-/:toggle-preview,ctrl-n:down,ctrl
 
 " Disable visualbell
 set noerrorbells visualbell t_vb=
-
-" http://sherifsoliman.com/2017/07/22/nvim-r/
-" press alt+, to have Nvim-R insert the assignment operator: <-
-let R_assign_map = "<A-,>"
-let R_auto_start = 0
-
-" https://github.com/randy3k/radian#nvim-r-support
-let R_esc_term = 0
-let R_app = "radian"
-let R_cmd = "R"
-let R_hl_term = 0
-let R_args = []  " if you had set any
-let R_bracketed_paste = 1
-let R_source = '~/tmux_split.vim'
-
-" https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L1669
-" set a minimum source editor width
-let R_min_editor_width = 18
-
-" make sure the console is on the right by making it narrow
-let R_rconsole_width = 57
-
-" https://www.freecodecamp.org/news/turning-vim-into-an-r-ide-cd9602e8c217/
-" let g:rout_follow_colorscheme = 1
-" let g:Rout_more_colors = 1
-
-" Don't expand a dataframe to show columns by default
-" let R_objbr_opendf = 0
-" https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L2152
-" Only use the mappings listed below
-let R_user_maps_only = 1
-" Do not replace grave accent with chunk delimiters in Rmd files
-" Use alt-i to insert code chunks instead
-let R_rmdchunk = 0
 
 " COC settings
 " https://github.com/neoclide/coc.nvim/blob/82c3834f8bfc5d91ce907405722fe0f297e13cff/doc/coc.txt#L1202
@@ -454,9 +395,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=79
 autocmd FileType pandoc,markdown setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
-" https://neovim.io/doc/user/lua.html#vim.highlight
-au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}
-
 " https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
 augroup remember_folds
   autocmd!
@@ -471,7 +409,7 @@ augroup vimrc-sync-fromstart
 augroup END
 
 " https://vimways.org/2018/formatting-lists-with-vim/
-autocmd FileType pandoc,markdown,text setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 formatoptions+=tnp formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^\\s+[-*+]\\s\\+\\\|^\\[^\\ze[^\\]]\\+\\]:
+autocmd FileType pandoc,markdown,text setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 formatoptions+=tnp formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^\\s*[-*+]\\s\\+\\\|^\\[^\\ze[^\\]]\\+\\]:
 
 " Syntax highlighting for files with weird extensions
 autocmd BufNewFile,BufRead .tmux.conf* set syntax=tmux
@@ -500,7 +438,7 @@ endif
 " vim-python
 augroup vimrc-python
   autocmd!
-  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 colorcolumn=79
       \ formatoptions+=croq softtabstop=4
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
@@ -513,81 +451,6 @@ au BufNewFile,BufRead *.snakefile set syntax=snakemake
 au FileType snakemake let Comment="#"
 au FileType snakemake setlocal completeopt=menuone,longest
 au FileType snakemake setlocal tw=79 tabstop=4 shiftwidth=4 softtabstop=4
-
-" Nvim-R mappings
-autocmd FileType r,rmd nnoremap <buffer> <C-w>a :!wmctrl -r "R Graphics" -b add,above
-autocmd FileType r,rmd nnoremap <buffer> <C-w>A :!wmctrl -r "R Graphics" -b remove,above
-" Keyboard shortcuts for <- -> and other operators in R specific files
-" https://github.com/jalvesaq/Nvim-R/issues/85
-" The trailing spaces below are intentional!
-autocmd FileType r,rmd inoremap <buffer> <A-n> <Esc>:normal! a %>%<CR>a<CR>
-autocmd FileType r,rmd inoremap <buffer> <A-m> <Esc>:normal! a %>%<CR>a 
-autocmd FileType r,rmd inoremap <buffer> <A-i> <Esc>:normal! a %in%<CR>a 
-autocmd FileType r,rmd inoremap <buffer> <A-,> <Esc>:normal! a <-<CR>a 
-autocmd FileType r,rmd inoremap <buffer> <A-.> <Esc>:normal! a -><CR>a 
-autocmd FileType r,rmd inoremap <buffer> <A-/> <Esc>:normal! a %/%<CR>a 
-autocmd FileType rmd inoremap <buffer> <A-i> <Esc>:normal! a ```{r}<CR>```<Esc>O
-
-autocmd FileType rmd nnoremap <buffer> <leader><CR> :w<CR> :!Rscript -e "rmarkdown::render('%')"<CR>
-autocmd FileType rmd nnoremap <buffer> <leader>] :w<CR> :!Rscript -e "bookdown::render_book('%')"<CR>
-autocmd FileType r nnoremap <buffer> <leader><CR> :w<CR> :!Rscript %<CR>
-autocmd FileType python nnoremap <buffer> <silent> <leader><CR> :w !python<CR>
-
-" https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L2586
-" https://github.com/beigebrucewayne/vim-ide-4-all/blob/master/R-neovim.md
-"" Remapping the basic :: send line (<Plug>RDSendLine doesn't work well)
-" Remappings based on RStudio shortcuts: https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf
-"" Remapping selection :: send multiple lines + echo lines
-" Remapping double character nvim-R mappings to single character
-autocmd FileType r     nmap <buffer> <A-a> <Plug>RSendAboveLines
-autocmd FileType r     nmap <buffer> <M-S-CR> <Plug>RESendFile
-autocmd FileType r     nmap <buffer> <leader>a <Plug>RESendFile
-autocmd FileType r,rmd nmap <buffer> <A-0> <Plug>RClearAll
-autocmd FileType r,rmd nmap <buffer> <C-l> <Plug>RClearConsole
-autocmd FileType r,rmd nmap <buffer> <leader>- <Plug>RCloseLists
-autocmd FileType r,rmd nmap <buffer> <leader>0 <Plug>RUpdateObjBrowser
-autocmd FileType r,rmd nmap <buffer> <leader>; <Plug>RRightComment
-autocmd FileType r,rmd nmap <buffer> <leader>= <Plug>ROpenLists
-autocmd FileType r,rmd nmap <buffer> <leader>b <Plug>REDSendMBlock
-autocmd FileType r,rmd nmap <buffer> <leader>d <Plug>RSetwd
-autocmd FileType r,rmd nmap <buffer> <leader>e <Plug>RShowEx
-autocmd FileType r,rmd nmap <buffer> <leader>f <Plug>RDSendFunction
-autocmd FileType r,rmd nmap <buffer> <leader>g <Plug>RPlot
-autocmd FileType r,rmd nmap <buffer> <leader>h <Plug>RHelp
-autocmd FileType r,rmd nmap <buffer> <leader>i <Plug>RObjectPr
-autocmd FileType r,rmd nmap <buffer> <leader>k <Plug>Rknit
-autocmd FileType r,rmd nmap <buffer> <leader>m <Plug>RSendMotion
-autocmd FileType r,rmd nmap <buffer> <leader>n <Plug>RObjectNames
-autocmd FileType r,rmd nmap <buffer> <leader>o <Plug>RDSendLineAndInsertOutput
-autocmd FileType r,rmd nmap <buffer> <leader>p <Plug>REDSendParagraph
-autocmd FileType r,rmd nmap <buffer> <leader>q <Plug>RClose
-autocmd FileType r,rmd nmap <buffer> <leader>r <Plug>RShowArgs
-autocmd FileType r,rmd nmap <buffer> <leader>s <Plug>RStart
-autocmd FileType r,rmd nmap <buffer> <leader>t <Plug>RObjectStr
-autocmd FileType r,rmd nmap <buffer> <leader>u <Plug>RSummary
-autocmd FileType r,rmd nmap <buffer> <leader>v <Plug>RViewDFv
-autocmd FileType r,rmd nmap <buffer> <leader>w <Plug>RMakeWord
-autocmd FileType r,rmd nmap <buffer> <leader>x <Plug>RToggleComment
-autocmd FileType r,rmd nmap <buffer> <silent> <M-CR> :call SendLineToR("down")<CR>
-autocmd FileType r,rmd nmap <buffer> <silent> <leader>l :call SendLineToR("down")<CR>
-autocmd FileType r,rmd xmap <buffer> <leader>o <Plug>RSendSelAndInsertOutput
-autocmd FileType r,rmd xmap <buffer> <leader>v <Plug>REDSendSelection
-autocmd FileType r,rmd xmap <buffer> <M-CR> <Plug>REDSendSelection
-autocmd FileType rmd   nmap <buffer> <A-p> <Plug>RSendChunkFH
-autocmd FileType rmd   nmap <buffer> <M-S-CR> <Plug>REDSendChunk
-autocmd FileType rmd   nmap <buffer> <leader>c <Plug>REDSendChunk
-autocmd FileType rmd   nmap <buffer> <silent> <A-i> :normal! a ```{r}<CR>```<Esc>O
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
 
 "*****************************************************************************
 "" Mappings
@@ -610,6 +473,9 @@ endfunction
 au CmdwinEnter * silent! call MakeItEasyToLeaveCommandWindow()
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+
+" https://github.com/vim/vim/issues/4738
+nnoremap gx yiW:!open <cWORD><CR> <C-r>" & <CR><CR>
 
 " unimpaired style mapping for toggling autoformat
 nnoremap <expr> yoa &fo =~ 'a' ? ':set fo-=a<CR>' : ':set fo+=a<CR>'
@@ -774,50 +640,63 @@ vnoremap <C-x><Tab> =
 
 " " Emacs and bash style insert mode ALT shortcuts
 " " <A-a> = Move to previous sentence start ; opposite of <A-e>
+set <A-a>=a
 nnoremap <A-a> (
 inoremap <A-a> <C-o>(
-" <A-b> = Move one word backward; opposite of <A-f>
+" " <A-b> = Move one word backward; opposite of <A-f>
+set <A-b>=b
 nnoremap <A-b> b
 inoremap <A-b> <S-Left>
 cnoremap <A-b> <S-Left>
 " <A-c> = Capitalize letter and move forward
 " https://github.com/andrep/vimacs/blob/master/plugin/vimacs.vim#L1229
+set <A-c>=c
 nnoremap <A-c> gUllgueea
 inoremap <expr> <A-c> getline('.')[col('.')-1] =~ "\\s" ? "<C-o>W<C-o>gUl<C-o>l<C-o>guw<Esc>ea" : "<C-o>gUl<C-o>l<C-o>guw<Esc>ea"
-" <A-d> = Delete word forward; opposite of <A-h> and <C-w>; https://www.reddit.com/r/vim/comments/9i58q8/question_re_delete_word_forward_in_insert_mode/e6he226/
+" " <A-d> = Delete word forward; opposite of <A-h> and <C-w>; https://www.reddit.com/r/vim/comments/9i58q8/question_re_delete_word_forward_in_insert_mode/e6he226/
+set <A-d>=d
 nnoremap <A-d> dw
 inoremap <expr> <A-d> col(".") == col("$") ? "<Del>" : "<C-o>de"
 cnoremap <A-d> <S-Right><C-w>
 " " <A-e> = Move to previous sentence start ; opposite of <A-a>
+set <A-e>=e
 nnoremap <A-e> )T.
 inoremap <A-e> <Esc>)T.i
-" <A-f> = Move one word forward; opposite of <A-b>
+" " <A-f> = Move one word forward; opposite of <A-b>
+set <A-f>=f
 nnoremap <A-f> w
 inoremap <A-f> <S-Right>
 cnoremap <A-f> <S-Right>
-" <A-h> = Delete word backward; opposite of <A-d>; same as <C-w>
+" " <A-h> = Delete word backward; opposite of <A-d>; same as <C-w>
+set <A-h>=h
 nnoremap <A-h> db
 inoremap <silent><expr> <A-h> "\<C-g>u<C-w>"
 cnoremap <A-h> <C-w>
-" <A-j> = Move down; opposite of <A-k>
+" " <A-j> = Move down; opposite of <A-k>
+set <A-j>=j
 inoremap <A-j> <Down>
 cnoremap <A-j> <Down>
 " " <A-k> = Delete to end of sentence
+set <A-k>=k
 nnoremap <A-k> df.
 inoremap <A-k> <C-o>df.
-" <A-l> = Lowercase to word end; opposite of <A-u>
+" " <A-l> = Lowercase to word end; opposite of <A-u>
 " https://github.com/andrep/vimacs/blob/master/plugin/vimacs.vim#L1229
+set <A-l>=l
 inoremap <A-l> <C-o>gue<Esc>ea
 cnoremap <A-l> <C-f>guee<C-c>
-" <A-u> = Uppercase to WORD end; opposite of <A-l>
+" " <A-u> = Uppercase to word end; opposite of <A-l>
 " https://github.com/andrep/vimacs/blob/master/plugin/vimacs.vim#L1229
+set <A-u>=u
 nnoremap <A-u> gUeea
 inoremap <A-u> <C-o>gUe<Esc>ea
 cnoremap <A-u> <C-f>gUee<C-c>
 " " <A-q> = Fill / Format paragraph
+set <A-q>=q
 nnoremap <A-q> gwip
 inoremap <A-q> <C-o>gwip
-" <A-.> = Insert previously inserted text (if any)
+" " <A-.> = Insert Previously Inserted text (if any)
+set <A-.>=.
 nnoremap <A-.> a<C-r>.
 inoremap <A-.> <Esc>a<C-r>.
 cnoremap <A-.> <C-r>.
@@ -856,12 +735,19 @@ inoremap <M-v> <PageUp>
 inoremap <M-x> <C-o>:
 inoremap <M-y> <C-o>:call <SID>YankPop()<CR>
 inoremap <M-z> <C-o>dt
-inoremap <silent> <M-g> <C-o>:call <SID>GotoLine()<CR>
+" inoremap <silent> <M-g> <C-o>:call <SID>GotoLine()<CR>
 inoremap <silent> <M-q> <C-o>:call <SID>FillParagraph()<CR>
 vnoremap <M-!> !
 vnoremap <M-h> o}o
 vnoremap <M-w> "1y
 vnoremap <M-x> :
+
+funct! Exec(command)
+    redir =>output
+    silent exec a:command
+    redir END
+    return output
+endfunct!
 
 "" Git
 nnoremap [g :diffget //2<CR>
@@ -873,7 +759,7 @@ nnoremap ]g :diffget //3<CR>
 " nnoremap <leader>gd :Gvdiff<CR>
 " nnoremap <leader>gr :Gremove<CR>
 " nnoremap <leader>gl :Glog<CR>
-nnoremap <A-S-f> :write<bar>:Gwrite<bar>G! commit -m "edit "%<bar>G! push<CR>
+nnoremap <A-S-f> :w<bar>:Gw<bar>G! commit -m "edit "%<bar>G! push<CR>
 
 " https://github.com/neoclide/coc-git
 " https://github.com/neoclide/coc-yank
@@ -1120,78 +1006,6 @@ nnoremap <C-w>= <C-w>+
 nnoremap <C-w>, <C-w><
 " . is easier to type than < and is unbound by default
 nnoremap <C-w>. <C-w>>
-
-" Terminal like in vim
-tnoremap <C-w>+ <C-\><C-n><C-w>+
-tnoremap <C-w>- <C-\><C-n><C-w>-
-tnoremap <C-w>< <C-\><C-n><C-w><
-tnoremap <C-w>= <C-\><C-n><C-w>=
-tnoremap <C-w>> <C-\><C-n><C-w>>
-tnoremap <C-w>H <C-\><C-n><C-w>H
-tnoremap <C-w>J <C-\><C-n><C-w>J
-tnoremap <C-w>K <C-\><C-n><C-w>K
-tnoremap <C-w>L <C-\><C-n><C-w>L
-tnoremap <C-w>N <C-\><C-n>
-tnoremap <C-w>P <C-\><C-n><C-w>P
-tnoremap <C-w>R <C-\><C-n><C-w>R
-tnoremap <C-w>S <C-\><C-n><C-w>S
-tnoremap <C-w>T <C-\><C-n><C-w>T
-tnoremap <C-w>W <C-\><C-n><C-w>W
-tnoremap <C-w>] <C-\><C-n><C-w>]
-tnoremap <C-w>^ <C-\><C-n><C-w>^
-tnoremap <C-w>_ <C-\><C-n><C-w>_
-tnoremap <C-w>b <C-\><C-n><C-w>b
-tnoremap <C-w>c <C-\><C-n><C-w>c
-tnoremap <C-w>d <C-\><C-n><C-w>d
-tnoremap <C-w>f <C-\><C-n><C-w>f
-tnoremap <C-w>g <C-\><C-n><C-w>g
-tnoremap <C-w>h <C-\><C-n><C-w>h
-tnoremap <C-w>i <C-\><C-n><C-w>i
-tnoremap <C-w>j <C-\><C-n><C-w>j
-tnoremap <C-w>k <C-\><C-n><C-w>k
-tnoremap <C-w>l <C-\><C-n><C-w>l
-tnoremap <C-w>n <C-\><C-n><C-w>n
-tnoremap <C-w>o <C-\><C-n><C-w>o
-tnoremap <C-w>p <C-\><C-n><C-w>p
-tnoremap <C-w>q <C-\><C-n><C-w>q
-tnoremap <C-w>r <C-\><C-n><C-w>r
-tnoremap <C-w>s <C-\><C-n><C-w>s
-tnoremap <C-w>t <C-\><C-n><C-w>t
-tnoremap <C-w>v <C-\><C-n><C-w>v
-tnoremap <C-w>w <C-\><C-n><C-w>w
-tnoremap <C-w>x <C-\><C-n><C-w>x
-tnoremap <C-w>z <C-\><C-n><C-w>z
-tnoremap <C-w>} <C-\><C-n><C-w>}
-tnoremap <C-w>: <C-\><C-n>:
-tnoremap <C-w><C-b> <C-\><C-n><C-w>b
-tnoremap <C-w><C-c> <C-\><C-n><C-w>c
-tnoremap <C-w><C-d> <C-\><C-n><C-w>d
-tnoremap <C-w><C-f> <C-\><C-n><C-w>f
-tnoremap <C-w><C-g> <C-\><C-n><C-w>g
-tnoremap <C-w><C-h> <C-\><C-n><C-w>h
-tnoremap <C-w><C-i> <C-\><C-n><C-w>i
-tnoremap <C-w><C-j> <C-\><C-n><C-w>j
-tnoremap <C-w><C-k> <C-\><C-n><C-w>k
-tnoremap <C-w><C-l> <C-\><C-n><C-w>l
-tnoremap <C-w><C-n> <C-\><C-n><C-w>n
-tnoremap <C-w><C-o> <C-\><C-n><C-w>o
-tnoremap <C-w><C-p> <C-\><C-n><C-w>p
-tnoremap <C-w><C-q> <C-\><C-n><C-w>q
-tnoremap <C-w><C-r> <C-\><C-n><C-w>r
-tnoremap <C-w><C-s> <C-\><C-n><C-w>s
-tnoremap <C-w><C-t> <C-\><C-n><C-w>t
-tnoremap <C-w><C-v> <C-\><C-n><C-w>v
-tnoremap <C-w><C-w> <C-\><C-n><C-w>w
-tnoremap <C-w><C-x> <C-\><C-n><C-w>x
-tnoremap <C-w><C-z> <C-\><C-n><C-w>z
-tnoremap <C-w><C-]> <C-\><C-n><C-w>]
-tnoremap <C-w><C-^> <C-\><C-n><C-w>^
-tnoremap <C-w><C-_> <C-\><C-n><C-w>_
-tnoremap <C-w>; <C-\><C-n>:bn<CR>
-tnoremap <C-w>, <C-\><C-n>:bp<CR>
-nnoremap <C-w>; <C-\><C-n>:bn<CR>
-nnoremap <C-w>, <C-\><C-n>:bp<CR>
-
 " Fuzzy finder (FZF)
 " https://jesseleite.com/posts/2/its-dangerous-to-vim-alone-take-fzf
 nnoremap <silent> gB :BCommits<CR>
@@ -1250,8 +1064,8 @@ omap <leader><tab> <plug>(fzf-maps-o)
 " Path completion with custom source command
 inoremap <expr> <c-x><c-r> fzf#vim#complete#path('rg --files')
 inoremap <expr> <c-x>r fzf#vim#complete#path('rg --files')
-inoremap <expr> <c-x><c-d> fzf#vim#complete#path('eza --only-dirs')
-inoremap <expr> <c-x>d fzf#vim#complete#path('eza --only-dirs')
+inoremap <expr> <c-x><c-d> fzf#vim#complete#path('exa --only-dirs')
+inoremap <expr> <c-x>d fzf#vim#complete#path('exa --only-dirs')
 
 " Mappings inspired by my .zshrc
 imap <c-x><c-u> <C-o>u
@@ -1259,13 +1073,8 @@ imap <c-x>u <C-o>u
 imap <c-x><c-x> <C-o>``
 imap <c-x>x <C-o>``
 
-" https://github.com/neovim/neovim/issues/1822#issuecomment-233152833
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
-
 " https://vim.fandom.com/wiki/Moving_through_camel_case_words
-" Stop on capital letters, numbers, and the symbols below:
-let g:camelchar = "A-Z0-9.,;:{([`'\""
+" Stop on capital letters.
 nnoremap <silent><A-C-b> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
 nnoremap <silent><A-C-f> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 inoremap <silent><A-C-b> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
@@ -1298,7 +1107,7 @@ nnoremap Q gqap
 nnoremap ZA :xa<CR>
 
 " Use <c-space> to trigger completion.
-  inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-@> coc#refresh()
 
 " Use <C-x><C-o> to activate vim omnicompletion
 " iunmap <C-x><C-o>
@@ -1346,8 +1155,8 @@ omap <leader><tab> <plug>(fzf-maps-o)
 " Path completion with custom source command
 inoremap <expr> <c-x><c-r> fzf#vim#complete#path('rg --files')
 inoremap <expr> <c-x>r fzf#vim#complete#path('rg --files')
-inoremap <expr> <c-x><c-d> fzf#vim#complete#path('eza --only-dirs')
-inoremap <expr> <c-x>d fzf#vim#complete#path('eza --only-dirs')
+inoremap <expr> <c-x><c-d> fzf#vim#complete#path('exa --only-dirs')
+inoremap <expr> <c-x>d fzf#vim#complete#path('exa --only-dirs')
 
 " Mappings inspired by my .zshrc
 imap <c-x><c-u> <C-o>u
@@ -1380,7 +1189,7 @@ nnoremap Q gqap
 nnoremap ZA :xa<CR>
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-@> coc#refresh()
 
 " Use `[d` and `]d` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -1418,6 +1227,9 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 nnoremap Y y$
+
+set <A-s>=s
+set <A-S>=S
 
 " 2-character Sneak (default)
 nmap <A-s>   <Plug>Sneak_s
@@ -1717,5 +1529,54 @@ function! <SID>JumpToRegister()
   let c = nr2char(getchar())
   execute "normal! `" . c
 endfunction
+
+" This part needs to be viewed raw on GitHub
+set <M-1>=1
+set <M-2>=2
+set <M-3>=3
+set <M-4>=4
+set <M-5>=5
+set <M-6>=6
+set <M-7>=7
+set <M-8>=8
+set <M-9>=9
+set <M-0>=0
+set <M-a>=a
+set <M-b>=b
+set <M-c>=c
+set <M-d>=d
+set <M-e>=e
+set <M-f>=f
+set <M-g>=g
+set <M-h>=h
+set <M-i>=i
+set <M-j>=j
+set <M-k>=k
+set <M-l>=l
+set <M-m>=m
+set <M-n>=n
+set <M-o>=o
+set <M-p>=p
+set <M-q>=q
+set <M-r>=r
+set <M-s>=s
+set <M-t>=t
+set <M-u>=u
+set <M-v>=v
+set <M-w>=w
+set <M-x>=x
+set <M-y>=y
+set <M-z>=z
+set <M->=
+set <M-/>=/
+set <Char-190>=>
+set <Char-188>=<
+set <M-<>=<
+set <M-0>=0
+set <M-%>=%
+set <M-*>=*
+set <M-.>=.
+set <M-^>=^
+set <M-S-f>=F
 
 set sel=exclusive

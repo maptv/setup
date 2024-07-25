@@ -13,7 +13,6 @@
   "editor.fontSize": 16,
   "editor.lineNumbers": "off",
   "editor.inlineSuggest.enabled": true,
-  "editor.minimap.enabled": false,
   "editor.quickSuggestions": {
     "comments": "inline",
     "other": "inline",
@@ -229,14 +228,14 @@
   "window.commandCenter": false,
   "workbench.editor.showTabs": "none",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
+    "*.ipynb": "jupyter.notebook.ipynb",
+    "{git,gitlens}:/**/*.{md,csv,svg}": "default"
   },
   "workbench.layoutControl.enabled": false,
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": true,
   "zenMode.showTabs": "none",
-  "workbench.activityBar.location": "hidden",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -299,4 +298,7 @@
   "rstudio.keymap.enable": true,
   "terminal.external.osxExec": "iTerm.app",
   "workbench.colorTheme": "Default Dark Modern",
+  "workbench.activityBar.location": "hidden",
+  "breadcrumbs.enabled": false,
+  "workbench.statusBar.visible": false,
 }
