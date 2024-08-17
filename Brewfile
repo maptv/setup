@@ -214,6 +214,8 @@ cask "hammerspoon"
 cask "horos"
 # Terminal built on web technologies
 cask "hyper"
+# Convert your caps lock key or any of your modifier keys to the hyper key
+cask "hyperkey"
 # Vector graphics editor
 cask "inkscape"
 # Terminal emulator as alternative to Apple's Terminal app
