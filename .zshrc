@@ -507,7 +507,6 @@ alias lt="func() { [ ! -d ~/notes ] && git clone https://github.com/maptv/notes 
 alias lu="func() { local unstaged=$(echo '$(git status --porcelain | grep "^.M" | cut -c4- | fzf)') && [ $(echo '$unstaged') ] && echo $(echo '$unstaged') | tr '\n' '\0' | xargs -0 -o lvim $(echo '$@') --; }; func"
 alias lw="func() { local files=$(echo '$(fd --color=always -e docx --type f $@ | fzf --ansi --preview="pandoc {} -t markdown | bat --style=numbers --color=always -l md | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always")') && [ $(echo '$files') ] && echo $(echo '$files') | sed 's/docx/md/;p;s/md/docx/' | tr '\n' '\0' | xargs -0n2 pandoc -f docx -t markdown -o && echo $(echo '${files//docx/md}') | tr '\n' '\0' | xargs -0 -o lvim --; }; func"
 alias lz="lvim ~/.zshrc"
-alias m="man"
 alias ma="mamba activate"
 alias map="func() { for i in $(echo '${@:2}'); do; $(echo '$1 $i'); done; }; func"
 alias mc="git mergetool --extcmd 'code --wait'"
@@ -1036,3 +1035,7 @@ unset __conda_setup
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
