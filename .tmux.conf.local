@@ -649,7 +649,8 @@ run -b '~/.tmux/plugins/tpm/tpm'
 # # /!\ do not "uncomment" the functions: the leading "# " characters are needed
 #
 # decdate() {
-#     local unix=${1:-$(date +%s)}
+#     local unix=$(date +%s)
+#     local zone=$(date +%z)
 #     local dote=$(echo "scale=5; $unix / 86400 + 719468" | bc)
 #     if [ $(echo "$dote >= 0" | bc) -eq 1 ]; then
 #         local socy=$(echo "scale=0; $dote / 146097" | bc)
@@ -658,7 +659,8 @@ run -b '~/.tmux/plugins/tpm/tpm'
 #     fi
 #     local dotc=$(echo "scale=5; $dote - $socy * 146097" | bc)
 #     local yotc=$(echo "scale=0; ($dotc - $dotc / 1460 + $dotc / 36524 - $dotc / 146096) / 365" | bc)
-#     echo "$(echo "$yotc + $socy * 400" | bc)+$(echo "$dotc - ($yotc * 365 + $yotc / 4 - $yotc / 100)" | bc)"
+#     local doty=$(echo "($dotc - ($yotc * 365 + $yotc / 4 - $yotc / 100)) * 10" | bc)
+#     echo "$(echo "$yotc + $socy * 400" | bc)+$(echo "${doty%0}")"
 # }
 #
 # "$@"
