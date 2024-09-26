@@ -1,11 +1,4 @@
-c.InteractiveShell.confirm_exit = False
-c.InteractiveShell.auto_suggest = True
-c.InteractiveShell.complete_while_typing = True
-c.InteractiveShell.complete_selected_option_on_tab = True
-c.InteractiveShell.complete_top_option_on_tab = True
-c.InteractiveShell.complete_top_option_on_enter = True
-c.InteractiveShell.complete_only_option_on_tab = True
-c.InteractiveShell.complete_function_parentheses = True
+c.InteractiveShell.auto_match = True
 
 # Configuration file for ipython.
 
@@ -154,7 +147,7 @@ c.InteractiveShell.complete_function_parentheses = True
 
 ## 'all', 'last', 'last_expr' or 'none', 'last_expr_or_assign' specifying which
 #  nodes should be run interactively (displaying output from expressions).
-#c.InteractiveShell.ast_node_interactivity = 'last_expr'
+c.InteractiveShell.ast_node_interactivity = "all"
 
 ## A list of ast.NodeTransformer subclass instances, which will be applied to
 #  user input before code is run.
@@ -286,7 +279,7 @@ c.InteractiveShell.complete_function_parentheses = True
 ## Set to confirm when you try to exit IPython with an EOF (Control-D in Unix,
 #  Control-Z/Enter in Windows). By typing 'exit' or 'quit', you can force a
 #  direct exit without any confirmation.
-#c.TerminalInteractiveShell.confirm_exit = True
+c.InteractiveShell.confirm_exit = False
 
 ## Options for displaying tab completions, 'column', 'multicolumn', and
 #  'readlinelike'. These options are for `prompt_toolkit`, see `prompt_toolkit`
