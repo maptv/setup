@@ -104,6 +104,8 @@ brew "pass"
 brew "poppler"
 # Theme for zsh
 brew "powerlevel10k"
+# Python version management
+brew "pyenv"
 # Bindings to the libgit2 shared library
 brew "pygit2"
 # File browser
@@ -119,7 +121,7 @@ brew "ripgrep-all"
 # Safe, concurrent, practical language
 brew "rust"
 # Rust toolchain installer
-brew "rustup-init"
+brew "rustup"
 # Spreadsheet program for the terminal, using ncurses
 brew "sc-im"
 # Static analysis and lint tool, for (ba)sh scripts
@@ -127,7 +129,7 @@ brew "shellcheck"
 # Utility to modify the macOS Accessibility Database (TCC.db)
 brew "tccutil"
 # Multi-platform code-search similar to ack and ag
-brew "the_platinum_searcher"
+brew "the_platinum_searcher", link: false
 # Code-search similar to ack
 brew "the_silver_searcher"
 # Text interface for Git repositories
@@ -142,6 +144,8 @@ brew "tpm"
 brew "universal-ctags"
 # Vi 'workalike' with many additional features
 brew "vim"
+# Convert HTML to PDF
+brew "weasyprint"
 # Internet file retriever
 brew "wget"
 # PDF viewer
@@ -246,6 +250,8 @@ cask "miniforge"
 cask "muzzle"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Free and open-source productivity suite
+cask "openoffice"
 # Programmable solid 3D CAD modeller
 cask "openscad"
 # Data science IDE

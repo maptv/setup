@@ -650,17 +650,22 @@ run -b '~/.tmux/plugins/tpm/tpm'
 #
 # decdate() {
 #     local unix=$(date +%s)
-#     local zone=$(date +%z)
-#     local dote=$(echo "scale=5; $unix / 86400 + 719468" | bc)
+#     local utc=$(date +%z)
+#     local sign=$(echo $utc | cut -c1-1)
+#     local hour=$(echo $utc | cut -c2-3)
+#     local min=$(echo $utc | cut -c4-5)
+#     local zone=$(echo "scale=0; ($hour + $min / 60) / 2.4" | bc)
+#     local offset=$(echo "scale=1; $zone / 10" | bc)
+#     local dote=$(echo "scale=3; $unix / 86400 + 719468" | bc)
 #     if [ $(echo "$dote >= 0" | bc) -eq 1 ]; then
-#         local socy=$(echo "scale=0; $dote / 146097" | bc)
+#         local cote=$(echo "scale=0; $dote / 146097" | bc)
 #     else
-#         local socy=$(echo "scale=0; ($dote - 146096) / 146097" | bc)
+#         local cote=$(echo "scale=0; ($dote - 146096) / 146097" | bc)
 #     fi
-#     local dotc=$(echo "scale=5; $dote - $socy * 146097" | bc)
+#     local dotc=$(echo "scale=3; $dote - $cote * 146097" | bc)
 #     local yotc=$(echo "scale=0; ($dotc - $dotc / 1460 + $dotc / 36524 - $dotc / 146096) / 365" | bc)
-#     local doty=$(echo "($dotc - ($yotc * 365 + $yotc / 4 - $yotc / 100)) * 10" | bc)
-#     echo "$(echo "$yotc + $socy * 400" | bc)+$(echo "${doty%0}")"
+#     local doty=$(echo "$dotc - ($yotc * 365 + $yotc / 4 - $yotc / 100) $sign $offset" | bc)
+#     echo "$(echo "$yotc + $cote * 400" | bc)+$doty$(echo $sign | tr '+-' '-+')$zone"
 # }
 #
 # "$@"
