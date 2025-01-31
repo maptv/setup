@@ -1,0 +1,24 @@
+[window]
+option_as_alt = "Both"
+
+[[keyboard.bindings]]
+chars = "\u0011"
+key = "Semicolon"
+mods = "Control"
+
+[terminal]
+
+[colors.primary]
+background = "#000000"
+
+[font]
+size = 16.0
+
+[font.normal]
+family = "Ewka Nerd Font"
+
+[keyboard]
+
+[terminal.shell]
+args = ["-lc", "tmux attach || tmux new"]
+program = "/opt/homebrew/bin/zsh"
