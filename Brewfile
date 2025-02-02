@@ -90,8 +90,6 @@ brew "mas"
 brew "moreutils"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# No Nonsense Neovim Client in Rust
-brew "neovide"
 # Trigger notifications when a process completes
 brew "noti"
 # Use Neovim as pager
@@ -248,6 +246,8 @@ cask "meshlab"
 cask "miniforge"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
+# No Nonsense Neovim Client in Rust
+cask "neovide"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Free and open-source productivity suite

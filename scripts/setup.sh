@@ -334,8 +334,8 @@ cp ~/maptv/ewka/nerd/* ~/Library/Fonts
 # Permissions
 
 # App shortcuts
-## Set VimR to be the default txt file editor
-duti -s com.qvacua.VimR txt all
+## Set neovide to be the default txt file editor
+duti -s com.neovide.neovide txt all
 
 duti -s org.jupyter.jupyterlab-desktop ipynb all
 
