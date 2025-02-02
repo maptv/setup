@@ -284,6 +284,8 @@ cask "visual-studio-code"
 cask "vlc"
 # Binary releases of VS Code without MS branding/telemetry/licensing
 cask "vscodium"
+# Neovim client
+cask "vv"
 # HTML to PDF renderer
 cask "wkhtmltopdf"
 # Multiplayer code editor
@@ -294,6 +296,7 @@ cask "zoom"
 cask "zotero"
 mas "Numbers", id: 409203825
 mas "Vimari", id: 1480933944
+mas "WhatsApp", id: 310633997
 vscode "aaron-bond.better-comments"
 vscode "amazonwebservices.amazon-q-vscode"
 vscode "amazonwebservices.aws-toolkit-vscode"
