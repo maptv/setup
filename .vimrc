@@ -1082,36 +1082,6 @@ inoremap <silent><A-C-f> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.
 vnoremap <silent><A-C-b> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
 vnoremap <silent><A-C-f> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
 
-" Map <tab> for trigger completion, completion confirm, snippet expand and jump like VSCode.
-" Note: the `coc-snippets` extension is required for this to work.
-" https://github.com/neoclide/coc.nvim/blob/2ee86b914fc047b81fd61bd2156e062a9c0d5533/doc/coc.txt#L910
-inoremap <silent><expr> <TAB>
-  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ "\<TAB>"
-
-inoremap <silent><expr> <CR>
-  \ len(complete_info()["items"]) == 1 ? "\<C-y>" :
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ "\<CR>"
-
-inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
-inoremap <silent><expr> <C-g> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
-inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
-
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap Q gqap
-nnoremap ZA :xa<CR>
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-@> coc#refresh()
-
-" Use <C-x><C-o> to activate vim omnicompletion
-" iunmap <C-x><C-o>
-
 " https://github.com/junegunn/fzf.vim/issues/865
 " https://github.com/junegunn/fzf.vim/issues/10
 " TODO a for :args
@@ -1179,9 +1149,9 @@ inoremap <silent><expr> <CR>
   \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
   \ "\<CR>"
 
-inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
-inoremap <silent><expr> <C-g> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
-inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
+"inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "<C-e>"
+inoremap <silent><expr> <C-g> coc#pum#visible() ? coc#pum#cancel() : "<C-g>"
+inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "<C-y>"
 
 nnoremap n nzz
 nnoremap N Nzz

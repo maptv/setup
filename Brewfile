@@ -90,6 +90,8 @@ brew "mas"
 brew "moreutils"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Neovim GUI, in Qt
+brew "neovim-qt"
 # Trigger notifications when a process completes
 brew "noti"
 # Use Neovim as pager
@@ -164,8 +166,6 @@ brew "zsh-fast-syntax-highlighting"
 brew "zsh-vi-mode"
 # ZSH plugin that reminds you to use existing aliases for commands you just typed
 brew "zsh-you-should-use"
-# YAMAMOTO Mitsuharu's Mac port of GNU Emacs
-brew "railwaycat/emacsmacport/emacs-mac", args: ["with-native-comp"]
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
 # GPU-accelerated terminal emulator
@@ -190,10 +190,8 @@ cask "chromedriver"
 cask "copyq"
 # Write, edit, and chat about your code with AI
 cask "cursor"
-# Tool to hide status bar icons
-cask "dozer"
-# Reimagine your terminal
-cask "fig"
+# GNU Emacs text editor
+cask "emacs"
 # Web browser
 cask "firefox"
 cask "font-fira-code-nerd-font"
@@ -262,16 +260,10 @@ cask "prince"
 cask "quarto"
 # Control your tools with a few keystrokes
 cask "raycast"
-# Changes the way the full screen button acts
-cask "rightzoom"
-# Data science software focusing on R and Python
-cask "rstudio"
 # App that enables mouse-free UI interaction
 cask "shortcat"
 # Team communication and collaboration software
 cask "slack"
-# 3D printing toolbox
-cask "slic3r"
 # View Spaces / Virtual Desktops in the menu bar
 cask "spaceman"
 # Terminal emulator, SSH and serial client
@@ -286,8 +278,6 @@ cask "vlc"
 cask "vscodium"
 # Neovim client
 cask "vv"
-# HTML to PDF renderer
-cask "wkhtmltopdf"
 # Multiplayer code editor
 cask "zed"
 # Video communication and virtual meeting platform
