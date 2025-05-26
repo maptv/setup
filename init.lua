@@ -122,7 +122,7 @@ spoon.MiroWindowsManager:bindHotkeys({
   nextscreen = {"ctrl", "0"},
 })
 
-
+-- Two = Top, thRee = Right, four = floor
 -- Ctrl Comma (,) shrinks the window horizontally
 -- ASCII character 44
 -- https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L392
@@ -131,7 +131,7 @@ hs.hotkey.bind("ctrl", ",", function()
   exitFullScreen(win)
   local cw = current_window_rect(win)
   local move_to_rect = {}
-  move_to_rect[1] = cw[1] == 0 and 0 or math.min(cw[1]+0.04,1) -- x
+  move_to_rect[1] = cw[1] == 0 and 0.15 or math.min(cw[1]+0.04,1) -- x
   move_to_rect[2] = cw[2]
   move_to_rect[3] = cw[1] + cw[3] > 0.99 and 1 or math.max(cw[3]-0.04,0.1) -- w
   move_to_rect[4] = cw[4]
@@ -146,7 +146,7 @@ hs.hotkey.bind("ctrl", "-", function()
   local cw = current_window_rect(win)
   local move_to_rect = {}
   move_to_rect[1] = cw[1]
-  move_to_rect[2] = cw[2] == 0 and 0 or math.min(cw[2]+0.04,1)
+  move_to_rect[2] = cw[2] == 0 and 0.15 or math.min(cw[2]+0.04,1)
   move_to_rect[3] = cw[3]
   move_to_rect[4] = cw[2] + cw[4] > 0.99 and 1 or math.max(cw[4]-0.04,0.1) -- some windows (MacVim) don't size to 1
   win:move(move_to_rect)
@@ -229,6 +229,13 @@ end)
 hs.hotkey.bind("ctrl", "\\", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
+  local cw = current_window_rect(win)
+  local move_to_rect = {}
+  move_to_rect[1] = cw[1] == 0 and 0.15 or cw[1] -- x
+  move_to_rect[2] = cw[2]
+  move_to_rect[3] = cw[3] == 1 and 0.85 or cw[3] -- w
+  move_to_rect[4] = cw[4]
+  win:move(move_to_rect)
   win:centerOnScreen(nil, true)
 end)
 
