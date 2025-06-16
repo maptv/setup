@@ -284,6 +284,10 @@ cask "vscodium"
 cask "vv"
 # Multiplayer code editor
 cask "zed"
+# Agentic IDE powered by AI Flow paradigm
+cask "windsurf"
+# HTML to PDF renderer
+cask "wkhtmltopdf"
 # Video communication and virtual meeting platform
 cask "zoom"
 # Collect, organise, cite, and share research sources
