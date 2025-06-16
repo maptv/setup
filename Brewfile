@@ -48,6 +48,8 @@ brew "numpy"
 brew "dvc"
 # Modern, maintained replacement for ls
 brew "eza"
+# CLI tool for quick access to files and directories
+brew "fasd"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # CLI program that accepts piped input and presents files for selection
@@ -268,6 +270,8 @@ cask "slack"
 cask "spaceman"
 # Terminal emulator, SSH and serial client
 cask "tabby"
+# Adaptive AI IDE
+cask "trae"
 # GUI for the Neovim text editor
 cask "vimr"
 # Open-source code editor

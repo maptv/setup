@@ -1,5 +1,3 @@
-# CodeWhisperer pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
 # Environment
 # https://github.com/sharkdp/fd#using-fd-with-fzf
 # https://github.com/junegunn/fzf#respecting-gitignore
@@ -511,8 +509,8 @@ alias ma="mamba activate"
 alias map="func() { for i in $(echo '${@:2}'); do; $(echo '$1 $i'); done; }; func"
 alias mc="git mergetool --extcmd 'code --wait'"
 alias mcc="git mergetool --extcmd 'code --wait' --cached"
-alias mcf="mamba env create -f"
-alias mcn="mamba create -c conda-forge -n"
+alias mcf="mamba env create -yf"
+alias mcn="mamba create -yc conda-forge -n"
 alias mcs="git mergetool --extcmd 'code --wait' --staged"
 alias md="func() { mkdir -p $(echo '$1') && cd $(echo '$1'); }; func"
 alias mda="mamba deactivate"
@@ -1013,10 +1011,6 @@ else
     fi
 fi
 unset __conda_setup
-
-if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/mamba.sh" ]; then
-    . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/mamba.sh"
-fi
 # <<< conda initialize <<<
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
@@ -1032,10 +1026,3 @@ else
 fi
 unset __conda_setup
 # <<< mamba initialize <<<
-
-# CodeWhisperer post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
