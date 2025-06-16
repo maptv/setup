@@ -411,6 +411,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -500,6 +503,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -590,6 +596,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -681,6 +690,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -772,6 +784,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -863,6 +878,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -952,6 +970,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1039,6 +1060,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1128,6 +1152,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1355,6 +1382,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1488,6 +1518,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1578,6 +1611,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1675,6 +1711,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1767,6 +1806,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1859,6 +1901,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1955,6 +2000,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -2046,6 +2094,9 @@
                                             "^org\\.jupyter\\.jupyterlab-desktop$",
                                             "^org\\.inkscape\\.Inkscape$",
                                             "^com\\.vscodium$",
+                                            "^com\\.trae\\.app",
+                                            "^com\\.exafunction\\.windsurf",
+                                            "^com\\.todesktop\\.230313mzl4w4u92",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
