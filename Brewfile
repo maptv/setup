@@ -88,12 +88,16 @@ brew "ruby"
 brew "macvim", link: false
 # Mac App Store command-line interface
 brew "mas"
+# Fast Cross-Platform Package Manager
+brew "micromamba", link: false
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Neovim GUI, in Qt
 brew "neovim-qt"
+# No Nonsense Neovim Client in Rust
+brew "neovide"
 # Trigger notifications when a process completes
 brew "noti"
 # Use Neovim as pager
@@ -104,6 +108,8 @@ brew "pandoc"
 brew "pass"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# Package management made easy
+brew "pixi"
 # Theme for zsh
 brew "powerlevel10k"
 # Python version management
@@ -143,7 +149,9 @@ brew "tmux"
 # Plugin manager for tmux
 brew "tpm"
 # Maintained ctags implementation
-brew "universal-ctags"
+brew "universal-ctags", args: ["HEAD"]
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Vi 'workalike' with many additional features
 brew "vim"
 # Convert HTML to PDF
