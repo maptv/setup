@@ -212,7 +212,7 @@ silent! colorscheme onedark
 
 set mousemodel=popup
 set t_Co=256
-set guioptions=egmrti
+" set guioptions=egmrti
 set title
 set titleold="Terminal"
 set titlestring=%F
@@ -289,7 +289,7 @@ set clipboard=unnamed
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
-set go+=a
+" set go+=a
 
 " Neovim defaults https://neovim.io/doc/user/vim_diff.html
 " 'autoindent' is enabled
