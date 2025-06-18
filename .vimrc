@@ -32,6 +32,7 @@ Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
             \ Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
+Plug 'github/copilot.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
