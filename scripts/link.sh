@@ -44,9 +44,19 @@ ln -sf ~/maptv/setup/rstudio_bindings.json ~/.config/rstudio/keybindings/rstudio
 ln -sf ~/maptv/setup/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -sf ~/maptv/setup/settings.json ~/Library/Application\ Support/VSCodium/User/settings.json
 ln -sf ~/maptv/setup/settings.json ~/Library/Application\ Support/Positron/User/settings.json
+ln -sf ~/maptv/setup/settings.json ~/Library/Application\ Support/Trae/User/settings.json
+ln -sf ~/maptv/setup/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
+ln -sf ~/maptv/setup/settings.json ~/Library/Application\ Support/Void/User/settings.json
+ln -sf ~/maptv/setup/settings.json ~/Library/Application\ Support/Windsurf/User/settings.json
+ln -sf ~/maptv/setup/settings.json ~/Library/Application\ Support/nao/User/settings.json
 ln -sf ~/maptv/setup/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 ln -sf ~/maptv/setup/keybindings.json ~/Library/Application\ Support/VSCodium/User/keybindings.json
 ln -sf ~/maptv/setup/keybindings.json ~/Library/Application\ Support/Positron/User/keybindings.json
+ln -sf ~/maptv/setup/keybindings.json ~/Library/Application\ Support/Trae/User/keybindings.json
+ln -sf ~/maptv/setup/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
+ln -sf ~/maptv/setup/keybindings.json ~/Library/Application\ Support/Void/User/keybindings.json
+ln -sf ~/maptv/setup/keybindings.json ~/Library/Application\ Support/Windsurf/User/keybindings.json
+ln -sf ~/maptv/setup/keybindings.json ~/Library/Application\ Support/nao/User/keybindings.json\n
 ln -sf ~/maptv/setup/shortcuts.jupyterlab-settings ~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/shortcuts.jupyterlab-settings
 ln -sf ~/maptv/setup/tabnine_config.json ~/.config/TabNine/tabnine_config.json
 ln -sf ~/maptv/setup/undead.icns ~/Library/Keyboard\ Layouts/undead.icns
