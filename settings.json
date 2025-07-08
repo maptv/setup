@@ -24,7 +24,6 @@
     "asvetliakov.vscode-neovim": 1
   },
   "extensions.ignoreRecommendations": false,
-  "files.autoSave": "afterDelay",
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
@@ -299,6 +298,20 @@
   "terminal.external.osxExec": "iTerm.app",
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.activityBar.location": "hidden",
+  "gitdoc.autoPull": "onCommit",
+  "gitdoc.filePattern": "**/*.*md",
+  "gitdoc.pushMode": "forcePushWithLease",
+  "amazonQ.suppressPrompts": {
+    "codeWhispererConnectionExpired": true
+  },
+  "github.copilot.enable": {
+    "quarto": true,
+    "*": true
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "workbench.editor.editorActionsLocation": "titleBar",
   "breadcrumbs.enabled": false,
   "workbench.statusBar.visible": false,
+  "editor.minimap.enabled": false,
+  "editor.actionBar.enabled": false,
 }
