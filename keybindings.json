@@ -77,8 +77,9 @@
   { "key": "ctrl+; h", "command": "workbench.action.toggleSidebarVisibility" },
   { "key": "ctrl+; i", "command": "gitlens.views.commitDetails.focus" },
   { "key": "ctrl+; j", "command": "workbench.action.togglePanel" },
-  { "key": "ctrl+; shift+k", "command": "workbench.action.positron.toggleTopActionBarVisibility" },
-  { "key": "ctrl+; k", "command": "editor.action.toggleActionBar" },
+  { "key": "ctrl+; k", "command": "workbench.action.hideEditorTabs" , "when": "config.workbench.editor.showTabs != 'none'"},
+  { "key": "ctrl+; k", "command": "workbench.action.showMultipleEditorTabs" , "when": "!inZenMode && config.workbench.editor.showTabs != 'multiple'"},
+  { "key": "ctrl+; k", "command": "workbench.action.zenShowMultipleEditorTabs" , "when": "inZenMode && config.workbench.editor.showTabs != 'multiple'"},
   { "key": "ctrl+; l", "command": "workbench.action.toggleAuxiliaryBar" },
   { "key": "ctrl+; m", "command": "editor.action.toggleMinimap" },
   { "key": "ctrl+; n", "command": "vscode-neovim.send", "when": "editorTextFocus && neovim.mode != insert", "args": ":set number! relativenumber!<CR>" },
@@ -95,6 +96,8 @@
   { "key": "ctrl+; y", "command": "clipboardHistory.focus" },
   { "key": "ctrl+; z", "command": "workbench.action.toggleZenMode" },
   { "key": "ctrl+; ;", "command": "workbench.action.focusPreviousGroup" },
+  { "key": "ctrl+; shift+a", "command": "editor.action.toggleActionBar" },
+  { "key": "ctrl+; shift+t", "command": "workbench.action.positron.toggleTopActionBarVisibility" },
   { "key": "up", "command": "cursorUp", "when": "editorTextFocus && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "down", "command": "cursorDown", "when": "editorTextFocus && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
   { "key": "k", "command": "cursorUp", "when": "editorTextFocus && !inDebugRepl && neovim.mode == 'normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible" },
@@ -106,9 +109,9 @@
   { "key": "alt+/", "command": "editor.action.accessibleViewAcceptInlineCompletion", "when": "accessibleViewIsShown && accessibleViewCurrentProviderId == 'inlineCompletions'" },
   { "key": "alt+f", "command": "editor.action.inlineSuggest.acceptNextWord", "when": "inlineSuggestionVisible && !editorReadonly" },
   { "key": "ctrl+f", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
-  { "key": "ctrl+f", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && tabnine.tab-override && !editorTabMovesFocus" },
+  { "key": "ctrl+f", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && !editorTabMovesFocus" },
   { "key": "ctrl+e", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
-  { "key": "ctrl+e", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && tabnine.tab-override && !editorTabMovesFocus" },
+  { "key": "ctrl+e", "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && !editorTabMovesFocus" },
   { "key": "ctrl+g", "command": "editor.action.inlineSuggest.hide", "when": "inlineSuggestionVisible" },
   { "key": "x", "command": "workbench.action.closeActiveEditor", "when": "openEditorsFocus" },
   { "key": "shift+escape", "command": "notebook.cell.quitEdit", "when": "inputFocus && notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible" },
@@ -125,5 +128,13 @@
   { "key": "alt+,", "command": "r.insertLeftAssignmentConsole", "when": "positronConsoleFocused && editorLangId == 'r'" },
   { "key": "alt+.", "command": "r.insertRightAssignmentConsole", "when": "positronConsoleFocused && editorLangId == 'r'" },
   { "key": "cmd+shift+]", "command": "workbench.action.nextPanelView", "when": "panelFocus" },
-  { "key": "cmd+shift+[", "command": "workbench.action.previousPanelView", "when": "panelFocus" },
+  {
+    "key": "cmd+shift+[",
+    "command": "workbench.action.previousPanelView",
+    "when": "panelFocus"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
 ]

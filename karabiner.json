@@ -415,6 +415,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -509,6 +510,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -604,6 +606,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -700,6 +703,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -796,6 +800,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -892,6 +897,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -986,6 +992,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -1078,6 +1085,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -1172,6 +1180,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -1404,6 +1413,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -1542,6 +1552,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -1637,6 +1648,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -1739,6 +1751,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -1836,6 +1849,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -1933,6 +1947,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -2034,6 +2049,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
@@ -2130,6 +2146,7 @@
                                             "^com\\.nao$",
                                             "^com\\.void$",
                                             "^com\\.exafunction\\.windsurf$",
+                                            "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
