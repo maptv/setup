@@ -52,11 +52,14 @@
   "terminal.integrated.macOptionIsMeta": true,
   "vim.camelCaseMotion.enable": true,
   "vim.commentary": true,
+  "vim.joinspaces": false,
   "vim.easymotion": true,
   "vim.enableNeovim": true,
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
+  "vim.neovimConfigPath": "~/.config/nvim/init.vim",
+  "vim.neovimUseConfigFile": true,
   "vim.insertModeKeyBindings": [
     {
       "before": [
@@ -198,21 +201,104 @@
   "vim.neovimPath": "/opt/homebrew/bin/nvim",
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "<leader>",
-        "t"
-      ],
-      "commands": [
-        "workbench.action.terminal.focus"
-      ]
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.terminal.focus"]
     },
     {
-      "after": [
-        "y$"
-      ],
-      "before": [
-        "Y"
-      ]
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    {
+      "after": ["leader", "leader", "f"],
+      "before": ["g", "s", "f"]
+    },
+    {
+      "after": ["leader", "leader", "2", "f"],
+      "before": ["g", "s", "v"]
+    },
+    {
+      "after": ["leader", "leader", "F"],
+      "before": ["g", "s", "F"]
+    },
+    {
+      "after": ["leader", "leader", "2", "F"],
+      "before": ["g", "s", "V"]
+    },
+    {
+      "after": ["leader", "leader", "t"],
+      "before": ["g", "s", "t"]
+    },
+    {
+      "after": ["leader", "leader", "2", "t"],
+      "before": ["g", "s", "d"]
+    },
+    {
+      "after": ["leader", "leader", "T"],
+      "before": ["g", "s", "T"]
+    },
+    {
+      "after": ["leader", "leader", "2", "T"],
+      "before": ["g", "s", "D"]
+    },
+    {
+      "after": ["leader", "leader", "s"],
+      "before": ["g", "s", "s"]
+    },
+    {
+      "after": ["leader", "leader", "2", "s"],
+      "before": ["g", "s", "x"]
+    },
+    {
+      "after": ["leader", "leader", "w"],
+      "before": ["g", "s", "w"]
+    },
+    {
+      "after": ["leader", "leader", "b"],
+      "before": ["g", "s", "b"]
+    },
+    {
+      "after": ["leader", "leader", "h"],
+      "before": ["g", "s", "h"]
+    },
+    {
+      "after": ["leader", "leader", "l"],
+      "before": ["g", "s", "l"]
+    },
+    {
+      "after": ["leader", "leader", "e"],
+      "before": ["g", "s", "e"]
+    },
+    {
+      "after": ["leader", "leader", "g", "e"],
+      "before": ["g", "s", "g"]
+    },
+    {
+      "after": ["leader", "leader", "leader", "b", "d", "2", "t"],
+      "before": ["g", "s", "s"]
+    },
+    {
+      "after": ["leader", "leader", "/"],
+      "before": ["g", "s", "/"]
+    },
+    {
+      "after": ["leader", "leader", "leader", "b", "d", "j", "k"],
+      "before": ["g", "s", "0"]
+    },
+    {
+      "after": ["leader", "leader", "leader", "b", "d", "e"],
+      "before": ["g", "s", "p"]
+    },
+    {
+      "after": ["leader", "leader", "leader", "b", "d", "w"],
+      "before": ["g", "s", "q"]
+    },
+    {
+      "after": ["leader", "leader", "leader", "b", "d", "t"],
+      "before": ["g", "s", "c"]
+    },
+    {
+      "after": ["leader", "leader", "leader", "j"],
+      "before": ["g", "s", "a"]
     }
   ],
   "vim.replaceWithRegister": true,
@@ -283,7 +369,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   // also render trailing whitespace, since it'll get trimmed
-  "editor.renderWhitespace": "trailing",
+  "editor.renderWhitespace": "all",
   // adds lines for the current bracket you're in
   "editor.guides.bracketPairs": "active",
   // otherwise opening two files closes the first ???
@@ -308,6 +394,22 @@
     "quarto": true,
     "*": true
   },
+"settings.cycle": [{
+        "id": "lineNumbers",
+        "values":[
+            {
+                "editor.lineNumbers": "off",
+                "editor.folding": false,
+                "editor.glyphMargin": false
+            },
+            {
+                "editor.lineNumbers": "relative",
+                "editor.folding": true,
+                "editor.glyphMargin": true
+
+            }
+        ]
+    }],
   "github.copilot.nextEditSuggestions.enabled": true,
   "workbench.editor.editorActionsLocation": "titleBar",
   "breadcrumbs.enabled": false,
