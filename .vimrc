@@ -771,12 +771,12 @@ nmap ]c <Plug>(coc-git-nextchunk)
 " nmap gs <Plug>(coc-git-chunkinfo)
 " make vim-easymotion match spacemacs and doom emacs
 nmap gs <Plug>(easymotion-prefix)
-" gsd mnemonic: was l (third finger from right) for line, now is d (third finger from left) for down
+" gs0 mnemonic: was l (third finger from right) for line, now is 0 (third finger from left) for start of line
 " gso mnemonic: o for overwin; was o (left ring finger), now is o (right ring finger)
 " gsg mnemonic: go anywhere that h and l can go
-nmap gsd <Plug>(easymotion-overwin-line)
-xmap gsd <Plug>(easymotion-overwin-line)
-omap gsd <Plug>(easymotion-overwin-line)
+nmap gs0 <Plug>(easymotion-overwin-line)
+xmap gs0 <Plug>(easymotion-overwin-line)
+omap gs0 <Plug>(easymotion-overwin-line)
 nmap gso <Plug>(easymotion-overwin-w)
 xmap gso <Plug>(easymotion-overwin-w)
 omap gso <Plug>(easymotion-overwin-w)
@@ -849,12 +849,27 @@ omap gsn <Plug>(easymotion-n)
 nmap gsN <Plug>(easymotion-N)
 xmap gsN <Plug>(easymotion-N)
 omap gsN <Plug>(easymotion-N)
-nmap gss <Plug>(easymotion-overwin-f2)
-xmap gss <Plug>(easymotion-f2)
-omap gss <Plug>(easymotion-f2)
-nmap gsS <Plug>(easymotion-F2)
-xmap gsS <Plug>(easymotion-F2)
-omap gsS <Plug>(easymotion-F2)
+nmap gsv <Plug>(easymotion-overwin-f2)
+xmap gsv <Plug>(easymotion-f2)
+omap gsv <Plug>(easymotion-f2)
+nmap gsV <Plug>(easymotion-F2)
+xmap gsV <Plug>(easymotion-F2)
+omap gsV <Plug>(easymotion-F2)
+nmap gsd <Plug>(easymotion-t2)
+xmap gsd <Plug>(easymotion-t2)
+omap gsd <Plug>(easymotion-t2)
+nmap gsD <Plug>(easymotion-T2)
+xmap gsD <Plug>(easymotion-T2)
+omap gsD <Plug>(easymotion-T2)
+nmap gsx <Plug>(easymotion-s2)
+xmap gsx <Plug>(easymotion-s2)
+omap gsx <Plug>(easymotion-s2)
+nmap gss <Plug>(easymotion-s)
+xmap gss <Plug>(easymotion-s)
+omap gss <Plug>(easymotion-s)
+nmap gsz <Plug>(easymotion-sn)
+xmap gsz <Plug>(easymotion-sn)
+omap gsz <Plug>(easymotion-sn)
 
 " show git log at current position
 nmap gl <Plug>(coc-git-commit)
@@ -1151,7 +1166,7 @@ inoremap <silent><expr> <CR>
   \ "\<CR>"
 
 "inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "<C-e>"
-inoremap <silent><expr> <C-g> coc#pum#visible() ? coc#pum#cancel() : "<C-g>"
+inoremap <silent><expr> <C-g> coc#pum#visible() ? coc#pum#cancel() : "<C-e>"
 inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "<C-y>"
 
 nnoremap n nzz
