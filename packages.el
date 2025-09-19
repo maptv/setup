@@ -8,10 +8,13 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 (package! osx-clipboard)
+(package! quarto-mode)
 (package! evil-quickscope)
 (package! evil-replace-with-register)
 (package! this-package :recipe (:repo "joddie/osx-clipboard-mode" :host github))
 (package! another-package :recipe (:repo "h0d/term-cursor.el" :host github))
+(package! copilot
+  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

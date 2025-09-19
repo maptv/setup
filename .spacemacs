@@ -50,6 +50,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
+     github-copilot
      ;; better-defaults
      emacs-lisp
      evil-snipe
@@ -310,8 +311,8 @@ It should only modify the values of Spacemacs settings."
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
    ;; (default 'cache)
-   dotspacemacs-auto-save-file-location 'original
-   auto-save-timeout 1
+   ;; dotspacemacs-auto-save-file-location 'original
+   ;; auto-save-timeout 1
 
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
    dotspacemacs-max-rollback-slots 5
@@ -534,6 +535,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  (require 'quarto-mode)
+
   (require 'evil-quickscope)
   (global-evil-quickscope-always-mode 1)
 
@@ -597,6 +600,10 @@ before packages are loaded."
   (define-key evil-ex-search-keymap (kbd "C-t") 'transpose-chars)
   (define-key evil-ex-search-keymap (kbd "C-u") 'backward-kill-line)
 
+  ;; https://stackoverflow.com/a/23576275
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
   ;; https://github.com/syl20bnr/spacemacs/issues/4243#issuecomment-166246613
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "C-h") 'delete-backward-char)
@@ -627,6 +634,41 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(dired-no-confirm '(copy delete move))
+ '(package-selected-packages
+   '(ace-link aggressive-indent all-the-icons auto-compile auto-highlight-symbol
+              auto-yasnippet avy-jump-helm-line browse-at-remote
+              centered-cursor-mode clean-aindent-mode code-review
+              column-enforce-mode company-lua copilot copilot-chat dactyl-mode
+              devdocs diff-hl diminish dired-quick-sort disable-mouse
+              dotenv-mode drag-stuff dumb-jump edit-indirect elisp-def
+              elisp-demos elisp-slime-nav emr eval-sexp-fu evil-anzu evil-args
+              evil-cleverparens evil-collection evil-easymotion evil-escape
+              evil-evilified-state evil-exchange evil-goggles evil-iedit-state
+              evil-indent-plus evil-lion evil-lisp-state evil-matchit
+              evil-nerd-commenter evil-numbers evil-quickscope
+              evil-replace-with-register evil-snipe evil-surround
+              evil-textobj-line evil-tutor evil-unimpaired evil-visual-mark-mode
+              evil-visualstar expand-region eyebrowse fancy-battery gh-md
+              git-link git-messenger git-modes git-timemachine
+              gitignore-templates golden-ratio google-translate helm-ag
+              helm-c-yasnippet helm-comint helm-company helm-descbinds
+              helm-ls-git helm-make helm-mode-manager helm-org helm-projectile
+              helm-purpose helm-swoop helm-xref hide-comnt highlight-indentation
+              highlight-numbers highlight-parentheses hl-todo holy-mode
+              hungry-delete hybrid-mode indent-guide info+ inspector js-doc
+              js2-refactor json-mode json-navigator json-reformat launchctl
+              link-hint livid-mode lorem-ipsum macrostep markdown-toc multi-line
+              nameless nodejs-repl npm-mode open-junk-file org-superstar
+              osx-clipboard osx-dictionary osx-trash overseer page-break-lines
+              paradox password-generator pcre2el popwin prettier-js quarto-mode
+              quickrun rainbow-delimiters restart-emacs reveal-in-osx-finder
+              smeargle space-doc spacemacs-purpose-popwin
+              spacemacs-whitespace-cleanup string-edit-at-point
+              string-inflection symbol-overlay symon term-cursor toc-org
+              treemacs-evil treemacs-icons-dired treemacs-magit treemacs-persp
+              treemacs-projectile undo-fu undo-fu-session vi-tilde-fringe
+              vimrc-mode volatile-highlights vundo web-beautify wgrep winum
+              writeroom-mode ws-butler yasnippet-snippets))
  '(wdired-confirm-overwrite nil)
  '(wdired-create-parent-directories t))
 (custom-set-faces

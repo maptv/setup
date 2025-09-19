@@ -36,8 +36,8 @@
 (setq display-line-numbers-type nil)
 
 ;; auto-save
-(setq auto-save-visited-file-name t)
-(setq auto-save-timeout 1)
+;; (setq auto-save-visited-file-name t)
+;; (setq auto-save-timeout 1)
 
 ;; evil mode settings
 (setq vim-style-visual-feedback t)
@@ -127,9 +127,16 @@
 (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
 )
 
+;; https://stackoverflow.com/a/23576275
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
+;; quarto-mode
+(require 'quarto-mode)
+
 ;; evil-quickscope
-(require 'evil-quickscope)
-(global-evil-quickscope-always-mode 1)
+;; (require 'evil-quickscope)
+;; (global-evil-quickscope-always-mode 1)
 
 ;; evil-replace-with-register
 (require 'evil-replace-with-register)
@@ -141,6 +148,8 @@
 (setq evil-exchange-key (kbd "gy"))
 (evil-exchange-install)
 
+(require 'quarto-mode)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;; - `load!' for loading external *.el files relative to this one
 ;; - `use-package!' for configuring packages
@@ -149,7 +158,16 @@
 ;;   this file. Emacs searches the `load-path' when you load packages with
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
-;;
+
+;; accept completion from copilot and fallback to company
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
 ;; To get information about any of these functions/macros, move the cursor over
 ;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
 ;; This will open documentation for it, including demos of how they are used.
