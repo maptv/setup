@@ -137,4 +137,9 @@
     "key": "cmd+i",
     "command": "composerMode.agent"
   },
+  {
+    "key": "alt+/",
+    "command": "editor.action.inlineSuggest.trigger",
+    "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+  }
 ]

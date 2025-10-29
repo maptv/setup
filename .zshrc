@@ -1,3 +1,5 @@
+# CodeWhisperer pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
 # Environment
 # https://github.com/sharkdp/fd#using-fd-with-fzf
 # https://github.com/junegunn/fzf#respecting-gitignore
@@ -9,6 +11,7 @@ fi
 export DOOMDIR=$HOME/.config/doom
 export PATH=$HOME/.config/emacs/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 export EDITOR=$HOMEBREW_PREFIX/bin/nvim
 export MANWIDTH=999
 export DELTA_PAGER="less -R"
@@ -172,7 +175,6 @@ alias bbig="brew bundle install --global"
 alias bbl="brew bundle list"
 alias bblv="brew bundle list --vscode"
 alias bbx="brew bundle cleanup"
-alias bc="bit clone"
 alias bco="bit checkout"
 alias bd="git branch --delete" # delete fully merged branch
 alias bf="func() { local branch=$(echo '$(git branch --color=always --verbose | fzf --ansi --bind="alt-y:execute-silent(echo {} | cut -c3- | cut -d \  -f1 | pbcopy),alt-x:execute-silent(git branch -D {1})+reload(git branch --color=always --verbose)" --preview="git diff --color=always \$(echo \$(git rev-parse --abbrev-ref HEAD)..{1}) | delta | grep -E \$([ {q} ] && echo {q} | xargs | sed s/\ /\|/g | sed s/$/\|$/g || echo ^) --color=always" | cut -c3- | cut -d " " -f1)') && [ $(echo '$branch') ] && git checkout $(echo '$branch'); }; func"
@@ -318,9 +320,9 @@ alias dm="git diff main"
 alias dmn="func() { git diff $(echo 'main~${1:-0} ${@:2}'); }; func"
 alias dp="git difftool --no-prompt --extcmd 'pycharm diff $LOCAL $REMOTE'"
 alias dps="git difftool --no-prompt --extcmd 'pycharm diff'"
-alias dr.="doom run --no-window-system ."
-alias dr="doom run --no-window-system"
-alias drd="doom run --daemon"
+alias dr.="emacs --no-window-system --with-profile doom ."
+alias dr="emacs --no-window-system --with-profile doom"
+alias drd="emacs --no-window-system --daemon --with-profile doom"
 alias ds="doom sync"
 alias dsf="delta --side-by-side --diff-so-fancy"
 alias dsh="delta --side-by-side --diff-highlight"
@@ -345,12 +347,11 @@ alias dw="git diff --word-diff=color"
 alias dx="docker rm -f $(echo 'docker ps -aq')"
 alias e="emacsclient -t --alternate-editor 'emacs --no-window-system'" # use whatever daemon if running otherwise run emacs command
 alias ed="emacs --daemon" # start spacemacs daemon
-alias eds="emacs --no-window-system --daemon --no-init-file --load ~/.emacs.d/init.el" # start spacemacs daemon
+alias edd="emacs --daemon --no-window-system --with-profile doom" # start doom daemon
+alias eds="emacs --daemon --no-window-system --with-profile space" # start spacemacs daemon
 alias ef="func() { local files=$(echo '$(fasd -Rfl | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 emacsclient -t --alternate-editor 'emacs --no-window-system' -- ; }; func"
-alias es.="emacs --no-window-system --no-init-file --load ~/.emacs.d/init.el ." # open spacemacs dired in current directory
-alias en.="emacs --no-window-system ." # open spacemacs dired in current directory
-alias en="emacs --no-window-system" # open spacemacs
-alias es="emacs --no-window-system --no-init-file --load ~/.emacs.d/init.el" # open spacemacs
+alias es.="emacs --no-window-system --with-profile space ." # open spacemacs dired in current directory
+alias es="emacs --no-window-system --with-profile space" # open spacemacs
 alias esa="eval `ssh-agent -s`"
 alias ex="emacsclient -e '(kill-emacs)'"
 alias ez="emacsclient -t --alternate-editor 'emacs --no-window-system' ~/.zshrc"
@@ -998,6 +999,25 @@ bindkey -M viins '≥' insert-last-word
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C $HOMEBREW_PREFIX/bin/bit bit
 
+unix2date() {
+    local unix=${1:-$(date +%s)}
+    local dote=$(echo "scale=0; $unix / 86400 + 719468" | bc)
+    if [ $(echo "$dote >= 0" | bc) -eq 1 ]; then
+        local socy=$(echo "scale=0; $dote / 146097" | bc)
+    else
+        local socy=$(echo "scale=0; ($dote - 146096) / 146097" | bc)
+    fi
+    local dotc=$(echo "scale=0; $dote - $socy * 146097" | bc)
+    local yotc=$(echo "scale=0; ($dotc - $dotc / 1460 + $dotc / 36524 - $dotc / 146096) / 365" | bc)
+    echo "$(echo "$yotc + $socy * 400" | bc)+$(echo "$dotc - ($yotc * 365 + $yotc / 4 - $yotc / 100)" | bc)"
+}
+
+date2date() {
+    local date=${1:-$(gdate +"%Y-%m-%dT%H:%M:%S%:z")}
+    local unix=$(gdate -d "$date" +%s)
+    unix2date "$unix"
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -1013,16 +1033,25 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 # >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-__conda_setup="$('$HOMEBREW_PREFIX/Caskroom/miniforge/base/bin/mamba' 'shell.zsh' 'hook' 2> /dev/null)"
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/opt/homebrew/Caskroom/miniforge/base/bin/mamba';
+export MAMBA_ROOT_PREFIX='/opt/homebrew/Caskroom/miniforge/base';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+    eval "$__mamba_setup"
 else
-    if [ -f "$HOMEBREW_PREFIX/Caskroom/miniforge/base/etc/profile.d/mamba.sh" ]; then
-        . "$HOMEBREW_PREFIX/Caskroom/miniforge/base/etc/profile.d/mamba.sh"
-    else
-# export PATH="$HOMEBREW_PREFIX/Caskroom/miniforge/base/bin:$PATH"  # commented out by conda initialize
-    fi
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
 fi
-unset __conda_setup
+unset __mamba_setup
 # <<< mamba initialize <<<
+
+# CodeWhisperer post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
+
+# Added by Windsurf
+export PATH="/Users/martinlaptev/.codeium/windsurf/bin:$PATH"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

@@ -123,6 +123,17 @@ let mapleader='\'
 " https://github.com/mbbill/undotree#usage
 nnoremap <leader>u :UndotreeToggle<CR>
 
+" Horizontally center cursor position.
+" https://unix.stackexchange.com/a/585098
+nnoremap <silent> z; :<C-u>normal! zszH<CR>
+
+" https://vi.stackexchange.com/questions/12576/how-to-remap-backtick-mark-with-single-quote-mark-globally
+" https://vi.stackexchange.com/a/12581
+nnoremap ' `
+nnoremap ` '
+onoremap ' `
+onoremap ` '
+
 " https://github.com/unblevable/quick-scope#highlight-on-key-press
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 

@@ -1,3 +1,4 @@
+// Settings imported from Visual Studio Code
 {
   // https://code.visualstudio.com/docs/getstarted/settings#_multiple-languagespecific-editor-settings
   "[python]": {
@@ -34,7 +35,7 @@
   "python.analysis.completeFunctionParens": true,
   "python.analysis.typeCheckingMode": "basic",
   "python.defaultInterpreterPath": "/opt/homebrew/Caskroom/miniforge/base/envs/py/bin/python",
-  "python.languageServer": "Pylance",
+  "python.languageServer": "None",
   "r.alwaysUseActiveTerminal": true,
   "r.bracketedPaste": true,
   "r.rpath.mac": "/usr/local/bin/R",
@@ -311,16 +312,16 @@
   "vscode-neovim.neovimExecutablePaths.linux": "/home/linuxbrew/.linuxbrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.vim",
   "window.commandCenter": false,
-  "workbench.editor.showTabs": "none",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb",
-    "{git,gitlens}:/**/*.{md,csv,svg}": "default"
+    "{git,gitlens,conflictResolution,vscode-local-history}:/**/*.tc.json": "default",
+    "{git,gitlens,conflictResolution,vscode-local-history}:/**/*.{asl.json,asl.yaml,asl.yml}": "default",
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.ipynb": "jupyter.notebook.ipynb"
   },
   "workbench.layoutControl.enabled": false,
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": true,
-  "zenMode.showTabs": "none",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -382,8 +383,6 @@
   "interactiveWindow.executeWithShiftEnter": true,
   "rstudio.keymap.enable": true,
   "terminal.external.osxExec": "iTerm.app",
-  "workbench.colorTheme": "Default Dark Modern",
-  "workbench.activityBar.location": "hidden",
   "gitdoc.autoPull": "onCommit",
   "gitdoc.filePattern": "**/*.*md",
   "gitdoc.pushMode": "forcePushWithLease",
@@ -412,8 +411,15 @@
     }],
   "github.copilot.nextEditSuggestions.enabled": true,
   "workbench.editor.editorActionsLocation": "titleBar",
-  "breadcrumbs.enabled": false,
-  "workbench.statusBar.visible": false,
   "editor.minimap.enabled": false,
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.activityBar.location": "hidden",
+  "breadcrumbs.enabled": false,
+  "cursorpyright.analysis.typeCheckingMode": "basic",
+  "redhat.telemetry.enabled": false,
   "editor.actionBar.enabled": false,
+  "kiroAgent.enableTabAutocomplete": true,
+  "editor.folding": false,
+  "editor.glyphMargin": false,
+  "workbench.editor.showTabs": "none",
 }

@@ -1,11 +1,10 @@
-tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
-tap "railwaycat/emacsmacport"
 tap "romkatv/powerlevel10k"
 # Search tool like grep, but optimized for programmers
 brew "ack"
+# Next generation open source RPC library and framework
+brew "grpc"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
 # Columnar in-memory analytics layer designed to accelerate big data
@@ -34,14 +33,14 @@ brew "pycparser"
 brew "cffi"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Get a file from an HTTP, HTTPS or FTP server
-brew "curl"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Select default apps for documents and URL schemes on macOS
 brew "duti"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
 # Package for scientific computing with Python
 brew "numpy"
 # Git for data science projects
@@ -80,6 +79,8 @@ brew "graphviz"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Fast, Dynamic Programming Language
+brew "julia", link: false
 # Package manager for the Lua programming language
 brew "luarocks"
 # Powerful, clean, object-oriented scripting language
@@ -106,6 +107,8 @@ brew "page"
 brew "pandoc"
 # Password manager
 brew "pass"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Package management made easy
@@ -160,6 +163,8 @@ brew "weasyprint"
 brew "wget"
 # PDF viewer
 brew "xpdf", link: false
+# High-performance, asynchronous messaging library
+brew "zeromq"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Real-time type-ahead completion for Zsh
