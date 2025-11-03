@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
+                        "description": "Change Caps Lock to Control if pressed with other keys or to Escape if pressed alone.",
                         "manipulators": [
                             {
                                 "from": {
@@ -42,7 +42,7 @@
                         ]
                     },
                     {
-                        "description": "Change opening square bracket ([) to option if pressed with other keys, to [ if pressed alone",
+                        "description": "Change Open Bracket to Option if pressed with other keys or to Grave Accent / Tilda if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -55,12 +55,12 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_option"
+                                        "key_code": "right_option"
                                     }
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "open_bracket"
+                                        "key_code": "grave_accent_and_tilde"
                                     }
                                 ],
                                 "type": "basic"
@@ -68,7 +68,7 @@
                         ]
                     },
                     {
-                        "description": "Change closing square bracket (]) to option if pressed with other keys, to ] if pressed alone",
+                        "description": "Change Close Bracket to Option if pressed with other keys, to itself if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -81,7 +81,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_option"
+                                        "key_code": "right_option"
                                     }
                                 ],
                                 "to_if_alone": [
@@ -94,7 +94,7 @@
                         ]
                     },
                     {
-                        "description": "Change tab to option if pressed with other keys, to tab if pressed alone",
+                        "description": "Change Tab to Option if pressed with other keys or to itself if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -120,7 +120,7 @@
                         ]
                     },
                     {
-                        "description": "Change backslash (\\) to option if pressed with other keys, to backslash if pressed alone",
+                        "description": "Change Backslash (\\) to Option if pressed with other keys or to itself if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -133,7 +133,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_option"
+                                        "key_code": "right_option"
                                     }
                                 ],
                                 "to_if_alone": [
@@ -146,33 +146,7 @@
                         ]
                     },
                     {
-                        "description": "Change tab to option if pressed with other keys, to tab if pressed alone",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_option"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "tab"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change quote to control if pressed with other keys, to quote if pressed alone",
+                        "description": "Change Quote to Control if pressed with other keys or to itself if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -185,7 +159,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "right_control"
                                     }
                                 ],
                                 "to_if_alone": [
@@ -198,7 +172,7 @@
                         ]
                     },
                     {
-                        "description": "Change return_or_enter to control if pressed with other keys, to return_or_enter if pressed alone",
+                        "description": "Change Return to Control if pressed with other keys or to itself if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -211,7 +185,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "right_control"
                                     }
                                 ],
                                 "to_if_alone": [
@@ -224,7 +198,91 @@
                         ]
                     },
                     {
-                        "description": "Toggle control center by sending Fn C with Alt Cmd C (similar to toggling dock with Alt Cmd D)",
+                        "description": "Change Control m to Backslash",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "command",
+                                            "option",
+                                            "shift",
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "backslash"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change Control Comma to Open Bracket",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "command",
+                                            "option",
+                                            "shift",
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change Control Period to Close Bracket",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "command",
+                                            "option",
+                                            "shift",
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Toggle Control Center by sending Fn C with Alt Cmd C (similar to toggling dock with Alt Cmd D)",
                         "manipulators": [
                             {
                                 "from": {
@@ -249,7 +307,7 @@
                         ]
                     },
                     {
-                        "description": "Toggle notification center by sending Fn N with Alt Cmd N (similar to toggling dock with Alt Cmd D)",
+                        "description": "Toggle Notification Center by sending Fn N with Alt Cmd N (similar to toggling dock with Alt Cmd D)",
                         "manipulators": [
                             {
                                 "from": {
@@ -274,7 +332,7 @@
                         ]
                     },
                     {
-                        "description": "Toggle menu bar by sending Ctrl F2 with Alt Cmd A (similar to toggling dock with Alt Cmd D)",
+                        "description": "Toggle Menu Bar by sending Ctrl F2 with Alt Cmd A (similar to toggling dock with Alt Cmd D)",
                         "manipulators": [
                             {
                                 "from": {
@@ -299,7 +357,7 @@
                         ]
                     },
                     {
-                        "description": "Toggle status bar by sending Ctrl F8 with Alt Cmd S (similar to toggling dock with Alt Cmd D)",
+                        "description": "Toggle Status Bar by sending Ctrl F8 with Alt Cmd S (similar to toggling dock with Alt Cmd D)",
                         "manipulators": [
                             {
                                 "from": {
@@ -735,103 +793,6 @@
                                 "to": [
                                     {
                                         "key_code": "tab"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^org\\.gnu\\.AquamacsEmacs$",
-                                            "^org\\.gnu\\.Aquamacs$",
-                                            "^org\\.pqrs\\.unknownapp.conkeror$",
-                                            "^com\\.microsoft\\.rdc$",
-                                            "^com\\.microsoft\\.rdc\\.",
-                                            "^net\\.sf\\.cord$",
-                                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                                            "^com\\.itap-mobile\\.qmote$",
-                                            "^com\\.nulana\\.remotixmac$",
-                                            "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                                            "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
-                                            "^com\\.teamviewer\\.TeamViewer$",
-                                            "^com\\.vmware\\.horizon$",
-                                            "^com\\.2X\\.Client\\.Mac$",
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^co\\.zeit\\.hyper$",
-                                            "^org\\.alacritty$",
-                                            "^org\\.tabby$",
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^org\\.vim\\.",
-                                            "^com\\.qvacua\\.VimR$",
-                                            "^com\\.vmware\\.fusion$",
-                                            "^com\\.vmware\\.horizon$",
-                                            "^com\\.vmware\\.view$",
-                                            "^com\\.parallels\\.desktop$",
-                                            "^com\\.parallels\\.vm$",
-                                            "^com\\.parallels\\.desktop\\.console$",
-                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.citrix\\.XenAppViewer$",
-                                            "^com\\.vmware\\.proxyApp\\.",
-                                            "^com\\.parallels\\.winapp\\.",
-                                            "^org\\.x\\.X11$",
-                                            "^com\\.apple\\.x11$",
-                                            "^org\\.macosforge\\.xquartz\\.X11$",
-                                            "^org\\.macports\\.X11$",
-                                            "^com\\.sublimetext\\.",
-                                            "^org\\.mozilla\\.firefox$",
-                                            "^com\\.google\\.Chrome$",
-                                            "^com\\.jetbrains\\.pycharm$",
-                                            "^com\\.jetbrains\\.pycharm-EAP$",
-                                            "^com\\.jetbrains\\.pycharm\\.ce$",
-                                            "^fleet\\.app$",
-                                            "^com\\.jetbrains\\.WebStorm$",
-                                            "^com\\.jetbrains\\.WebStorm-EAP$",
-                                            "^com\\.jetbrains\\.cwm\\.guest$",
-                                            "^com\\.rstudio\\.desktop$",
-                                            "^co\\.posit\\.positron$",
-                                            "^com\\.neovide\\.neovide$",
-                                            "^com\\.visualstudio\\.code\\.oss$",
-                                            "^app\\.vvim\\.vv$",
-                                            "^dev\\.zed\\.Zed$",
-                                            "^md\\.obsidian$",
-                                            "^net\\.cozic\\.joplin-desktop$",
-                                            "^neovim-qt$",
-                                            "^dev\\.Warp\\.Warp-Stable$",
-                                            "^org\\.jupyter\\.jupyterlab-desktop$",
-                                            "^org\\.inkscape\\.Inkscape$",
-                                            "^com\\.vscodium$",
-                                            "^com\\.trae\\.app$",
-                                            "^com\\.nao$",
-                                            "^com\\.void$",
-                                            "^com\\.exafunction\\.windsurf$",
-                                            "^dev\\.kiro\\.desktop$",
-                                            "^com\\.todesktop\\.230313mzl4w4u92$",
-                                            "^com\\.microsoft\\.VSCode$"
-                                        ],
-                                        "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "m",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock",
-                                            "command",
-                                            "option",
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "return_or_enter"
                                     }
                                 ],
                                 "type": "basic"
