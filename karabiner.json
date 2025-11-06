@@ -42,6 +42,33 @@
                         ]
                     },
                     {
+                        "description": "Send Command Shift Open Bracket instead of Command Shift Backtick",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change Open Bracket to Option if pressed with other keys or to Grave Accent / Tilda if pressed alone",
                         "manipulators": [
                             {
@@ -348,7 +375,8 @@
                                     {
                                     "key_code": "f2",
                                     "modifiers": [
-                                            "control"
+                                            "control",
+                                            "fn"
                                         ]
                                     }
                                 ],
@@ -373,7 +401,8 @@
                                     {
                                     "key_code": "f8",
                                     "modifiers": [
-                                            "control"
+                                            "control",
+                                            "fn"
                                         ]
                                     }
                                 ],
