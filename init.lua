@@ -93,40 +93,39 @@ function moveWindowToDisplay(d)
 end
 
 ----------------------------------------------------------------
--- CTRL ONLY SHORTCUTS
+-- WINDOW SHORTCUTS
 ----------------------------------------------------------------
--- The ctrl only bindings only affect the currently focused window
--- Mnemonic: only
+--- The Miro Window Manager shortcuts below work well,
+--- but if I could get Hammerspoon to recognize fn,
+--- I would change Alt Shift Cmd to Alt Fn
+--- https://github.com/Hammerspoon/hammerspoon/issues/3819
+--- Instead of Miro Window Manager,
+--- I can use the default macOS shortcuts that I set up with Karabiner
 
 -- https://github.com/miromannino/miro-windows-manager
 hs.loadSpoon("MiroWindowsManager")
 
--- Ctrl Tab is used as a switcher in many apps
--- ASCII character 9
-
--- Ctrl Space ( ) alternates between maximized, 3/4 and 1/2 in the center
--- Ctrl Quote (') alternates between 1/2, 1/3, and 2/3 split at the top
--- Ctrl Forward slash (/) alternates between 1/2, 1/3, and 2/3 split at the bottom
--- Ctrl Open square bracket ([) alternates between 1/2, 1/3, and 2/3 split on the left
--- Ctrl Close square bracket (]) alternates between 1/2, 1/3, and 2/3 split on the right
--- Ctrl Space is switch input source in macOS, but I just want to stick to the undead layout
--- Ctrl Space is used for completion in IDEs, but this shows up automatically
--- ASCII characters 32, 39, 47, 91, 93
+-- Alt Shift Cmd f alternates between 1, 3/4 and 1/2 in the center
+-- Alt Shift Cmd k alternates between 1/2, 1/3, and 2/3 split at the top
+-- Alt Shift Cmd j alternates between 1/2, 1/3, and 2/3 split at the bottom
+-- Alt Shift Cmd h alternates between 1/2, 1/3, and 2/3 split on the left
+-- Alt Shift Cmd l alternates between 1/2, 1/3, and 2/3 split on the right
+local alt_cmd = {"alt","cmd"}
+local alt_shift = {"alt","shift"}
+local alt_shift_cmd = {"alt","shift","cmd"}
 hs.window.animationDuration = 0 -- disable animations
 spoon.MiroWindowsManager:bindHotkeys({
-  fullscreen = {"ctrl", "space"}, -- Mnemonic: space is the widest key on the keyboard
-  up = {"ctrl", "'"}, -- Mnemonic: " creates a horizontal split in tmux
-  down = {"ctrl", "/"}, -- Mnemonic: the slash is falling down
-  left = {"ctrl", "["},
-  right = {"ctrl", "]"},
-  nextscreen = {"ctrl", "0"},
+  fullscreen = {alt_shift_cmd, "f"}, -- Mnemonic: f is for full
+  up = {alt_shift_cmd, "k"}, -- Mnemonic: k is up in vim
+  down = {alt_shift_cmd, "j"}, -- Mnemonic: j is down in vim
+  left = {alt_shift_cmd, "h"}, -- Mnemonic: h is left in vim
+  right = {alt_shift_cmd, "l"}, -- Mnemonic: l is right in vim
+  nextscreen = {alt_shift_cmd, "n"}, -- Mnemonic: n is for next
 })
 
--- Two = Top, thRee = Right, four = floor
--- Ctrl Comma (,) shrinks the window horizontally
--- ASCII character 44
+-- Alt < shrinks the window horizontally
 -- https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L392
-hs.hotkey.bind("ctrl", ",", function()
+hs.hotkey.bind(alt_shift, ",", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   local cw = current_window_rect(win)
@@ -138,9 +137,10 @@ hs.hotkey.bind("ctrl", ",", function()
   win:move(move_to_rect)
 end)
 
--- Ctrl Hyphen (-) shrinks the window horizontally
--- ASCII character 45
-hs.hotkey.bind("ctrl", "-", function()
+-- Alt V shrinks the window vertically
+-- V looks like a less-than or greater-than sign pointing down
+-- Mnemonic: down for decrease height
+hs.hotkey.bind(alt_shift, "v", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   local cw = current_window_rect(win)
@@ -152,10 +152,22 @@ hs.hotkey.bind("ctrl", "-", function()
   win:move(move_to_rect)
 end)
 
--- Ctrl Period (.) expands window horizontally
+-- Alt - shrinks the window vertically
+hs.hotkey.bind("alt", "-", function()
+  local win = hs.window.frontmostWindow()
+  exitFullScreen(win)
+  local cw = current_window_rect(win)
+  local move_to_rect = {}
+  move_to_rect[1] = cw[1]
+  move_to_rect[2] = cw[2] == 0 and cw[4] > 0.99 and 0.15 or cw[2] == 0 and 0 or math.min(cw[2]+0.05,1)
+  move_to_rect[3] = cw[3]
+  move_to_rect[4] = cw[2] == 0 and cw[4] > 0.99 and 1 - move_to_rect[2] or math.max(cw[4]-0.05,0.1) -- some windows (MacVim) don't size to 1
+  win:move(move_to_rect)
+end)
+
+-- Alt > expands the window horizontally
 -- https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L368
--- ASCII character 46
-hs.hotkey.bind("ctrl", ".", function()
+hs.hotkey.bind(alt_shift, ".", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   local cw = current_window_rect(win)
@@ -167,50 +179,10 @@ hs.hotkey.bind("ctrl", ".", function()
   win:move(move_to_rect)
 end)
 
--- Ctrl Zero (0) moves the current window to the next screen
--- Close Parentheses goes to next session in tmux
--- ASCII character 48
-hs.hotkey.bind("ctrl", "0", function()
-  local win = hs.window.frontmostWindow()
-  if win:isFullScreen() then
-    win:setFullScreen(false)
-    win:moveToScreen(win:screen():next(), true, true, 1)
-  else
-    win:moveToScreen(win:screen():next(), true, true)
-  end
-  centerMouseOnWindow(win)
-end)
-
--- Ctrl and the numbers 1-4 move the current window to screen 1-4
--- This requires changing the "Switch to Desktop" shortcuts...
--- in System Preferences > Keyboard > Shortcuts > Mission Control
--- ASCII characters 49-52
-hs.hotkey.bind("ctrl", "1", moveWindowToDisplay(1))
-hs.hotkey.bind("ctrl", "2", moveWindowToDisplay(2))
-hs.hotkey.bind("ctrl", "3", moveWindowToDisplay(3))
-hs.hotkey.bind("ctrl", "4", moveWindowToDisplay(4))
-hs.hotkey.bind("ctrl", "5", moveWindowToDisplay(5))
-
--- Ctrl Nine (9) moves the current window to the previous screen
--- Open parentheses goes to previous session in tmux
--- ASCII character 57
-hs.hotkey.bind("ctrl", "9", function()
-  local win = hs.window.frontmostWindow()
-  if win:isFullScreen() then
-    win:setFullScreen(false)
-    win:moveToScreen(win:screen():previous(), true, true, 1)
-  else
-    win:moveToScreen(win:screen():previous(), true, true)
-  end
-  centerMouseOnWindow(win)
-end)
-
--- Ctrl Semicolon (;) is my tmux prefix thanks to my iTerm config
--- ASCII character 59
-
--- Ctrl Equals (=) expands the window vertically
--- ASCII character 61
-hs.hotkey.bind("ctrl", "=", function()
+-- Alt X eXpands the window vertically
+-- X looks like a less-than and greater-than sign pointing at each other and rotated 25 centiturns
+-- Mnemonic: x is like ^ pushing up from beneath v
+hs.hotkey.bind(alt_shift, "x", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   local cw = current_window_rect(win)
@@ -222,11 +194,23 @@ hs.hotkey.bind("ctrl", "=", function()
   win:move(move_to_rect)
 end)
 
--- Ctrl Backslash (\) centers the window,
--- works great with [ and ] to create a triple vertical split
--- works great with / and ' to create a triple horizontal split
--- ASCII character 92
-hs.hotkey.bind("ctrl", "\\", function()
+-- Alt = expands the window vertically
+hs.hotkey.bind("alt", "=", function()
+  local win = hs.window.frontmostWindow()
+  exitFullScreen(win)
+  local cw = current_window_rect(win)
+  local move_to_rect = {}
+  move_to_rect[1] = cw[1]
+  move_to_rect[2] = (cw[2] == 0 and cw[4] == 1) and 0 or math.max(cw[2]-0.05,0) -- y
+  move_to_rect[3] = cw[3]
+  move_to_rect[4] = (cw[2] == 0 and cw[4] == 1) and 0.85 or math.min(cw[4]+0.05,1 - move_to_rect[2]) -- h
+  win:move(move_to_rect)
+end)
+
+-- Alt C centers the window,
+-- works great with Hyper h and Hyper l to create a triple vertical split
+-- works great with Hyper j and Alt k to create a triple horizontal split
+hs.hotkey.bind(alt_shift, "c", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   local cw = current_window_rect(win)
@@ -238,6 +222,47 @@ hs.hotkey.bind("ctrl", "\\", function()
   win:move(move_to_rect)
   win:centerOnScreen(nil, true)
 end)
+
+-- Alt X arranges the windows in quarters
+-- System Preferences > Keyboard > Window > Arrange in Quarters: Alt Shift X
+
+-- Alt 0 moves the current window to the next screen
+-- Close Parentheses goes to next session in tmux
+hs.hotkey.bind("alt", "0", function()
+  local win = hs.window.frontmostWindow()
+  if win:isFullScreen() then
+    win:setFullScreen(false)
+    win:moveToScreen(win:screen():next(), true, true, 1)
+  else
+    win:moveToScreen(win:screen():next(), true, true)
+  end
+  centerMouseOnWindow(win)
+end)
+
+-- Alt and the numbers 1-8 move the current window to screen 1-8
+hs.hotkey.bind("alt", "1", moveWindowToDisplay(1))
+hs.hotkey.bind("alt", "2", moveWindowToDisplay(2))
+hs.hotkey.bind("alt", "3", moveWindowToDisplay(3))
+hs.hotkey.bind("alt", "4", moveWindowToDisplay(4))
+hs.hotkey.bind("alt", "5", moveWindowToDisplay(5))
+hs.hotkey.bind("alt", "6", moveWindowToDisplay(6))
+hs.hotkey.bind("alt", "7", moveWindowToDisplay(7))
+hs.hotkey.bind("alt", "8", moveWindowToDisplay(8))
+
+-- Alt Nine (9) moves the current window to the previous screen
+-- Open parentheses goes to previous session in tmux
+hs.hotkey.bind("alt", "9", function()
+  local win = hs.window.frontmostWindow()
+  if win:isFullScreen() then
+    win:setFullScreen(false)
+    win:moveToScreen(win:screen():previous(), true, true, 1)
+  else
+    win:moveToScreen(win:screen():previous(), true, true)
+  end
+  centerMouseOnWindow(win)
+end)
+
+-- Ctrl Semicolon (;) is my tmux prefix thanks to my iTerm config
 
 -- Ctrl A goes to the beginning of the line in macOS and GNU Emacs/Readline
 -- Ctrl B goes one character backward in macOS and GNU Emacs/Readline
@@ -266,16 +291,7 @@ end)
 -- Ctrl Y is used to accept completion in Vim and pasting GNU Emacs/Readline
 -- Ctrl Z suspends the current process
 
--- The arrow keys move the current window
--- This requires changing the
--- - "Mission Control",
--- - "Application windows", and
--- - "Move left/right a space" shortcuts
--- in System Preferences > Keyboard > Shortcuts > Mission Control
--- I hate the macOS Spaces feature with the passion of infinite burning suns
--- Arrow keys have no ASCII code
-
--- Ctrl Left nudges the focused window to the left
+-- Alt Cmd H nudges the focused window to the left
 function nudgeLeft(d)
     return {
         x = d.x - 40,
@@ -284,13 +300,13 @@ function nudgeLeft(d)
         w = d.w,
     }
 end
-hs.hotkey.bind("ctrl", "left", function()
+hs.hotkey.bind(alt_shift, "h", function()
   win = hs.window.frontmostWindow()
   exitFullScreen(win)
   win:setFrame(nudgeLeft(win:frame()))
 end)
 
--- Ctrl Right nudges the focused window to the right
+-- Alt Cmd L nudges the focused window to the right
 function nudgeRight(d)
     return {
         x = d.x + 40,
@@ -299,13 +315,13 @@ function nudgeRight(d)
         w = d.w,
     }
 end
-hs.hotkey.bind("ctrl", "right", function()
+hs.hotkey.bind(alt_shift, "l", function()
   win = hs.window.frontmostWindow()
   exitFullScreen(win)
   win:setFrame(nudgeRight(win:frame()))
 end)
 
--- Ctrl Down nudges the focused window downward
+-- Alt Cmd J nudges the focused window downward
 function nudgeDown(d)
     return {
         x = d.x,
@@ -314,13 +330,13 @@ function nudgeDown(d)
         w = d.w,
     }
 end
-hs.hotkey.bind("ctrl", "down", function()
+hs.hotkey.bind(alt_shift, "j", function()
   win = hs.window.frontmostWindow()
   exitFullScreen(win)
   win:setFrame(nudgeDown(win:frame()))
 end)
 
--- Ctrl Up nudges the focused window upward
+-- Alt Cmd K nudges the focused window upward
 function nudgeUp(d)
     return {
         x = d.x,
@@ -329,23 +345,16 @@ function nudgeUp(d)
         w = d.w,
     }
 end
-hs.hotkey.bind("ctrl", "up", function()
+hs.hotkey.bind(alt_shift, "k", function()
   win = hs.window.frontmostWindow()
   exitFullScreen(win)
   win:setFrame(nudgeUp(win:frame()))
 end)
 
-----------------------------------------------------------------
--- ALT ONLY SHORTCUTS
-----------------------------------------------------------------
--- The alt only bindings focus something other than the current window
-
 -- Alt Tab is used as a switcher by the AltTab macOS application
--- ASCII character 9
 
 -- Alt Quote goes to the previously focused window
 -- like the last jump ('') mark in Vim
--- ASCII character 39
 hs.hotkey.bind("alt", "'", function()
   local target = hs.window.filter.new():getWindows(hs.window.filter.sortByFocusedLast)[2]
   target:application():activate()
@@ -360,12 +369,10 @@ function focusDisplay(d)
 end
 
 -- Alt Comma (,) is not used for anything
--- ASCII characters 44
 
 -- Alt - focuses the window below the current window
 -- Alt Hyphen (-) is begin negative argument in Emacs
--- ASCII character 45
-hs.hotkey.bind("alt", "-", function()
+hs.hotkey.bind("alt", "j", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   win:focusWindowSouth()
@@ -374,49 +381,45 @@ end)
 
 -- Alt Period (.) is insert previous argument in bash / zsh
 -- Alt Forwardslash (/) is hippie completion in Emacs, analogous to omnicompletion in vim
--- ASCII characters 46-47
 -- Note: Alt Shift Period (.) goes to the end of the document in Emacs
 -- Note: Alt Shift Comma (,) goes to the start of the document in Emacs
 -- In Vim, use G
 -- In macOS, use Ctrl Command N instead of Alt Shift .
 
--- Alt 0 brings focus to next display/screen
+-- Ctrl ) brings focus to next display/screen
 -- Close parentheses goes to next session in tmux
--- ASCII character 48
-hs.hotkey.bind("alt", "0", function ()
+hs.hotkey.bind(alt_cmd, "0", function ()
   focusScreen(hs.window.frontmostWindow():screen():next())
 end)
 
--- Alt and the numbers 1-4 brings focus to screens 104
--- Alt 1 thru 0 (create and) switch to windows 1-10 in tmux
--- ASCII characters 49-52
-hs.hotkey.bind("alt", "1", focusDisplay(1))
-hs.hotkey.bind("alt", "2", focusDisplay(2))
-hs.hotkey.bind("alt", "3", focusDisplay(3))
-hs.hotkey.bind("alt", "4", focusDisplay(4))
-hs.hotkey.bind("alt", "5", focusDisplay(5))
+-- Ctrl, Shift, and the numbers 1-5 brings focus to screens 1-5
+-- Ctrl Shift 1 thru 5 (create and) switch to windows 1-5 in tmux
+hs.hotkey.bind(alt_cmd, "1", focusDisplay(1))
+hs.hotkey.bind(alt_cmd, "2", focusDisplay(2))
+hs.hotkey.bind(alt_cmd, "3", focusDisplay(3))
+hs.hotkey.bind(alt_cmd, "4", focusDisplay(4))
+hs.hotkey.bind(alt_cmd, "5", focusDisplay(5))
+hs.hotkey.bind(alt_cmd, "6", focusDisplay(6))
+hs.hotkey.bind(alt_cmd, "7", focusDisplay(7))
+hs.hotkey.bind(alt_cmd, "8", focusDisplay(8))
 
 -- Alt 9 brings focus to previous display/screen
 -- Open parentheses goes to previous session in tmux
--- ASCII character 57
-hs.hotkey.bind("alt", "9", function()
+hs.hotkey.bind(alt_cmd, "9", function()
   focusScreen(hs.window.frontmostWindow():screen():previous())
 end)
 
 -- Alt Semicolon (;) is not used for anything
--- ASCII character 59
 
 -- Alt = focuses the window above the current window
 -- Alt = (ASCII character 61) is count words in region in Emacs
--- ASCII character 61
-hs.hotkey.bind("alt", "=", function()
+hs.hotkey.bind("alt", "k", function()
   hs.window.frontmostWindow():focusWindowNorth()
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
 
 -- Alt [ focuses the window to the left of the current window
 -- Alt [ is undefined in Emacs
--- ASCII character 91
 hs.hotkey.bind("alt", "[", function()
   hs.window.frontmostWindow():focusWindowWest()
   centerMouseOnWindow(hs.window.frontmostWindow())
@@ -425,14 +428,12 @@ end)
 -- Alt \ focuses the window behind the current window
 -- Mnemonic: BACKslash
 -- Alt \ deletes all whitespace around the cursor
--- ASCII character 92
 hs.hotkey.bind("alt", "\\", function()
   hs.window.frontmostWindow():sendToBack()
 end)
 
 -- Alt ] focuses the window to the right of the current window
 -- Alt ] is undefined in Emacs
--- ASCII character 93
 hs.hotkey.bind("alt", "]", function()
   hs.window.frontmostWindow():focusWindowEast()
   centerMouseOnWindow(hs.window.frontmostWindow())
@@ -468,9 +469,8 @@ hs.hotkey.bind("alt", "g", function()
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
 
--- Alt H shows Hammerspoon window hints
--- Alt H is mark paragraph in Emacs
-hs.hotkey.bind("alt", "h", hs.hints.windowHints)
+-- Alt W shows Hammerspoon window hints
+hs.hotkey.bind("alt", "w", hs.hints.windowHints)
 
 -- Alt I launches or focuses iTerm
 -- Alt I inserts spaces or tabs to next defined tab-stop column in Emacs
@@ -481,7 +481,7 @@ end)
 
 -- Alt J breaks line at point and indents in Emacs
 -- J focuses to your favorite Jetbrains IDE
-hs.hotkey.bind("alt", "j", function()
+hs.hotkey.bind("alt", "p", function()
   hs.application.launchOrFocus("PyCharm")
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
@@ -494,25 +494,25 @@ end)
 
 -- Alt M is for maximize (unminimize) windows for the focused app
 -- Alt M is back to indentation in Emacs
-hs.hotkey.bind("alt", "m", function()
-  local app = hs.application.frontmostApplication()
-  for k, w in ipairs(app:allWindows()) do w:unminimize() end
-end)
+-- hs.hotkey.bind("alt", "m", function()
+--   local app = hs.application.frontmostApplication()
+--   for k, w in ipairs(app:allWindows()) do w:unminimize() end
+-- end)
 
 -- Alt N goes to the next window in the Hammerspoon window switcher
 -- Alt N is undefined in Emacs
-hs.hotkey.bind("alt", "n", hs.window.switcher.nextWindow)
+-- hs.hotkey.bind("alt", "n", hs.window.switcher.nextWindow)
 
 -- Alt O is for Outlook
 -- Alt O is set face in Emacs
-hs.hotkey.bind("alt", "o", function()
-  hs.application.launchOrFocus("Microsoft Outlook")
-  centerMouseOnWindow(hs.window.frontmostWindow())
-end)
+-- hs.hotkey.bind("alt", "o", function()
+--   hs.application.launchOrFocus("Microsoft Outlook")
+--   centerMouseOnWindow(hs.window.frontmostWindow())
+-- end)
 
 -- Alt P goes to the next window in the Hammerspoon window switcher
 -- Alt P is undefined in Emacs
-hs.hotkey.bind("alt", "p", hs.window.switcher.previousWindow)
+-- hs.hotkey.bind("alt", "p", hs.window.switcher.previousWindow)
 
 -- Alt Q is for CopyQ, as in queue
 -- Alt Q is fill/format paragraph in Emacs, like gq or gw in vim
@@ -535,10 +535,10 @@ end)
 
 -- Alt V launches or focuses VSCode
 -- Alt V is page down in Emacs
-hs.hotkey.bind("alt", "v", function()
-  hs.application.launchOrFocus("Visual Studio Code")
-  centerMouseOnWindow(hs.window.frontmostWindow())
-end)
+-- hs.hotkey.bind("alt", "v", function()
+--   hs.application.launchOrFocus("Visual Studio Code")
+--   centerMouseOnWindow(hs.window.frontmostWindow())
+-- end)
 
 -- Use Alt W to focus floating window
 -- Alt W saves the marked region in Emacs
@@ -549,10 +549,9 @@ hs.hotkey.bind("alt", "x", function()
   hs.expose.new():toggleShow()
 end)
 
--- Alt V launches or focuses System Preferences
--- Mnemonic: sYstem Preferences
--- Alt Y rotates the kill ring (replaces last yank with previous kill) in Emacs
-hs.hotkey.bind("alt", "y", function()
+-- Alt S launches or focuses System Preferences
+-- Mnemonic: S is for System Preferences
+hs.hotkey.bind("alt", "s", function()
   hs.application.launchOrFocus("System Preferences")
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
@@ -561,20 +560,16 @@ end)
 -- Use Alt Z to focus Dock; mnemonic: z is below a (apple) and s (status menus)
 
 -- Alt Bar (|) deletes all spaces and tabs around cursor
--- ASCII character 124
 -- https://github.com/Hammerspoon/hammerspoon/issues/2022#issuecomment-518754783
 
 -- Alt Delete reduces indentation of lines to match a line above in Emacs
 -- Alt Delete also deletes previous word in macOS
--- ASCII character 127
 
 ----------------------------------------------------------------
 -- MISCELLANEOUS BINDINGS
 ----------------------------------------------------------------
 -- Miscellaneous Bindings all use Ctrl Alt
 -- CopyQ shortcuts, which also use Ctrl Alt, are described below
-
-local ctrl_alt = {"ctrl", "alt"}
 
 -- CLIPBOARD MANAGEMENT
 
@@ -586,16 +581,16 @@ local ctrl_alt = {"ctrl", "alt"}
 -- Ctrl Alt V edits the clipboard (mnemonic: vim)
 -- Ctrl Alt X pastes as plain text (mnemonic: remove (x) formatting)
 
--- Y imitates typing while pasting, Y is for yank, like Ctrl Y in GNU Emacs and Readline
+-- Alt Y imitates typing while pasting, Y is for yank, like Ctrl Y in GNU Emacs and Readline
 -- https://www.hammerspoon.org/go/#defeating-paste-blocking
-hs.hotkey.bind(ctrl_alt, "y", function()
+hs.hotkey.bind(alt_shift, "y", function()
   hs.eventtap.keyStrokes(hs.pasteboard.getContents())
 end)
 
 -- RELOAD HAMMERSPOON CONFIG
 
--- Ctrl Alt R reloads the config
-hs.hotkey.bind(ctrl_alt, "r", hs.reload)
+-- Alt R reloads the config
+hs.hotkey.bind(alt_shift, "r", hs.reload)
 
 -- TOGGLE SYSTEM SYSTEM
 
@@ -619,7 +614,7 @@ if caffeine then
     setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
 end
 
-hs.hotkey.bind(ctrl_alt, "z", caffeineClicked)
+hs.hotkey.bind(alt_cmd, "z", caffeineClicked)
 
 -- DISABLE ALL KEY BINDINGS
 
@@ -628,7 +623,7 @@ local hk = hs.hotkey.getHotkeys()
 local hkEnabled = true
 
 -- Delete is on the opposite side of the keyboard from Backtick
-hs.hotkey.bind(ctrl_alt, "delete", function()
+hs.hotkey.bind(alt_cmd, "delete", function()
     if hkEnabled then
         for k, v in ipairs(hk) do v:disable() end
         hkEnabled = false
