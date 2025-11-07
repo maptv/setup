@@ -235,7 +235,7 @@
                         ]
                     },
                     {
-                        "description": "Change the 1 key to Command Control Option if pressed with other keys or to itself if pressed alone",
+                        "description": "Change 1 to Fn if pressed with other keys or to itself if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -248,11 +248,7 @@
                                 },
                                 "to": [
                                     {
-                                      "key_code": "left_command",
-                                      "modifiers": [
-                                        "left_control",
-                                        "left_option"
-                                      ],
+                                        "key_code": "fn",
                                         "lazy": true
                                     }
                                 ],
@@ -266,7 +262,7 @@
                         ]
                     },
                     {
-                        "description": "Change the ` key to Command Control Option if pressed with other keys or to itself if pressed alone",
+                        "description": "Change ` to Fn if pressed with other keys or to itself if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -279,11 +275,7 @@
                                 },
                                 "to": [
                                     {
-                                      "key_code": "left_command",
-                                      "modifiers": [
-                                        "left_control",
-                                        "left_option"
-                                      ],
+                                        "key_code": "fn",
                                         "lazy": true
                                     }
                                 ],
@@ -297,7 +289,7 @@
                         ]
                     },
                     {
-                        "description": "Change the = key to Command Control Option if pressed with other keys or to itself if pressed alone",
+                        "description": "Change = to Fn if pressed with other keys or to itself if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -310,11 +302,7 @@
                                 },
                                 "to": [
                                     {
-                                      "key_code": "right_command",
-                                      "modifiers": [
-                                        "right_control",
-                                        "right_option"
-                                      ],
+                                        "key_code": "fn",
                                         "lazy": true
                                     }
                                 ],
@@ -328,16 +316,15 @@
                         ]
                     },
                     {
-                        "description": "Tile window left half with Command Control Option h instead of Fn Ctrl left arrow",
+                        "description": "Tile window left half with Fn Ctrl h instead of Fn Ctrl left arrow",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
                                             "control",
-                                            "option"
+                                            "fn"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -346,11 +333,11 @@
                                 },
                                 "to": [
                                     {
-                                    "key_code": "left_arrow",
-                                    "modifiers": [
-                                            "control",
-                                            "fn"
-                                        ]
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                                "control",
+                                                "fn"
+                                            ]
                                     }
                                 ],
                                 "type": "basic"
@@ -358,16 +345,15 @@
                         ]
                     },
                     {
-                        "description": "Tile window right half with Command Control Option l instead of Fn Ctrl right arrow",
+                        "description": "Tile window right half with Fn Ctrl l instead of Fn Ctrl right arrow",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
                                             "control",
-                                            "option"
+                                            "fn"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -376,11 +362,11 @@
                                 },
                                 "to": [
                                     {
-                                    "key_code": "right_arrow",
-                                    "modifiers": [
-                                            "control",
-                                            "fn"
-                                        ]
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                                "control",
+                                                "fn"
+                                            ]
                                     }
                                 ],
                                 "type": "basic"
@@ -388,16 +374,15 @@
                         ]
                     },
                     {
-                        "description": "Tile window bottom half with Command Option Return instead of Fn Ctrl down arrow",
+                        "description": "Tile window bottom half with Fn Ctrl j instead of Fn Ctrl down arrow",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
                                             "control",
-                                            "option"
+                                            "fn"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -406,28 +391,27 @@
                                 },
                                 "to": [
                                     {
-                                    "key_code": "down_arrow",
-                                    "modifiers": [
-                                            "control",
-                                            "fn"
-                                        ]
-                                    }
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                                "control",
+                                                "fn"
+                                            ]
+                                        }
                                 ],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "Tile window top half with Command Control Option k instead of Fn Ctrl up arrow",
+                        "description": "Tile window top half with Fn Ctrl k instead of Fn Ctrl up arrow",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
                                             "control",
-                                            "option"
+                                            "fn"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -436,29 +420,27 @@
                                 },
                                 "to": [
                                     {
-                                    "key_code": "up_arrow",
-                                    "modifiers": [
-                                            "control",
-                                            "fn"
-                                        ]
-                                    }
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                                "control",
+                                                "fn"
+                                            ]
+                                        }
                                 ],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "Arrange windows left and right with Command Control Option Shift h instead of Fn Shift Ctrl left arrow",
+                        "description": "Arrange windows left and right with Fn Shift h instead of Fn Shift Ctrl left arrow",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control",
-                                            "option",
-                                            "shift"
+                                            "shift",
+                                            "fn"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -467,12 +449,12 @@
                                 },
                                 "to": [
                                     {
-                                    "key_code": "left_arrow",
-                                    "modifiers": [
-                                            "control",
-                                            "shift",
-                                            "fn"
-                                        ]
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                                "control",
+                                                "shift",
+                                                "fn"
+                                            ]
                                     }
                                 ],
                                 "type": "basic"
@@ -480,17 +462,15 @@
                         ]
                     },
                     {
-                        "description": "Arrange windows right and left with Command Control Option Shift l instead of Fn Shift Ctrl right arrow",
+                        "description": "Arrange windows right and left with Fn Shift l instead of Fn Shift Ctrl right arrow",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control",
-                                            "option",
-                                            "shift"
+                                            "shift",
+                                            "fn"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -499,12 +479,12 @@
                                 },
                                 "to": [
                                     {
-                                    "key_code": "left_arrow",
-                                    "modifiers": [
-                                            "control",
-                                            "shift",
-                                            "fn"
-                                        ]
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                                "control",
+                                                "shift",
+                                                "fn"
+                                            ]
                                     }
                                 ],
                                 "type": "basic"
@@ -512,17 +492,15 @@
                         ]
                     },
                     {
-                        "description": "Arrange windows bottom and top with Command Control Option Shift j instead of Fn Shift Ctrl down arrow",
+                        "description": "Arrange windows bottom and top with Fn Shift j instead of Fn Shift Ctrl down arrow",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control",
-                                            "option",
-                                            "shift"
+                                            "shift",
+                                            "fn"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -531,12 +509,12 @@
                                 },
                                 "to": [
                                     {
-                                    "key_code": "down_arrow",
-                                    "modifiers": [
-                                            "control",
-                                            "shift",
-                                            "fn"
-                                        ]
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                                "control",
+                                                "shift",
+                                                "fn"
+                                            ]
                                     }
                                 ],
                                 "type": "basic"
@@ -544,17 +522,15 @@
                         ]
                     },
                     {
-                        "description": "Arrange windows top and bottom with Command Control Option Shift k instead of Fn Shift Ctrl up arrow",
+                        "description": "Arrange windows top and bottom with Fn Shift k instead of Fn Shift Ctrl up arrow",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control",
-                                            "option",
-                                            "shift"
+                                            "shift",
+                                            "fn"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -563,12 +539,12 @@
                                 },
                                 "to": [
                                     {
-                                    "key_code": "up_arrow",
-                                    "modifiers": [
-                                            "control",
-                                            "shift",
-                                            "fn"
-                                        ]
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                                "control",
+                                                "shift",
+                                                "fn"
+                                            ]
                                     }
                                 ],
                                 "type": "basic"
