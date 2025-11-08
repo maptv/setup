@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Change Caps Lock to Control if pressed with other keys or to Escape if pressed alone.",
+                        "description": "Change Caps Lock to Control if pressed with other keys or to Escape if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -41,6 +41,46 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Pressing the tab = simultaneously send Hyper",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "tab"
+                                        },
+                                        {
+                                            "key_code": "equal_sign"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "insensitive",
+                                        "detect_key_down_uninterruptedly": true
+                                    },
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "command",
+                                        "modifiers": [
+                                            "control",
+                                            "option",
+                                            "shift"
+                                        ],
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "equal_sign",
+                                        "modifiers": [
+                                            "option"
+                                        ]
+                                    }
+                                ]
                     },
                     {
                         "description": "Send Command Shift Open Bracket instead of Command Shift Backtick",
