@@ -123,6 +123,27 @@ spoon.MiroWindowsManager:bindHotkeys({
   nextscreen = {alt_shift_cmd, "n"}, -- Mnemonic: n is for next
 })
 
+-- Alt Shift Space maximizes the window
+hs.hotkey.bind(alt_shift, "space", function()
+  local win = hs.window.frontmostWindow()
+  exitFullScreen(win)
+  win:maximize()
+end)
+
+-- Alt Shift Cmd Space maximizes the window
+hs.hotkey.bind(alt_shift_cmd, "space", function()
+  local win = hs.window.frontmostWindow()
+  exitFullScreen(win)
+  win:maximize()
+end)
+
+-- Alt Cmd Space maximizes the window
+hs.hotkey.bind(alt_cmd, "space", function()
+  local win = hs.window.frontmostWindow()
+  exitFullScreen(win)
+  win:maximize()
+end)
+
 -- Alt < shrinks the window horizontally
 -- https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L392
 hs.hotkey.bind(alt_shift, ",", function()

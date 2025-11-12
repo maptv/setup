@@ -431,6 +431,35 @@
                         ]
                     },
                     {
+                        "description": "Maximize window with Fn Ctrl Space in addition to Fn Ctrl f",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "fn"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": [
+                                                "control",
+                                                "fn"
+                                            ]
+                                        }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Arrange windows left and right with Fn Shift h instead of Fn Shift Ctrl left arrow",
                         "manipulators": [
                             {
