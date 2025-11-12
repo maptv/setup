@@ -85,7 +85,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_option",
+                                        "key_code": "right_option",
                                         "lazy": true
                                     }
                                 ],
@@ -112,7 +112,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_option",
+                                        "key_code": "right_option",
                                         "lazy": true
                                     }
                                 ],
@@ -166,7 +166,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_option",
+                                        "key_code": "right_option",
                                         "lazy": true
                                     }
                                 ],
