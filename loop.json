@@ -183,13 +183,27 @@
     {
       "direction" : "Maximize",
       "keybind" : [
-        46
+        49
       ]
     },
     {
-      "direction" : "Maximize",
+      "direction" : "MaximizeHeight",
       "keybind" : [
-        49
+        3,
+        4
+      ]
+    },
+    {
+      "direction" : "MaximizeWidth",
+      "keybind" : [
+        3,
+        13
+      ]
+    },
+    {
+      "direction" : "Minimize",
+      "keybind" : [
+        46
       ]
     },
     {
@@ -235,28 +249,28 @@
     {
       "direction" : "ShrinkBottom",
       "keybind" : [
-        1,
+        15,
         38
       ]
     },
     {
       "direction" : "ShrinkLeft",
       "keybind" : [
-        1,
-        4
+        4,
+        15
       ]
     },
     {
       "direction" : "ShrinkRight",
       "keybind" : [
-        1,
+        15,
         37
       ]
     },
     {
       "direction" : "ShrinkTop",
       "keybind" : [
-        1,
+        15,
         40
       ],
       "name" : ""
