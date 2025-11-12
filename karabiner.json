@@ -43,46 +43,6 @@
                         ]
                     },
                     {
-                        "description": "Pressing the tab = simultaneously send Hyper",
-                        "manipulators": [
-                            {
-                                "type": "basic",
-                                "from": {
-                                    "simultaneous": [
-                                        {
-                                            "key_code": "tab"
-                                        },
-                                        {
-                                            "key_code": "equal_sign"
-                                        }
-                                    ],
-                                    "simultaneous_options": {
-                                        "key_down_order": "insensitive",
-                                        "detect_key_down_uninterruptedly": true
-                                    },
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "command",
-                                        "modifiers": [
-                                            "control",
-                                            "option",
-                                            "shift"
-                                        ],
-                                        "lazy": true
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "equal_sign",
-                                        "modifiers": [
-                                            "option"
-                                        ]
-                                    }
-                                ]
-                    },
-                    {
                         "description": "Send Command Shift Open Bracket instead of Command Shift Backtick",
                         "manipulators": [
                             {
@@ -125,7 +85,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_option",
+                                        "key_code": "left_option",
                                         "lazy": true
                                     }
                                 ],
@@ -152,7 +112,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_option",
+                                        "key_code": "left_option",
                                         "lazy": true
                                     }
                                 ],
@@ -206,7 +166,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_option",
+                                        "key_code": "left_option",
                                         "lazy": true
                                     }
                                 ],
