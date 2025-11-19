@@ -113,6 +113,7 @@ hs.loadSpoon("MiroWindowsManager")
 local alt_cmd = {"alt","cmd"}
 local alt_shift = {"alt","shift"}
 local alt_shift_cmd = {"alt","shift","cmd"}
+local ctrl_alt_shift_cmd = {"ctrl","alt","shift","cmd"}
 hs.window.animationDuration = 0 -- disable animations
 spoon.MiroWindowsManager:bindHotkeys({
   fullscreen = {alt_shift_cmd, "f"}, -- Mnemonic: f is for full
@@ -123,12 +124,8 @@ spoon.MiroWindowsManager:bindHotkeys({
   nextscreen = {alt_shift_cmd, "n"}, -- Mnemonic: n is for next
 })
 
--- Alt Shift Space maximizes the window
-hs.hotkey.bind(alt_shift, "space", function()
-  local win = hs.window.frontmostWindow()
-  exitFullScreen(win)
-  win:maximize()
-end)
+-- Alt Shift Space is used by Homerow
+-- Alt Space is used by Raycast
 
 -- Alt Shift Cmd Space maximizes the window
 hs.hotkey.bind(alt_shift_cmd, "space", function()
@@ -139,6 +136,13 @@ end)
 
 -- Alt Cmd Space maximizes the window
 hs.hotkey.bind(alt_cmd, "space", function()
+  local win = hs.window.frontmostWindow()
+  exitFullScreen(win)
+  win:maximize()
+end)
+
+-- Alt Cmd f maximizes the window
+hs.hotkey.bind(alt_cmd, "f", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   win:maximize()
@@ -187,6 +191,7 @@ hs.hotkey.bind("alt", "-", function()
 end)
 
 -- Alt > expands the window horizontally
+-- Alt . is insert previous argument in bash and zsh
 -- https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L368
 hs.hotkey.bind(alt_shift, ".", function()
   local win = hs.window.frontmostWindow()
@@ -228,9 +233,11 @@ hs.hotkey.bind("alt", "=", function()
   win:move(move_to_rect)
 end)
 
--- Alt C centers the window,
--- works great with Hyper h and Hyper l to create a triple vertical split
--- works great with Hyper j and Alt k to create a triple horizontal split
+-- Alt C or Alt Cmd C centers the window,
+-- works great with
+--   - Alt Cmd H and Alt Cmd L to create a triple vertical split
+--   - Alt Cmd J and Alt Cmd K to create a triple horizontal split
+-- Alt Cmd c summons and focuses the control center
 hs.hotkey.bind(alt_shift, "c", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
@@ -244,8 +251,23 @@ hs.hotkey.bind(alt_shift, "c", function()
   win:centerOnScreen(nil, true)
 end)
 
+hs.hotkey.bind(alt_shift_cmd, "c", function()
+  local win = hs.window.frontmostWindow()
+  exitFullScreen(win)
+  local cw = current_window_rect(win)
+  local move_to_rect = {}
+  move_to_rect[1] = cw[1] == 0 and 0.15 or cw[1] -- x
+  move_to_rect[2] = cw[2]
+  move_to_rect[3] = cw[3] == 1 and 0.85 or cw[3] -- w
+  move_to_rect[4] = cw[4]
+  win:move(move_to_rect)
+  win:centerOnScreen(nil, true)
+end)
+
 -- Alt X arranges the windows in quarters
--- System Preferences > Keyboard > Window > Arrange in Quarters: Alt Shift X
+-- System Preferences > Keyboard > Window > Arrange in Quarters: Alt X
+-- Looks like this one can saved as dotfile with a Python script:
+-- https://github.com/alberti42/macOS-hotkeys-manager
 
 -- Alt 0 moves the current window to the next screen
 -- Close Parentheses goes to next session in tmux
@@ -312,7 +334,7 @@ end)
 -- Ctrl Y is used to accept completion in Vim and pasting GNU Emacs/Readline
 -- Ctrl Z suspends the current process
 
--- Alt Cmd H nudges the focused window to the left
+-- Alt H nudges the focused window to the left
 function nudgeLeft(d)
     return {
         x = d.x - 40,
@@ -327,7 +349,7 @@ hs.hotkey.bind(alt_shift, "h", function()
   win:setFrame(nudgeLeft(win:frame()))
 end)
 
--- Alt Cmd L nudges the focused window to the right
+-- Alt L nudges the focused window to the right
 function nudgeRight(d)
     return {
         x = d.x + 40,
@@ -342,7 +364,7 @@ hs.hotkey.bind(alt_shift, "l", function()
   win:setFrame(nudgeRight(win:frame()))
 end)
 
--- Alt Cmd J nudges the focused window downward
+-- Alt J nudges the focused window downward
 function nudgeDown(d)
     return {
         x = d.x,
@@ -357,7 +379,7 @@ hs.hotkey.bind(alt_shift, "j", function()
   win:setFrame(nudgeDown(win:frame()))
 end)
 
--- Alt Cmd K nudges the focused window upward
+-- Alt K nudges the focused window upward
 function nudgeUp(d)
     return {
         x = d.x,
@@ -391,15 +413,6 @@ end
 
 -- Alt Comma (,) is not used for anything
 
--- Alt - focuses the window below the current window
--- Alt Hyphen (-) is begin negative argument in Emacs
-hs.hotkey.bind("alt", "j", function()
-  local win = hs.window.frontmostWindow()
-  exitFullScreen(win)
-  win:focusWindowSouth()
-  centerMouseOnWindow(hs.window.frontmostWindow())
-end)
-
 -- Alt Period (.) is insert previous argument in bash / zsh
 -- Alt Forwardslash (/) is hippie completion in Emacs, analogous to omnicompletion in vim
 -- Note: Alt Shift Period (.) goes to the end of the document in Emacs
@@ -430,17 +443,24 @@ hs.hotkey.bind(alt_cmd, "9", function()
   focusScreen(hs.window.frontmostWindow():screen():previous())
 end)
 
--- Alt Semicolon (;) is not used for anything
+-- Alt j focuses the window below the current window
+hs.hotkey.bind("alt", "j", function()
+  local win = hs.window.frontmostWindow()
+  exitFullScreen(win)
+  win:focusWindowSouth()
+  centerMouseOnWindow(hs.window.frontmostWindow())
+end)
 
--- Alt = focuses the window above the current window
--- Alt = (ASCII character 61) is count words in region in Emacs
+-- Alt k focuses the window above the current window
+-- Alt k is delete to end of sentence in Emacs
 hs.hotkey.bind("alt", "k", function()
   hs.window.frontmostWindow():focusWindowNorth()
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
 
 -- Alt [ focuses the window to the left of the current window
--- Alt [ is undefined in Emacs
+-- I pass this with Alt Ctrl ,
+-- it makes sense to have Alt h be delete previous word instead of Ctrl w
 hs.hotkey.bind("alt", "[", function()
   hs.window.frontmostWindow():focusWindowWest()
   centerMouseOnWindow(hs.window.frontmostWindow())
@@ -448,13 +468,15 @@ end)
 
 -- Alt \ focuses the window behind the current window
 -- Mnemonic: BACKslash
--- Alt \ deletes all whitespace around the cursor
+-- I pass this with Alt Ctrl m
+-- Alt \ deletes all whitespace around the cursor in Emacs
 hs.hotkey.bind("alt", "\\", function()
   hs.window.frontmostWindow():sendToBack()
 end)
 
 -- Alt ] focuses the window to the right of the current window
--- Alt ] is undefined in Emacs
+-- I pass this with Alt Ctrl .
+-- Alt l is lowercase word in Emacs
 hs.hotkey.bind("alt", "]", function()
   hs.window.frontmostWindow():focusWindowEast()
   centerMouseOnWindow(hs.window.frontmostWindow())
@@ -469,115 +491,98 @@ hs.hotkey.bind("alt", "`", function()
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
 
--- Alt A is move to start of previous sentence in Emacs
--- Use Alt A to focus menu bar, Mnemonic: A is Apple
--- System Preferences > Keyboard > Shortcuts > Keyboard > Move focus to menu bar
+-- Alt a is move to start of previous sentence in Emacs
 
--- Alt B is move one word backward in Emacs
+-- Alt b is move one word backward in Emacs
 
--- Alt C is capitalize next word in Emacs
+-- Alt c is capitalize next word in Emacs
 
--- Alt D is delete next word in Emacs
+-- Alt d is delete next word in Emacs
 
--- Alt E is go to end of sentence in Emacs
+-- Alt e is go to end of sentence in Emacs
 
--- Alt F is move one word forward in Emacs
+-- Alt f is move one word forward in Emacs
 
--- Alt G launches or focuses Google Chrome
--- Alt G, G is go to line; Alt G, C is go to char in Emacs
+-- Alt g launches or focuses Google Chrome
+-- Alt g, g is go to line; Alt g, c is go to char in Emacs
 hs.hotkey.bind("alt", "g", function()
   hs.application.launchOrFocus("Google Chrome")
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
 
--- Alt W shows Hammerspoon window hints
+-- Alt w shows Hammerspoon window hints
+-- Alt w is kill ring save (saves the marked region) in Emacs
 hs.hotkey.bind("alt", "w", hs.hints.windowHints)
 
--- Alt I launches or focuses iTerm
--- Alt I inserts spaces or tabs to next defined tab-stop column in Emacs
+-- Alt i launches or focuses iTerm
+-- Alt i inserts spaces or tabs to next defined tab-stop column in Emacs
 hs.hotkey.bind("alt", "i", function()
   hs.application.launchOrFocus("iTerm")
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
 
--- Alt J breaks line at point and indents in Emacs
--- J focuses to your favorite Jetbrains IDE
-hs.hotkey.bind("alt", "p", function()
-  hs.application.launchOrFocus("PyCharm")
-  centerMouseOnWindow(hs.window.frontmostWindow())
+-- Alt m is for maximize (unminimize) windows for the focused app
+-- Alt m is back to indentation in Emacs
+hs.hotkey.bind("alt", "m", function()
+  local app = hs.application.frontmostApplication()
+  for k, w in ipairs(app:allWindows()) do w:unminimize() end
 end)
 
--- Use Alt K to toggle macOS keyboard access
--- System Preferences > Keyboard > Shortcuts > Keyboard > Turn keyboard access on or off
--- Alt K is delete to end of sentence in Emacs
+-- Alt n goes to the next window in the Hammerspoon window switcher
+-- Alt n is undefined in Emacs
+hs.hotkey.bind("alt", "n", hs.window.switcher.nextWindow)
 
--- Alt L is lowercase to end of word in Emacs
-
--- Alt M is for maximize (unminimize) windows for the focused app
--- Alt M is back to indentation in Emacs
--- hs.hotkey.bind("alt", "m", function()
---   local app = hs.application.frontmostApplication()
---   for k, w in ipairs(app:allWindows()) do w:unminimize() end
--- end)
-
--- Alt N goes to the next window in the Hammerspoon window switcher
--- Alt N is undefined in Emacs
--- hs.hotkey.bind("alt", "n", hs.window.switcher.nextWindow)
-
--- Alt O is for Outlook
--- Alt O is set face in Emacs
+-- Alt o is for Outlook
+-- Alt o is set face in Emacs
 -- hs.hotkey.bind("alt", "o", function()
 --   hs.application.launchOrFocus("Microsoft Outlook")
 --   centerMouseOnWindow(hs.window.frontmostWindow())
 -- end)
 
--- Alt P goes to the next window in the Hammerspoon window switcher
--- Alt P is undefined in Emacs
--- hs.hotkey.bind("alt", "p", hs.window.switcher.previousWindow)
+-- Alt p goes to the next window in the Hammerspoon window switcher
+-- Alt p is undefined in Emacs
+hs.hotkey.bind("alt", "p", hs.window.switcher.previousWindow)
 
--- Alt Q is for CopyQ, as in queue
--- Alt Q is fill/format paragraph in Emacs, like gq or gw in vim
+-- Alt q is for CopyQ, as in queue
+-- Alt q is fill/format paragraph in Emacs, like gq or gw in vim
 hs.hotkey.bind("alt", "q", function()
   hs.application.launchOrFocus("CopyQ")
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
 
--- Use Alt R to focus window toolbar (mnemonic: toolbaR, works a bit like Alt R in Emacs in that it jumps back and forth)
--- In Emacs, Alt R positions the cursor at the center of window, then alternates between top, middle, bottom
+-- Use Alt r to focus window toolbar (mnemonic: toolbaR, works a bit like Alt R in Emacs in that it jumps back and forth)
+-- In Emacs, Alt r positions the cursor at the center of window, then alternates between top, middle, bottom
 
--- Use Alt S to focus status menus
--- Alt S is search forward in Emacs
+-- Use Alt s to focus status menus
+-- Alt s is search forward in Emacs
 -- System Preferences > Keyboard > Shortcuts > Keyboard > Move focus to status menus
--- Mnemonic: S is to the right of A on the keyboard
+-- Mnemonic: s is to the right of a on the keyboard
 
--- Alt T is transpose words in Emacs
+-- Alt t is transpose words in Emacs
 
--- Alt U is uppercase word in Emacs
+-- Alt u is uppercase word in Emacs
 
--- Alt V launches or focuses VSCode
--- Alt V is page down in Emacs
+-- Alt v launches or focuses VSCode
+-- Alt v is page down in Emacs
 -- hs.hotkey.bind("alt", "v", function()
 --   hs.application.launchOrFocus("Visual Studio Code")
 --   centerMouseOnWindow(hs.window.frontmostWindow())
 -- end)
 
--- Use Alt W to focus floating window
--- Alt W saves the marked region in Emacs
-
--- X is for eXpose
--- Alt X brings up a list of commands in Emacs
+-- Alt x is for eXpose
+-- Alt x brings up a list of commands in Emacs
 hs.hotkey.bind("alt", "x", function()
   hs.expose.new():toggleShow()
 end)
 
--- Alt S launches or focuses System Preferences
--- Mnemonic: S is for System Preferences
+-- Alt s launches or focuses System Preferences
+-- Mnemonic: s is for System Preferences
 hs.hotkey.bind("alt", "s", function()
   hs.application.launchOrFocus("System Preferences")
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
 
--- Alt Z is zap to char, same as dt in vim
+-- Alt z is zap to char, same as dt in vim
 -- Use Alt Z to focus Dock; mnemonic: z is below a (apple) and s (status menus)
 
 -- Alt Bar (|) deletes all spaces and tabs around cursor
@@ -643,8 +648,10 @@ local hk = hs.hotkey.getHotkeys()
 
 local hkEnabled = true
 
--- Delete is on the opposite side of the keyboard from Backtick
-hs.hotkey.bind(alt_cmd, "delete", function()
+-- I toggle all key bindings with Ctrl Alt Cmd h
+-- because h is for hammerspoon and ctrl h is like delete
+-- which is on the opposite side of the keyboard from Backtick
+hs.hotkey.bind(ctrl_alt_shift_cmd, "h", function()
     if hkEnabled then
         for k, v in ipairs(hk) do v:disable() end
         hkEnabled = false
@@ -652,4 +659,4 @@ hs.hotkey.bind(alt_cmd, "delete", function()
         for k, v in ipairs(hk) do v:enable() end
         hkEnabled = true
     end
-end)
+  end)
