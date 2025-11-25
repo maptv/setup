@@ -134,23 +134,9 @@ hs.hotkey.bind(alt_shift_cmd, "space", function()
   win:maximize()
 end)
 
--- Alt Cmd Space maximizes the window
-hs.hotkey.bind(alt_cmd, "space", function()
-  local win = hs.window.frontmostWindow()
-  exitFullScreen(win)
-  win:maximize()
-end)
-
--- Alt Cmd f maximizes the window
-hs.hotkey.bind(alt_cmd, "f", function()
-  local win = hs.window.frontmostWindow()
-  exitFullScreen(win)
-  win:maximize()
-end)
-
--- Alt < shrinks the window horizontally
+-- Alt Cmd < shrinks the window horizontally
 -- https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L392
-hs.hotkey.bind(alt_shift, ",", function()
+hs.hotkey.bind(alt_shift_cmd, ",", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   local cw = current_window_rect(win)
@@ -162,10 +148,10 @@ hs.hotkey.bind(alt_shift, ",", function()
   win:move(move_to_rect)
 end)
 
--- Alt V shrinks the window vertically
+-- Alt Cmd V shrinks the window vertically
 -- V looks like a less-than or greater-than sign pointing down
 -- Mnemonic: down for decrease height
-hs.hotkey.bind(alt_shift, "v", function()
+hs.hotkey.bind(alt_shift_cmd, "v", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   local cw = current_window_rect(win)
@@ -177,23 +163,10 @@ hs.hotkey.bind(alt_shift, "v", function()
   win:move(move_to_rect)
 end)
 
--- Alt - shrinks the window vertically
-hs.hotkey.bind("alt", "-", function()
-  local win = hs.window.frontmostWindow()
-  exitFullScreen(win)
-  local cw = current_window_rect(win)
-  local move_to_rect = {}
-  move_to_rect[1] = cw[1]
-  move_to_rect[2] = cw[2] == 0 and cw[4] > 0.99 and 0.15 or cw[2] == 0 and 0 or math.min(cw[2]+0.05,1)
-  move_to_rect[3] = cw[3]
-  move_to_rect[4] = cw[2] == 0 and cw[4] > 0.99 and 1 - move_to_rect[2] or math.max(cw[4]-0.05,0.1) -- some windows (MacVim) don't size to 1
-  win:move(move_to_rect)
-end)
-
--- Alt > expands the window horizontally
+-- Alt Cmd > expands the window horizontally
 -- Alt . is insert previous argument in bash and zsh
 -- https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L368
-hs.hotkey.bind(alt_shift, ".", function()
+hs.hotkey.bind(alt_shift_cmd, ".", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   local cw = current_window_rect(win)
@@ -205,10 +178,10 @@ hs.hotkey.bind(alt_shift, ".", function()
   win:move(move_to_rect)
 end)
 
--- Alt X eXpands the window vertically
+-- Alt Cmd X eXpands the window vertically
 -- X looks like a less-than and greater-than sign pointing at each other and rotated 25 centiturns
 -- Mnemonic: x is like ^ pushing up from beneath v
-hs.hotkey.bind(alt_shift, "x", function()
+hs.hotkey.bind(alt_shift_cmd, "x", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
   local cw = current_window_rect(win)
@@ -220,37 +193,11 @@ hs.hotkey.bind(alt_shift, "x", function()
   win:move(move_to_rect)
 end)
 
--- Alt = expands the window vertically
-hs.hotkey.bind("alt", "=", function()
-  local win = hs.window.frontmostWindow()
-  exitFullScreen(win)
-  local cw = current_window_rect(win)
-  local move_to_rect = {}
-  move_to_rect[1] = cw[1]
-  move_to_rect[2] = (cw[2] == 0 and cw[4] == 1) and 0 or math.max(cw[2]-0.05,0) -- y
-  move_to_rect[3] = cw[3]
-  move_to_rect[4] = (cw[2] == 0 and cw[4] == 1) and 0.85 or math.min(cw[4]+0.05,1 - move_to_rect[2]) -- h
-  win:move(move_to_rect)
-end)
-
--- Alt C or Alt Cmd C centers the window,
+-- Alt Cmd C centers the window,
 -- works great with
 --   - Alt Cmd H and Alt Cmd L to create a triple vertical split
 --   - Alt Cmd J and Alt Cmd K to create a triple horizontal split
 -- Alt Cmd c summons and focuses the control center
-hs.hotkey.bind(alt_shift, "c", function()
-  local win = hs.window.frontmostWindow()
-  exitFullScreen(win)
-  local cw = current_window_rect(win)
-  local move_to_rect = {}
-  move_to_rect[1] = cw[1] == 0 and 0.15 or cw[1] -- x
-  move_to_rect[2] = cw[2]
-  move_to_rect[3] = cw[3] == 1 and 0.85 or cw[3] -- w
-  move_to_rect[4] = cw[4]
-  win:move(move_to_rect)
-  win:centerOnScreen(nil, true)
-end)
-
 hs.hotkey.bind(alt_shift_cmd, "c", function()
   local win = hs.window.frontmostWindow()
   exitFullScreen(win)
