@@ -345,18 +345,29 @@ alias dtvs="git difftool --no-prompt --tool vimdiff --staged" # same as --cached
 alias duh="du -h"
 alias dw="git diff --word-diff=color"
 alias dx="docker rm -f $(echo 'docker ps -aq')"
-alias e="emacsclient -t --alternate-editor 'emacs --no-window-system'" # use whatever daemon if running otherwise run emacs command
-alias ed="emacs --daemon" # start spacemacs daemon
-alias edd="emacs --daemon --no-window-system --with-profile doom" # start doom daemon
-alias eds="emacs --daemon --no-window-system --with-profile space" # start spacemacs daemon
+alias e="emacsclient -t --alternate-editor 'emacs --no-window-system'" # use daemon if running otherwise run emacs command
+alias ew="emacsclient -t --alternate-editor emacs" # use daemon if running otherwise run emacs command
+alias ed="emacs --no-window-system --with-profile doom" # open doom emacs in terminal
+alias edd="emacs --daemon --no-window-system --with-profile doom" # start doom daemon for terminal
+alias eddw="emacs --daemon --with-profile doom" # start doom daemon for separate gui window
+alias eds="emacs --daemon --no-window-system --with-profile space" # start spacemacs daemon for terminal
+alias edsw="emacs --daemon --with-profile space" # start spacemacs daemon for separate gui window
+alias edw="emacs --with-profile doom" # open doom emacs in separate gui window
 alias ef="func() { local files=$(echo '$(fasd -Rfl | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 emacsclient -t --alternate-editor 'emacs --no-window-system' -- ; }; func"
-alias es.="emacs --no-window-system --with-profile space ." # open spacemacs dired in current directory
-alias es="emacs --no-window-system --with-profile space" # open spacemacs
+alias efw="func() { local files=$(echo '$(fasd -Rfl | fzf --delimiter=/ --with-nth=4..)') && [ $(echo '$files') ] && echo $(echo '$files') | tr '\n' '\0' | xargs -0 emacsclient -t --alternate-editor emacs -- ; }; func"
+alias eq="emacsclient -e '(kill-emacs)'"
+alias es="emacs --no-window-system --with-profile space" # open spacemacs in terminal
 alias esa="eval `ssh-agent -s`"
-alias ex="emacsclient -e '(kill-emacs)'"
+alias esw="emacs --with-profile space" # open spacemacs in separate gui window
+alias ex="emacsclient -e '(save-buffers-kill-emacs)'"
 alias ez="emacsclient -t --alternate-editor 'emacs --no-window-system' ~/.zshrc"
-alias fa="git fetch --all"
+alias ezd="emacs --no-window-system --with-profile doom ~/.zshrc"
+alias ezdw="emacs --with-profile doom ~/.zshrc"
+alias ezs="emacs --no-window-system --with-profile space ~/.zshrc"
+alias ezsw="emacs --with-profile space ~/.zshrc"
+alias ezw="emacsclient -t --alternate-editor emacs ~/.zshrc"
 alias f="fasd -f"
+alias fa="git fetch --all"
 alias fA="fasd -A"
 alias fD="fasd -D"
 alias fb="fd --type f -X bat"

@@ -159,6 +159,13 @@
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
 
+;; https://github.com/emacs-evil/evil/blob/master/evil-maps.el
+;; override evil-textobj-anyblock because it jumps to square brackets instead of working on curly braces
+(after! evil
+  (define-key evil-outer-text-objects-map "B" 'evil-a-curly))
+(after! evil
+  (define-key evil-inner-text-objects-map "B" 'evil-inner-curly))
+
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
