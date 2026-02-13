@@ -99,33 +99,6 @@
                         ]
                     },
                     {
-                        "description": "Change Close Bracket to Option if pressed with other keys or to itself if pressed alone",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "close_bracket",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_option",
-                                        "lazy": true
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "close_bracket"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Change Tab to Option if pressed with other keys or to itself if pressed alone",
                         "manipulators": [
                             {
@@ -153,65 +126,11 @@
                         ]
                     },
                     {
-                        "description": "Change Backslash (\\) to Option if pressed with other keys or to itself if pressed alone",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "backslash",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_option",
-                                        "lazy": true
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "backslash"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change Quote to Control if pressed with other keys or to itself if pressed alone",
+                        "description": "Change Quote to Control if pressed with other keys or to return_or_enter if pressed alone",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "quote",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_control",
-                                        "lazy": true
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "quote"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change Return to Control if pressed with other keys or to itself if pressed alone",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "return_or_enter",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -623,34 +542,7 @@
                         ]
                     },
                     {
-                        "description": "Change Control j to Return",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock",
-                                            "command",
-                                            "option",
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "return_or_enter"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change Control m to Backslash",
+                        "description": "Change Control m to Quote",
                         "manipulators": [
                             {
                                 "from": {
@@ -669,7 +561,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "backslash"
+                                        "key_code": "quote"
                                     }
                                 ],
                                 "type": "basic"
@@ -731,14 +623,14 @@
                         ]
                     },
                     {
-                        "description": "Change Alt m to Shift Backslash",
+                        "description": "Change Control Slash to Backslash",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "m",
+                                    "key_code": "slash",
                                     "modifiers": {
                                         "mandatory": [
-                                            "option"
+                                            "control"
                                         ],
                                         "optional": [
                                             "caps_lock",
@@ -750,7 +642,34 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "backslash",
+                                        "key_code": "backslash"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change Alt m to Shift Quote",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "command",
+                                            "control",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "quote",
                                         "modifiers": [
                                             "shift"
                                         ]
@@ -773,7 +692,7 @@
                                         "optional": [
                                             "caps_lock",
                                             "command",
-                                            "option",
+                                            "control",
                                             "shift"
                                         ]
                                     }
@@ -803,7 +722,7 @@
                                         "optional": [
                                             "caps_lock",
                                             "command",
-                                            "option",
+                                            "control",
                                             "shift"
                                         ]
                                     }
@@ -811,6 +730,36 @@
                                 "to": [
                                     {
                                         "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change Alt Slash to Shift Backslash",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "slash",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "command",
+                                            "control",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "backslash",
                                         "modifiers": [
                                             "shift"
                                         ]
