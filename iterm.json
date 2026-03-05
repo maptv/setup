@@ -107,6 +107,12 @@
   "Use Italic Font" : true,
   "Unlimited Scrollback" : false,
   "Keyboard Map" : {
+    "0xd-0x120000-0x24" : {
+      "Version" : 1,
+      "Label" : "",
+      "Text" : "[13;4u",
+      "Action" : 10
+    },
     "0x73-0x100000-0x1" : {
       "Version" : 2,
       "Apply Mode" : 0,
@@ -156,11 +162,12 @@
       "Text" : "0x11",
       "Action" : 11
     },
-    "0xd-0x120000-0x24" : {
-      "Version" : 1,
-      "Label" : "",
-      "Text" : "[13;4u",
-      "Action" : 10
+    "0x2e-0x100000-0x2f" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 10,
+      "Text" : ".",
+      "Escaping" : 2
     }
   },
   "Window Type" : 0,
