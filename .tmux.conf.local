@@ -649,23 +649,48 @@ run -b '~/.tmux/plugins/tpm/tpm'
 # # /!\ do not "uncomment" the functions: the leading "# " characters are needed
 #
 # decdate() {
-#     local unix=$(date +%s)
-#     local utc=$(date +%z)
-#     local sign=$(echo $utc | cut -c1-1)
-#     local hour=$(echo $utc | cut -c2-3)
-#     local min=$(echo $utc | cut -c4-5)
-#     local zone=$(echo "scale=0; ($hour + $min / 60) / 2.4" | bc)
-#     local offset=$(echo "scale=1; $zone / 10" | bc)
-#     local dote=$(echo "scale=3; $unix / 86400 + 719468" | bc)
-#     if [ $(echo "$dote >= 0" | bc) -eq 1 ]; then
-#         local cote=$(echo "scale=0; $dote / 146097" | bc)
-#     else
-#         local cote=$(echo "scale=0; ($dote - 146096) / 146097" | bc)
-#     fi
-#     local dotc=$(echo "scale=3; $dote - $cote * 146097" | bc)
-#     local yotc=$(echo "scale=0; ($dotc - $dotc / 1460 + $dotc / 36524 - $dotc / 146096) / 365" | bc)
-#     local doty=$(echo "$dotc - ($yotc * 365 + $yotc / 4 - $yotc / 100) $sign $offset" | bc)
-#     echo "$(echo "$yotc + $cote * 400" | bc)+$doty$(echo $sign | tr '+-' '-+')$zone"
+#     local u=$(date +%s)
+#     local z=$(date +%z)
+
+#     # parse timezone
+#     local s=${z:0:1}
+#     local h=${z:1:2}
+#     local m=${z:3:2}
+
+#     # minutes offset (UTC → local, same sign convention as JS)
+#     local off=$((10#$h * 60 + 10#$m))
+#     [[ $s == "+" ]] && off=$((-off))
+
+#     # tzo = -round(offset / 144)
+#     local tzo=$(( (off >= 0 ? off + 72 : off - 72) / 144 ))
+#     tzo=$((-tzo))
+
+#     # adjusted tzo for display (+10 if negative)
+#     local tzo_adj=$(( tzo < 0 ? tzo + 10 : tzo ))
+
+#     # eda in thousandths (avoid floats)
+#     local eda1000=$(( u * 1000 / 86400 + (tzo_adj * 100) + 719468000 ))
+
+#     # split integer and fractional parts
+#     local eda=$(( eda1000 / 1000 ))
+#     local frac=$(( eda1000 % 1000 ))
+
+#     # Gregorian decomposition (same as JS)
+#     local coe=$(( eda >= 0 ? eda / 146097 : (eda - 146096) / 146097 ))
+#     local doc=$(( eda - coe * 146097 ))
+#     local yoc=$(( (doc - doc/1460 + doc/36524 - doc/146096) / 365 ))
+
+#     local year=$(( yoc + coe * 400 ))
+#     local doy=$(( doc - (yoc * 365 + yoc/4 - yoc/100) ))
+
+#     # add fractional part
+#     local doy_frac=$(( frac ))
+
+#     printf "%d+%03d.%03d-%d\n" \
+#         "$year" \
+#         "$doy" \
+#         "$doy_frac" \
+#         "$tzo_adj"
 # }
 #
 # "$@"
