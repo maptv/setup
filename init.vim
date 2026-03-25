@@ -609,6 +609,9 @@ augroup end
 "" Mappings
 "*****************************************************************************
 
+" center horizontally using both pinky fingers
+nnoremap <silent> z/ :<C-u>normal! zszH<CR>
+
 " remap entire text object to match doom emacs
 " https://docs.doomemacs.org/v21.12/modules/editor/evil/
 onoremap	ag	<Plug>(textobj-entire-a)

@@ -142,6 +142,9 @@ vim.cmd [[omap gsS <Plug>(easymotion-F2)]]
 vim.cmd [[vmap gy <Plug>(Exchange)]]
 vim.cmd [[nmap gy <Plug>(Exchange)]]
 
+-- center horizontally using both pinky fingers
+vim.cmd [[nnoremap <silent> z/ :<C-u>normal! zszH<CR>]]
+
 -- https://github.com/unblevable/quick-scope#highlight-on-key-press
 -- vim.g.qs_highlight_on_keys = ['f', 'F', 't', 'T']
 vim.g.EasyMotion_startofline = 0 -- keep cursor column when JK motion
