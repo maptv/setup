@@ -39,6 +39,12 @@
 ;; (setq auto-save-visited-file-name t)
 ;; (setq auto-save-timeout 1)
 
+
+;; set undo limits to try to avoid inaccessible branches in undo visualizer
+(setq undo-limit 67108864)       ; 64 mb (default is 160kb)
+(setq undo-strong-limit 100663296) ; 96 mb
+(setq undo-outer-limit 1006632960) ; 960 mb
+
 ;; evil mode settings
 (setq vim-style-visual-feedback t)
 (setq vim-style-remap-Y-to-y$ t)
@@ -100,6 +106,7 @@
 (define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
 (define-key evil-insert-state-map (kbd "C-y") 'yank)
 (define-key evil-normal-state-map (kbd "gx") 'browse-url-at-point)
+(define-key evil-normal-state-map (kbd "gb") 'switch-to-buffer)
 (define-key evil-normal-state-map (kbd "ZA") 'evil-save-and-quit)
 (evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
 (evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)

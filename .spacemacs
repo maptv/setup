@@ -583,6 +583,7 @@ before packages are loaded."
   (define-key evil-normal-state-map (kbd "C-g") 'evil-show-file-info)
   (define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
   (define-key evil-normal-state-map (kbd "gx") 'browse-url-at-point)
+  (define-key evil-normal-state-map (kbd "gb") 'switch-to-buffer)
   (define-key evil-normal-state-map (kbd "ZA") 'evil-save-and-quit)
   (evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
   (evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
