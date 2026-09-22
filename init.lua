@@ -492,7 +492,7 @@ hs.hotkey.bind("alt", "p", hs.window.switcher.previousWindow)
 
 -- Alt q is for CopyQ, as in queue
 -- Alt q is fill/format paragraph in Emacs, like gq or gw in vim
-hs.hotkey.bind("alt", "q", function()
+hs.hotkey.bind(alt_shift, "q", function()
   hs.application.launchOrFocus("CopyQ")
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
@@ -518,13 +518,14 @@ end)
 
 -- Alt x is for eXpose
 -- Alt x brings up a list of commands in Emacs
-hs.hotkey.bind("alt", "x", function()
+hs.hotkey.bind(alt_shift, "x", function()
   hs.expose.new():toggleShow()
 end)
 
 -- Alt s launches or focuses System Preferences
+-- Alt x is a prefix for search commands in Emacs
 -- Mnemonic: s is for System Preferences
-hs.hotkey.bind("alt", "s", function()
+hs.hotkey.bind(alt_shift, "s", function()
   hs.application.launchOrFocus("System Preferences")
   centerMouseOnWindow(hs.window.frontmostWindow())
 end)
