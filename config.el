@@ -43,6 +43,21 @@
 ;; (setq auto-save-visited-file-name t)
 ;; (setq auto-save-timeout 1)
 
+;; https://evil.readthedocs.io/en/latest/settings.html#elispobj-evil-disable-insert-state-bindings
+;; https://www.reddit.com/r/emacs/comments/1p78wg9/evil_in_normal_mode_emacs_in_insert_mode/
+(setopt evil-disable-insert-state-bindings t)
+
+;; https://evil.readthedocs.io/en/latest/settings.html#elispobj-evil-want-Y-yank-to-eol
+(setopt evil-want-Y-yank-to-eol t)
+
+;; https://evil.readthedocs.io/en/latest/settings.html#elispobj-evil-want-C-w-delete
+(setopt evil-want-C-w-delete t)
+
+;; https://evil.readthedocs.io/en/latest/settings.html#elispobj-evil-want-C-i-jump
+(setopt evil-want-C-i-jump t)
+
+;; https://evil.readthedocs.io/en/latest/settings.html#elispobj-evil-want-C-u-delete
+(setopt evil-want-C-u-delete t)
 
 ;; set undo limits to try to avoid inaccessible branches in undo visualizer
 (setq undo-limit 67108864)       ; 64 mb (default is 160kb)
@@ -97,39 +112,39 @@
   (kill-line (- 1 arg)))
 
 ;; https://discourse.doomemacs.org/t/how-to-re-bind-keys/56#keymaps-4
-(define-key evil-insert-state-map (kbd "M-r") 'move-to-window-line-top-bottom)
-(define-key evil-normal-state-map (kbd "M-r") 'move-to-window-line-top-bottom)
-(define-key evil-insert-state-map (kbd "C-d") 'delete-forward-char)
-(define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
-(define-key evil-insert-state-map (kbd "C-k") 'kill-line)
-(define-key evil-insert-state-map (kbd "C-t") 'transpose-chars)
-(define-key evil-insert-state-map (kbd "C-u") 'backward-kill-line)
-(define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
-(define-key evil-normal-state-map (kbd "C-g") 'evil-show-file-info)
-(define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
-(define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
-(define-key evil-insert-state-map (kbd "C-y") 'yank)
-(define-key evil-normal-state-map (kbd "gx") 'browse-url-at-point)
-(define-key evil-normal-state-map (kbd "gb") 'switch-to-buffer)
-(define-key evil-normal-state-map (kbd "ZA") 'evil-save-and-quit)
-(evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
-(evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
-(evil-define-key 'normal evil-command-window-mode-map [escape] 'evil-normal-state)
 (define-key evil-ex-completion-map "\C-d" 'delete-forward-char)
 (define-key evil-ex-completion-map "\C-f" 'evil-ex-command-window)
 (define-key evil-ex-completion-map "\C-h" 'delete-backward-char)
-(define-key evil-ex-completion-map (kbd "C-k") 'kill-line)
-(define-key evil-ex-completion-map (kbd "C-t") 'transpose-chars)
-(define-key evil-ex-completion-map (kbd "C-u") 'backward-kill-line)
+(define-key evil-ex-completion-map "\C-k" 'kill-line)
+(define-key evil-ex-completion-map "\C-t" 'transpose-chars)
+(define-key evil-ex-completion-map "\C-u" 'backward-kill-line)
 (define-key evil-ex-search-keymap "\C-d" 'delete-forward-char)
 (define-key evil-ex-search-keymap "\C-f" 'evil-ex-search-command-window)
 (define-key evil-ex-search-keymap "\C-h" 'delete-backward-char)
-(define-key evil-ex-search-keymap (kbd "C-k") 'kill-line)
-(define-key evil-ex-search-keymap (kbd "C-t") 'transpose-chars)
-(define-key evil-ex-search-keymap (kbd "C-u") 'backward-kill-line)
-(define-key minibuffer-local-map (kbd "C-h") 'delete-backward-char)
-(define-key minibuffer-local-map  (kbd "C-u") 'backward-kill-line)
-(define-key minibuffer-local-map  (kbd "C-w") 'evil-delete-backward-word)
+(define-key evil-ex-search-keymap "\C-k" 'kill-line)
+(define-key evil-ex-search-keymap "\C-t" 'transpose-chars)
+(define-key evil-ex-search-keymap "\C-u" 'backward-kill-line)
+(define-key evil-insert-state-map "\C-d" 'delete-forward-char)
+(define-key evil-insert-state-map "\C-h" 'delete-backward-char)
+(define-key evil-insert-state-map "\C-k" 'kill-line)
+(define-key evil-insert-state-map "\C-t" 'transpose-chars)
+(define-key evil-insert-state-map "\C-u" 'backward-kill-line)
+(define-key evil-insert-state-map "\C-y" 'yank)
+(define-key evil-insert-state-map "\M-r" 'move-to-window-line-top-bottom)
+(define-key evil-normal-state-map "\C-a" 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map "\C-g" 'evil-show-file-info)
+(define-key evil-normal-state-map "\C-i" 'evil-jump-forward)
+(define-key evil-normal-state-map "\C-x" 'evil-numbers/dec-at-pt)
+(define-key evil-normal-state-map "\M-r" 'move-to-window-line-top-bottom)
+(define-key evil-normal-state-map (kbd "ZA") 'evil-save-and-quit)
+(define-key evil-normal-state-map (kbd "gb") 'switch-to-buffer)
+(define-key evil-normal-state-map (kbd "gx") 'browse-url-at-point)
+(define-key minibuffer-local-map "\C-h") 'delete-backward-char)
+(define-key minibuffer-local-map "\C-u") 'backward-kill-line)
+(define-key minibuffer-local-map "\C-w") 'evil-delete-backward-word)
+(evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
+(evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
+(evil-define-key 'normal evil-command-window-mode-map [escape] 'evil-normal-state)
 
 ;; https://github.com/syl20bnr/spacemacs/issues/4243#issuecomment-166246613
 (with-eval-after-load 'company
@@ -176,6 +191,9 @@
   (define-key evil-outer-text-objects-map "B" 'evil-a-curly))
 (after! evil
   (define-key evil-inner-text-objects-map "B" 'evil-inner-curly))
+;; This function maps c-t and c-d in insert mode
+(after! evil-markdown
+  (advice-add #'evil-markdown--populate-insert-bindings :override #'ignore))
 
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
