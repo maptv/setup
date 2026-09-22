@@ -1,6 +1,7 @@
 ln -fs ~/maptv/setup/.ideavimrc ~/.ideavimrc
 ln -fs ~/maptv/setup/.spacemacs ~/.spacemacs
 ln -fs ~/maptv/setup/config.el ~/.config/doom/config.el
+ln -fs ~/maptv/setup/init.el ~/.config/doom/init.el
 ln -fs ~/maptv/setup/karabiner.json ~/.config/karabiner/
 ln -fs ~/maptv/setup/alacritty.yml ~/alacritty.yml
 ln -sf ~/maptv/setup/.bash_profile ~/.bash_profile

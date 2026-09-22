@@ -59,6 +59,15 @@
 ;; https://evil.readthedocs.io/en/latest/settings.html#elispobj-evil-want-C-u-delete
 (setopt evil-want-C-u-delete t)
 
+;; https://evil.readthedocs.io/en/latest/settings.html#elispobj-evil-respect-visual-line-mode
+(setopt evil-respect-visual-line-mode t)
+
+;; https://evil.readthedocs.io/en/latest/settings.html#elispobj-evil-cross-lines
+(setopt evil-cross-lines t)
+
+;; https://evil.readthedocs.io/en/latest/settings.html#elispobj-evil-want-fine-undo
+(setopt evil-want-fine-undo t)
+
 ;; set undo limits to try to avoid inaccessible branches in undo visualizer
 (setq undo-limit 67108864)       ; 64 mb (default is 160kb)
 (setq undo-strong-limit 100663296) ; 96 mb
@@ -153,9 +162,12 @@
 (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
 )
 
+;; need init.el to map j and k to cross visual lines like gj and gk: https://github.com/doomemacs/core/issues/401
 ;; https://stackoverflow.com/a/23576275
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+;; (define-key evil-motion-state-map (kbd "j") 'evil-next-visual-line)
+;; (define-key evil-motion-state-map (kbd "k") 'evil-previous-visual-line)
 
 ;; quarto-mode
 (require 'quarto-mode)
@@ -191,9 +203,6 @@
   (define-key evil-outer-text-objects-map "B" 'evil-a-curly))
 (after! evil
   (define-key evil-inner-text-objects-map "B" 'evil-inner-curly))
-;; This function maps c-t and c-d in insert mode
-(after! evil-markdown
-  (advice-add #'evil-markdown--populate-insert-bindings :override #'ignore))
 
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
