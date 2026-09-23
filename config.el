@@ -111,6 +111,7 @@
 
 ;; do not show modeline/statusline
 ;; https://github.com/doomemacs/doomemacs/issues/6209#issuecomment-1075137980
+;; requires (package! hide-mode-line) in packages.el
 (add-hook 'buffer-list-update-hook (lambda ()
                                      (unless (active-minibuffer-window)
                                        (hide-mode-line-mode))))
@@ -148,9 +149,9 @@
 (define-key evil-normal-state-map (kbd "ZA") 'evil-save-and-quit)
 (define-key evil-normal-state-map (kbd "gb") 'switch-to-buffer)
 (define-key evil-normal-state-map (kbd "gx") 'browse-url-at-point)
-(define-key minibuffer-local-map "\C-h") 'delete-backward-char)
-(define-key minibuffer-local-map "\C-u") 'backward-kill-line)
-(define-key minibuffer-local-map "\C-w") 'evil-delete-backward-word)
+(define-key minibuffer-local-map "\C-h" 'delete-backward-char)
+(define-key minibuffer-local-map "\C-u" 'backward-kill-line)
+(define-key minibuffer-local-map "\C-w" 'evil-delete-backward-word)
 (evil-define-key 'normal evil-command-window-mode-map (kbd "C-c") 'evil-quit)
 (evil-define-key 'normal evil-command-window-mode-map (kbd "ZZ") 'evil-quit)
 (evil-define-key 'normal evil-command-window-mode-map [escape] 'evil-normal-state)
@@ -185,8 +186,6 @@
 (require 'evil-exchange)
 (setq evil-exchange-key (kbd "gy"))
 (evil-exchange-install)
-
-(require 'quarto-mode)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;; - `load!' for loading external *.el files relative to this one

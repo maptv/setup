@@ -11,6 +11,8 @@
 (package! quarto-mode)
 (package! evil-quickscope)
 (package! evil-replace-with-register)
+(package! evil-exchange)
+(package! hide-mode-line)
 (package! this-package :recipe (:repo "joddie/osx-clipboard-mode" :host github))
 (package! another-package :recipe (:repo "h0d/term-cursor.el" :host github))
 (package! copilot
