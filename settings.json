@@ -386,9 +386,6 @@
   "gitdoc.autoPull": "onCommit",
   "gitdoc.filePattern": "**/*.*md",
   "gitdoc.pushMode": "forcePushWithLease",
-  "amazonQ.suppressPrompts": {
-    "codeWhispererConnectionExpired": true
-  },
   "github.copilot.enable": {
     "quarto": true,
     "*": true
@@ -412,7 +409,7 @@
   "github.copilot.nextEditSuggestions.enabled": true,
   "workbench.editor.editorActionsLocation": "titleBar",
   "editor.minimap.enabled": false,
-  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.colorTheme": "Dark Modern",
   "workbench.activityBar.location": "hidden",
   "breadcrumbs.enabled": false,
   "cursorpyright.analysis.typeCheckingMode": "basic",
@@ -422,4 +419,7 @@
   "editor.folding": false,
   "editor.glyphMargin": false,
   "workbench.editor.showTabs": "none",
+  "files.associations": {
+    "renv.lock": "json"
+  }
 }
