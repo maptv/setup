@@ -69,7 +69,7 @@
   { "key": "shift+cmd+g", "command": "workbench.view.scm", "when": "workbench.scm.active" },
   { "key": "ctrl+; a", "command": "workbench.action.toggleActivityBarVisibility" },
   { "key": "ctrl+; b", "command": "breadcrumbs.toggle" },
-  { "key": "ctrl+; c", "command": "workbench.scm.focus" },
+  { "key": "ctrl+; c", "command": "workbench.view.scm" },
   { "key": "ctrl+; d", "command": "workbench.action.toggleLightDarkThemes" },
   { "key": "ctrl+; e", "command": "workbench.files.action.focusOpenEditorsView" },
   { "key": "ctrl+; f", "command": "workbench.explorer.fileView.focus" },
@@ -82,13 +82,13 @@
   { "key": "ctrl+; k", "command": "workbench.action.zenShowMultipleEditorTabs" , "when": "inZenMode && config.workbench.editor.showTabs != 'multiple'"},
   { "key": "ctrl+; l", "command": "workbench.action.toggleAuxiliaryBar" },
   { "key": "ctrl+; m", "command": "editor.action.toggleMinimap" },
-  { "key": "ctrl+; n", "command": "settings.cycle.lineNumbers", "when": "editorFocus" },
-  { "key": "ctrl+; o", "command": "outline.focus" },
-  { "key": "ctrl+; p", "command": "workbench.panel.positronPlots.focus" },
+  { "key": "ctrl+; n", "command": "settings.cycle.lineNumbers" },
+  { "key": "ctrl+; o", "command": "outline.toggleVisibility" },
+  { "key": "ctrl+; p", "command": "workbench.actions.view.problems" },
   { "key": "ctrl+; q", "command": "quarto-assist.focus" },
-  { "key": "ctrl+; r", "command": "gitlens.views.remotes.focus" },
+  { "key": "ctrl+; r", "command": "workbench.scm.repositories.focus" },
   { "key": "ctrl+; s", "command": "workbench.action.toggleStatusbarVisibility" },
-  { "key": "ctrl+; t", "command": "timeline.focus" },
+  { "key": "ctrl+; t", "command": "workbench.action.terminal.toggleTerminal" },
   { "key": "ctrl+; u", "command": "workbench.action.tasks.openUserTasks" },
   { "key": "ctrl+; v", "command": "positronVariables.focus" },
   { "key": "ctrl+; w", "command": "editor.action.toggleWordWrap" },
@@ -123,23 +123,11 @@
   { "key": "j", "command": "notebook.focusNextEditor", "when": "config.notebook.navigation.allowNavigateToSurroundingCells && neovim.mode == 'normal' && editorTextFocus && inputFocus && notebookEditorFocused && !accessibilityModeEnabled && !isEmbeddedDiffEditor && notebookEditorCursorAtBoundary != 'none' && notebookEditorCursorAtBoundary != 'top'" },
   { "key": "k", "command": "notebook.focusPreviousEditor", "when": "config.notebook.navigation.allowNavigateToSurroundingCells && neovim.mode == 'normal' && editorTextFocus && inputFocus && notebookEditorFocused && !accessibilityModeEnabled && !isEmbeddedDiffEditor && notebookEditorCursorAtBoundary != 'bottom' && notebookEditorCursorAtBoundary != 'none'" },
   { "key": "ctrl+w", "command": "-workbench.action.switchWindow" },
-  { "key": "escape", "command": "-aws.amazonq.rejectCodeSuggestion", "when": "aws.codewhisperer.connected && inlineSuggestionVisible && !editorReadonly" },
   { "key": "shift+tab", "command": "positron.help.showHelpAtCursor", "when": "editorFocus || positronConsoleFocused" },
   { "key": "alt+,", "command": "r.insertLeftAssignmentConsole", "when": "positronConsoleFocused && editorLangId == 'r'" },
   { "key": "alt+.", "command": "r.insertRightAssignmentConsole", "when": "positronConsoleFocused && editorLangId == 'r'" },
   { "key": "cmd+shift+]", "command": "workbench.action.nextPanelView", "when": "panelFocus" },
-  {
-    "key": "cmd+shift+[",
-    "command": "workbench.action.previousPanelView",
-    "when": "panelFocus"
-  },
-  {
-    "key": "cmd+i",
-    "command": "composerMode.agent"
-  },
-  {
-    "key": "alt+/",
-    "command": "editor.action.inlineSuggest.trigger",
-    "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
-  }
+  { "key": "cmd+shift+[", "command": "workbench.action.previousPanelView", "when": "panelFocus" },
+  { "key": "cmd+i", "command": "composerMode.agent" },
+  { "key": "alt+/", "command": "editor.action.inlineSuggest.trigger", "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }
 ]
