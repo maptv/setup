@@ -2453,7 +2453,7 @@
                         ]
                     },
                     {
-                        "description": "Toggle visual/source editor by sending Cmd Shift F4 with Cmd Shift V in RStudio, Positron and VS Code",
+                        "description": "Toggle visual/source editor by sending Cmd Shift F4 with Cmd Shift V in Codespaces, Positron, and VS Code",
                         "manipulators": [
                             {
                                 "conditions": [
