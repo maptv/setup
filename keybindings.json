@@ -171,5 +171,12 @@
   { "key": "cmd+shift+]", "command": "workbench.action.nextPanelView", "when": "panelFocus" },
   { "key": "cmd+shift+[", "command": "workbench.action.previousPanelView", "when": "panelFocus" },
   { "key": "cmd+i", "command": "composerMode.agent" },
-  { "key": "alt+/", "command": "editor.action.inlineSuggest.trigger", "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" }
+  { "key": "alt+/", "command": "editor.action.inlineSuggest.trigger", "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible" },
+  { "key": "shift+cmd+f4", "command": "notebook.cell.pasteAbove", "when": "notebookEditorFocused && !inputFocus" },
+  { "key": "shift+cmd+f4", "command": "markdown.togglePreview", "when": "!terminalFocus && activeCustomEditorId == 'vscode.markdown.preview.editor' || editorFocus && !notebookEditorFocused && !terminalFocus && resourceLangId =~ /^(markdown|prompt|instructions|chatagent|skill)$/" },
+  { "key": "shift+cmd+f4", "command": "excel.preview", "when": "editorLangId == 'excel'" },
+  { "key": "shift+cmd+f4", "command": "csv.preview", "when": "editorLangId == 'csv (pipe)'" },
+  { "key": "shift+cmd+f4", "command": "csv.preview", "when": "editorLangId == 'csv (semicolon)'" },
+  { "key": "shift+cmd+f4", "command": "csv.preview", "when": "editorLangId == 'tsv'" },
+  { "key": "shift+cmd+f4", "command": "csv.preview", "when": "editorLangId == 'csv'" }
 ]
