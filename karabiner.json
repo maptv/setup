@@ -1349,7 +1349,6 @@
                                             "^com\\.exafunction\\.windsurf$",
                                             "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
-                                            "^com\\.operasoftware\\.Opera",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
@@ -1445,7 +1444,6 @@
                                             "^com\\.exafunction\\.windsurf$",
                                             "^dev\\.kiro\\.desktop$",
                                             "^com\\.todesktop\\.230313mzl4w4u92$",
-                                            "^com\\.operasoftware\\.Opera",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "file_paths": [ "^/opt/homebrew/bin/neovide$" ],
