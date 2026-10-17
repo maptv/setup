@@ -1,4 +1,5 @@
 {
+  "env": { "CLAUDE_CODE_SHELL": "/opt/homebrew/bin/bash" },
   "theme": "dark",
   "editorMode": "vim",
   "agentPushNotifEnabled": true
