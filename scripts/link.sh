@@ -1,3 +1,5 @@
+ln -fs ~/maptv/setup/.claude/keybindings.json ~/.claude/keybindings.json
+ln -fs ~/maptv/setup/.claude/settings.json ~/.claude/settings.json
 ln -fs ~/maptv/setup/.ideavimrc ~/.ideavimrc
 ln -fs ~/maptv/setup/.spacemacs ~/.spacemacs
 ln -fs ~/maptv/setup/config.el ~/.config/doom/config.el
