@@ -9,6 +9,7 @@ if [[ "$(uname)" == 'Linux' ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 export DOOMDIR=$HOME/.config/doom
+export RETICULATE_PYTHON=/usr/local/bin/python3
 export PATH=$HOME/.config/emacs/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
