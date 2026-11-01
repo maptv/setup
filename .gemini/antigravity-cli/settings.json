@@ -1,0 +1,17 @@
+{
+  "editorMode": "vim",
+  "vimInsertFirst": true,
+  "keybindings": {
+    "navigation.down": [
+      "down",
+      "ctrl+n"
+    ],
+    "navigation.up": [
+      "up",
+      "ctrl+p"
+    ]
+  },
+  "trustedWorkspaces": [
+    "/Users/irinalapteva/maptv/setup"
+  ]
+}

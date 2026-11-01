@@ -1,0 +1,10 @@
+{
+  "navigation.down": [
+    "down",
+    "ctrl+n"
+  ],
+  "navigation.up": [
+    "up",
+    "ctrl+p"
+  ]
+}
