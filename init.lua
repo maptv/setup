@@ -569,23 +569,42 @@ hs.hotkey.bind(alt_shift, "r", hs.reload)
 -- TOGGLE SYSTEM SYSTEM
 
 -- Use menubar instead of terminal to disable system sleep
+-- Menubar caffeine with three states:
+-- 0 😴 neither: system and display may sleep
+-- 1 😌 process: system stays awake, display may sleep
+-- 2 😳 display: system and display stay awake
+-- https://www.hammerspoon.org/docs/hs.caffeinate.html
 -- https://www.hammerspoon.org/go/#creating-a-simple-menubar-item
 caffeine = hs.menubar.new()
-function setCaffeineDisplay(state)
-    if state then
-        caffeine:setTitle("AWAKE")
-    else
-        caffeine:setTitle("DECAF")
+local caffeineIcons = { [0] = "😴", [1] = "😌", [2] = "😳" }
+local caffeineTips = {
+    [0] = "Sleep allowed",
+    [1] = "Processes awake, display may sleep",
+    [2] = "Processes and display awake",
+}
+
+local function getCaffeineState()
+    if hs.caffeinate.get("displayIdle") then return 2 end
+    if hs.caffeinate.get("systemIdle") then return 1 end
+    return 0
+end
+
+local function setCaffeineState(state)
+    hs.caffeinate.set("systemIdle", state >= 1)
+    hs.caffeinate.set("displayIdle", state == 2)
+    if caffeine then
+        caffeine:setTitle(caffeineIcons[state])
+        caffeine:setTooltip(caffeineTips[state])
     end
 end
 
 function caffeineClicked()
-    setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
+    setCaffeineState((getCaffeineState() + 1) % 3)
 end
 
 if caffeine then
     caffeine:setClickCallback(caffeineClicked)
-    setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
+    setCaffeineState(getCaffeineState())
 end
 
 hs.hotkey.bind(alt_cmd, "z", caffeineClicked)
