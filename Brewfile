@@ -250,8 +250,6 @@ cask "vscodium"
 cask "vv"
 # Multiplayer code editor
 cask "zed"
-# HTML to PDF renderer
-cask "wkhtmltopdf"
 # Video communication and virtual meeting platform
 cask "zoom"
 # Collect, organise, cite, and share research sources
@@ -260,8 +258,6 @@ mas "Numbers", id: 409203825
 mas "Vimari", id: 1480933944
 mas "WhatsApp", id: 310633997
 vscode "aaron-bond.better-comments"
-vscode "amazonwebservices.amazon-q-vscode"
-vscode "amazonwebservices.aws-toolkit-vscode"
 vscode "asvetliakov.vscode-neovim"
 vscode "cweijan.vscode-office"
 vscode "davidanson.vscode-markdownlint"
