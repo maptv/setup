@@ -8,6 +8,11 @@
 if [[ "$(uname)" == 'Linux' ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+# `brew shellenv` exports FPATH, so shells started from an older session (e.g. a long-lived
+# tmux server) inherit fpath entries like Cellar/zsh/<old-version>/share/zsh/functions that
+# vanish after `brew upgrade zsh`. Drop missing dirs and add the version-independent one.
+fpath=(${^fpath}(N-/) {/opt/homebrew,/usr/local,/home/linuxbrew/.linuxbrew}/share/zsh/functions(N-/))
+typeset -U fpath
 export DOOMDIR=$HOME/.config/doom
 export RETICULATE_PYTHON=/usr/local/bin/python3
 export PATH=$HOME/.config/emacs/bin:$PATH
