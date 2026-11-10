@@ -443,7 +443,7 @@ alias ~="cd ~"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # FASD
-eval "$(fasd --init zsh-hook zsh-wcomp-install zsh-wcomp)"
+eval "$(fasd --init bash-hook bash-ccomp bash-ccomp-install)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
