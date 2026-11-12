@@ -570,13 +570,13 @@ hs.hotkey.bind(alt_shift, "r", hs.reload)
 
 -- Use menubar instead of terminal to disable system sleep
 -- Menubar caffeine with three states:
--- 0 😴 neither: system and display may sleep
+-- 0 😪 neither: system and display may sleep
 -- 1 😌 process: system stays awake, display may sleep
 -- 2 😳 display: system and display stay awake
 -- https://www.hammerspoon.org/docs/hs.caffeinate.html
 -- https://www.hammerspoon.org/go/#creating-a-simple-menubar-item
 caffeine = hs.menubar.new()
-local caffeineIcons = { [0] = "😴", [1] = "😌", [2] = "😳" }
+local caffeineIcons = { [0] = "😪", [1] = "😌", [2] = "😳" }
 local caffeineTips = {
     [0] = "Sleep allowed",
     [1] = "Processes awake, display may sleep",
